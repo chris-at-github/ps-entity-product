@@ -56,6 +56,7 @@ class ProductController extends EntityController {
 	 * @return void
 	 */
 	public function showAction(Product $product) {
+		$this->setPageTitle($product->getTitle());
 		$this->view->assign('product', $product);
 	}
 }
