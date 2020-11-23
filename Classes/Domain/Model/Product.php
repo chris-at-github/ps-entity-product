@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace Ps\EntityProduct\Domain\Model;
 
 
+use Ps\Entity\Domain\Model\Entity;
+
 /***
  *
  * This file is part of the "Product" Extension for TYPO3 CMS.
@@ -14,9 +16,9 @@ namespace Ps\EntityProduct\Domain\Model;
  *  (c) 2020 Christian Pschorr <pschorr.christian@gmail.com>
  *
  ***/
+
 /**
  * Product
  */
-class Product extends \Ps\Entity\Domain\Model\Entity
-{
+class Product extends Entity {
 }
