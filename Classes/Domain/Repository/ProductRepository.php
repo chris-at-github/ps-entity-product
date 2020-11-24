@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Ps\EntityProduct\Domain\Repository;
 
+use Ps\Entity\Domain\Repository\EntityRepository;
 
 /***
  *
@@ -18,7 +19,7 @@ namespace Ps\EntityProduct\Domain\Repository;
 /**
  * The repository for Products
  */
-class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class ProductRepository extends EntityRepository {
 
 	/**
 	 * @var array

@@ -7,6 +7,7 @@ namespace Ps\EntityProduct\Controller;
 use Ps\Entity\Controller\EntityController;
 use Ps\EntityProduct\Domain\Model\Product;
 use Ps\EntityProduct\Domain\Repository\ProductRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***
@@ -40,12 +41,26 @@ class ProductController extends EntityController {
 	}
 
 	/**
+	 * @param array $overwrite
+	 * @return array
+	 */
+	protected function getDemand($overwrite = []) {
+		$options = parent::getDemand($overwrite);
+
+		if(empty($this->settings['productRange']) === false) {
+			$options['masterCategory'] = (int) $this->settings['productRange'];
+		}
+
+		return $options;
+	}
+
+	/**
 	 * action list
 	 *
 	 * @return void
 	 */
 	public function listAction() {
-		$products = $this->productRepository->findAll();
+		$products = $this->productRepository->findAll($this->getDemand());
 		$this->view->assign('products', $products);
 	}
 
