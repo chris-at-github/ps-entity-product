@@ -1,0 +1,33 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<main>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.sheet.main</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.productRange>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.productRange</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<itemsProcFunc>Ps\EntityProduct\Service\FlexformService->getProductRangeValues</itemsProcFunc>
+								<items type="array">
+									<numIndex index="1" type="array">
+										<numIndex index="0" />
+										<numIndex index="1">default</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.productRange>
+				</el>
+			</ROOT>
+		</main>
+	</sheets>
+</T3DataStructure>
