@@ -39,6 +39,29 @@ class Product extends Entity
     protected $variants = null;
 
     /**
+     * technicalDrawings
+     * 
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+     */
+    protected $technicalDrawings = null;
+
+    /**
+     * applications
+     * 
+     * @var int
+     */
+    protected $applications = 0;
+
+    /**
+     * accessories
+     * 
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $accessories = null;
+
+    /**
      * __construct
      */
     public function __construct()
@@ -58,8 +81,10 @@ class Product extends Entity
      */
     protected function initializeObject()
     {
+        $this->technicalDrawings = $this->technicalDrawings ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -146,5 +171,112 @@ class Product extends Entity
     public function setVariants(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $variants)
     {
         $this->variants = $variants;
+    }
+
+    /**
+     * Adds a FileReference
+     * 
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $technicalDrawing
+     * @return void
+     */
+    public function addTechnicalDrawing(\TYPO3\CMS\Extbase\Domain\Model\FileReference $technicalDrawing)
+    {
+        $this->technicalDrawings->attach($technicalDrawing);
+    }
+
+    /**
+     * Removes a FileReference
+     * 
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $technicalDrawingToRemove The FileReference to be removed
+     * @return void
+     */
+    public function removeTechnicalDrawing(\TYPO3\CMS\Extbase\Domain\Model\FileReference $technicalDrawingToRemove)
+    {
+        $this->technicalDrawings->detach($technicalDrawingToRemove);
+    }
+
+    /**
+     * Returns the technicalDrawings
+     * 
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $technicalDrawings
+     */
+    public function getTechnicalDrawings()
+    {
+        return $this->technicalDrawings;
+    }
+
+    /**
+     * Sets the technicalDrawings
+     * 
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $technicalDrawings
+     * @return void
+     */
+    public function setTechnicalDrawings(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $technicalDrawings)
+    {
+        $this->technicalDrawings = $technicalDrawings;
+    }
+
+    /**
+     * Returns the applications
+     * 
+     * @return int $applications
+     */
+    public function getApplications()
+    {
+        return $this->applications;
+    }
+
+    /**
+     * Sets the applications
+     * 
+     * @param int $applications
+     * @return void
+     */
+    public function setApplications($applications)
+    {
+        $this->applications = $applications;
+    }
+
+    /**
+     * Adds a Product
+     * 
+     * @param \Ps\EntityProduct\Domain\Model\Product $accessory
+     * @return void
+     */
+    public function addAccessory(\Ps\EntityProduct\Domain\Model\Product $accessory)
+    {
+        $this->accessories->attach($accessory);
+    }
+
+    /**
+     * Removes a Product
+     * 
+     * @param \Ps\EntityProduct\Domain\Model\Product $accessoryToRemove The Product to be removed
+     * @return void
+     */
+    public function removeAccessory(\Ps\EntityProduct\Domain\Model\Product $accessoryToRemove)
+    {
+        $this->accessories->detach($accessoryToRemove);
+    }
+
+    /**
+     * Returns the accessories
+     * 
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product> $accessories
+     */
+    public function getAccessories()
+    {
+        return $this->accessories;
+    }
+
+    /**
+     * Sets the accessories
+     * 
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product> $accessories
+     * @return void
+     */
+    public function setAccessories(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $accessories)
+    {
+        $this->accessories = $accessories;
     }
 }

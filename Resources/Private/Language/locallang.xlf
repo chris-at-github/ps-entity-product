@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang" date="2020-11-26T22:31:03Z" product-name="entity_product">
+	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang" date="2020-11-27T00:00:02Z" product-name="entity_product">
 		<header/>
 		<body>
 			<trans-unit id="tx_entityproduct_domain_model_product" resname="tx_entityproduct_domain_model_product">
 				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.technical_drawings" resname="tx_entityproduct_domain_model_product.technical_drawings">
+				<source>Technical Drawings</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.applications" resname="tx_entityproduct_domain_model_product.applications">
+				<source>Applications</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.attributes" resname="tx_entityproduct_domain_model_product.attributes">
 				<source>Attributes</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.variants" resname="tx_entityproduct_domain_model_product.variants">
 				<source>Variants</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.accessories" resname="tx_entityproduct_domain_model_product.accessories">
+				<source>Accessories</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attribute" resname="tx_entityproduct_domain_model_attribute">
 				<source>Attribute</source>
