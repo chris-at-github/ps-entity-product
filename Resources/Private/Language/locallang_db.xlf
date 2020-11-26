@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang_db" date="2020-11-26T22:31:03Z" product-name="entity_product">
+		<header/>
+		<body>
+			<trans-unit id="tx_entityproduct_domain_model_product" resname="tx_entityproduct_domain_model_product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.attributes" resname="tx_entityproduct_domain_model_product.attributes">
+				<source>Attributes</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.variants" resname="tx_entityproduct_domain_model_product.variants">
+				<source>Variants</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product" resname="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product">
+				<source>Product Product</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute" resname="tx_entityproduct_domain_model_attribute">
+				<source>Attribute</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.title" resname="tx_entityproduct_domain_model_attribute.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.unit" resname="tx_entityproduct_domain_model_attribute.unit">
+				<source>Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type" resname="tx_entityproduct_domain_model_attribute.data_type">
+				<source>Data Type</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_variant" resname="tx_entityproduct_domain_model_variant">
+				<source>Variant</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_variant.title" resname="tx_entityproduct_domain_model_variant.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_variant.article_number" resname="tx_entityproduct_domain_model_variant.article_number">
+				<source>Article Number</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_variant.files" resname="tx_entityproduct_domain_model_variant.files">
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_variant.attributes" resname="tx_entityproduct_domain_model_variant.attributes">
+				<source>Attributes</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attributevalue" resname="tx_entityproduct_domain_model_attributevalue">
+				<source>Attribute Value</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attributevalue.value" resname="tx_entityproduct_domain_model_attributevalue.value">
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attributevalue.attribute" resname="tx_entityproduct_domain_model_attributevalue.attribute">
+				<source>Attribute</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_product_frontend.name" resname="tx_entity_product_frontend.name">
+				<source>Product Frontend</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_product_frontend.description" resname="tx_entity_product_frontend.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
