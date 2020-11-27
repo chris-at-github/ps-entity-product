@@ -1,12 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<table class="table--layout-0">
-	<tr>
-		<th>Title</th>
-		<td>{product.title}</td>
-	</tr>
-	<tr>
-		<th>Master Category</th>
-		<td>{product.masterCategory.title}</td>
-	</tr>
-</table>
+	<f:section name="Main">
+		<header class="ce-header ce-header--layout-1"><h1>{product.title}</h1></header>
+
+		<f:if condition="{product.shortDescription}">
+			<f:format.html>{product.shortDescription}</f:format.html>
+		</f:if>
+	</f:section>
 </html>
