@@ -9,5 +9,9 @@
 		<f:if condition="{product.image}">
 			<f:image src="{product.image.uid}" treatIdAsReference="1" maxWidth="1200" />
 		</f:if>
+
+		<f:if condition="{product.longDescription}">
+			<f:format.html>{product.longDescription}</f:format.html>
+		</f:if>
 	</f:section>
 </html>

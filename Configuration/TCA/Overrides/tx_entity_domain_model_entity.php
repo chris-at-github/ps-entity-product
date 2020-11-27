@@ -157,5 +157,5 @@ $tmpEntityProductColumns = [
 
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = 'sys_language_uid, l10n_parent, l10n_diffsource,
-    tx_extbase_type, title, slug, master_category, short_description, image, attributes, variants, technical_drawings, applications, accessories,
+    tx_extbase_type, title, slug, master_category, short_description, image, long_description, attributes, variants, technical_drawings, applications, accessories,
 	--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, hidden, starttime, endtime';
