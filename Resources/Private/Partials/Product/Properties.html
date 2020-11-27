@@ -5,5 +5,9 @@
 		<f:if condition="{product.shortDescription}">
 			<f:format.html>{product.shortDescription}</f:format.html>
 		</f:if>
+
+		<f:if condition="{product.image}">
+			<f:image src="{product.image.uid}" treatIdAsReference="1" maxWidth="1200" />
+		</f:if>
 	</f:section>
 </html>
