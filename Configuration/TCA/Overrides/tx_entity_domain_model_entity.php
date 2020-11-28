@@ -14,44 +14,27 @@ $tmpEntityProductColumns = [
 				'technical_drawings',
 				[
 					'appearance' => [
-						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-					],
-					'foreign_types' => [
-						'0' => [
-							'showitem' => '
-                        --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                        --palette--;;filePalette'
-						],
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-							'showitem' => '
-                        --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                        --palette--;;filePalette'
-						],
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-							'showitem' => '
-                        --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                        --palette--;;filePalette'
-						],
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-							'showitem' => '
-                        --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                        --palette--;;filePalette'
-						],
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-							'showitem' => '
-                        --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                        --palette--;;filePalette'
-						],
-						\TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-							'showitem' => '
-                        --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                        --palette--;;filePalette'
-						]
+						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+						'collapseAll' => 1,
 					],
 					'foreign_match_fields' => [
 						'fieldname' => 'technical_drawings',
 						'tablenames' => 'tx_entity_domain_model_entity',
 						'table_local' => 'sys_file',
+					],
+					'overrideChildTca' => [
+						'types' => [
+							'0' => [
+								'showitem' => '
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;;filePalette'
+							],
+							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+								'showitem' => '
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;;filePalette'
+							],
+						],
 					],
 					'maxitems' => 99
 				],
@@ -117,7 +100,7 @@ $tmpEntityProductColumns = [
 			'foreign_field' => 'product',
 			'maxitems' => 9999,
 			'appearance' => [
-				'collapseAll' => 0,
+				'collapseAll' => 1,
 				'levelLinksPosition' => 'top',
 				'showSynchronizationLink' => 1,
 				'showPossibleLocalizationRecords' => 1,
