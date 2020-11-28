@@ -48,10 +48,11 @@ class Product extends Entity
 
     /**
      * applications
-     * 
-     * @var int
+     *
+		 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Page>
+		 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
-    protected $applications = 0;
+    protected $applications = null;
 
     /**
      * accessories
@@ -85,6 +86,7 @@ class Product extends Entity
         $this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->applications = $this->applications ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -217,27 +219,6 @@ class Product extends Entity
     }
 
     /**
-     * Returns the applications
-     * 
-     * @return int $applications
-     */
-    public function getApplications()
-    {
-        return $this->applications;
-    }
-
-    /**
-     * Sets the applications
-     * 
-     * @param int $applications
-     * @return void
-     */
-    public function setApplications($applications)
-    {
-        $this->applications = $applications;
-    }
-
-    /**
      * Adds a Product
      * 
      * @param \Ps\EntityProduct\Domain\Model\Product $accessory
@@ -279,4 +260,18 @@ class Product extends Entity
     {
         $this->accessories = $accessories;
     }
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getApplications(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+		return $this->applications;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $applications
+	 */
+	public function setApplications(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $applications): void {
+		$this->applications = $applications;
+	}
 }

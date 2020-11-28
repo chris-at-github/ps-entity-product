@@ -54,11 +54,19 @@
 		</f:if>
 
 		<f:if condition="{product.files}">
-			<f:for each="{product.files}" as="file">
-				<div><a href="/{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</a></div>
-			</f:for>
+			<ul class="list--default">
+				<f:for each="{product.files}" as="file">
+					<li><a href="/{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</a></li>
+				</f:for>
+			</ul>
 		</f:if>
 
-		<f:debug>{product}</f:debug>
+		<f:if condition="{product.applications}">
+			<ul class="list--default">
+				<f:for each="{product.applications}" as="application">
+					<li><f:link.page pageUid="{application.uid}">{application.title}</f:link.page></li>
+				</f:for>
+			</ul>
+		</f:if>
 	</f:section>
 </html>
