@@ -45,25 +45,32 @@ $tmpEntityProductColumns = [
 		'exclude' => true,
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.applications',
 		'config' => [
-			'type' => 'select',
-			'renderType' => 'selectMultipleSideBySide',
+//			'type' => 'select',
+//			'renderType' => 'selectMultipleSideBySide',
+//			'foreign_table' => 'pages',
+//			'MM' => 'tx_entityproduct_product_applications_mm',
+//			'size' => 10,
+//			'autoSizeMax' => 30,
+//			'maxitems' => 9999,
+//			'multiple' => 0,
+//			'fieldControl' => [
+//				'editPopup' => [
+//					'disabled' => false,
+//				],
+//				'addRecord' => [
+//					'disabled' => false,
+//				],
+//				'listModule' => [
+//					'disabled' => true,
+//				],
+//			],
+			'type' => 'group',
+			'internal_type' => 'db',
+			'allowed' => 'pages',
 			'foreign_table' => 'pages',
 			'MM' => 'tx_entityproduct_product_applications_mm',
-			'size' => 10,
-			'autoSizeMax' => 30,
-			'maxitems' => 9999,
-			'multiple' => 0,
-			'fieldControl' => [
-				'editPopup' => [
-					'disabled' => false,
-				],
-				'addRecord' => [
-					'disabled' => false,
-				],
-				'listModule' => [
-					'disabled' => true,
-				],
-			],
+			'maxitems' => 999,
+			'size' => 4,
 		],
 	],
 	'attributes' => [
