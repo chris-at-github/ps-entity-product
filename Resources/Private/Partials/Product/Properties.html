@@ -46,5 +46,11 @@
 				</f:for>
 			</table>
 		</f:if>
+
+		<f:if condition="{product.technicalDrawings}">
+			<f:for each="{product.technicalDrawings}" as="technicalDrawing">
+				<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" />
+			</f:for>
+		</f:if>
 	</f:section>
 </html>
