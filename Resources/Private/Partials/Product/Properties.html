@@ -39,7 +39,7 @@
 
 						<td>
 							<f:if condition="{variant.files}">
-								<div><a href="/{variant.files.originalResource.publicUrl}">{variant.files.originalResource.properties.name}</a></div>
+								<div><a href="/{variant.files.originalResource.publicUrl}">{variant.files.originalResource.name}</a></div>
 							</f:if>
 						</td>
 					</tr>
@@ -50,6 +50,12 @@
 		<f:if condition="{product.technicalDrawings}">
 			<f:for each="{product.technicalDrawings}" as="technicalDrawing">
 				<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" />
+			</f:for>
+		</f:if>
+
+		<f:if condition="{product.files}">
+			<f:for each="{product.files}" as="file">
+				<div><a href="/{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</a></div>
 			</f:for>
 		</f:if>
 	</f:section>
