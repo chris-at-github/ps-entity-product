@@ -84,7 +84,9 @@
 
 			<ul class="list--default">
 				<f:for each="{product.accessories}" as="accessory">
-					<li><a href="{accessory.link}">{accessory.title}</a></li>
+					<f:if condition="{accessory.link}">
+						<li><a href="{accessory.link}">{accessory.title}</a></li>
+					</f:if>
 				</f:for>
 			</ul>
 		</f:if>

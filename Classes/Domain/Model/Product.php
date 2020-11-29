@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Ps\EntityProduct\Domain\Model;
 
 use Ps\Entity\Domain\Model\Entity;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***
  *
@@ -62,32 +63,31 @@ class Product extends Entity
      */
     protected $accessories = null;
 
-    /**
-     * __construct
-     */
-    public function __construct()
-    {
+	/**
+	 * __construct
+	 */
+	public function __construct($objectManager) {
 
-        //Do not remove the next line: It would break the functionality
-        $this->initializeObject();
-    }
+		//Do not remove the next line: It would break the functionality
+		$this->initializeObject();
+	}
 
-    /**
-     * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
-     * Do not modify this method!
-     * It will be rewritten on each save in the extension builder
-     * You may modify the constructor of this class instead
-     * 
-     * @return void
-     */
-    protected function initializeObject()
-    {
-        $this->technicalDrawings = $this->technicalDrawings ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->applications = $this->applications ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-    }
+	/**
+	 * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
+	 * Do not modify this method!
+	 * It will be rewritten on each save in the extension builder
+	 * You may modify the constructor of this class instead
+	 *
+	 * @return void
+	 */
+	protected function initializeObject() {
+		parent::initializeObject();
+		$this->technicalDrawings = $this->technicalDrawings ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->applications = $this->applications ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
 
     /**
      * Adds a Attribute
@@ -273,5 +273,20 @@ class Product extends Entity
 	 */
 	public function setApplications(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $applications): void {
 		$this->applications = $applications;
+	}
+
+	/**
+	 * @return array
+	 */
+	protected function getLinkArguments() {
+		return [
+			'extension' => 'EntityProduct',
+			'controller' => 'Product',
+			'action' => 'show',
+			'plugin' => 'Frontend',
+			'arguments' => [
+				'product' => $this->getUid()
+			]
+		];
 	}
 }

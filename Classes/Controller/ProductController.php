@@ -1,11 +1,10 @@
 <?php
-declare(strict_types=1);
 
 namespace Ps\EntityProduct\Controller;
 
 
 use Ps\Entity\Controller\EntityController;
-use Ps\EntityProduct\Domain\Model\Product;
+use Ps\EntityProduct\Domain\Model\Product as Entity;
 use Ps\EntityProduct\Domain\Repository\ProductRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -67,10 +66,10 @@ class ProductController extends EntityController {
 	/**
 	 * action show
 	 *
-	 * @param Product $product
+	 * @param \Ps\EntityProduct\Domain\Model\Product $product
 	 * @return void
 	 */
-	public function showAction(Product $product) {
+	public function showAction($product) {
 		$this->setPageTitle($product->getTitle());
 		$this->view->assign('product', $product);
 	}
