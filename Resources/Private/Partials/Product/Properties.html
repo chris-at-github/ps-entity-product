@@ -69,6 +69,16 @@
 			</ul>
 		</f:if>
 
+		<f:if condition="{product.media}">
+			<h2><f:translate key="product.media" /></h2>
+
+			<div class="ce-container">
+				<f:for each="{product.media}" as="media">
+					<f:image src="{media.uid}" treatIdAsReference="1" maxHeight="200" />
+				</f:for>
+			</div>
+		</f:if>
+
 		<f:if condition="{product.applications}">
 			<h2><f:translate key="product.applications" /></h2>
 
