@@ -3,59 +3,20 @@
 	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang" date="2020-11-27T00:00:02Z" product-name="entity_product">
 		<header/>
 		<body>
-			<trans-unit id="tx_entityproduct_domain_model_product" resname="tx_entityproduct_domain_model_product">
-				<source>Product</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_product.technical_drawings" resname="tx_entityproduct_domain_model_product.technical_drawings">
-				<source>Technical Drawings</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_product.applications" resname="tx_entityproduct_domain_model_product.applications">
-				<source>Applications</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_product.attributes" resname="tx_entityproduct_domain_model_product.attributes">
-				<source>Attributes</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_product.variants" resname="tx_entityproduct_domain_model_product.variants">
+			<trans-unit id="product.variants" resname="product.variants">
 				<source>Variants</source>
 			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_product.accessories" resname="tx_entityproduct_domain_model_product.accessories">
+			<trans-unit id="product.downloads" resname="product.downloads">
+				<source>Downloads</source>
+			</trans-unit>
+			<trans-unit id="product.applications" resname="product.applications">
+				<source>Applications</source>
+			</trans-unit>
+			<trans-unit id="product.accessories" resname="product.accessories">
 				<source>Accessories</source>
 			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attribute" resname="tx_entityproduct_domain_model_attribute">
-				<source>Attribute</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attribute.title" resname="tx_entityproduct_domain_model_attribute.title">
-				<source>Title</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attribute.unit" resname="tx_entityproduct_domain_model_attribute.unit">
-				<source>Unit</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type" resname="tx_entityproduct_domain_model_attribute.data_type">
-				<source>Data Type</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_variant" resname="tx_entityproduct_domain_model_variant">
-				<source>Variant</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_variant.title" resname="tx_entityproduct_domain_model_variant.title">
-				<source>Title</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_variant.article_number" resname="tx_entityproduct_domain_model_variant.article_number">
-				<source>Article Number</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_variant.files" resname="tx_entityproduct_domain_model_variant.files">
-				<source>Files</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_variant.attributes" resname="tx_entityproduct_domain_model_variant.attributes">
-				<source>Attributes</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attributevalue" resname="tx_entityproduct_domain_model_attributevalue">
-				<source>Attribute Value</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attributevalue.value" resname="tx_entityproduct_domain_model_attributevalue.value">
-				<source>Value</source>
-			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attributevalue.attribute" resname="tx_entityproduct_domain_model_attributevalue.attribute">
-				<source>Attribute</source>
+			<trans-unit id="product.technicalDrawings" resname="product.technicalDrawings">
+				<source>Technical Drawings</source>
 			</trans-unit>
 		</body>
 	</file>

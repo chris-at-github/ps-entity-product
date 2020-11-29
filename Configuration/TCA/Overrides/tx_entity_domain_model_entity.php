@@ -45,25 +45,6 @@ $tmpEntityProductColumns = [
 		'exclude' => true,
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.applications',
 		'config' => [
-//			'type' => 'select',
-//			'renderType' => 'selectMultipleSideBySide',
-//			'foreign_table' => 'pages',
-//			'MM' => 'tx_entityproduct_product_applications_mm',
-//			'size' => 10,
-//			'autoSizeMax' => 30,
-//			'maxitems' => 9999,
-//			'multiple' => 0,
-//			'fieldControl' => [
-//				'editPopup' => [
-//					'disabled' => false,
-//				],
-//				'addRecord' => [
-//					'disabled' => false,
-//				],
-//				'listModule' => [
-//					'disabled' => true,
-//				],
-//			],
 			'type' => 'group',
 			'internal_type' => 'db',
 			'allowed' => 'pages',
@@ -119,32 +100,19 @@ $tmpEntityProductColumns = [
 		'exclude' => true,
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.accessories',
 		'config' => [
-			'type' => 'select',
-			'renderType' => 'selectMultipleSideBySide',
+			'type' => 'group',
+			'internal_type' => 'db',
+			'allowed' => 'tx_entity_domain_model_entity',
 			'foreign_table' => 'tx_entity_domain_model_entity',
 			'MM' => 'tx_entityproduct_product_accessories_mm',
-			'size' => 10,
-			'autoSizeMax' => 30,
-			'maxitems' => 9999,
-			'multiple' => 0,
-			'fieldControl' => [
-				'editPopup' => [
-					'disabled' => false,
-				],
-				'addRecord' => [
-					'disabled' => false,
-				],
-				'listModule' => [
-					'disabled' => true,
-				],
-			],
+			'maxitems' => 999,
+			'size' => 4,
 		],
 	],
 ];
 
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);
-
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = 'sys_language_uid, l10n_parent, l10n_diffsource,
     tx_extbase_type, title, slug, master_category, short_description, image, long_description, attributes, variants, technical_drawings, files, applications, accessories,

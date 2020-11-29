@@ -15,6 +15,8 @@
 		</f:if>
 
 		<f:if condition="{product.variants}">
+			<h2><f:translate key="product.variants" /></h2>
+
 			<table class="table--layout-0">
 				<thead>
 					<tr>
@@ -48,12 +50,18 @@
 		</f:if>
 
 		<f:if condition="{product.technicalDrawings}">
-			<f:for each="{product.technicalDrawings}" as="technicalDrawing">
-				<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" />
-			</f:for>
+			<h2><f:translate key="product.technicalDrawings" /></h2>
+
+			<div class="ce-container">
+				<f:for each="{product.technicalDrawings}" as="technicalDrawing">
+					<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" />
+				</f:for>
+			</div>
 		</f:if>
 
 		<f:if condition="{product.files}">
+			<h2><f:translate key="product.downloads" /></h2>
+
 			<ul class="list--default">
 				<f:for each="{product.files}" as="file">
 					<li><a href="/{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</a></li>
@@ -62,9 +70,21 @@
 		</f:if>
 
 		<f:if condition="{product.applications}">
+			<h2><f:translate key="product.applications" /></h2>
+
 			<ul class="list--default">
 				<f:for each="{product.applications}" as="application">
 					<li><f:link.page pageUid="{application.uid}">{application.title}</f:link.page></li>
+				</f:for>
+			</ul>
+		</f:if>
+
+		<f:if condition="{product.accessories}">
+			<h2><f:translate key="product.accessories" /></h2>
+
+			<ul class="list--default">
+				<f:for each="{product.accessories}" as="accessory">
+					<li><a href="{accessory.link}">{accessory.title}</a></li>
 				</f:for>
 			</ul>
 		</f:if>
