@@ -23,8 +23,8 @@ CREATE TABLE tx_entityproduct_domain_model_variant (
 	title varchar(255) DEFAULT '' NOT NULL,
 	article_number varchar(255) DEFAULT '' NOT NULL,
 	files int(11) unsigned NOT NULL default '0',
-	attributes int(11) unsigned DEFAULT '0' NOT NULL
-
+	attributes int(11) unsigned DEFAULT '0' NOT NULL,
+	pi_flexform mediumtext
 
 );
 

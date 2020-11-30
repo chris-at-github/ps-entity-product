@@ -43,6 +43,11 @@ call_user_func(
 				\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
 				['source' => 'EXT:entity_product/Resources/Public/Icons/user_plugin_frontend.svg']
 			);
-		
-    }
+
+
+
+			\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\VariantAttributeProvider::class);
+
+
+		}
 );
