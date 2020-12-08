@@ -37,12 +37,12 @@ class Variant extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $articleNumber = '';
 
     /**
-     * files
+     * file
      * 
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
-    protected $files = null;
+    protected $file = null;
 
     /**
      * attributes
@@ -52,6 +52,21 @@ class Variant extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $attributes = null;
+
+    /**
+     * model
+     * 
+     * @var string
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     */
+    protected $model = '';
+
+    /**
+     * typeCode
+     * 
+     * @var string
+     */
+    protected $typeCode = '';
 
     /**
      * __construct
@@ -119,27 +134,6 @@ class Variant extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the files
-     * 
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $files
-     */
-    public function getFiles()
-    {
-        return $this->files;
-    }
-
-    /**
-     * Sets the files
-     * 
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $files
-     * @return void
-     */
-    public function setFiles(\TYPO3\CMS\Extbase\Domain\Model\FileReference $files)
-    {
-        $this->files = $files;
-    }
-
-    /**
      * Adds a AttributeValue
      * 
      * @param \Ps\EntityProduct\Domain\Model\AttributeValue $attribute
@@ -180,5 +174,68 @@ class Variant extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $attributes)
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * Returns the file
+     * 
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference file
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * Sets the file
+     * 
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $file
+     * @return void
+     */
+    public function setFile(\TYPO3\CMS\Extbase\Domain\Model\FileReference $file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Returns the model
+     * 
+     * @return string $model
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * Sets the model
+     * 
+     * @param string $model
+     * @return void
+     */
+    public function setModel($model)
+    {
+        $this->model = $model;
+    }
+
+    /**
+     * Returns the typeCode
+     * 
+     * @return string $typeCode
+     */
+    public function getTypeCode()
+    {
+        return $this->typeCode;
+    }
+
+    /**
+     * Sets the typeCode
+     * 
+     * @param string $typeCode
+     * @return void
+     */
+    public function setTypeCode($typeCode)
+    {
+        $this->typeCode = $typeCode;
     }
 }

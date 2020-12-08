@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang_db" date="2020-11-27T00:00:02Z" product-name="entity_product">
+	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang_db" date="2020-12-08T22:47:59Z" product-name="entity_product">
 		<header/>
 		<body>
 			<trans-unit id="tx_entityproduct_domain_model_product" resname="tx_entityproduct_domain_model_product">
@@ -12,6 +12,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.applications" resname="tx_entityproduct_domain_model_product.applications">
 				<source>Applications</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.show_configurator" resname="tx_entityproduct_domain_model_product.show_configurator">
+				<source>Show Configurator</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.attributes" resname="tx_entityproduct_domain_model_product.attributes">
 				<source>Attributes</source>
 			</trans-unit>
@@ -20,6 +23,12 @@
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.accessories" resname="tx_entityproduct_domain_model_product.accessories">
 				<source>Accessories</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.configurator_filter_attributes" resname="tx_entityproduct_domain_model_product.configurator_filter_attributes">
+				<source>Configurator Filter Attributes</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.configurator_result_attributes" resname="tx_entityproduct_domain_model_product.configurator_result_attributes">
+				<source>Configurator Result Attributes</source>
 			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product" resname="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product">
 				<source>Product Product</source>
@@ -30,14 +39,23 @@
 			<trans-unit id="tx_entityproduct_domain_model_attribute.title" resname="tx_entityproduct_domain_model_attribute.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.alternative_title" resname="tx_entityproduct_domain_model_attribute.alternative_title">
+				<source>Alternative Title</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attribute.unit" resname="tx_entityproduct_domain_model_attribute.unit">
 				<source>Unit</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type" resname="tx_entityproduct_domain_model_attribute.data_type">
 				<source>Data Type</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.bundler" resname="tx_entityproduct_domain_model_attribute.bundler">
+				<source>Bundler</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_variant" resname="tx_entityproduct_domain_model_variant">
 				<source>Variant</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_variant.model" resname="tx_entityproduct_domain_model_variant.model">
+				<source>Model</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_variant.title" resname="tx_entityproduct_domain_model_variant.title">
 				<source>Title</source>
@@ -45,8 +63,11 @@
 			<trans-unit id="tx_entityproduct_domain_model_variant.article_number" resname="tx_entityproduct_domain_model_variant.article_number">
 				<source>Article Number</source>
 			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_variant.files" resname="tx_entityproduct_domain_model_variant.files">
-				<source>Files</source>
+			<trans-unit id="tx_entityproduct_domain_model_variant.type_code" resname="tx_entityproduct_domain_model_variant.type_code">
+				<source>Type Code</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_variant.file" resname="tx_entityproduct_domain_model_variant.file">
+				<source>File</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_variant.attributes" resname="tx_entityproduct_domain_model_variant.attributes">
 				<source>Attributes</source>

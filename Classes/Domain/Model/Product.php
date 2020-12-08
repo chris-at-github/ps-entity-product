@@ -23,6 +23,22 @@ class Product extends Entity
 {
 
     /**
+     * technicalDrawings
+     * 
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+     */
+    protected $technicalDrawings = null;
+
+	/**
+	 * applications
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Page>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $applications = null;
+
+    /**
      * attributes
      * 
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
@@ -40,22 +56,6 @@ class Product extends Entity
     protected $variants = null;
 
     /**
-     * technicalDrawings
-     * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
-     */
-    protected $technicalDrawings = null;
-
-    /**
-     * applications
-     *
-		 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Page>
-		 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-     */
-    protected $applications = null;
-
-    /**
      * accessories
      * 
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product>
@@ -63,31 +63,57 @@ class Product extends Entity
      */
     protected $accessories = null;
 
-	/**
-	 * __construct
-	 */
-	public function __construct($objectManager) {
+    /**
+     * showConfigurator
+     * 
+     * @var bool
+     */
+    protected $showConfigurator = false;
 
-		//Do not remove the next line: It would break the functionality
-		$this->initializeObject();
-	}
+    /**
+     * configuratorFilterAttributes
+     * 
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $configuratorFilterAttributes = null;
 
-	/**
-	 * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
-	 * Do not modify this method!
-	 * It will be rewritten on each save in the extension builder
-	 * You may modify the constructor of this class instead
-	 *
-	 * @return void
-	 */
-	protected function initializeObject() {
-		parent::initializeObject();
-		$this->technicalDrawings = $this->technicalDrawings ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->applications = $this->applications ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-	}
+    /**
+     * configuratorResultAttributes
+     * 
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+     */
+    protected $configuratorResultAttributes = null;
+
+    /**
+     * __construct
+     */
+    public function __construct()
+    {
+
+        //Do not remove the next line: It would break the functionality
+        $this->initializeObject();
+    }
+
+    /**
+     * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
+     * Do not modify this method!
+     * It will be rewritten on each save in the extension builder
+     * You may modify the constructor of this class instead
+     * 
+     * @return void
+     */
+    protected function initializeObject()
+    {
+			parent::initializeObject();
+        $this->technicalDrawings = $this->technicalDrawings ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->configuratorFilterAttributes = $this->configuratorFilterAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->configuratorResultAttributes = $this->configuratorResultAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+    }
 
     /**
      * Adds a Attribute
@@ -289,4 +315,121 @@ class Product extends Entity
 			]
 		];
 	}
+
+    /**
+     * Returns the showConfigurator
+     * 
+     * @return bool $showConfigurator
+     */
+    public function getShowConfigurator()
+    {
+        return $this->showConfigurator;
+    }
+
+    /**
+     * Sets the showConfigurator
+     * 
+     * @param bool $showConfigurator
+     * @return void
+     */
+    public function setShowConfigurator($showConfigurator)
+    {
+        $this->showConfigurator = $showConfigurator;
+    }
+
+    /**
+     * Returns the boolean state of showConfigurator
+     * 
+     * @return bool
+     */
+    public function isShowConfigurator()
+    {
+        return $this->showConfigurator;
+    }
+
+    /**
+     * Adds a Attribute
+     * 
+     * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttribute
+     * @return void
+     */
+    public function addConfiguratorFilterAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttribute)
+    {
+        $this->configuratorFilterAttributes->attach($configuratorFilterAttribute);
+    }
+
+    /**
+     * Removes a Attribute
+     * 
+     * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttributeToRemove The Attribute to be removed
+     * @return void
+     */
+    public function removeConfiguratorFilterAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttributeToRemove)
+    {
+        $this->configuratorFilterAttributes->detach($configuratorFilterAttributeToRemove);
+    }
+
+    /**
+     * Returns the configuratorFilterAttributes
+     * 
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorFilterAttributes
+     */
+    public function getConfiguratorFilterAttributes()
+    {
+        return $this->configuratorFilterAttributes;
+    }
+
+    /**
+     * Sets the configuratorFilterAttributes
+     * 
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorFilterAttributes
+     * @return void
+     */
+    public function setConfiguratorFilterAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $configuratorFilterAttributes)
+    {
+        $this->configuratorFilterAttributes = $configuratorFilterAttributes;
+    }
+
+    /**
+     * Adds a Attribute
+     * 
+     * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttribute
+     * @return void
+     */
+    public function addConfiguratorResultAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttribute)
+    {
+        $this->configuratorResultAttributes->attach($configuratorResultAttribute);
+    }
+
+    /**
+     * Removes a Attribute
+     * 
+     * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttributeToRemove The Attribute to be removed
+     * @return void
+     */
+    public function removeConfiguratorResultAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttributeToRemove)
+    {
+        $this->configuratorResultAttributes->detach($configuratorResultAttributeToRemove);
+    }
+
+    /**
+     * Returns the configuratorResultAttributes
+     * 
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorResultAttributes
+     */
+    public function getConfiguratorResultAttributes()
+    {
+        return $this->configuratorResultAttributes;
+    }
+
+    /**
+     * Sets the configuratorResultAttributes
+     * 
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorResultAttributes
+     * @return void
+     */
+    public function setConfiguratorResultAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $configuratorResultAttributes)
+    {
+        $this->configuratorResultAttributes = $configuratorResultAttributes;
+    }
 }

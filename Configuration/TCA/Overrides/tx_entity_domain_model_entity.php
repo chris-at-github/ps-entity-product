@@ -118,6 +118,69 @@ $tmpEntityProductColumns = [
 			'size' => 4,
 		],
 	],
+	'show_configurator' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.show_configurator',
+		'config' => [
+			'type' => 'check',
+			'items' => [
+				'1' => [
+					'0' => 'LLL:EXT:lang/locallang_core.xlf:labels.enabled'
+				]
+			],
+			'default' => 1,
+		]
+	],
+	'configurator_filter_attributes' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.configurator_filter_attributes',
+		'config' => [
+			'type' => 'select',
+			'renderType' => 'selectMultipleSideBySide',
+			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
+			'MM' => 'tx_entityproduct_product_configuratorfilter_attribute_mm',
+			'size' => 10,
+			'autoSizeMax' => 30,
+			'maxitems' => 9999,
+			'multiple' => 0,
+			'fieldControl' => [
+				'editPopup' => [
+					'disabled' => false,
+				],
+				'addRecord' => [
+					'disabled' => false,
+				],
+				'listModule' => [
+					'disabled' => true,
+				],
+			],
+		],
+	],
+	'configurator_result_attributes' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.configurator_result_attributes',
+		'config' => [
+			'type' => 'select',
+			'renderType' => 'selectMultipleSideBySide',
+			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
+			'MM' => 'tx_entityproduct_product_configuratorresult_attribute_mm',
+			'size' => 10,
+			'autoSizeMax' => 30,
+			'maxitems' => 9999,
+			'multiple' => 0,
+			'fieldControl' => [
+				'editPopup' => [
+					'disabled' => false,
+				],
+				'addRecord' => [
+					'disabled' => false,
+				],
+				'listModule' => [
+					'disabled' => true,
+				],
+			],
+		],
+	],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);

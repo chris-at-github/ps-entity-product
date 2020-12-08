@@ -44,6 +44,21 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $dataType = 0;
 
     /**
+     * alternativeTitle
+     * 
+     * @var string
+     */
+    protected $alternativeTitle = '';
+
+    /**
+     * bundler
+     * 
+     * @var int
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+     */
+    protected $bundler = 0;
+
+    /**
      * Returns the title
      * 
      * @return string $title
@@ -104,5 +119,47 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setDataType($dataType)
     {
         $this->dataType = $dataType;
+    }
+
+    /**
+     * Returns the alternativeTitle
+     * 
+     * @return string $alternativeTitle
+     */
+    public function getAlternativeTitle()
+    {
+        return $this->alternativeTitle;
+    }
+
+    /**
+     * Sets the alternativeTitle
+     * 
+     * @param string $alternativeTitle
+     * @return void
+     */
+    public function setAlternativeTitle($alternativeTitle)
+    {
+        $this->alternativeTitle = $alternativeTitle;
+    }
+
+    /**
+     * Returns the bundler
+     * 
+     * @return int $bundler
+     */
+    public function getBundler()
+    {
+        return $this->bundler;
+    }
+
+    /**
+     * Sets the bundler
+     * 
+     * @param int $bundler
+     * @return void
+     */
+    public function setBundler($bundler)
+    {
+        $this->bundler = $bundler;
     }
 }
