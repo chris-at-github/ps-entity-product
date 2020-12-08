@@ -1,9 +1,17 @@
 <?php
 defined('TYPO3_MODE') || die();
 
-if (isset($GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase_type']) === true) {
+if(isset($GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase_type']) === true) {
 	$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase_type']['config']['items'][] = ['LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type.product', 'Ps\EntityProduct\Domain\Model\Product'];
 }
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['attributes'] = [
+	'showitem' => 'attributes,'
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
+	'showitem' => 'variants,'
+];
 
 $tmpEntityProductColumns = [
 	'technical_drawings' => [
@@ -61,10 +69,11 @@ $tmpEntityProductColumns = [
 			'type' => 'select',
 			'renderType' => 'selectMultipleSideBySide',
 			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
+			'foreign_table_where' => 'AND {#tx_entityproduct_domain_model_attribute}.{#sys_language_uid} IN (0, -1) ORDER BY tx_entityproduct_domain_model_attribute.title ASC',
 			'MM' => 'tx_entityproduct_product_attribute_mm',
 			'size' => 10,
 			'autoSizeMax' => 30,
-			'maxitems' => 9999,
+			'maxitems' => 999,
 			'multiple' => 0,
 			'fieldControl' => [
 				'editPopup' => [
@@ -111,9 +120,35 @@ $tmpEntityProductColumns = [
 	],
 ];
 
-
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'media', '--linebreak--, technical_drawings', 'after:media');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'relation', '--linebreak--, accessories, --linebreak--, applications', 'after:related');
 
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = 'sys_language_uid, l10n_parent, l10n_diffsource,
-    tx_extbase_type, title, slug, master_category, short_description, long_description, image, media, attributes, variants, technical_drawings, files, applications, accessories,
-	--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, hidden, starttime, endtime';
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = '
+--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+	--palette--;;title,
+	--palette--;;description,
+	--palette--;;attributes,
+	--palette--;;media,
+	--palette--;;files,
+--div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.variants,
+	--palette--;;variants,
+--div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.relation,
+	--palette--;;relation,
+--div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.seo,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoGeneral;seoGeneral,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoRobots;seoRobots,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoCanonical;seoCanonical,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoSitemap;seoSitemap,
+--div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.socialmedia,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmediaOg;socialmediaOg,
+	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.socialmediaTwitter;socialmediaTwitter,
+--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+	--palette--;;language,
+--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+	--palette--;;access,
+--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+	tx_extbase_type,
+--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
+	--palette--;;category,	
+';

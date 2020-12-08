@@ -9,6 +9,10 @@
 			<trans-unit id="tx_entity_domain_model_entity.tx_extbase_type.product" resname="tx_entity_domain_model_entity.tx_extbase_type.product">
 				<source>Product</source>
 			</trans-unit>
+
+			<trans-unit id="tx_entityproduct_domain_model_product.tab.variants" resname="tx_entityproduct_domain_model_product.tab.variants">
+				<source>Variants</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
