@@ -13,6 +13,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.tab.variants" resname="tx_entityproduct_domain_model_product.tab.variants">
 				<source>Variants</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.tab.configurator" resname="tx_entityproduct_domain_model_product.tab.configurator">
+				<source>Configurator</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

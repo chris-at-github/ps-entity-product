@@ -13,6 +13,10 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
 	'showitem' => 'variants,'
 ];
 
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
+	'showitem' => 'show_configurator, --linebreak--, configurator_filter_attributes, --linebreak--, configurator_result_attributes'
+];
+
 $tmpEntityProductColumns = [
 	'technical_drawings' => [
 		'exclude' => true,
@@ -137,23 +141,13 @@ $tmpEntityProductColumns = [
 		'config' => [
 			'type' => 'select',
 			'renderType' => 'selectMultipleSideBySide',
+			'itemsProcFunc' => \Ps\EntityProduct\Service\TcaService::class . '->getConfiguratorAttributes',
 			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
 			'MM' => 'tx_entityproduct_product_configuratorfilter_attribute_mm',
 			'size' => 10,
 			'autoSizeMax' => 30,
 			'maxitems' => 9999,
 			'multiple' => 0,
-			'fieldControl' => [
-				'editPopup' => [
-					'disabled' => false,
-				],
-				'addRecord' => [
-					'disabled' => false,
-				],
-				'listModule' => [
-					'disabled' => true,
-				],
-			],
 		],
 	],
 	'configurator_result_attributes' => [
@@ -162,23 +156,13 @@ $tmpEntityProductColumns = [
 		'config' => [
 			'type' => 'select',
 			'renderType' => 'selectMultipleSideBySide',
+			'itemsProcFunc' => \Ps\EntityProduct\Service\TcaService::class . '->getConfiguratorAttributes',
 			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
 			'MM' => 'tx_entityproduct_product_configuratorresult_attribute_mm',
 			'size' => 10,
 			'autoSizeMax' => 30,
 			'maxitems' => 9999,
 			'multiple' => 0,
-			'fieldControl' => [
-				'editPopup' => [
-					'disabled' => false,
-				],
-				'addRecord' => [
-					'disabled' => false,
-				],
-				'listModule' => [
-					'disabled' => true,
-				],
-			],
 		],
 	],
 ];
@@ -198,6 +182,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	--palette--;;variants,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.relation,
 	--palette--;;relation,
+--div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.configurator,
+	--palette--;;configurator,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.seo,
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoGeneral;seoGeneral,
 	--palette--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.palette.seoRobots;seoRobots,
