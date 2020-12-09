@@ -1,6 +1,8 @@
 <?php
 defined('TYPO3_MODE') || die();
 
+$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity_product');
+
 if(isset($GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase_type']) === true) {
 	$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase_type']['config']['items'][] = ['LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type.product', 'Ps\EntityProduct\Domain\Model\Product'];
 }
@@ -170,6 +172,7 @@ $tmpEntityProductColumns = [
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'media', '--linebreak--, technical_drawings', 'after:media');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'relation', '--linebreak--, accessories, --linebreak--, applications', 'after:related');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'category', '--linebreak--, categories', 'after:master_category');
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -201,3 +204,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
 	--palette--;;category,	
 ';
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['master_category']['config'] = [
+	'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['parentMasterProductCategory'] . ' ORDER BY sys_category.sorting ASC',
+];
