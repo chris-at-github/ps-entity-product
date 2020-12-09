@@ -41,7 +41,6 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 	 */
 	public function getForm(array $row) {
 		$form = \FluidTYPO3\Flux\Form::create();
-		$form->setName('varianteAttribute');
 
 		/** @var Product $product */
 		$product = $this->objectManager->get(ProductRepository::class)->findByUid((int) $row['product']);
