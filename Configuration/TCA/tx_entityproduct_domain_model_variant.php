@@ -209,6 +209,7 @@ return [
 			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_variant.attributes',
 			'config' => [
 				'type' => 'flex',
+				'renderType' => 'flexNoTab',
 				'ds' => [
 					'default' => '<T3DataStructure><ROOT><el></el></ROOT></T3DataStructure>'
 				],
