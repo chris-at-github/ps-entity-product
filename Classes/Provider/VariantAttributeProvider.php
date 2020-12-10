@@ -49,46 +49,68 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 
 			/** @var Attribute $attribute */
 			foreach($product->getAttributes() as $attribute) {
+				$field = $form->createField(
+					$this->getFieldType($attribute),
+					$attribute->getUid(),
+					$this->getFieldLabel($attribute)
+				);
 
-				$title = $attribute->getTitle();
-				if(empty($attribute->getUnit()) === false) {
-					$title .= ' (' . $attribute->getUnit() . ')';
-				}
-
-				$field = $form->createField('input', $attribute->getUid(), $title);
+				$field->setValidate($this->getFieldValidation($attribute));
 
 				$form->add($field);
 			}
 		}
 
-//		$product = $this->productRepository->findByUid($row['uid']);
-//
-//		if ($product) {
-//			$productGroup = $product->getProductGroup();
-//
-//			// Create a sheet for each property group
-//			foreach ($productGroup->getPropertyGroups() as $group) {
-//				$sheet = $form->createContainer(
-//					'Sheet',
-//					'',
-//					''
-//				);
-//
-//				// Create a field for each property
-//				foreach ($group->getProperties() as $property) {
-//
-//					// The property holds the field type, e.g. 'Input'
-//					$field = $form->createField(
-//						'Input',
-//						'908432',
-//						'Abmessungen'
-//					);
-//					$field->setValidate('trim,int');
-//		$form->add($field);
-////				}
-////			}
-////		}
-
 		return $form;
+	}
+
+	/**
+	 * @param Attribute $attribute
+	 * @return string
+	 */
+	protected function getFieldType(Attribute $attribute) {
+		$type = '';
+
+		if($attribute->getDataType() === 'string' || $attribute->getDataType() === 'int' || $attribute->getDataType() === 'float') {
+			$type = 'input';
+		}
+
+		if($attribute->getDataType() === 'boolean') {
+			$type = 'checkbox';
+		}
+
+		return $type;
+	}
+
+	/**
+	 * @param Attribute $attribute
+	 * @return string
+	 */
+	protected function getFieldLabel(Attribute $attribute) {
+		$label = $attribute->getTitle();
+
+		if(empty($attribute->getUnit()) === false) {
+			$label .= ' (' . $attribute->getUnit() . ')';
+		}
+
+		return $label;
+	}
+
+	/**
+	 * @param Attribute $attribute
+	 * @return string
+	 */
+	protected function getFieldValidation(Attribute $attribute) {
+		$validation = 'trim';
+
+		if($attribute->getDataType() === 'int') {
+			$validation = ',int';
+		}
+
+		if($attribute->getDataType() === 'float') {
+			$validation = ',Ps\Xo\Evaluation\FloatEvaluation';
+		}
+
+		return $validation;
 	}
 }
