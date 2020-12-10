@@ -56,6 +56,7 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 				);
 
 				$field->setValidate($this->getFieldValidation($attribute));
+				$field->setConfig($this->getFieldConfiguration($attribute));
 
 				$form->add($field);
 			}
@@ -112,5 +113,19 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 		}
 
 		return $validation;
+	}
+
+	/**
+	 * @param Attribute $attribute
+	 * @return array
+	 */
+	protected function getFieldConfiguration(Attribute $attribute) {
+		$configuration = [];
+
+		if($attribute->getDataType() === 'string' || $attribute->getDataType() === 'int' || $attribute->getDataType() === 'float') {
+			$configuration['size'] = 40;
+		}
+
+		return $configuration;
 	}
 }

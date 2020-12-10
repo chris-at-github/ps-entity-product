@@ -120,7 +120,7 @@ return [
 			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.title',
 			'config' => [
 				'type' => 'input',
-				'size' => 30,
+				'size' => 40,
 				'eval' => 'trim,required'
 			],
 		],
@@ -129,7 +129,7 @@ return [
 			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.alternative_title',
 			'config' => [
 				'type' => 'input',
-				'size' => 30,
+				'size' => 40,
 				'eval' => 'trim'
 			],
 		],
@@ -138,7 +138,7 @@ return [
 			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.unit',
 			'config' => [
 				'type' => 'input',
-				'size' => 30,
+				'size' => 40,
 				'eval' => 'trim'
 			],
 		],
