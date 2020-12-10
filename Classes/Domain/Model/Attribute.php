@@ -38,10 +38,10 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * dataType
      * 
-     * @var int
+     * @var string
      * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
-    protected $dataType = 0;
+    protected $dataType = '';
 
     /**
      * alternativeTitle
@@ -53,10 +53,10 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * bundler
      * 
-     * @var int
+     * @var string
      * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
-    protected $bundler = 0;
+    protected $bundler = '';
 
     /**
      * Returns the title
@@ -103,7 +103,7 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the dataType
      * 
-     * @return int $dataType
+     * @return string $dataType
      */
     public function getDataType()
     {
@@ -113,7 +113,7 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the dataType
      * 
-     * @param int $dataType
+     * @param string $dataType
      * @return void
      */
     public function setDataType($dataType)
@@ -145,7 +145,7 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the bundler
      * 
-     * @return int $bundler
+     * @return string $bundler
      */
     public function getBundler()
     {
@@ -155,7 +155,7 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the bundler
      * 
-     * @param int $bundler
+     * @param string $bundler
      * @return void
      */
     public function setBundler($bundler)

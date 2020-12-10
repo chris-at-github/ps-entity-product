@@ -13,8 +13,8 @@ CREATE TABLE tx_entityproduct_domain_model_attribute (
 	title varchar(255) DEFAULT '' NOT NULL,
 	alternative_title varchar(255) DEFAULT '' NOT NULL,
 	unit varchar(255) DEFAULT '' NOT NULL,
-	data_type int(11) DEFAULT '0' NOT NULL,
-	bundler int(11) DEFAULT '0' NOT NULL
+	data_type varchar(50) DEFAULT '' NOT NULL,
+	bundler varchar(50) DEFAULT '' NOT NULL
 );
 
 CREATE TABLE tx_entityproduct_domain_model_variant (

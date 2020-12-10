@@ -48,8 +48,26 @@
 			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type" resname="tx_entityproduct_domain_model_attribute.data_type">
 				<source>Data Type</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type.string" resname="tx_entityproduct_domain_model_attribute.data_type.string">
+				<source>String</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type.int" resname="tx_entityproduct_domain_model_attribute.data_type.int">
+				<source>Int</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type.float" resname="tx_entityproduct_domain_model_attribute.data_type.float">
+				<source>Float</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type.boolean" resname="tx_entityproduct_domain_model_attribute.data_type.boolean">
+				<source>Boolean</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attribute.bundler" resname="tx_entityproduct_domain_model_attribute.bundler">
 				<source>Bundler</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.bundler.concat" resname="tx_entityproduct_domain_model_attribute.bundler.concat">
+				<source>Concat</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.bundler.range" resname="tx_entityproduct_domain_model_attribute.bundler.range">
+				<source>Range</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_variant" resname="tx_entityproduct_domain_model_variant">
 				<source>Variant</source>
