@@ -5,8 +5,11 @@ namespace Ps\EntityProduct\Provider;
 use FluidTYPO3\Flux\Provider\AbstractProvider;
 use FluidTYPO3\Flux\Provider\ProviderInterface;
 use Ps\EntityProduct\Domain\Model\Attribute;
+use Ps\EntityProduct\Domain\Model\AttributeValue;
 use Ps\EntityProduct\Domain\Model\Product;
+use Ps\EntityProduct\Domain\Model\Variant;
 use Ps\EntityProduct\Domain\Repository\ProductRepository;
+use Ps\EntityProduct\Domain\Repository\VariantRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -22,6 +25,11 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 	 * @var string
 	 */
 	protected $fieldName = 'pi_flexform';
+
+	/**
+	 * @var array
+	 */
+	protected $fieldsDefault = [];
 
 	/**
 	 * @var ObjectManager
@@ -45,6 +53,9 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 		/** @var Product $product */
 		$product = $this->objectManager->get(ProductRepository::class)->findByUid((int) $row['product']);
 
+		// bisherige Werte aus der Tabelle attributevalue auslesen -> sollte das Flexform z.B. durch den Import geleert sein
+		$this->initializeFieldsDefault($row);
+
 		if(empty($product) === false) {
 
 			/** @var Attribute $attribute */
@@ -58,11 +69,30 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 				$field->setValidate($this->getFieldValidation($attribute));
 				$field->setConfig($this->getFieldConfiguration($attribute));
 
+				if($this->getFieldDefault($attribute) !== null) {
+					$field->setDefault($this->getFieldDefault($attribute));
+				}
+
 				$form->add($field);
 			}
 		}
 
 		return $form;
+	}
+
+	/**
+	 * @param array $row
+	 * @throws \TYPO3\CMS\Extbase\Object\Exception
+	 */
+	protected function initializeFieldsDefault($row) {
+
+		/** @var Variant $variant */
+		$variant = $this->objectManager->get(VariantRepository::class)->findByUid((int) $row['uid']);
+
+		/** @var AttributeValue $attribute */
+		foreach($variant->getAttributes() as $attribute) {
+			$this->fieldsDefault[$attribute->getAttribute()->getUid()] = $attribute->getValue();
+ 		}
 	}
 
 	/**
@@ -127,5 +157,19 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 		}
 
 		return $configuration;
+	}
+
+	/**
+	 * @param Attribute $attribute
+	 * @return string
+	 */
+	protected function getFieldDefault(Attribute $attribute) {
+		$default = null;
+
+		if(isset($this->fieldsDefault[$attribute->getUid()]) === true) {
+			$default = $this->fieldsDefault[$attribute->getUid()];
+		}
+
+		return $default;
 	}
 }
