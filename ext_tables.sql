@@ -10,6 +10,7 @@ CREATE TABLE tx_entity_domain_model_entity (
 );
 
 CREATE TABLE tx_entityproduct_domain_model_attribute (
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	alternative_title varchar(255) DEFAULT '' NOT NULL,
 	unit varchar(255) DEFAULT '' NOT NULL,
@@ -18,6 +19,7 @@ CREATE TABLE tx_entityproduct_domain_model_attribute (
 );
 
 CREATE TABLE tx_entityproduct_domain_model_variant (
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	product int(11) unsigned DEFAULT '0' NOT NULL,
 	model varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
@@ -29,6 +31,7 @@ CREATE TABLE tx_entityproduct_domain_model_variant (
 );
 
 CREATE TABLE tx_entityproduct_domain_model_attributevalue (
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 	variant int(11) unsigned DEFAULT '0' NOT NULL,
 	value varchar(255) DEFAULT '' NOT NULL,
 	attribute int(11) unsigned DEFAULT '0'
