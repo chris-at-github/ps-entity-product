@@ -23,8 +23,10 @@ class FlexformService {
 			->select('uid', 'title')
 			->from('sys_category')
 			->where(
-				$queryBuilder->expr()->in('parent', $queryBuilder->createNamedParameter((int) $extensionConfiguration['parentMasterProductCategory'], Connection::PARAM_INT))
+				$queryBuilder->expr()->eq('parent', $queryBuilder->createNamedParameter((int) $extensionConfiguration['parentMasterProductCategory'], Connection::PARAM_INT)),
+				$queryBuilder->expr()->in('sys_language_uid', [0, -1])
 			)
+			->orderBy('sorting', 'ASC')
 			->execute();
 
 		while($row = $statement->fetch()) {
