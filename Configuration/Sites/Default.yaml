@@ -1,7 +1,7 @@
 routeEnhancers:
   EntityProductFrontend:
     type: Extbase
-    limitToPages: [ 53 ]
+    limitToPages: [ 60 ]
     extension: EntityProduct
     plugin: Frontend
     routes:
