@@ -2,51 +2,61 @@
 	<f:section name="Main">
 		<header class="ce-header ce-header--layout-1"><h1>{product.title}</h1></header>
 
-		<f:if condition="{product.shortDescription}">
-			<f:format.html>{product.shortDescription}</f:format.html>
-		</f:if>
+		<section class="product--section">
+			<f:if condition="{product.shortDescription}">
+				<div class="product--short-description"><f:format.html>{product.shortDescription}</f:format.html></div>
+			</f:if>
 
-		<f:if condition="{product.image}">
-			<f:image src="{product.image.uid}" treatIdAsReference="1" maxWidth="1200" />
-		</f:if>
+			<f:if condition="{product.image}">
+				<div class="product--hero"><f:image src="{product.image.uid}" treatIdAsReference="1" maxWidth="1200" cropVariant="hero" /></div>
+			</f:if>
 
-		<f:if condition="{product.longDescription}">
-			<f:format.html>{product.longDescription}</f:format.html>
-		</f:if>
+			<f:if condition="{product.longDescription}">
+				<div class="product--long-description"><f:format.html>{product.longDescription}</f:format.html></div>
+			</f:if>
+		</section>
 
 		<f:if condition="{product.variants}">
-			<h2><f:translate key="product.variants" /></h2>
+			<section class="product--section">
+				<h2><f:translate key="product.variants" /></h2>
 
-			<table class="table--layout-0">
-				<thead>
-					<tr>
-						<th>&nbsp;</th>
-						<th>&nbsp;</th>
+				<div class="product--table">
+					<table class="table--layout-0">
+						<thead>
+							<tr>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
 
-						<f:for each="{product.attributes}" as="attribute">
-							<th>{attribute.title} <f:if condition="{attribute.unit}">({attribute.unit})</f:if></th>
+								<f:for each="{product.attributes}" as="attribute">
+									<th>{attribute.title} <f:if condition="{attribute.unit}">({attribute.unit})</f:if></th>
+								</f:for>
+
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<f:for each="{product.variants}" as="variant">
+							<tr>
+								<th>{variant.title}</th>
+								<td>{variant.articleNumber}</td>
+								<td>{variant.model}</td>
+								<td>{variant.typeCode}</td>
+
+								<f:for each="{variant.attributes}" as="value">
+									<td>{value.value}</td>
+								</f:for>
+
+								<td>
+									<f:if condition="{variant.file}">
+										<div><a href="/{variant.file.originalResource.publicUrl}">{variant.file.originalResource.name}</a></div>
+									</f:if>
+								</td>
+							</tr>
 						</f:for>
-
-						<th>&nbsp;</th>
-					</tr>
-				</thead>
-				<f:for each="{product.variants}" as="variant">
-					<tr>
-						<th>{variant.title}</th>
-						<td>{variant.articleNumber}</td>
-
-						<f:for each="{variant.attributes}" as="value">
-							<td>{value.value}</td>
-						</f:for>
-
-						<td>
-							<f:if condition="{variant.files}">
-								<div><a href="/{variant.files.originalResource.publicUrl}">{variant.files.originalResource.name}</a></div>
-							</f:if>
-						</td>
-					</tr>
-				</f:for>
-			</table>
+					</table>
+				</div>
+			</section>
 		</f:if>
 
 		<f:if condition="{product.technicalDrawings}">

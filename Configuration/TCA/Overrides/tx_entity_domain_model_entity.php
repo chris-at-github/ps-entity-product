@@ -3,10 +3,14 @@ defined('TYPO3_MODE') || die();
 
 $extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity_product');
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Neuer Extbase-Typ
 if(isset($GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase_type']) === true) {
 	$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase_type']['config']['items'][] = ['LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tx_extbase_type.product', 'Ps\EntityProduct\Domain\Model\Product'];
 }
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Neue Paletten
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['attributes'] = [
 	'showitem' => 'attributes,'
 ];
@@ -19,6 +23,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
 	'showitem' => 'show_configurator, --linebreak--, configurator_filter_attributes, --linebreak--, configurator_result_attributes'
 ];
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Neue Spalten
 $tmpEntityProductColumns = [
 	'technical_drawings' => [
 		'exclude' => true,
@@ -205,6 +211,43 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	--palette--;;category,	
 ';
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Konfigurationsanpassungen von bestehenden Spalten
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['master_category']['config'] = [
 	'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['parentMasterProductCategory'] . ' ORDER BY sys_category.sorting ASC',
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = [
+	'hero' => [
+		'title' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.image.crop.hero',
+		'allowedAspectRatios' => [
+			'16_9' => [
+				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+				'value' => 16 / 9
+			],
+		],
+		'selectedRatio' => '16_9',
+	],
+	'thumbnail' => [
+		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.thumbnail',
+		'allowedAspectRatios' => [
+			'NaN' => [
+				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+				'value' => 0.0
+			],
+			'16_9' => [
+				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+				'value' => 16 / 9
+			],
+			'4_3' => [
+				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+				'value' => 4 / 3
+			],
+			'1_1' => [
+				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.1_1',
+				'value' => 1
+			],
+		],
+		'selectedRatio' => '16_9',
+	],
 ];

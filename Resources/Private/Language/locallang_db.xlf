@@ -24,6 +24,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.accessories" resname="tx_entityproduct_domain_model_product.accessories">
 				<source>Accessories</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.image.crop.hero" resname="tx_entityproduct_domain_model_product.image.crop.hero">
+				<source>Hero</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.configurator_filter_attributes" resname="tx_entityproduct_domain_model_product.configurator_filter_attributes">
 				<source>Configurator Filter Attributes</source>
 			</trans-unit>
@@ -60,13 +63,13 @@
 			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type.boolean" resname="tx_entityproduct_domain_model_attribute.data_type.boolean">
 				<source>Boolean</source>
 			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attribute.bundler" resname="tx_entityproduct_domain_model_attribute.bundler">
-				<source>Bundler</source>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.group_type" resname="tx_entityproduct_domain_model_attribute.group_type">
+				<source>Group Type</source>
 			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attribute.bundler.concat" resname="tx_entityproduct_domain_model_attribute.bundler.concat">
+			<trans-unit id="tx_entityproduct_domain_model_attribute.group_type.concat" resname="tx_entityproduct_domain_model_attribute.group_type.concat">
 				<source>Concat</source>
 			</trans-unit>
-			<trans-unit id="tx_entityproduct_domain_model_attribute.bundler.range" resname="tx_entityproduct_domain_model_attribute.bundler.range">
+			<trans-unit id="tx_entityproduct_domain_model_attribute.group_type.range" resname="tx_entityproduct_domain_model_attribute.group_type.range">
 				<source>Range</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_variant" resname="tx_entityproduct_domain_model_variant">

@@ -51,12 +51,12 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $alternativeTitle = '';
 
     /**
-     * bundler
+     * groupType
      * 
      * @var string
      * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
-    protected $bundler = '';
+    protected $groupType = '';
 
     /**
      * Returns the title
@@ -143,23 +143,23 @@ class Attribute extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the bundler
+     * Returns the groupType
      * 
      * @return string $bundler
      */
-    public function getBundler()
+    public function getGroupType()
     {
-        return $this->bundler;
+        return $this->groupType;
     }
 
     /**
-     * Sets the bundler
+     * Sets the groupType
      * 
-     * @param string $bundler
+     * @param string $groupType
      * @return void
      */
-    public function setBundler($bundler)
+    public function setGroupType($groupType)
     {
-        $this->bundler = $bundler;
+        $this->groupType = $groupType;
     }
 }
