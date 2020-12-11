@@ -15,13 +15,15 @@ class FlexformService {
 	 */
 	public function getProductRangeValues(array &$configuration) {
 
+		$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity_product');
+
 		/** @var QueryBuilder $queryBuilder */
 		$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_category');
 		$statement = $queryBuilder
 			->select('uid', 'title')
 			->from('sys_category')
 			->where(
-				$queryBuilder->expr()->in('parent', $queryBuilder->createNamedParameter(4, Connection::PARAM_INT))
+				$queryBuilder->expr()->in('parent', $queryBuilder->createNamedParameter((int) $extensionConfiguration['parentMasterProductCategory'], Connection::PARAM_INT))
 			)
 			->execute();
 
