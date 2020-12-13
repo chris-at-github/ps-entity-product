@@ -94,10 +94,13 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 		/** @var Variant $variant */
 		$variant = $this->objectManager->get(VariantRepository::class)->findByUid((int) $row['uid']);
 
-		/** @var AttributeValue $attribute */
-		foreach($variant->getAttributes() as $attribute) {
-			$this->fieldsDefault[$attribute->getAttribute()->getUid()] = $attribute->getValue();
- 		}
+		if(empty($variant) === false) {
+
+			/** @var AttributeValue $attribute */
+			foreach($variant->getAttributes() as $attribute) {
+				$this->fieldsDefault[$attribute->getAttribute()->getUid()] = $attribute->getValue();
+			}
+		}
 	}
 
 	/**
