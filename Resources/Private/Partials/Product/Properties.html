@@ -124,13 +124,15 @@
 			<section class="product--section">
 				<h2><f:translate key="product.accessories" /></h2>
 
-				<ul class="list--default">
+				<div class="card--container">
 					<f:for each="{product.accessories}" as="accessory">
-						<f:if condition="{accessory.link}">
-							<li><a href="{accessory.link}">{accessory.title}</a></li>
-						</f:if>
+						<div class="card" data-target="{accessory.link}">
+							<div class="card--header">
+								<a href="{accessory.link}" class="card--title">{accessory.title}</a>
+							</div>
+						</div>
 					</f:for>
-				</ul>
+				</div>
 			</section>
 		</f:if>
 	</f:section>
