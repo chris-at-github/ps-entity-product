@@ -112,10 +112,10 @@
 				<source>Attribute</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attributeoption" resname="tx_entityproduct_domain_model_attributeoption">
-				<source>Variant</source>
+				<source>Option</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attributeoption.title" resname="tx_entityproduct_domain_model_attributeoption.model">
-				<source>Model</source>
+				<source>Title</source>
 			</trans-unit>
 		</body>
 	</file>

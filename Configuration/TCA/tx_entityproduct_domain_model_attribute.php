@@ -148,7 +148,8 @@ return [
 			'config' => [
 				'type' => 'input',
 				'size' => 40,
-				'eval' => 'trim'
+				'eval' => 'trim',
+				'max' => 10
 			],
 		],
 		'data_type' => [
@@ -167,8 +168,9 @@ return [
 				'size' => 1,
 				'maxitems' => 1,
 				'eval' => 'required',
-				'default' => 'string'
+				'default' => 'string',
 			],
+			'onChange' => 'reload',
 		],
 		'group_type' => [
 			'exclude' => true,
@@ -202,6 +204,7 @@ return [
 					'showAllLocalizationLink' => 1
 				],
 			],
+			'displayCond' => 'FIELD:data_type:=:select',
 		],
 	],
 ];
