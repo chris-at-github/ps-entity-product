@@ -24,15 +24,15 @@
 					<table class="table--layout-0">
 						<thead>
 							<tr>
-								<th>&nbsp;</th>
-								<th>&nbsp;</th>
-								<th>&nbsp;</th>
+								<th><f:translate key="variant.title" /></th>
+								<th><f:translate key="variant.model" /></th>
+								<th><f:translate key="variant.articleNumber" /></th>
 
 								<f:for each="{product.attributes}" as="attribute">
 									<th>{attribute.title} <f:if condition="{attribute.unit}">({attribute.unit})</f:if></th>
 								</f:for>
 
-								<th>&nbsp;</th>
+								<th><f:translate key="variant.cadFile" /></th>
 							</tr>
 						</thead>
 						<f:for each="{product.variants}" as="variant">
@@ -42,7 +42,18 @@
 								<td>{variant.model}</td>
 
 								<f:for each="{variant.attributes}" as="value">
-									<td>{value.value}</td>
+									<td>
+										<f:if condition="{value.attribute.dataType} == 'select'">
+											<f:then>
+												<f:for each="{value.attribute.options}" as="option">
+													<f:if condition="{option.uid} == {value.value}">{option.title}</f:if>
+												</f:for>
+											</f:then>
+											<f:else>
+												{value.value}
+											</f:else>
+										</f:if>
+									</td>
 								</f:for>
 
 								<td>

@@ -21,6 +21,19 @@
 			<trans-unit id="product.media" resname="product.media">
 				<source>Media</source>
 			</trans-unit>
+
+			<trans-unit id="variant.title" resname="variant.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="variant.model" resname="variant.model">
+				<source>Model</source>
+			</trans-unit>
+			<trans-unit id="variant.articleNumber" resname="variant.articleNumber">
+				<source>Article Number</source>
+			</trans-unit>
+			<trans-unit id="variant.cadFile" resname="variant.cadFile">
+				<source>CAD File</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
