@@ -18,7 +18,8 @@ return [
 			'endtime' => 'endtime',
 		],
 		'searchFields' => 'value',
-		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_attributevalue.gif'
+		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_attributevalue.gif',
+		'hideTable' => true
 	],
 	'interface' => [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, value, attribute',
