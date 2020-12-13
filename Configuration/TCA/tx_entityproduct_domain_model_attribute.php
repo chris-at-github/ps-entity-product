@@ -162,6 +162,7 @@ return [
 					['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.data_type.int', 'int'],
 					['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.data_type.float', 'float'],
 					['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.data_type.boolean', 'boolean'],
+					['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.data_type.select', 'select'],
 				],
 				'size' => 1,
 				'maxitems' => 1,

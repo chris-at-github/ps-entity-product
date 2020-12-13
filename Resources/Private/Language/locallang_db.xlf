@@ -63,6 +63,15 @@
 			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type.boolean" resname="tx_entityproduct_domain_model_attribute.data_type.boolean">
 				<source>Boolean</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.data_type.select" resname="tx_entityproduct_domain_model_attribute.data_type.select">
+				<source>Select</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.options" resname="tx_entityproduct_domain_model_attribute.options">
+				<source>Options</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_attribute.prefix" resname="tx_entityproduct_domain_model_attribute.prefix">
+				<source>Prefix</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attribute.group_type" resname="tx_entityproduct_domain_model_attribute.group_type">
 				<source>Group Type</source>
 			</trans-unit>
@@ -102,11 +111,11 @@
 			<trans-unit id="tx_entityproduct_domain_model_attributevalue.attribute" resname="tx_entityproduct_domain_model_attributevalue.attribute">
 				<source>Attribute</source>
 			</trans-unit>
-			<trans-unit id="tx_entity_product_frontend.name" resname="tx_entity_product_frontend.name">
-				<source>Product Frontend</source>
+			<trans-unit id="tx_entityproduct_domain_model_attributeoption" resname="tx_entityproduct_domain_model_attributeoption">
+				<source>Variant</source>
 			</trans-unit>
-			<trans-unit id="tx_entity_product_frontend.description" resname="tx_entity_product_frontend.description">
-				<source></source>
+			<trans-unit id="tx_entityproduct_domain_model_attributeoption.title" resname="tx_entityproduct_domain_model_attributeoption.model">
+				<source>Model</source>
 			</trans-unit>
 		</body>
 	</file>
