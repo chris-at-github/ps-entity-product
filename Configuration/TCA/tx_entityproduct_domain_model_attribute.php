@@ -17,14 +17,14 @@ return [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
-		'searchFields' => 'title,alternative_title,unit',
+		'searchFields' => 'title,alternative_title,unit,prefix',
 		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_attribute.gif'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, alternative_title, unit, data_type, group_type',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, alternative_title, unit, prefix, data_type, options, group_type',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, alternative_title, unit, data_type, group_type, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, alternative_title, unit, prefix, data_type, options, group_type, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -142,6 +142,15 @@ return [
 				'eval' => 'trim'
 			],
 		],
+		'prefix' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.prefix',
+			'config' => [
+				'type' => 'input',
+				'size' => 40,
+				'eval' => 'trim'
+			],
+		],
 		'data_type' => [
 			'exclude' => true,
 			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.data_type',
@@ -176,6 +185,22 @@ return [
 				'default' => 'concat'
 			],
 		],
-
+		'options' => [
+			'exclude' => true,
+			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.options',
+			'config' => [
+				'type' => 'inline',
+				'foreign_table' => 'tx_entityproduct_domain_model_attributeoptions',
+				'foreign_field' => 'attribute',
+				'maxitems' => 9999,
+				'appearance' => [
+					'collapseAll' => 1,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationRecords' => 1,
+					'showAllLocalizationLink' => 1
+				],
+			],
+		],
 	],
 ];

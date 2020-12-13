@@ -1,12 +1,11 @@
 <?php
 return [
 	'ctrl' => [
-		'title' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attributevalue',
-		'label' => 'value',
+		'title' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attributeoptions',
+		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'sortby' => 'sorting',
 		'versioningWS' => true,
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -17,14 +16,14 @@ return [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
-		'searchFields' => 'value',
-		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_attributevalue.gif'
+		'searchFields' => 'title',
+		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_attributeoptions.gif'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, value, attribute',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title',
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, value, attribute, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -54,8 +53,8 @@ return [
 				'items' => [
 					['', 0],
 				],
-				'foreign_table' => 'tx_entityproduct_domain_model_attributevalue',
-				'foreign_table_where' => 'AND {#tx_entityproduct_domain_model_attributevalue}.{#pid}=###CURRENT_PID### AND {#tx_entityproduct_domain_model_attributevalue}.{#sys_language_uid} IN (-1,0)',
+				'foreign_table' => 'tx_entityproduct_domain_model_attributeoptions',
+				'foreign_table_where' => 'AND {#tx_entityproduct_domain_model_attributeoptions}.{#pid}=###CURRENT_PID### AND {#tx_entityproduct_domain_model_attributeoptions}.{#sys_language_uid} IN (-1,0)',
 			],
 		],
 		'l10n_diffsource' => [
@@ -117,30 +116,17 @@ return [
 		],
 
 
-		'value' => [
+		'title' => [
 			'exclude' => true,
-			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attributevalue.value',
+			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attributeoptions.title',
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim'
+				'eval' => 'trim,required'
 			],
 		],
+
 		'attribute' => [
-			'exclude' => true,
-			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attributevalue.attribute',
-			'config' => [
-				'type' => 'select',
-				'renderType' => 'selectSingle',
-				'foreign_table' => 'tx_entityproduct_domain_model_attribute',
-				'default' => 0,
-				'minitems' => 0,
-				'maxitems' => 1,
-			],
-
-		],
-
-		'variant' => [
 			'config' => [
 				'type' => 'passthrough',
 			],

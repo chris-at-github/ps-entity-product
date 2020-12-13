@@ -14,8 +14,10 @@ CREATE TABLE tx_entityproduct_domain_model_attribute (
 	title varchar(255) DEFAULT '' NOT NULL,
 	alternative_title varchar(255) DEFAULT '' NOT NULL,
 	unit varchar(255) DEFAULT '' NOT NULL,
+	prefix varchar(10) DEFAULT '' NOT NULL,
 	data_type varchar(50) DEFAULT '' NOT NULL,
-	group_type varchar(50) DEFAULT '' NOT NULL
+	group_type varchar(50) DEFAULT '' NOT NULL,
+	options int(11) unsigned DEFAULT '0' NOT NULL
 );
 
 CREATE TABLE tx_entityproduct_domain_model_variant (
@@ -35,6 +37,11 @@ CREATE TABLE tx_entityproduct_domain_model_attributevalue (
 	variant int(11) unsigned DEFAULT '0' NOT NULL,
 	value varchar(255) DEFAULT '' NOT NULL,
 	attribute int(11) unsigned DEFAULT '0'
+);
+
+CREATE TABLE tx_entityproduct_domain_model_attributeoptions (
+	attribute int(11) unsigned DEFAULT '0' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL
 );
 
 CREATE TABLE tx_entityproduct_product_attribute_mm (
