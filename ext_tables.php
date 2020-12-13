@@ -13,6 +13,6 @@ call_user_func(
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_attribute');
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_variant');
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_attributevalue');
-		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_attributeoptions');
+		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_attributeoption');
 	}
 );

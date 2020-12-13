@@ -39,7 +39,7 @@ CREATE TABLE tx_entityproduct_domain_model_attributevalue (
 	attribute int(11) unsigned DEFAULT '0'
 );
 
-CREATE TABLE tx_entityproduct_domain_model_attributeoptions (
+CREATE TABLE tx_entityproduct_domain_model_attributeoption (
 	attribute int(11) unsigned DEFAULT '0' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL
 );

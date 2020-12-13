@@ -191,7 +191,7 @@ return [
 			'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_attribute.options',
 			'config' => [
 				'type' => 'inline',
-				'foreign_table' => 'tx_entityproduct_domain_model_attributeoptions',
+				'foreign_table' => 'tx_entityproduct_domain_model_attributeoption',
 				'foreign_field' => 'attribute',
 				'maxitems' => 9999,
 				'appearance' => [

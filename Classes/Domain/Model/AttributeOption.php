@@ -17,7 +17,7 @@ namespace Ps\EntityProduct\Domain\Model;
 /**
  * AttributeOptions
  */
-class AttributeOptions extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class AttributeOption extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
     /**
