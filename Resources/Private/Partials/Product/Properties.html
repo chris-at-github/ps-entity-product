@@ -27,7 +27,6 @@
 								<th>&nbsp;</th>
 								<th>&nbsp;</th>
 								<th>&nbsp;</th>
-								<th>&nbsp;</th>
 
 								<f:for each="{product.attributes}" as="attribute">
 									<th>{attribute.title} <f:if condition="{attribute.unit}">({attribute.unit})</f:if></th>
@@ -41,7 +40,6 @@
 								<th>{variant.title}</th>
 								<td>{variant.articleNumber}</td>
 								<td>{variant.model}</td>
-								<td>{variant.typeCode}</td>
 
 								<f:for each="{variant.attributes}" as="value">
 									<td>{value.value}</td>

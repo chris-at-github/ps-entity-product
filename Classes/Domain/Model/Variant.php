@@ -14,228 +14,186 @@ namespace Ps\EntityProduct\Domain\Model;
  *  (c) 2020 Christian Pschorr <pschorr.christian@gmail.com>
  *
  ***/
+
 /**
  * Variant
  */
-class Variant extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
-{
+class Variant extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
-    /**
-     * title
-     * 
-     * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-     */
-    protected $title = '';
+	/**
+	 * title
+	 *
+	 * @var string
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+	 */
+	protected $title = '';
 
-    /**
-     * articleNumber
-     * 
-     * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-     */
-    protected $articleNumber = '';
+	/**
+	 * articleNumber
+	 *
+	 * @var string
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+	 */
+	protected $articleNumber = '';
 
-    /**
-     * file
-     * 
-     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
-     */
-    protected $file = null;
+	/**
+	 * file
+	 *
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 */
+	protected $file = null;
 
-    /**
-     * attributes
-     * 
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\AttributeValue>
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
-     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-     */
-    protected $attributes = null;
+	/**
+	 * attributes
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\AttributeValue>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $attributes = null;
 
-    /**
-     * model
-     * 
-     * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-     */
-    protected $model = '';
+	/**
+	 * model
+	 *
+	 * @var string
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+	 */
+	protected $model = '';
 
-    /**
-     * typeCode
-     * 
-     * @var string
-     */
-    protected $typeCode = '';
+	/**
+	 * __construct
+	 */
+	public function __construct() {
 
-    /**
-     * __construct
-     */
-    public function __construct()
-    {
+		//Do not remove the next line: It would break the functionality
+		$this->initializeObject();
+	}
 
-        //Do not remove the next line: It would break the functionality
-        $this->initializeObject();
-    }
+	/**
+	 * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
+	 * Do not modify this method!
+	 * It will be rewritten on each save in the extension builder
+	 * You may modify the constructor of this class instead
+	 *
+	 * @return void
+	 */
+	protected function initializeObject() {
+		$this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
 
-    /**
-     * Initializes all ObjectStorage properties when model is reconstructed from DB (where __construct is not called)
-     * Do not modify this method!
-     * It will be rewritten on each save in the extension builder
-     * You may modify the constructor of this class instead
-     * 
-     * @return void
-     */
-    protected function initializeObject()
-    {
-        $this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-    }
+	/**
+	 * Returns the title
+	 *
+	 * @return string $title
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
-    /**
-     * Returns the title
-     * 
-     * @return string $title
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+	/**
+	 * Sets the title
+	 *
+	 * @param string $title
+	 * @return void
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
+	}
 
-    /**
-     * Sets the title
-     * 
-     * @param string $title
-     * @return void
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
+	/**
+	 * Returns the articleNumber
+	 *
+	 * @return string $articleNumber
+	 */
+	public function getArticleNumber() {
+		return $this->articleNumber;
+	}
 
-    /**
-     * Returns the articleNumber
-     * 
-     * @return string $articleNumber
-     */
-    public function getArticleNumber()
-    {
-        return $this->articleNumber;
-    }
+	/**
+	 * Sets the articleNumber
+	 *
+	 * @param string $articleNumber
+	 * @return void
+	 */
+	public function setArticleNumber($articleNumber) {
+		$this->articleNumber = $articleNumber;
+	}
 
-    /**
-     * Sets the articleNumber
-     * 
-     * @param string $articleNumber
-     * @return void
-     */
-    public function setArticleNumber($articleNumber)
-    {
-        $this->articleNumber = $articleNumber;
-    }
+	/**
+	 * Adds a AttributeValue
+	 *
+	 * @param \Ps\EntityProduct\Domain\Model\AttributeValue $attribute
+	 * @return void
+	 */
+	public function addAttribute(\Ps\EntityProduct\Domain\Model\AttributeValue $attribute) {
+		$this->attributes->attach($attribute);
+	}
 
-    /**
-     * Adds a AttributeValue
-     * 
-     * @param \Ps\EntityProduct\Domain\Model\AttributeValue $attribute
-     * @return void
-     */
-    public function addAttribute(\Ps\EntityProduct\Domain\Model\AttributeValue $attribute)
-    {
-        $this->attributes->attach($attribute);
-    }
+	/**
+	 * Removes a AttributeValue
+	 *
+	 * @param \Ps\EntityProduct\Domain\Model\AttributeValue $attributeToRemove The AttributeValue to be removed
+	 * @return void
+	 */
+	public function removeAttribute(\Ps\EntityProduct\Domain\Model\AttributeValue $attributeToRemove) {
+		$this->attributes->detach($attributeToRemove);
+	}
 
-    /**
-     * Removes a AttributeValue
-     * 
-     * @param \Ps\EntityProduct\Domain\Model\AttributeValue $attributeToRemove The AttributeValue to be removed
-     * @return void
-     */
-    public function removeAttribute(\Ps\EntityProduct\Domain\Model\AttributeValue $attributeToRemove)
-    {
-        $this->attributes->detach($attributeToRemove);
-    }
+	/**
+	 * Returns the attributes
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\AttributeValue> $attributes
+	 */
+	public function getAttributes() {
+		return $this->attributes;
+	}
 
-    /**
-     * Returns the attributes
-     * 
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\AttributeValue> $attributes
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
+	/**
+	 * Sets the attributes
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\AttributeValue> $attributes
+	 * @return void
+	 */
+	public function setAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $attributes) {
+		$this->attributes = $attributes;
+	}
 
-    /**
-     * Sets the attributes
-     * 
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\AttributeValue> $attributes
-     * @return void
-     */
-    public function setAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $attributes)
-    {
-        $this->attributes = $attributes;
-    }
+	/**
+	 * Returns the file
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference file
+	 */
+	public function getFile() {
+		return $this->file;
+	}
 
-    /**
-     * Returns the file
-     * 
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference file
-     */
-    public function getFile()
-    {
-        return $this->file;
-    }
+	/**
+	 * Sets the file
+	 *
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $file
+	 * @return void
+	 */
+	public function setFile(\TYPO3\CMS\Extbase\Domain\Model\FileReference $file) {
+		$this->file = $file;
+	}
 
-    /**
-     * Sets the file
-     * 
-     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $file
-     * @return void
-     */
-    public function setFile(\TYPO3\CMS\Extbase\Domain\Model\FileReference $file)
-    {
-        $this->file = $file;
-    }
+	/**
+	 * Returns the model
+	 *
+	 * @return string $model
+	 */
+	public function getModel() {
+		return $this->model;
+	}
 
-    /**
-     * Returns the model
-     * 
-     * @return string $model
-     */
-    public function getModel()
-    {
-        return $this->model;
-    }
-
-    /**
-     * Sets the model
-     * 
-     * @param string $model
-     * @return void
-     */
-    public function setModel($model)
-    {
-        $this->model = $model;
-    }
-
-    /**
-     * Returns the typeCode
-     * 
-     * @return string $typeCode
-     */
-    public function getTypeCode()
-    {
-        return $this->typeCode;
-    }
-
-    /**
-     * Sets the typeCode
-     * 
-     * @param string $typeCode
-     * @return void
-     */
-    public function setTypeCode($typeCode)
-    {
-        $this->typeCode = $typeCode;
-    }
+	/**
+	 * Sets the model
+	 *
+	 * @param string $model
+	 * @return void
+	 */
+	public function setModel($model) {
+		$this->model = $model;
+	}
 }
