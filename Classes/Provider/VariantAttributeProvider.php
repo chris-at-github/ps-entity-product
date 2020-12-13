@@ -5,6 +5,7 @@ namespace Ps\EntityProduct\Provider;
 use FluidTYPO3\Flux\Provider\AbstractProvider;
 use FluidTYPO3\Flux\Provider\ProviderInterface;
 use Ps\EntityProduct\Domain\Model\Attribute;
+use Ps\EntityProduct\Domain\Model\AttributeOption;
 use Ps\EntityProduct\Domain\Model\AttributeValue;
 use Ps\EntityProduct\Domain\Model\Product;
 use Ps\EntityProduct\Domain\Model\Variant;
@@ -73,6 +74,10 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 					$field->setDefault($this->getFieldDefault($attribute));
 				}
 
+				if($attribute->getDataType() === 'select') {
+					$field->setItems($this->getFieldOptions($attribute));
+				}
+
 				$form->add($field);
 			}
 		}
@@ -108,6 +113,10 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 
 		if($attribute->getDataType() === 'boolean') {
 			$type = 'checkbox';
+		}
+
+		if($attribute->getDataType() === 'select') {
+			$type = 'select';
 		}
 
 		return $type;
@@ -171,5 +180,25 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 		}
 
 		return $default;
+	}
+
+	/**
+	 * @param Attribute $attribute
+	 * @return array
+	 */
+	protected function getFieldOptions(Attribute $attribute) {
+		$options = [
+			['', 0]
+		];
+
+		if($attribute->getDataType() === 'select') {
+
+			/** @var AttributeOption $option */
+			foreach($attribute->getOptions() as $option) {
+				$options[] = [$option->getTitle(), $option->getUid()];
+			}
+		}
+
+		return $options;
 	}
 }
