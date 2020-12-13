@@ -74,7 +74,7 @@
 
 				<div class="ce-container">
 					<f:for each="{product.technicalDrawings}" as="technicalDrawing">
-						<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" />
+						<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" class="product--image" />
 					</f:for>
 				</div>
 			</section>
@@ -98,7 +98,7 @@
 
 				<div class="ce-container">
 					<f:for each="{product.media}" as="media">
-						<f:image src="{media.uid}" treatIdAsReference="1" maxHeight="200" />
+						<f:image src="{media.uid}" treatIdAsReference="1" maxHeight="200" class="product--image" />
 					</f:for>
 				</div>
 			</section>
@@ -108,11 +108,15 @@
 			<section class="product--section">
 				<h2><f:translate key="product.applications" /></h2>
 
-				<ul class="list--default">
+				<div class="card--container">
 					<f:for each="{product.applications}" as="application">
-						<li><f:link.page pageUid="{application.uid}">{application.title}</f:link.page></li>
+						<div class="card" data-target="{f:uri.page(pageUid: application.uid)}">
+							<div class="card--header">
+								<f:link.page class="card--title" pageUid="{application.uid}">{application.title}</f:link.page>
+							</div>
+						</div>
 					</f:for>
-				</ul>
+				</div>
 			</section>
 		</f:if>
 
