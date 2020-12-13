@@ -2,18 +2,20 @@
 <f:layout name="Default"/>
 
 <f:section name="content">
-	<h1>{record.header}</h1>
+	<div class="product--listing">
+		<h1>{record.header}</h1>
 
-	<f:flashMessages/>
+		<f:flashMessages/>
 
-	<table class="table--layout-0">
-		<f:for each="{products}" as="product">
-			<tr>
-				<td>
-					<f:link.action action="show" arguments="{product: product}">{product.title}</f:link.action>
-				</td>
-			</tr>
-		</f:for>
-	</table>
+		<div class="card--container">
+			<f:for each="{products}" as="product">
+				<div class="card" data-target="{f:uri.action(action: 'show', arguments: {product: product})}">
+					<div class="card--header">
+						<f:link.action class="card--title" action="show" arguments="{product: product}">{product.title}</f:link.action>
+					</div>
+				</div>
+			</f:for>
+		</div>
+	</div>
 </f:section>
 </html>
