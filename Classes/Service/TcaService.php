@@ -14,7 +14,7 @@ class TcaService {
 	 * @throws \UnexpectedValueException
 	 * @internal
 	 */
-	public function getConfiguratorAttributes(array &$configuration) {
+	public function getProductAttributes(array &$configuration) {
 
 		// Reset der bisherigen Eintraege
 		$configuration['items'] = [];

@@ -16,7 +16,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['attributes'] = [
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
-	'showitem' => 'variants,'
+	'showitem' => 'grouped_attributes, --linebreak--, variants,'
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
@@ -149,7 +149,7 @@ $tmpEntityProductColumns = [
 		'config' => [
 			'type' => 'select',
 			'renderType' => 'selectMultipleSideBySide',
-			'itemsProcFunc' => \Ps\EntityProduct\Service\TcaService::class . '->getConfiguratorAttributes',
+			'itemsProcFunc' => \Ps\EntityProduct\Service\TcaService::class . '->getProductAttributes',
 			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
 			'MM' => 'tx_entityproduct_product_configuratorfilter_attribute_mm',
 			'size' => 10,
@@ -164,9 +164,24 @@ $tmpEntityProductColumns = [
 		'config' => [
 			'type' => 'select',
 			'renderType' => 'selectMultipleSideBySide',
-			'itemsProcFunc' => \Ps\EntityProduct\Service\TcaService::class . '->getConfiguratorAttributes',
+			'itemsProcFunc' => \Ps\EntityProduct\Service\TcaService::class . '->getProductAttributes',
 			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
 			'MM' => 'tx_entityproduct_product_configuratorresult_attribute_mm',
+			'size' => 10,
+			'autoSizeMax' => 30,
+			'maxitems' => 9999,
+			'multiple' => 0,
+		],
+	],
+	'grouped_attributes' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.grouped_attributes',
+		'config' => [
+			'type' => 'select',
+			'renderType' => 'selectMultipleSideBySide',
+			'itemsProcFunc' => \Ps\EntityProduct\Service\TcaService::class . '->getProductAttributes',
+			'foreign_table' => 'tx_entityproduct_domain_model_attribute',
+			'MM' => 'tx_entityproduct_product_grouped_attribute_mm',
 			'size' => 10,
 			'autoSizeMax' => 30,
 			'maxitems' => 9999,

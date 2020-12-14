@@ -24,6 +24,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.accessories" resname="tx_entityproduct_domain_model_product.accessories">
 				<source>Accessories</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.grouped_attributes" resname="tx_entityproduct_domain_model_product.grouped_attributes">
+				<source>Grouped Attributes</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.image.crop.hero" resname="tx_entityproduct_domain_model_product.image.crop.hero">
 				<source>Hero</source>
 			</trans-unit>
