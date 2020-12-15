@@ -58,7 +58,7 @@
 
 								<td>
 									<f:if condition="{variant.file}">
-										<div><a href="/{variant.file.originalResource.publicUrl}">{variant.file.originalResource.name}</a></div>
+										<div><f:link.typolink parameter="{variant.file.originalResource.publicUrl}">{variant.file.originalResource.name}</f:link.typolink></div>
 									</f:if>
 								</td>
 							</tr>
@@ -86,7 +86,7 @@
 
 				<ul class="list--default">
 					<f:for each="{product.files}" as="file">
-						<li><a href="/{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</a></li>
+						<li><f:link.typolink parameter="{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</f:link.typolink></li>
 					</f:for>
 				</ul>
 			</section>
