@@ -110,11 +110,7 @@
 
 				<div class="card--container">
 					<f:for each="{product.applications}" as="application">
-						<div class="card" data-target="{f:uri.page(pageUid: application.uid)}">
-							<div class="card--header">
-								<f:link.page class="card--title" pageUid="{application.uid}">{application.title}</f:link.page>
-							</div>
-						</div>
+						<f:render partial="Components/Card" section="Main" arguments="{data: application, link: '{f:uri.page(pageUid: application.uid)}'}" />
 					</f:for>
 				</div>
 			</section>
@@ -126,11 +122,7 @@
 
 				<div class="card--container">
 					<f:for each="{product.accessories}" as="accessory">
-						<div class="card" data-target="{accessory.link}">
-							<div class="card--header">
-								<a href="{accessory.link}" class="card--title">{accessory.title}</a>
-							</div>
-						</div>
+						<f:render partial="Components/Card" section="Main" arguments="{data: accessory, link: accessory.link}" />
 					</f:for>
 				</div>
 			</section>

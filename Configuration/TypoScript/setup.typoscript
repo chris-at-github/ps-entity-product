@@ -1,31 +1,42 @@
-
 plugin.tx_entityproduct_frontend {
-    view {
-        templateRootPaths.0 = EXT:entity_product/Resources/Private/Templates/
-        templateRootPaths.1 = {$plugin.tx_entityproduct_frontend.view.templateRootPath}
-        partialRootPaths.0 = EXT:entity_product/Resources/Private/Partials/
-        partialRootPaths.1 = {$plugin.tx_entityproduct_frontend.view.partialRootPath}
-        layoutRootPaths.0 = EXT:entity_product/Resources/Private/Layouts/
-        layoutRootPaths.1 = {$plugin.tx_entityproduct_frontend.view.layoutRootPath}
-    }
-    persistence {
-        storagePid = {$plugin.tx_entityproduct_frontend.persistence.storagePid}
-        #recursive = 1
-    }
-    features {
-        #skipDefaultArguments = 1
-        # if set to 1, the enable fields are ignored in BE context
-        ignoreAllEnableFieldsInBe = 0
-        # Should be on by default, but can be disabled if all action in the plugin are uncached
-        requireCHashArgumentForActionArguments = 1
-    }
-    mvc {
-        #callDefaultActionIfActionCantBeResolved = 1
-    }
+	view {
+		templateRootPaths {
+			0 = EXT:entity_product/Resources/Private/Templates/
+			1 = {$plugin.tx_entityproduct_frontend.view.templateRootPath}
+		}
+
+		partialRootPaths {
+			0 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
+			1 = EXT:entity_product/Resources/Private/Partials/
+			2 = {$plugin.tx_entityproduct_frontend.view.partialRootPath}
+		}
+
+		layoutRootPaths {
+			0 = EXT:entity_product/Resources/Private/Layouts/
+			1 = {$plugin.tx_entityproduct_frontend.view.layoutRootPath}
+		}
+	}
+
+	persistence {
+		storagePid = {$plugin.tx_entityproduct_frontend.persistence.storagePid}
+		#recursive = 1
+	}
+
+	features {
+		#skipDefaultArguments = 1
+		# if set to 1, the enable fields are ignored in BE context
+		ignoreAllEnableFieldsInBe = 0
+		# Should be on by default, but can be disabled if all action in the plugin are uncached
+		requireCHashArgumentForActionArguments = 1
+	}
+
+	mvc {
+		#callDefaultActionIfActionCantBeResolved = 1
+	}
 }
 
 page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
 page.10.dataProcessing.32 {
-    uidArgument = tx_entityproduct_frontend|product
-    titleField = title
+	uidArgument = tx_entityproduct_frontend|product
+	titleField = title
 }
