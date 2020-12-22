@@ -8,7 +8,7 @@ call_user_func(
 			'EntityProduct',
 			'Frontend',
 			[
-				\Ps\EntityProduct\Controller\ProductController::class => 'list, show'
+				\Ps\EntityProduct\Controller\ProductController::class => 'listing, show'
 			],
 			// non-cacheable actions
 			[

@@ -58,7 +58,7 @@ class ProductController extends EntityController {
 	 *
 	 * @return void
 	 */
-	public function listAction() {
+	public function listingAction() {
 		$products = $this->productRepository->findAll($this->getDemand());
 		$this->view->assign('products', $products);
 		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
