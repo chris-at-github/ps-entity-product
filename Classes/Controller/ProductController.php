@@ -47,7 +47,7 @@ class ProductController extends EntityController {
 		$options = parent::getDemand($overwrite);
 
 		if(empty($this->settings['productRange']) === false) {
-			$options['masterCategory'] = (int) $this->settings['productRange'];
+			$options['masterCategory'] = (int)$this->settings['productRange'];
 		}
 
 		return $options;
