@@ -76,6 +76,7 @@ $tmpEntityProductColumns = [
 	],
 	'attributes' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.attributes',
 		'config' => [
 			'type' => 'select',
