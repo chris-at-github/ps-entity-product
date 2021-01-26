@@ -40,3 +40,10 @@ page.10.dataProcessing.32 {
 	uidArgument = tx_entityproduct_frontend|product
 	titleField = title
 }
+
+page.10.dataProcessing.42 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
+page.10.dataProcessing.42 {
+	argumentPrefix = tx_entityproduct_frontend
+	uidArgument = product
+
+}
