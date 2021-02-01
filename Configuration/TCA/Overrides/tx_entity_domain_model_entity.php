@@ -103,6 +103,7 @@ $tmpEntityProductColumns = [
 	],
 	'variants' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.variants',
 		'config' => [
 			'type' => 'inline',
@@ -112,9 +113,9 @@ $tmpEntityProductColumns = [
 			'appearance' => [
 				'collapseAll' => 1,
 				'levelLinksPosition' => 'top',
-				'showSynchronizationLink' => 1,
-				'showPossibleLocalizationRecords' => 1,
-				'showAllLocalizationLink' => 1
+				'showSynchronizationLink' => false,
+				'showPossibleLocalizationRecords' => false,
+				'showAllLocalizationLink' => false
 			],
 		],
 	],
