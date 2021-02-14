@@ -28,6 +28,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
 $tmpEntityProductColumns = [
 	'technical_drawings' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_drawings',
 		'config' =>
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
@@ -63,6 +64,7 @@ $tmpEntityProductColumns = [
 	],
 	'applications' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.applications',
 		'config' => [
 			'type' => 'group',
@@ -121,6 +123,7 @@ $tmpEntityProductColumns = [
 	],
 	'accessories' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.accessories',
 		'config' => [
 			'type' => 'group',
@@ -134,6 +137,7 @@ $tmpEntityProductColumns = [
 	],
 	'show_configurator' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.show_configurator',
 		'config' => [
 			'type' => 'check',
@@ -147,6 +151,7 @@ $tmpEntityProductColumns = [
 	],
 	'configurator_filter_attributes' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.configurator_filter_attributes',
 		'config' => [
 			'type' => 'select',
@@ -162,6 +167,7 @@ $tmpEntityProductColumns = [
 	],
 	'configurator_result_attributes' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.configurator_result_attributes',
 		'config' => [
 			'type' => 'select',
@@ -177,6 +183,7 @@ $tmpEntityProductColumns = [
 	],
 	'grouped_attributes' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.grouped_attributes',
 		'config' => [
 			'type' => 'select',
@@ -227,6 +234,15 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
 	--palette--;;category,	
 ';
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Konfigurationsanpassungen Global fuer dieses Projekt
+// Uebersetzungs-Mode ueber columnsOverride ist nicht moeglich: https://docs.typo3.org/m/typo3/reference-tca/master/en-us/Types/Properties/ColumnsOverrides.html
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['image']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['media']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['related']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['twitter_image']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['og_image']['l10n_mode'] = 'exclude';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Konfigurationsanpassungen von bestehenden Spalten
