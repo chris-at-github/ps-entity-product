@@ -165,12 +165,12 @@ return [
 						'types' => [
 							'0' => [
 								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;basicoverlayPalette,
 									--palette--;;filePalette'
 							],
 							\TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
 								'showitem' => '
-									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;basicoverlayPalette,
 									--palette--;;filePalette'
 							],
 						],
