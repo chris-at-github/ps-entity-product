@@ -121,7 +121,10 @@ return [
 			'config' => [
 				'type' => 'input',
 				'size' => 40,
-				'eval' => 'trim,required'
+				'eval' => 'trim,required',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true
+				]
 			],
 		],
 		'title' => [
@@ -130,7 +133,10 @@ return [
 			'config' => [
 				'type' => 'input',
 				'size' => 40,
-				'eval' => 'trim,required'
+				'eval' => 'trim,required',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true
+				]
 			],
 		],
 		'article_number' => [
@@ -139,7 +145,10 @@ return [
 			'config' => [
 				'type' => 'input',
 				'size' => 40,
-				'eval' => 'trim,required'
+				'eval' => 'trim,required',
+				'behaviour' => [
+					'allowLanguageSynchronization' => true
+				]
 			],
 		],
 		'file' => [
@@ -171,7 +180,10 @@ return [
 						'tablenames' => 'tx_entityproduct_domain_model_variant',
 						'table_local' => 'sys_file',
 					],
-					'maxitems' => 1
+					'maxitems' => 1,
+					'behaviour' => [
+						'allowLanguageSynchronization' => true
+					]
 				]
 			),
 		],
@@ -183,13 +195,6 @@ return [
 				'foreign_table' => 'tx_entityproduct_domain_model_attributevalue',
 				'foreign_field' => 'variant',
 				'maxitems' => 9999,
-				'appearance' => [
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
-				],
 			],
 		],
 		'product' => [
