@@ -51,11 +51,23 @@ class VariantAttributeProvider extends AbstractProvider implements ProviderInter
 	public function getForm(array $row) {
 		$form = \FluidTYPO3\Flux\Form::create();
 
+		if(isset($row['uid']) === false) {
+			$request = GeneralUtility::_GP('ajax');
+
+			if(isset($request[0]) === true && preg_match('/(.*)-(.*)-(\d+)-(.*)-(.*)$/', $request[0], $match)) {
+				$row = [
+					'product' => (int) $match[3]
+				];
+			}
+		}
+
 		/** @var Product $product */
 		$product = $this->objectManager->get(ProductRepository::class)->findByUid((int) $row['product']);
 
 		// bisherige Werte aus der Tabelle attributevalue auslesen -> sollte das Flexform z.B. durch den Import geleert sein
-		$this->initializeFieldsDefault($row);
+		if(isset($row['uid']) === true) {
+			$this->initializeFieldsDefault($row);
+		}
 
 		if(empty($product) === false) {
 
