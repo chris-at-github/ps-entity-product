@@ -71,7 +71,11 @@ class ProductController extends EntityController {
 	 * @return void
 	 */
 	public function showAction($product) {
-		$this->setPageTitle($product->getTitle());
+
+		// Eltern Eigenschaften aufrufen z.B. Auswertung Meta-Tags, Title-Tag, ...
+		parent::showAction($product);
+
+		// Uebergabe an Template
 		$this->view->assign('product', $product);
 	}
 }
