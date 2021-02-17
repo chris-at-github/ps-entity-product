@@ -1,15 +1,17 @@
+plugin.tx_entityproduct {
+	view {
+		# cat=plugin.tx_entityproduct/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:entity_product/Resources/Private/Layouts/
 
-plugin.tx_entityproduct_frontend {
-    view {
-        # cat=plugin.tx_entityproduct_frontend/file; type=string; label=Path to template root (FE)
-        templateRootPath = EXT:entity_product/Resources/Private/Templates/
-        # cat=plugin.tx_entityproduct_frontend/file; type=string; label=Path to template partials (FE)
-        partialRootPath = EXT:entity_product/Resources/Private/Partials/
-        # cat=plugin.tx_entityproduct_frontend/file; type=string; label=Path to template layouts (FE)
-        layoutRootPath = EXT:entity_product/Resources/Private/Layouts/
-    }
-    persistence {
-        # cat=plugin.tx_entityproduct_frontend//a; type=string; label=Default storage PID
-        storagePid =
-    }
+		# cat=plugin.tx_entityproduct/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:entity_product/Resources/Private/Templates/
+
+		# cat=plugin.tx_entityproduct/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:entity_product/Resources/Private/Partials/
+	}
+
+	persistence {
+		# cat=plugin.tx_entityproduct//a; type=string; label=Default storage PID
+		storagePid =
+	}
 }

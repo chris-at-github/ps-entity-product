@@ -1,31 +1,33 @@
-plugin.tx_entityproduct_frontend {
+plugin.tx_entityproduct {
 	view {
+		layoutRootPaths {
+			0 = EXT:entity_product/Resources/Private/Layouts/
+			1 = {$plugin.tx_entityproduct.view.layoutRootPath}
+		}
+
 		templateRootPaths {
 			0 = EXT:entity_product/Resources/Private/Templates/
-			1 = {$plugin.tx_entityproduct_frontend.view.templateRootPath}
+			1 = {$plugin.tx_entityproduct.view.templateRootPath}
 		}
 
 		partialRootPaths {
 			0 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
 			1 = EXT:entity_product/Resources/Private/Partials/
-			2 = {$plugin.tx_entityproduct_frontend.view.partialRootPath}
-		}
-
-		layoutRootPaths {
-			0 = EXT:entity_product/Resources/Private/Layouts/
-			1 = {$plugin.tx_entityproduct_frontend.view.layoutRootPath}
+			2 = {$plugin.tx_entityproduct.view.partialRootPath}
 		}
 	}
 
 	persistence {
-		storagePid = {$plugin.tx_entityproduct_frontend.persistence.storagePid}
+		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
 		#recursive = 1
 	}
 
 	features {
 		#skipDefaultArguments = 1
+
 		# if set to 1, the enable fields are ignored in BE context
 		ignoreAllEnableFieldsInBe = 0
+
 		# Should be on by default, but can be disabled if all action in the plugin are uncached
 		requireCHashArgumentForActionArguments = 1
 	}
