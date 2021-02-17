@@ -1,0 +1,22 @@
+["{$plugin.tx_entityproduct.persistence.storagePid}" in tree.rootLineIds]
+	TCAdefaults.tx_entity_domain_model_entity {
+		tx_extbase_type = Ps\EntityProduct\Domain\Model\Product
+	}
+[END]
+
+mod {
+	wizards.newContentElement.wizardItems.plugins {
+		elements {
+			entityproduct_frontend {
+				iconIdentifier = entity_product-plugin-frontend
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entity_product_frontend.name
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entity_product_frontend.description
+				tt_content_defValues {
+					CType = list
+					list_type = entityproduct_frontend
+				}
+			}
+		}
+		show = *
+	}
+}
