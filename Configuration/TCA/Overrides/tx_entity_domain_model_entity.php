@@ -23,6 +23,10 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
 	'showitem' => 'show_configurator, --linebreak--, configurator_filter_attributes, --linebreak--, configurator_result_attributes'
 ];
 
+$GLOBALS['TCA']['tt_address']['palettes']['productHidden'] = [
+	'showitem' => 'tx_extbase_type',
+	'isHiddenPalette' => 0
+];
 // ---------------------------------------------------------------------------------------------------------------------
 // Neue Spalten
 $tmpEntityProductColumns = [
@@ -229,10 +233,9 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	--palette--;;language,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
 	--palette--;;access,
---div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-	tx_extbase_type,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
-	--palette--;;category,	
+	--palette--;;category,
+	--palette--;;productHidden,	
 ';
 
 // ---------------------------------------------------------------------------------------------------------------------
