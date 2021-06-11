@@ -1,0 +1,61 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Bootstrap & XNA
+@import '../../../../xna/Resources/Public/Sass/functions';
+@import '../../../../xna/Resources/Public/Sass/variables';
+@import '../../../../xna/Resources/Public/Sass/mixins';
+@import '../../../../xna/Resources/Public/Sass/definitions';
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Variablen
+$tx-entity-product--use-css: true !default;
+$tx-entity-product--layout-listing: true !default;
+
+@if($tx-entity-product--use-css) {
+	.product--section  {
+		& + .product--section {
+			margin: rem(80px 0 0 0);
+		}
+
+		.card--container {
+			margin-top: rem(5px);
+		}
+
+		.ce-container {
+			margin-top: $spacing-default;
+		}
+	}
+
+	.product--short-description,
+	.product--long-description {
+		margin: rem(30px 0);
+	}
+
+	.product--hero {
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	.product--table {
+		max-width: 100%;
+		overflow: hidden;
+		overflow-x: auto;
+		font-size: rem(12px);
+	}
+
+	.product--image {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.product--listing {
+		.card--container {
+			margin-top: rem(5px);
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// XNA Override
+@import '../../../../xna/Resources/Public/Sass/xna/modules/entity-product';
