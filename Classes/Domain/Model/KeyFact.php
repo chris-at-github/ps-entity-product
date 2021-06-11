@@ -14,66 +14,62 @@ namespace Ps\EntityProduct\Domain\Model;
  *  (c) 2021 Christian Pschorr <pschorr.christian@gmail.com>
  *
  ***/
+
 /**
  * KeyFact
  */
-class KeyFact extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
-{
+class KeyFact extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
-    /**
-     * title
-     * 
-     * @var string
-     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
-     */
-    protected $title = '';
+	/**
+	 * title
+	 *
+	 * @var string
+	 * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
+	 */
+	protected $title = '';
 
-    /**
-     * description
-     * 
-     * @var string
-     */
-    protected $description = '';
+	/**
+	 * description
+	 *
+	 * @var string
+	 */
+	protected $description = '';
 
-    /**
-     * Returns the title
-     * 
-     * @return string $title
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
+	/**
+	 * Returns the title
+	 *
+	 * @return string $title
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 
-    /**
-     * Sets the title
-     * 
-     * @param string $title
-     * @return void
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
+	/**
+	 * Sets the title
+	 *
+	 * @param string $title
+	 * @return void
+	 */
+	public function setTitle($title) {
+		$this->title = $title;
+	}
 
-    /**
-     * Returns the description
-     * 
-     * @return string $description
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+	/**
+	 * Returns the description
+	 *
+	 * @return string $description
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
 
-    /**
-     * Sets the description
-     * 
-     * @param string $description
-     * @return void
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
+	/**
+	 * Sets the description
+	 *
+	 * @param string $description
+	 * @return void
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
+	}
 }

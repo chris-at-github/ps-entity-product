@@ -23,6 +23,11 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class Product extends Entity {
 
 	/**
+	 * @var string
+	 */
+	protected $technicalData = '';
+
+	/**
 	 * technicalDrawings
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
@@ -299,6 +304,20 @@ class Product extends Entity {
 	 */
 	public function setApplications(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $applications): void {
 		$this->applications = $applications;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTechnicalData(): string {
+		return $this->technicalData;
+	}
+
+	/**
+	 * @param string $technicalData
+	 */
+	public function setTechnicalData(string $technicalData): void {
+		$this->technicalData = $technicalData;
 	}
 
 	/**
