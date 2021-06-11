@@ -6,6 +6,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product" resname="tx_entityproduct_domain_model_product">
 				<source>Product</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.technical_data" resname="tx_entityproduct_domain_model_product.technical_data">
+				<source>Technical Data</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.technical_drawings" resname="tx_entityproduct_domain_model_product.technical_drawings">
 				<source>Technical Drawings</source>
 			</trans-unit>

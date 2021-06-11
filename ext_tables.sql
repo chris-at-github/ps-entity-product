@@ -1,4 +1,5 @@
 CREATE TABLE tx_entity_domain_model_entity (
+	technical_data text,
 	technical_drawings int(11) unsigned DEFAULT '0' NOT NULL,
 	applications int(11) unsigned DEFAULT '0' NOT NULL,
 	show_configurator smallint(5) unsigned DEFAULT '1' NOT NULL,
