@@ -30,6 +30,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.grouped_attributes" resname="tx_entityproduct_domain_model_product.grouped_attributes">
 				<source>Grouped Attributes</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.key_facts" resname="tx_entityproduct_domain_model_product.key_facts">
+				<source>Key Facts</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.image.crop.hero" resname="tx_entityproduct_domain_model_product.image.crop.hero">
 				<source>Hero</source>
 			</trans-unit>
@@ -122,6 +125,15 @@
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attributeoption.title" resname="tx_entityproduct_domain_model_attributeoption.model">
 				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_keyfact" resname="tx_entityproduct_domain_model_keyfact">
+				<source>Key Fact</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_keyfact.title" resname="tx_entityproduct_domain_model_keyfact.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_keyfact.description" resname="tx_entityproduct_domain_model_keyfact.description">
+				<source>Description</source>
 			</trans-unit>
 		</body>
 	</file>

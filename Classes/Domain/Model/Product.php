@@ -95,6 +95,14 @@ class Product extends Entity {
 	protected $groupedAttributes = null;
 
 	/**
+	 * keyFacts
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\KeyFact>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $keyFacts = null;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -120,6 +128,7 @@ class Product extends Entity {
 		$this->configuratorFilterAttributes = $this->configuratorFilterAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->configuratorResultAttributes = $this->configuratorResultAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->groupedAttributes = $this->groupedAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->keyFacts = $this->keyFacts ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -450,5 +459,36 @@ class Product extends Entity {
 	 */
 	public function setGroupedAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $groupedAttributes) {
 		$this->groupedAttributes = $groupedAttributes;
+	}
+
+	/**
+	 * @param \Ps\EntityProduct\Domain\Model\KeyFact $keyFact
+	 * @return void
+	 */
+	public function addKeyFact(\Ps\EntityProduct\Domain\Model\KeyFact $keyFact) {
+		$this->keyFacts->attach($keyFact);
+	}
+
+	/**
+	 * @param \Ps\EntityProduct\Domain\Model\KeyFact $keyFact
+	 * @return void
+	 */
+	public function removeKeyFact(\Ps\EntityProduct\Domain\Model\KeyFact $keyFact) {
+		$this->keyFacts->detach($keyFact);
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\KeyFact> $keyFacts
+	 */
+	public function getKeyFacts() {
+		return $this->keyFacts;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\KeyFact> $keyFacts
+	 * @return void
+	 */
+	public function setKeyFacts(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $keyFacts) {
+		$this->keyFacts = $keyFacts;
 	}
 }

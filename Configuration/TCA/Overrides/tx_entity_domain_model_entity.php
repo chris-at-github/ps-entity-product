@@ -218,12 +218,27 @@ $tmpEntityProductColumns = [
 			'multiple' => 0,
 		],
 	],
+	'key_facts' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.key_facts',
+		'config' => [
+			'type' => 'select',
+			'renderType' => 'selectMultipleSideBySide',
+			'foreign_table' => 'tx_entityproduct_domain_model_keyfact',
+			'MM' => 'tx_entityproduct_product_keyfact_mm',
+			'default' => 0,
+			'size' => 10,
+			'autoSizeMax' => 30,
+			'maxitems' => 9999,
+			'multiple' => 0,
+		],
+	],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'description', '--linebreak--, technical_data', 'after:long_description');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'media', '--linebreak--, technical_drawings', 'after:media');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'relation', '--linebreak--, accessories, --linebreak--, applications', 'after:related');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'relation', '--linebreak--, key_facts, --linebreak--, accessories, --linebreak--, applications', 'after:related');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'category', '--linebreak--, categories', 'after:master_category');
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = '
@@ -253,7 +268,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	--palette--;;access,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
 	--palette--;;category,
-	--palette--;;productHidden,	
+	--palette--;;productHidden,
 ';
 
 // ---------------------------------------------------------------------------------------------------------------------
