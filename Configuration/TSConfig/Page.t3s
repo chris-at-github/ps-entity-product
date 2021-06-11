@@ -20,3 +20,18 @@ mod {
 		show = *
 	}
 }
+
+// Varianten und Eigenschaften vorerst deaktiveren
+mod.web_list.table {
+	tx_entityproduct_domain_model_attribute.hideTable = 1
+	tx_entityproduct_domain_model_variant.hideTable = 1
+}
+
+TCEFORM.tx_entity_domain_model_entity {
+	attributes.disabled = 1
+	variants.disabled = 1
+	show_configurator.disabled = 1
+	configurator_filter_attributes.disabled = 1
+	configurator_result_attributes.disabled = 1
+	grouped_attributes.disabled = 1
+}
