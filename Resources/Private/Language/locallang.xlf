@@ -21,6 +21,9 @@
 			<trans-unit id="product.media" resname="product.media">
 				<source>Media</source>
 			</trans-unit>
+			<trans-unit id="product.technicalData" resname="product.technicalData">
+				<source>Technical Data</source>
+			</trans-unit>
 
 			<trans-unit id="variant.title" resname="variant.title">
 				<source>Title</source>

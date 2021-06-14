@@ -220,11 +220,13 @@ $tmpEntityProductColumns = [
 	],
 	'key_facts' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.key_facts',
 		'config' => [
 			'type' => 'select',
 			'renderType' => 'selectMultipleSideBySide',
 			'foreign_table' => 'tx_entityproduct_domain_model_keyfact',
+			'foreign_table_where' => 'AND {#tx_entityproduct_domain_model_keyfact}.{#sys_language_uid} IN (0, -1) ORDER BY tx_entityproduct_domain_model_keyfact.sorting ASC',
 			'MM' => 'tx_entityproduct_product_keyfact_mm',
 			'default' => 0,
 			'size' => 10,
