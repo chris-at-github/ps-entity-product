@@ -40,6 +40,28 @@ plugin.tx_entityproduct {
 	}
 }
 
+plugin.tx_xo.settings.filter {
+	entityproduct {
+		namespace = tx_entityproduct_frontend
+#		resetAll = 1
+#		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
+#		collapse = 1
+#		pageType = 1548191072
+
+		items {
+			categories {
+				renderType = checkboxTree
+				autoSubmit = 0
+				dataProvider {
+					Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
+						parent = 16
+					}
+				}
+			}
+		}
+	}
+}
+
 page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
 page.10.dataProcessing.32 {
 	uidArgument = tx_entityproduct_frontend|product
