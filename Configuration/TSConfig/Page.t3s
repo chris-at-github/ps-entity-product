@@ -9,8 +9,8 @@ mod {
 		elements {
 			entityproduct_frontend {
 				iconIdentifier = entity_product-plugin-frontend
-				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entity_product_frontend.name
-				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entity_product_frontend.description
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_frontend.name
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_frontend.description
 				tt_content_defValues {
 					CType = list
 					list_type = entityproduct_frontend
