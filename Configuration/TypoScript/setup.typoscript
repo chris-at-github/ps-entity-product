@@ -50,7 +50,7 @@ plugin.tx_xo.settings.filter {
 
 		items {
 			categories {
-				renderType = checkboxTree
+				renderType = treeCheckbox
 				autoSubmit = 0
 				dataProvider {
 					Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {

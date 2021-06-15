@@ -66,7 +66,7 @@ class ProductController extends EntityController {
 
 		DebuggerUtility::var_dump($filter->get());
 
-//		$this->view->assign('filter', $filter->get());
+		$this->view->assign('filter', $filter->get());
 		//$options = $filter->getArguments(true);
 
 		$products = $this->productRepository->findAll($this->getDemand());

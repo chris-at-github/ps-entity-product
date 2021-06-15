@@ -7,6 +7,8 @@
 
 		<f:flashMessages/>
 
+		<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
+
 		<div class="card--container">
 			<f:for each="{products}" as="product">
 				<f:render partial="Components/Card" section="Main" arguments="{data: product, link: '{f:uri.action(action: \'show\', arguments: {product: product})}'}" />
