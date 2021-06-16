@@ -49,7 +49,7 @@ plugin.tx_xo.settings.filter {
 #		pageType = 1548191072
 
 		items {
-			categorytree {
+			categories {
 				renderType = treeCheckbox
 				autoSubmit = 0
 				dataProvider {

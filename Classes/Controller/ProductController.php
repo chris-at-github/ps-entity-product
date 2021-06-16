@@ -50,6 +50,10 @@ class ProductController extends EntityController {
 			$options['masterCategory'] = (int)$this->settings['productRange'];
 		}
 
+		if(empty($overwrite['categories']) === false) {
+			$options['categories'] = $overwrite['categories'];
+		}
+
 		return $options;
 	}
 
@@ -62,14 +66,11 @@ class ProductController extends EntityController {
 
 		/** @var \Ps\Xo\Service\FilterService  $filter */
 		$filter = $this->objectManager->get(\Ps\Xo\Service\FilterService::class, 'entityproduct', $this->request, $this->configurationManager->getContentObject());
-		//$filter->setFixedArguments($options);
-
-		DebuggerUtility::var_dump($filter->get());
+		//DebuggerUtility::var_dump($filter->get());
 
 		$this->view->assign('filter', $filter->get());
-		//$options = $filter->getArguments(true);
 
-		$products = $this->productRepository->findAll($this->getDemand());
+		$products = $this->productRepository->findAll($this->getDemand($filter->getArguments(true)));
 		$this->view->assign('products', $products);
 		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
 	}
