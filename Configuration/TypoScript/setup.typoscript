@@ -43,7 +43,8 @@ plugin.tx_entityproduct {
 plugin.tx_xo.settings.filter {
 	entityproduct {
 		namespace = tx_entityproduct_frontend
-#		resetAll = 1
+		submitAll = 1
+		resetAll = 1
 #		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
 #		collapse = 1
 #		pageType = 1548191072
@@ -51,7 +52,7 @@ plugin.tx_xo.settings.filter {
 		items {
 			categories {
 				renderType = treeCheckbox
-				autoSubmit = 0
+				autoSubmit = 1
 				dataProvider {
 					Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
 						parent = 16
