@@ -87,3 +87,22 @@ tt_content.list.dataProcessing.200 {
 #		}
 	}
 }
+
+[traverse(request.getQueryParams(), 'tx_entityproduct_frontend/product') != 0]
+	block {
+
+		// Inhalt (Plugin) in dem Hauptbereich anzeigen
+		contentMain.select.where = colPos = 20
+
+		// Dummy-Wert fuer die nicht Anzeige
+		contentFooter.select.where = colPos = -100
+	}
+
+	page.bodyTagCObject {
+
+		// Seiten-Layout (Klasse) wieder auf den Standard setzen
+		10 >
+		10 = TEXT
+		10.value = page--layout-0
+	}
+[END]
