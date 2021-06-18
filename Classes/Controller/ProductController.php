@@ -65,14 +65,12 @@ class ProductController extends EntityController {
 	public function listingAction() {
 
 		/** @var \Ps\Xo\Service\FilterService  $filter */
-		$filter = $this->objectManager->get(\Ps\Xo\Service\FilterService::class, 'entityproduct', $this->request, $this->configurationManager->getContentObject());
-		//DebuggerUtility::var_dump($filter->get());
-
-		$this->view->assign('filter', $filter->get());
-
+		$filter = $this->objectManager->get(\Ps\Xo\Service\FilterService::class, 'entityproduct', $this->request, $this->configurationManager->getContentObject(), $this->settings);
 		$products = $this->productRepository->findAll($this->getDemand($filter->getArguments(true)));
+
 		$this->view->assign('products', $products);
 		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
+		$this->view->assign('filter', $filter->get());
 	}
 
 	/**
