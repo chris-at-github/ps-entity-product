@@ -37,8 +37,14 @@ $tx-entity-product--layout-show: true !default;
 		}
 
 		.product-listing {
-			display: flex;
-			flex-direction: column;
+			& {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.product-listing--body {
+				flex: 1 auto;
+			}
 		}
 
 		.product-listing--filter {
