@@ -2,15 +2,21 @@
 <f:layout name="Default"/>
 
 <f:section name="content">
-	<div class="product--listing">
+	<div class="product-listing">
 		<f:flashMessages/>
 
-		<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
+		<div class="product-listing--filter">
+			<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
+		</div>
 
-		<div class="card--container">
-			<f:for each="{products}" as="product">
-				<f:render partial="Components/Card" section="Main" arguments="{data: product, link: '{f:uri.action(action: \'show\', arguments: {product: product})}'}" />
-			</f:for>
+		<div class="product-listing--body">
+			<ul class="product-listing--container">
+				<f:for each="{products}" as="product">
+					<li>
+						<f:render partial="Listing/Item" section="Main" arguments="{product: product, link: '{f:uri.action(action: \'show\', arguments: {product: product})}'}" />
+					</li>
+				</f:for>
+			</ul>
 		</div>
 	</div>
 </f:section>
