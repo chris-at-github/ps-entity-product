@@ -42,8 +42,12 @@ $tx-entity-product--layout-show: true !default;
 		}
 
 		.product-listing--filter {
-			ul {
-				margin: 0;
+			.filter {
+				@extend %filter;
+			}
+
+			.filter-item--tree-checkbox {
+				@extend %filter--tree-checkbox;
 			}
 		}
 
