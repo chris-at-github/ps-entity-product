@@ -35,7 +35,19 @@ class ProductRepository extends EntityRepository {
 	protected function getMatches($query, $options) {
 		$matches = parent::getMatches($query, $options);
 
-		// Kategorien ist ein verschachteltes Array categories[group][<int>]
+		if(isset($options['masterCategory']) === true) {
+			$or = [];
+
+			// 1. Entweder ist das Produkt der Hauptkategorie zugewiesen
+			$or[] = $query->equals('masterCategory', $options['masterCategory']);
+
+			// 2. Oder unter Kategorien als Sekundaer-Kategorie
+			$or[] = $query->contains('categories', $options['masterCategory']);
+
+			$matches['masterCategory'] = $query->logicalOr($or);
+		}
+
+		// Filter-Kategorien ist ein verschachteltes Array categories[group][<int>]
 		if(isset($options['categories']) === true) {
 			foreach($options['categories'] as $categories) {
 				$or = [];
@@ -45,7 +57,7 @@ class ProductRepository extends EntityRepository {
 				}
 
 				if(empty($or) === false) {
-					$matches[] = $query->logicalOr($or);
+					$matches['categories'] = $query->logicalOr($or);
 				}
 			}
 		}
