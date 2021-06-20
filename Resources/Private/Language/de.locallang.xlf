@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:entity_product/Retargets/Private/Language/locallang" date="2020-11-27T00:00:02Z" product-name="entity_product">
+		<header/>
+		<body>
+			<trans-unit id="product.variants" resname="product.variants">
+				<target>Variants</target>
+			</trans-unit>
+			<trans-unit id="product.downloads" resname="product.downloads">
+				<target>Downloads</target>
+			</trans-unit>
+			<trans-unit id="product.applications" resname="product.applications">
+				<target>Applications</target>
+			</trans-unit>
+			<trans-unit id="product.accessories" resname="product.accessories">
+				<target>Accessories</target>
+			</trans-unit>
+			<trans-unit id="product.technicalDrawings" resname="product.technicalDrawings">
+				<target>Technische Zeichnungen</target>
+			</trans-unit>
+			<trans-unit id="product.media" resname="product.media">
+				<target>Media</target>
+			</trans-unit>
+			<trans-unit id="product.technicalData" resname="product.technicalData">
+				<target>Technische Daten</target>
+			</trans-unit>
+
+			<trans-unit id="variant.title" resname="variant.title">
+				<target>Title</target>
+			</trans-unit>
+			<trans-unit id="variant.model" resname="variant.model">
+				<target>Model</target>
+			</trans-unit>
+			<trans-unit id="variant.articleNumber" resname="variant.articleNumber">
+				<target>Article Number</target>
+			</trans-unit>
+			<trans-unit id="variant.cadFile" resname="variant.cadFile">
+				<target>CAD File</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

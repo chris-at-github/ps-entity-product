@@ -1,13 +1,15 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
-		<header class="ce-header ce-header--layout-1">
-			<h1>
-				{product.title}
-				<f:if condition="{product.subtitle}">
-					<br />{product.subtitle}
-				</f:if>
-			</h1>
-		</header>
+		<section class="product--section">
+			<header class="ce-header ce-header--layout-1">
+				<h1>
+					{product.title}
+					<f:if condition="{product.subtitle}">
+						<small>{product.subtitle}</small>
+					</f:if>
+				</h1>
+			</header>
+		</section>
 
 		<section class="product--section">
 			<f:if condition="{product.shortDescription}">
@@ -19,7 +21,7 @@
 			</f:if>
 
 			<f:if condition="{product.keyFacts}">
-				<ul>
+				<ul class="product--key-facts">
 					<f:for each="{product.keyFacts}" as="keyFact">
 						<li>
 							<header>{keyFact.title}</header>

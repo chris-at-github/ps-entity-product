@@ -78,12 +78,48 @@ $tx-entity-product--layout-show: true !default;
 				margin: rem(80px 0 0 0);
 			}
 
-			.card--container {
-				margin-top: rem(5px);
+			.ce-header {
+				small {
+					display: block;
+					margin: rem(10px 0 0 0);
+					font-size: rem(24px);
+				}
 			}
 
 			.ce-container {
 				margin-top: $spacing-default;
+			}
+		}
+
+		.product--key-facts {
+			& {
+				@include make-row();
+				list-style: none;
+				padding: 0;
+			}
+
+			& > li {
+				margin-top: rem(10px);
+				@include make-col-ready()
+			}
+
+			header, p {
+				display: inline;
+			}
+
+			header {
+				margin: rem(0 4px 0 0);
+				font-weight: $font-weight-bold;
+			}
+
+			p {
+				& {
+					margin: 0;
+				}
+
+				& + p {
+					margin-top: rem(5px);
+				}
 			}
 		}
 
@@ -118,7 +154,16 @@ $tx-entity-product--layout-show: true !default;
 		}
 	}
 
+	// >= 576px
 	@include media-breakpoint-up(sm) {
+		@if($tx-entity-product--layout-show) {
+			.product--key-facts {
+				& > li {
+					@include make-col(6);
+				}
+			}
+		}
+
 		@if($tx-entity-product--layout-listing) {
 			.product-listing--container {
 				& > li {
@@ -146,6 +191,14 @@ $tx-entity-product--layout-show: true !default;
 
 	// >= 992px
 	@include media-breakpoint-up(lg) {
+		@if($tx-entity-product--layout-show) {
+			.product--key-facts {
+				& > li {
+					@include make-col(3);
+				}
+			}
+		}
+
 		@if($tx-entity-product--layout-listing) {
 			.product-listing {
 				.product-listing--filter {
