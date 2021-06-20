@@ -52,8 +52,10 @@ class ProductRepository extends EntityRepository {
 			foreach($options['categories'] as $categories) {
 				$or = [];
 
-				foreach($categories as $category) {
-					$or[] = $query->contains('categories', (int) $category);
+				if(empty($categories) === false) {
+					foreach($categories as $category) {
+						$or[] = $query->contains('categories', (int) $category);
+					}
 				}
 
 				if(empty($or) === false) {
