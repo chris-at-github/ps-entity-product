@@ -44,6 +44,7 @@ $tx-entity-product--layout-show: true !default;
 
 			.product-listing--body {
 				flex: 1 auto;
+				margin-top: rem(20px);
 			}
 		}
 
@@ -184,6 +185,10 @@ $tx-entity-product--layout-show: true !default;
 				.product-listing--filter {
 					min-width: 275px;
 					padding: rem(0 20px 0 0);
+				}
+
+				.product-listing--body {
+					margin-top: 0;
 				}
 			}
 		}
