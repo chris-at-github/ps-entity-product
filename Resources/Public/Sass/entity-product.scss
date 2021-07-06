@@ -148,6 +148,10 @@ $tx-entity-product--layout-show: true !default;
 			height: auto;
 		}
 
+		.product--chart-container {
+			height: 400px;
+		}
+
 		.product--listing {
 			.card--container {
 				margin-top: rem(5px);
