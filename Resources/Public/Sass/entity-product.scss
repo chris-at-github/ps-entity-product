@@ -53,8 +53,9 @@ $tx-entity-product--layout-show: true !default;
 				@extend %filter;
 			}
 
-			.filter-item--tree-checkbox {
-				@extend %filter--tree-checkbox;
+			.filter-item--tree-radio {
+				@extend %filter--tree;
+				@extend %filter--tree-radio;
 			}
 		}
 
