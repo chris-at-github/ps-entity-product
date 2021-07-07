@@ -245,7 +245,7 @@ $tmpEntityProductColumns = [
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-	--palette--;;title,
+	--palette--;;title, parent,
 	--palette--;;description,
 	--palette--;;attributes,
 	--palette--;;media,
