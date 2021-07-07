@@ -42,6 +42,12 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.configurator_result_attributes" resname="tx_entityproduct_domain_model_product.configurator_result_attributes">
 				<source>Configurator Result Attributes</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.variant_title" resname="tx_entityproduct_domain_model_product.variant_title">
+				<source>Variant Title</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.parent" resname="tx_entityproduct_domain_model_product.parent">
+				<source>Variant of</source>
+			</trans-unit>
 			<trans-unit id="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product" resname="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product">
 				<source>Product Product</source>
 			</trans-unit>

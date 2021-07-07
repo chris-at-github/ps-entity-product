@@ -15,6 +15,10 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['attributes'] = [
 	'showitem' => 'attributes,'
 ];
 
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variant'] = [
+	'showitem' => 'variant_title, parent,'
+];
+
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
 	'showitem' => 'grouped_attributes, --linebreak--, variants,'
 ];
@@ -142,6 +146,15 @@ $tmpEntityProductColumns = [
 			],
 		],
 	],
+	'variant_title' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.variant_title',
+		'config' => [
+			'type' => 'input',
+			'size' => 40,
+			'eval' => 'trim'
+		],
+	],
 	'accessories' => [
 		'exclude' => true,
 		'l10n_mode' => 'exclude',
@@ -245,7 +258,8 @@ $tmpEntityProductColumns = [
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-	--palette--;;title, parent,
+	--palette--;;title,
+	--palette--;;variant,
 	--palette--;;description,
 	--palette--;;attributes,
 	--palette--;;media,
@@ -287,6 +301,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['og_image']['l10n_mo
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['master_category']['config'] = [
 	'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['parentMasterProductCategory'] . ' ORDER BY sys_category.sorting ASC',
 ];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['parent']['label'] = 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.parent';
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = [
 	'hero' => [

@@ -9,7 +9,8 @@ CREATE TABLE tx_entity_domain_model_entity (
 	configurator_filter_attributes int(11) unsigned DEFAULT '0' NOT NULL,
 	configurator_result_attributes int(11) unsigned DEFAULT '0' NOT NULL,
 	grouped_attributes int(11) unsigned DEFAULT '0' NOT NULL,
-	key_facts int(11) unsigned DEFAULT '0' NOT NULL
+	key_facts int(11) unsigned DEFAULT '0' NOT NULL,
+	variant_title varchar(255) DEFAULT '' NOT NULL
 );
 
 CREATE TABLE tx_entityproduct_domain_model_attribute (

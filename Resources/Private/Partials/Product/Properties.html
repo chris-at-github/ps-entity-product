@@ -11,6 +11,22 @@
 			</header>
 		</section>
 
+		<f:if condition="{variants}">
+			<section class="product--section">
+				<div class="product--variant-header">Ausführungen</div>
+				<ul class="product--variant-items">
+					<f:for each="{variants}" as="variant">
+						<li>
+							<f:if condition="{variant.uid} == {product.uid}">
+								<f:then><span class="current">{variant.variantTitle}</span></f:then>
+								<f:else><f:link.action action="show" arguments="{product: variant}">{variant.variantTitle}</f:link.action></f:else>
+							</f:if>
+						</li>
+					</f:for>
+				</ul>
+			</section>
+		</f:if>
+
 		<section class="product--section">
 			<f:if condition="{product.shortDescription}">
 				<div class="product--short-description"><f:format.html>{product.shortDescription}</f:format.html></div>

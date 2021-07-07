@@ -61,6 +61,11 @@ class Product extends Entity {
 	protected $variants = null;
 
 	/**
+	 * @var string
+	 */
+	protected $variantTitle = '';
+
+	/**
 	 * accessories
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product>
@@ -106,6 +111,11 @@ class Product extends Entity {
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $keyFacts = null;
+
+	/**
+	 * @var \Ps\EntityProduct\Domain\Model\Product
+	 */
+	protected $parent = null;
 
 	/**
 	 * __construct
@@ -212,6 +222,20 @@ class Product extends Entity {
 	 */
 	public function setVariants(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $variants) {
 		$this->variants = $variants;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getVariantTitle(): string {
+		return $this->variantTitle;
+	}
+
+	/**
+	 * @param string $variantTitle
+	 */
+	public function setVariantTitle(string $variantTitle): void {
+		$this->variantTitle = $variantTitle;
 	}
 
 	/**
