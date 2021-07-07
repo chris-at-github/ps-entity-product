@@ -49,18 +49,18 @@ class ProductRepository extends EntityRepository {
 
 		// Filter-Kategorien ist ein verschachteltes Array categories[group][<int>]
 		if(isset($options['categories']) === true) {
-			foreach($options['categories'] as $categories) {
-				$or = [];
+			$and = [];
 
+			foreach($options['categories'] as $categories) {
 				if(empty($categories) === false) {
 					foreach($categories as $category) {
-						$or[] = $query->contains('categories', (int) $category);
+						$and[] = $query->contains('categories', (int) $category);
 					}
 				}
+			}
 
-				if(empty($or) === false) {
-					$matches['categories'] = $query->logicalOr($or);
-				}
+			if(empty($and) === false) {
+				$matches['categories'] = $query->logicalAnd($and);
 			}
 		}
 
