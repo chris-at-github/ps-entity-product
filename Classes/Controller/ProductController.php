@@ -54,6 +54,10 @@ class ProductController extends EntityController {
 			$options['categories'] = $overwrite['categories'];
 		}
 
+		// keine Varianten
+		// TODO: eventuell als Option im Flexform
+		$options['parent'] = 0;
+
 		return $options;
 	}
 
