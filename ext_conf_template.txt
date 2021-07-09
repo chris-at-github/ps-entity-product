@@ -1,2 +1,5 @@
-# cat=Category; type=int+; label=Parent category (UID) for master category of products; label=Child categories of master category are selectable
+# cat=Category; type=int+; label=Parent category (UID) for master category of products; Child categories of master category are selectable
 parentMasterProductCategory =
+
+# cat=Category; type=int+; label=Parent category (UID) for for filter
+parentFilterCategory =

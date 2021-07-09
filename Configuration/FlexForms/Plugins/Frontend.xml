@@ -26,6 +26,20 @@
 							</config>
 						</TCEforms>
 					</settings.productRange>
+					<settings.filterCategoryWhitelist>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.filterCategoryWhitelist</label>
+							<config>
+								<type>select</type>
+								<foreign_table>sys_category</foreign_table>
+								<renderType>selectCheckBox</renderType>
+								<itemsProcFunc>Ps\EntityProduct\Service\FlexformService->getFilterCategoryWhitelistValues</itemsProcFunc>
+								<size>5</size>
+								<minitems>0</minitems>
+								<maxitems>999</maxitems>
+							</config>
+						</TCEforms>
+					</settings.filterCategoryWhitelist>
 				</el>
 			</ROOT>
 		</main>

@@ -16,6 +16,9 @@
 			<trans-unit id="flexform.field.productRange" resname="flexform.field.productRange">
 				<source>Product Range</source>
 			</trans-unit>
+			<trans-unit id="flexform.field.filterCategoryWhitelist" resname="flexform.field.filterCategoryWhitelist">
+				<source>Filter Category Whitelist</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

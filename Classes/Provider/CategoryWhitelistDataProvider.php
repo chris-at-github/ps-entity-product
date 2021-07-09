@@ -3,6 +3,7 @@
 namespace Ps\EntityProduct\Provider;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -48,6 +49,8 @@ class CategoryWhitelistDataProvider extends \Ps\Xo\Filter\DataProvider\AbstractD
 
 			// Jetzt alle Kategorien laden, die zu den Produkten passen
 			if(empty($entities) === false) {
+
+				/** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder  $queryBuilder */
 				$queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_entity_domain_model_entity')->createQueryBuilder();
 				$query = $queryBuilder->select('sys_category.parent', 'sys_category_record_mm.uid_local')
 					->from('tx_entity_domain_model_entity')
@@ -69,6 +72,10 @@ class CategoryWhitelistDataProvider extends \Ps\Xo\Filter\DataProvider\AbstractD
 						$queryBuilder->expr()->eq('sys_category_record_mm.fieldname', $queryBuilder->createNamedParameter('categories', \PDO::PARAM_STR)),
 						$queryBuilder->expr()->in('tx_entity_domain_model_entity.uid', $entities)
 					);
+
+				if(empty($settings['filterCategoryWhitelist']) === false) {
+					$query->andWhere($queryBuilder->expr()->in('sys_category.parent', $settings['filterCategoryWhitelist']));
+				}
 
 				$statement = $query->execute();
 
