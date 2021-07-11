@@ -13,6 +13,34 @@ $tx-entity-product--layout-show: true !default;
 
 @if($tx-entity-product--use-css) {
 	@if($tx-entity-product--layout-listing) {
+		.navigation.sibling-navigation {
+			& {
+				margin-top: $spacing-default;
+			}
+
+			ul {
+				margin: 0 rem(-5px);
+			}
+
+			li {
+				margin-top: rem(5px);
+				padding: 0 rem(5px);
+			}
+
+			li > a, li > span {
+				height: 100%;
+				border-radius: $border-radius-small;
+				background: $theme-color-primary;
+			}
+
+			li > a {
+				&:hover, .focusable &:focus {
+					cursor: pointer;
+					background: $theme-color-secondary;
+				}
+			}
+		}
+
 		.product-item {
 			& {
 				border-radius: $border-radius-small;
@@ -171,6 +199,16 @@ $tx-entity-product--layout-show: true !default;
 		}
 
 		@if($tx-entity-product--layout-listing) {
+			.navigation.sibling-navigation {
+				ul {
+					display: flex;
+				}
+
+				li {
+					margin-top: 0;
+				}
+			}
+
 			.product-listing--container {
 				& > li {
 					@include make-col(6);
