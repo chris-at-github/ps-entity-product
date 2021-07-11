@@ -98,11 +98,17 @@ tt_content.list.dataProcessing.200 {
 		contentFooter.select.where = colPos = -100
 	}
 
-	page.bodyTagCObject {
+	dataProcessing {
+		pageLayout.mapping.4 = PageLayout-0
+	}
+
+	page {
 
 		// Seiten-Layout (Klasse) wieder auf den Standard setzen
-		10 >
-		10 = TEXT
-		10.value = page--layout-0
+		bodyTagCObject {
+			10 >
+			10 = TEXT
+			10.value = page--layout-0
+		}
 	}
 [END]
