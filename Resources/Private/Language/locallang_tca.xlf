@@ -16,6 +16,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.tab.configurator" resname="tx_entityproduct_domain_model_product.tab.configurator">
 				<source>Configurator</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.tab.chart" resname="tx_entityproduct_domain_model_product.tab.chart">
+				<source>Chart</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

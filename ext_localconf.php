@@ -29,6 +29,7 @@ call_user_func(
 		);
 
 		\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\VariantAttributeProvider::class);
+		\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\ChartDataValueProvider::class);
 
 		// Automatisches Setzen des Status von Neu auf in Bearbeitung
 		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][\Ps\EntityProduct\Service\VariantFlexformProcessingService::class] = \Ps\EntityProduct\Service\VariantFlexformProcessingService::class;

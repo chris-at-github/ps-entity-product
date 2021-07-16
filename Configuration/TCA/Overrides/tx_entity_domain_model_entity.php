@@ -19,6 +19,10 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variant'] = [
 	'showitem' => 'variant_title, parent,'
 ];
 
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['chart'] = [
+	'showitem' => 'tx_chart_chart, --linebreak--, tx_chart_values,'
+];
+
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
 	'showitem' => 'grouped_attributes, --linebreak--, variants,'
 ];
@@ -248,6 +252,43 @@ $tmpEntityProductColumns = [
 			'multiple' => 0,
 		],
 	],
+	'tx_chart_chart' => [
+		'exclude' => true,
+		'onChange' => 'reload',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_chart',
+		'config' => [
+			'type' => 'group',
+			'internal_type' => 'db',
+			'allowed' => 'tx_chart_domain_model_chart',
+			'foreign_table' => 'tx_chart_domain_model_chart',
+			'maxitems' => 1,
+			'minitems' => 0,
+			'size' => 1,
+			'default' => 0,
+		]
+	],
+	'tx_chart_values' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_values',
+		'displayCond' => 'FIELD:tx_chart_chart:REQ:true',
+		'config' => [
+			'type' => 'inline',
+			'foreign_table' => 'tx_chart_domain_model_value',
+			'foreign_field' => 'tx_entityproduct_product',
+			'foreign_sortby' => 'sorting',
+			'foreign_label' => 'title',
+			'maxitems' => 999,
+			'appearance' => [
+				'collapseAll' => 1,
+				'expandSingle' => 1,
+				'showAllLocalizationLink' => 1,
+				'showSynchronizationLink' => 1,
+				'showPossibleLocalizationRecords' => 1,
+				'showRemovedLocalizationRecords' => 1,
+				'newRecordLinkAddTitle' => 1
+			],
+		]
+	],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);
@@ -268,6 +309,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	--palette--;;variants,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.relation,
 	--palette--;;relation,
+--div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.chart,
+	--palette--;;chart,
 --div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.configurator,
 	--palette--;;configurator,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.seo,

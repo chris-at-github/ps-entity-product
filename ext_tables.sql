@@ -10,7 +10,9 @@ CREATE TABLE tx_entity_domain_model_entity (
 	configurator_result_attributes int(11) unsigned DEFAULT '0' NOT NULL,
 	grouped_attributes int(11) unsigned DEFAULT '0' NOT NULL,
 	key_facts int(11) unsigned DEFAULT '0' NOT NULL,
-	variant_title varchar(255) DEFAULT '' NOT NULL
+	variant_title varchar(255) DEFAULT '' NOT NULL,
+	tx_chart_chart int(11) unsigned DEFAULT '0' NOT NULL,
+	tx_chart_values int(11) unsigned DEFAULT '0' NOT NULL
 );
 
 CREATE TABLE tx_entityproduct_domain_model_attribute (
@@ -128,4 +130,8 @@ CREATE TABLE tx_entityproduct_product_keyfact_mm (
 	PRIMARY KEY (uid_local,uid_foreign),
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
+);
+
+CREATE TABLE tx_chart_domain_model_value (
+	tx_entityproduct_product int(11) DEFAULT '0' NOT NULL
 );
