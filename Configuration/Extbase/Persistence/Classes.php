@@ -5,6 +5,13 @@ return [
 	\Ps\EntityProduct\Domain\Model\Product::class => [
 		'tableName' => 'tx_entity_domain_model_entity',
 		'recordType' => \Ps\EntityProduct\Domain\Model\Product::class,
-		'properties' => []
+		'properties' => [
+			'chart' => [
+				'fieldName' => 'tx_chart_chart'
+			],
+			'chartValues' => [
+				'fieldName' => 'tx_chart_values'
+			],
+		]
 	],
 ];

@@ -16,7 +16,8 @@ plugin.tx_entityproduct {
 			10 = EXT:entity_product/Resources/Private/Partials/
 			20 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
 			30 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
-			40 = {$plugin.tx_entityproduct.view.partialRootPath}
+			40 = EXT:chart/Resources/Private/Partials/
+			50 = {$plugin.tx_entityproduct.view.partialRootPath}
 		}
 	}
 

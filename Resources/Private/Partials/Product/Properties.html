@@ -59,12 +59,15 @@
 			</section>
 		</f:if>
 
-		<section class="product--section">
-			<div class="product--chart-container">
-				<h2>Druckluftverbrauch</h2>
-				<canvas class="product--chart"></canvas>
-			</div>
-		</section>
+		<f:if condition="{chart}">
+			<section class="product--section">
+				<div class="product--chart-container">
+					<h2>{chart.object.alternativeTitle}</h2>
+					<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+					<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
+				</div>
+			</section>
+		</f:if>
 
 		<f:if condition="{product.variants}">
 			<section class="product--section">

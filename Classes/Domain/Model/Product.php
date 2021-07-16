@@ -118,6 +118,17 @@ class Product extends Entity {
 	protected $parent = null;
 
 	/**
+	 * @var \Ps14\Chart\Domain\Model\Chart
+	 */
+	protected $chart = null;
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps14\Chart\Domain\Model\Value>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $chartValues = null;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -342,6 +353,34 @@ class Product extends Entity {
 	 */
 	public function setTechnicalData(string $technicalData): void {
 		$this->technicalData = $technicalData;
+	}
+
+	/**
+	 * @return \Ps14\Chart\Domain\Model\Chart
+	 */
+	public function getChart(): ?\Ps14\Chart\Domain\Model\Chart {
+		return $this->chart;
+	}
+
+	/**
+	 * @param \Ps14\Chart\Domain\Model\Chart $chart
+	 */
+	public function setChart(?\Ps14\Chart\Domain\Model\Chart $chart): void {
+		$this->chart = $chart;
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getChartValues(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+		return $this->chartValues;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues
+	 */
+	public function setChartValues(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues): void {
+		$this->chartValues = $chartValues;
 	}
 
 	/**

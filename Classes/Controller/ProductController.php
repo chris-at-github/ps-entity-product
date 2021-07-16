@@ -6,6 +6,7 @@ namespace Ps\EntityProduct\Controller;
 use Ps\Entity\Controller\EntityController;
 use Ps\EntityProduct\Domain\Model\Product as Entity;
 use Ps\EntityProduct\Domain\Repository\ProductRepository;
+use Ps\EntityProduct\Provider\LineChartDataProvider;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -89,6 +90,13 @@ class ProductController extends EntityController {
 		// Uebergabe an Template
 		$this->view->assign('product', $product);
 		$this->view->assign('variants', $this->getProductVariants($product));
+
+		if($product->getChart() !== null) {
+
+			/** @var LineChartDataProvider $chartDataProvider */
+			$chartDataProvider = GeneralUtility::makeInstance(LineChartDataProvider::class);
+			$this->view->assign('chart', $chartDataProvider->provide(['chart' => $product->getChart(), 'values' => $product->getChartValues()]));
+		}
 	}
 
 	/**
