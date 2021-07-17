@@ -80,12 +80,14 @@ page.10.dataProcessing.42 {
 tt_content.list.dataProcessing.200 {
 	entityproduct_frontend {
 		importCss {
-			10 = /assets/css/modules/entity-product.css
+			10 = /assets/css/modules/chart.css
+			20 = /assets/css/modules/entity-product.css
 		}
 
-#		importJs {
-#			10 = /assets/js/contact.js
-#		}
+		importJs {
+			10 = /assets/js/chartjs.js
+			20 = /assets/js/chart.js
+		}
 	}
 }
 
