@@ -58,6 +58,7 @@ plugin.tx_xo.settings.filter {
 					Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
 						parent = 16
 						whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
+						removeSingleValues = 1
 					}
 				}
 			}
