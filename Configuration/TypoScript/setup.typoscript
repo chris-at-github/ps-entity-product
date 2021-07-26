@@ -54,6 +54,7 @@ plugin.tx_xo.settings.filter {
 			categories {
 				renderType = treeRadio
 				autoSubmit = 1
+				resetable = 1
 				dataProvider {
 					Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
 						parent = 16
