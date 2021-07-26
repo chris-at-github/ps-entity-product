@@ -87,7 +87,9 @@ tt_content.list.dataProcessing.200 {
 
 		importJs {
 			10 = /assets/js/chartjs.js
-			20 = /assets/js/chart.js
+			20 = /assets/js/plugins/filter.js
+			30 = /assets/js/chart.js
+			40 = /assets/js/entity-product.js
 		}
 	}
 }

@@ -14,7 +14,7 @@ mix.options({
 	processCssUrls: false
 });
 
-//mix.js('Resources/Public/Js/contact.js', 'assets/js/contact.js')
+mix.js('Resources/Public/Js/entity-product.js', 'assets/js/entity-product.js')
 mix.sass('Resources/Public/Sass/entity-product.scss', 'assets/css/modules/entity-product.css')
 	.options({
 		postCss: [
@@ -28,5 +28,5 @@ mix.sass('Resources/Public/Sass/entity-product.scss', 'assets/css/modules/entity
 
 if(mix.inProduction() === true) {
 	mix.minify(['../../../assets/css/modules/entity-product.css']);
-	//mix.minify(['../../../assets/js/contact.js']);
+	mix.minify(['../../../assets/js/entity-product.js']);
 }
