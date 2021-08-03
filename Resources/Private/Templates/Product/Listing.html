@@ -5,9 +5,11 @@
 	<div class="product-listing">
 		<f:flashMessages/>
 
-		<div class="product-listing--filter">
-			<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
-		</div>
+		<f:if condition="{settings.hideFilter} != 1">
+			<div class="product-listing--filter">
+				<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
+			</div>
+		</f:if>
 
 		<div class="product-listing--body">
 			<ul class="product-listing--container">

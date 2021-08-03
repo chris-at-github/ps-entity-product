@@ -19,6 +19,9 @@
 			<trans-unit id="flexform.field.filterCategoryWhitelist" resname="flexform.field.filterCategoryWhitelist">
 				<source>Filter Category Whitelist</source>
 			</trans-unit>
+			<trans-unit id="flexform.field.hideFilter" resname="flexform.field.hideFilter">
+				<source>Hide Filter</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

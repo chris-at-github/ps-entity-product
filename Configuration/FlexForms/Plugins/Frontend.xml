@@ -40,6 +40,20 @@
 							</config>
 						</TCEforms>
 					</settings.filterCategoryWhitelist>
+					<settings.hideFilter>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.hideFilter</label>
+							<config>
+								<type>check</type>
+								<default>0</default>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.hideFilter>
 				</el>
 			</ROOT>
 		</main>
