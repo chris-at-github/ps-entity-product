@@ -11,6 +11,10 @@ if(isset($GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['tx_extbase
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Neue Paletten
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['layout'] = [
+	'showitem' => 'layout,'
+];
+
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['attributes'] = [
 	'showitem' => 'attributes,'
 ];
@@ -40,6 +44,7 @@ $GLOBALS['TCA']['tt_address']['palettes']['productHidden'] = [
 $tmpEntityProductColumns = [
 	'technical_data' => [
 		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_data',
 		'config' => [
 			'type' => 'text',
@@ -58,6 +63,7 @@ $tmpEntityProductColumns = [
 	'technical_drawings' => [
 		'exclude' => true,
 		'l10n_mode' => 'exclude',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_drawings',
 		'config' =>
 			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
@@ -152,6 +158,7 @@ $tmpEntityProductColumns = [
 	],
 	'variant_title' => [
 		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.variant_title',
 		'config' => [
 			'type' => 'input',
@@ -238,6 +245,7 @@ $tmpEntityProductColumns = [
 	'key_facts' => [
 		'exclude' => true,
 		'l10n_mode' => 'exclude',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.key_facts',
 		'config' => [
 			'type' => 'select',
@@ -255,6 +263,7 @@ $tmpEntityProductColumns = [
 	'tx_chart_chart' => [
 		'exclude' => true,
 		'onChange' => 'reload',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_chart',
 		'config' => [
 			'type' => 'group',
@@ -270,7 +279,7 @@ $tmpEntityProductColumns = [
 	'tx_chart_values' => [
 		'exclude' => true,
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_values',
-		'displayCond' => 'FIELD:tx_chart_chart:REQ:true',
+		'displayCond' => 'FIELD:layout:IN:true',
 		'config' => [
 			'type' => 'inline',
 			'foreign_table' => 'tx_chart_domain_model_value',
@@ -289,6 +298,23 @@ $tmpEntityProductColumns = [
 			],
 		]
 	],
+	'layout' => [
+		'exclude' => true,
+		'l10n_mode' => 'exclude',
+		'onChange' => 'reload',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.layout',
+		'config' => [
+			'type' => 'select',
+			'renderType' => 'selectSingle',
+			'items' => [
+				['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.layout.default', ''],
+				['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.layout.accessories', 'accessories'],
+			],
+			'size' => 1,
+			'maxitems' => 1,
+			'multiple' => 0,
+		],
+	],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);
@@ -300,6 +326,7 @@ $tmpEntityProductColumns = [
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
 	--palette--;;title,
+	--palette--;;layout,
 	--palette--;;variant,
 	--palette--;;description,
 	--palette--;;attributes,
@@ -338,6 +365,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['media']['l10n_mode'
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['related']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['twitter_image']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['og_image']['l10n_mode'] = 'exclude';
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['parent']['displayCond'] = 'FIELD:layout:!IN:accessories';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Konfigurationsanpassungen von bestehenden Spalten

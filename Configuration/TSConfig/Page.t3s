@@ -29,6 +29,7 @@ mod.web_list.table {
 
 TCEFORM.tx_entity_domain_model_entity {
 	attributes.disabled = 1
+	accessories.disabled = 1
 	variants.disabled = 1
 	show_configurator.disabled = 1
 	configurator_filter_attributes.disabled = 1

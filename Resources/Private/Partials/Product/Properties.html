@@ -169,13 +169,13 @@
 			</section>
 		</f:if>
 
-		<f:if condition="{product.accessories}">
+		<f:if condition="{product.related}">
 			<section class="product--section">
-				<h2><f:translate key="product.accessories" /></h2>
+				<h2><f:translate key="product.related" /></h2>
 
 				<div class="card--container">
-					<f:for each="{product.accessories}" as="accessory">
-						<f:render partial="Components/Card" section="Main" arguments="{data: accessory, link: accessory.link}" />
+					<f:for each="{product.related}" as="related">
+						<f:render partial="Components/Card" section="Main" arguments="{data: related, link: related.link}" />
 					</f:for>
 				</div>
 			</section>

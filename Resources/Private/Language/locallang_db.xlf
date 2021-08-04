@@ -54,8 +54,14 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.tx_chart_values" resname="tx_entityproduct_domain_model_product.tx_chart_values">
 				<source>Chart Values</source>
 			</trans-unit>
-			<trans-unit id="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product" resname="tx_entity_domain_model_entity.tx_extbase_type.Tx_EntityProduct_Product">
-				<source>Product Product</source>
+			<trans-unit id="tx_entityproduct_domain_model_product.layout" resname="tx_entityproduct_domain_model_product.layout">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.layout.default" resname="tx_entityproduct_domain_model_product.layout.default">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.layout.accessories" resname="tx_entityproduct_domain_model_product.layout.accessories">
+				<source>Accessories</source>
 			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attribute" resname="tx_entityproduct_domain_model_attribute">
 				<source>Attribute</source>

@@ -74,6 +74,14 @@ class Product extends Entity {
 	protected $accessories = null;
 
 	/**
+	 * accessories
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $related = null;
+
+	/**
 	 * showConfigurator
 	 *
 	 * @var bool
