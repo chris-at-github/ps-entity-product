@@ -3,8 +3,8 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:entity_product/Retargets/Private/Language/locallang" date="2020-11-27T00:00:02Z" product-name="entity_product">
 		<header/>
 		<body>
-			<trans-unit id="product.variants" resname="product.variants">
-				<target>Variants</target>
+			<trans-unit id="product.variants">
+				<target>Ausführungen</target>
 			</trans-unit>
 			<trans-unit id="product.downloads" resname="product.downloads">
 				<target>Downloads</target>

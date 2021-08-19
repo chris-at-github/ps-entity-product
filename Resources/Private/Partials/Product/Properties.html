@@ -5,16 +5,23 @@
 			<div class="ce-frame--inner">
 				<f:render partial="Product/Header" section="Main" arguments="{_all}" />
 
-
+				<f:if condition="{variants}">
+					<div class="product--variants">
+						<header class="product--variants-header"><f:translate key="product.variants" /></header>
+						<ul>
+							<f:for each="{variants}" as="variant">
+								<f:if condition="{variant.uid} != {product.uid}">
+									<li><f:link.action action="show" arguments="{product: variant}">{variant.variantTitle}</f:link.action></li>
+								</f:if>
+							</f:for>
+						</ul>
+					</div>
+				</f:if>
 			</div>
 		</div>
 
 		<f:comment>
-			<f:if condition="{variants}">
-				<div class="product--variant">
-					<header class="product--variant-header">Ausführungen</header>
-				</div>
-			</f:if>
+
 
 			<f:if condition="{variants}">
 				<section class="product--section">

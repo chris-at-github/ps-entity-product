@@ -3,7 +3,7 @@
 	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang" date="2020-11-27T00:00:02Z" product-name="entity_product">
 		<header/>
 		<body>
-			<trans-unit id="product.variants" resname="product.variants">
+			<trans-unit id="product.variants">
 				<source>Variants</source>
 			</trans-unit>
 			<trans-unit id="product.downloads" resname="product.downloads">

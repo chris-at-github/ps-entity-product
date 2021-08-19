@@ -248,6 +248,13 @@ $tx-entity-product--layout-show: true !default;
 
 				.ce-header {
 					width: calc(75% - 15px);
+					padding-right: 15px;
+				}
+
+				.product--variants {
+					width: calc(25% - 15px);
+					margin-top: rem(155px);
+					padding-left: 15px;
 				}
 			}
 
@@ -269,6 +276,21 @@ $tx-entity-product--layout-show: true !default;
 			.product-listing--container {
 				& > li {
 					@include make-col(4);
+				}
+			}
+		}
+	}
+
+	// >= 1200px
+	@include media-breakpoint-up(xl) {
+		@if($tx-entity-product--layout-show) {
+			.product--header {
+				.ce-header {
+					width: calc(66.66% - 15px);
+				}
+
+				.product--variants {
+					width: calc(33.33% - 15px);
 				}
 			}
 		}
