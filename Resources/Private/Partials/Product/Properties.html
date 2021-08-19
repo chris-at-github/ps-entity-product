@@ -1,184 +1,190 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
-		<section class="product--section">
-			<header class="ce-header ce-header--layout-1">
-				<h1>
-					{product.title}
-					<f:if condition="{product.subtitle}">
-						<small>{product.subtitle}</small>
-					</f:if>
-				</h1>
-			</header>
-		</section>
 
-		<f:if condition="{variants}">
-			<section class="product--section">
-				<div class="product--variant-header">Ausführungen</div>
-				<ul class="product--variant-items">
-					<f:for each="{variants}" as="variant">
-						<li>
-							<f:if condition="{variant.uid} == {product.uid}">
-								<f:then><span class="current">{variant.variantTitle}</span></f:then>
-								<f:else><f:link.action action="show" arguments="{product: variant}">{variant.variantTitle}</f:link.action></f:else>
-							</f:if>
-						</li>
-					</f:for>
-				</ul>
-			</section>
-		</f:if>
+		<div class="product--header ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
+			<div class="ce-frame--inner">
+				<f:render partial="Product/Header" section="Main" arguments="{_all}" />
 
-		<section class="product--section">
-			<f:if condition="{product.shortDescription}">
-				<div class="product--short-description"><f:format.html>{product.shortDescription}</f:format.html></div>
-			</f:if>
 
-			<f:if condition="{product.image}">
-				<div class="product--hero"><f:image src="{product.image.uid}" treatIdAsReference="1" maxWidth="2400" cropVariant="hero" /></div>
-			</f:if>
+			</div>
+		</div>
 
-			<f:if condition="{product.keyFacts}">
-				<ul class="product--key-facts">
-					<f:for each="{product.keyFacts}" as="keyFact">
-						<li>
-							<header>{keyFact.title}</header>
-							<f:format.html>{keyFact.description}</f:format.html>
-						</li>
-					</f:for>
-				</ul>
-			</f:if>
-
-			<f:if condition="{product.longDescription}">
-				<div class="product--long-description"><f:format.html>{product.longDescription}</f:format.html></div>
-			</f:if>
-		</section>
-
-		<f:if condition="{product.technicalData}">
-			<section class="product--section">
-				<h2><f:translate key="product.technicalData" /></h2>
-				<div class="product--technial-data"><f:format.html>{product.technicalData}</f:format.html></div>
-			</section>
-		</f:if>
-
-		<f:if condition="{chart}">
-			<section class="product--section">
-				<div class="product--chart-container">
-					<h2>{chart.object.alternativeTitle}</h2>
-					<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
-					<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
+		<f:comment>
+			<f:if condition="{variants}">
+				<div class="product--variant">
+					<header class="product--variant-header">Ausführungen</header>
 				</div>
-			</section>
-		</f:if>
+			</f:if>
 
-		<f:if condition="{product.variants}">
+			<f:if condition="{variants}">
+				<section class="product--section">
+					<div class="product--variant-header">Ausführungen</div>
+					<ul class="product--variant-items">
+						<f:for each="{variants}" as="variant">
+							<li>
+								<f:if condition="{variant.uid} == {product.uid}">
+									<f:then><span class="current">{variant.variantTitle}</span></f:then>
+									<f:else><f:link.action action="show" arguments="{product: variant}">{variant.variantTitle}</f:link.action></f:else>
+								</f:if>
+							</li>
+						</f:for>
+					</ul>
+				</section>
+			</f:if>
+
 			<section class="product--section">
-				<h2><f:translate key="product.variants" /></h2>
+				<f:if condition="{product.shortDescription}">
+					<div class="product--short-description"><f:format.html>{product.shortDescription}</f:format.html></div>
+				</f:if>
 
-				<div class="product--table">
-					<table class="table--layout-0">
-						<thead>
-							<tr>
-								<th><f:translate key="variant.title" /></th>
-								<th><f:translate key="variant.model" /></th>
-								<th><f:translate key="variant.articleNumber" /></th>
+				<f:if condition="{product.image}">
+					<div class="product--hero"><f:image src="{product.image.uid}" treatIdAsReference="1" maxWidth="2400" cropVariant="hero" /></div>
+				</f:if>
 
-								<f:for each="{product.attributes}" as="attribute">
-									<th>{attribute.title} <f:if condition="{attribute.unit}">({attribute.unit})</f:if></th>
-								</f:for>
+				<f:if condition="{product.keyFacts}">
+					<ul class="product--key-facts">
+						<f:for each="{product.keyFacts}" as="keyFact">
+							<li>
+								<header>{keyFact.title}</header>
+								<f:format.html>{keyFact.description}</f:format.html>
+							</li>
+						</f:for>
+					</ul>
+				</f:if>
 
-								<th><f:translate key="variant.cadFile" /></th>
-							</tr>
-						</thead>
-						<f:for each="{product.variants}" as="variant">
-							<tr>
-								<th>{variant.title}</th>
-								<td>{variant.model}</td>
-								<td>{variant.articleNumber}</td>
+				<f:if condition="{product.longDescription}">
+					<div class="product--long-description"><f:format.html>{product.longDescription}</f:format.html></div>
+				</f:if>
+			</section>
 
-								<f:for each="{variant.attributes}" as="value">
+			<f:if condition="{product.technicalData}">
+				<section class="product--section">
+					<h2><f:translate key="product.technicalData" /></h2>
+					<div class="product--technial-data"><f:format.html>{product.technicalData}</f:format.html></div>
+				</section>
+			</f:if>
+
+			<f:if condition="{chart}">
+				<section class="product--section">
+					<div class="product--chart-container">
+						<h2>{chart.object.alternativeTitle}</h2>
+						<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+						<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
+					</div>
+				</section>
+			</f:if>
+
+			<f:if condition="{product.variants}">
+				<section class="product--section">
+					<h2><f:translate key="product.variants" /></h2>
+
+					<div class="product--table">
+						<table class="table--layout-0">
+							<thead>
+								<tr>
+									<th><f:translate key="variant.title" /></th>
+									<th><f:translate key="variant.model" /></th>
+									<th><f:translate key="variant.articleNumber" /></th>
+
+									<f:for each="{product.attributes}" as="attribute">
+										<th>{attribute.title} <f:if condition="{attribute.unit}">({attribute.unit})</f:if></th>
+									</f:for>
+
+									<th><f:translate key="variant.cadFile" /></th>
+								</tr>
+							</thead>
+							<f:for each="{product.variants}" as="variant">
+								<tr>
+									<th>{variant.title}</th>
+									<td>{variant.model}</td>
+									<td>{variant.articleNumber}</td>
+
+									<f:for each="{variant.attributes}" as="value">
+										<td>
+											<f:if condition="{value.attribute.dataType} == 'select'">
+												<f:then>
+													<f:for each="{value.attribute.options}" as="option">
+														<f:if condition="{option.uid} == {value.value}">{option.title}</f:if>
+													</f:for>
+												</f:then>
+												<f:else>
+													<f:if condition="{value.attribute.prefix}">{value.attribute.prefix}</f:if>{value.value}
+												</f:else>
+											</f:if>
+										</td>
+									</f:for>
+
 									<td>
-										<f:if condition="{value.attribute.dataType} == 'select'">
-											<f:then>
-												<f:for each="{value.attribute.options}" as="option">
-													<f:if condition="{option.uid} == {value.value}">{option.title}</f:if>
-												</f:for>
-											</f:then>
-											<f:else>
-												<f:if condition="{value.attribute.prefix}">{value.attribute.prefix}</f:if>{value.value}
-											</f:else>
+										<f:if condition="{variant.file}">
+											<div><f:link.typolink parameter="{variant.file.originalResource.publicUrl}">{variant.file.originalResource.name}</f:link.typolink></div>
 										</f:if>
 									</td>
-								</f:for>
+								</tr>
+							</f:for>
+						</table>
+					</div>
+				</section>
+			</f:if>
 
-								<td>
-									<f:if condition="{variant.file}">
-										<div><f:link.typolink parameter="{variant.file.originalResource.publicUrl}">{variant.file.originalResource.name}</f:link.typolink></div>
-									</f:if>
-								</td>
-							</tr>
+			<f:if condition="{product.technicalDrawings}">
+				<section class="product--section">
+					<h2><f:translate key="product.technicalDrawings" /></h2>
+
+					<div class="ce-container">
+						<f:for each="{product.technicalDrawings}" as="technicalDrawing">
+							<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" class="product--image" />
 						</f:for>
-					</table>
-				</div>
-			</section>
-		</f:if>
+					</div>
+				</section>
+			</f:if>
 
-		<f:if condition="{product.technicalDrawings}">
-			<section class="product--section">
-				<h2><f:translate key="product.technicalDrawings" /></h2>
+			<f:if condition="{product.files}">
+				<section class="product--section">
+					<h2><f:translate key="product.downloads" /></h2>
 
-				<div class="ce-container">
-					<f:for each="{product.technicalDrawings}" as="technicalDrawing">
-						<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" class="product--image" />
-					</f:for>
-				</div>
-			</section>
-		</f:if>
+					<ul class="list--default">
+						<f:for each="{product.files}" as="file">
+							<li><f:link.typolink parameter="{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</f:link.typolink></li>
+						</f:for>
+					</ul>
+				</section>
+			</f:if>
 
-		<f:if condition="{product.files}">
-			<section class="product--section">
-				<h2><f:translate key="product.downloads" /></h2>
+			<f:if condition="{product.media}">
+				<section class="product--section">
+					<h2><f:translate key="product.media" /></h2>
 
-				<ul class="list--default">
-					<f:for each="{product.files}" as="file">
-						<li><f:link.typolink parameter="{file.originalResource.publicUrl}">{file.originalResource.title} ({file.originalResource.extension})</f:link.typolink></li>
-					</f:for>
-				</ul>
-			</section>
-		</f:if>
+					<div class="ce-container">
+						<f:for each="{product.media}" as="media">
+							<f:image src="{media.uid}" treatIdAsReference="1" maxHeight="200" class="product--image" />
+						</f:for>
+					</div>
+				</section>
+			</f:if>
 
-		<f:if condition="{product.media}">
-			<section class="product--section">
-				<h2><f:translate key="product.media" /></h2>
+			<f:if condition="{product.applications}">
+				<section class="product--section">
+					<h2><f:translate key="product.applications" /></h2>
 
-				<div class="ce-container">
-					<f:for each="{product.media}" as="media">
-						<f:image src="{media.uid}" treatIdAsReference="1" maxHeight="200" class="product--image" />
-					</f:for>
-				</div>
-			</section>
-		</f:if>
+					<div class="card--container">
+						<f:for each="{product.applications}" as="application">
+							<f:render partial="Components/Card" section="Main" arguments="{data: application, link: '{f:uri.page(pageUid: application.uid)}'}" />
+						</f:for>
+					</div>
+				</section>
+			</f:if>
 
-		<f:if condition="{product.applications}">
-			<section class="product--section">
-				<h2><f:translate key="product.applications" /></h2>
+			<f:if condition="{product.related}">
+				<section class="product--section">
+					<h2><f:translate key="product.related" /></h2>
 
-				<div class="card--container">
-					<f:for each="{product.applications}" as="application">
-						<f:render partial="Components/Card" section="Main" arguments="{data: application, link: '{f:uri.page(pageUid: application.uid)}'}" />
-					</f:for>
-				</div>
-			</section>
-		</f:if>
-
-		<f:if condition="{product.related}">
-			<section class="product--section">
-				<h2><f:translate key="product.related" /></h2>
-
-				<div class="card--container">
-					<f:for each="{product.related}" as="related">
-						<f:render partial="Components/Card" section="Main" arguments="{data: related, link: related.link}" />
-					</f:for>
-				</div>
-			</section>
-		</f:if>
+					<div class="card--container">
+						<f:for each="{product.related}" as="related">
+							<f:render partial="Components/Card" section="Main" arguments="{data: related, link: related.link}" />
+						</f:for>
+					</div>
+				</section>
+			</f:if>
+		</f:comment>
 	</f:section>
 </html>
