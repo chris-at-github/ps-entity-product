@@ -15,6 +15,7 @@ plugin.tx_entityproduct {
 		partialRootPaths {
 			10 = EXT:entity_product/Resources/Private/Partials/
 			20 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
+			21 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
 			30 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
 			40 = EXT:chart/Resources/Private/Partials/
 			50 = {$plugin.tx_entityproduct.view.partialRootPath}
@@ -96,6 +97,16 @@ tt_content.list.dataProcessing.200 {
 }
 
 [traverse(request.getQueryParams(), 'tx_entityproduct_frontend/product') != 0]
+	tt_content {
+		list {
+			dataProcessing {
+				205 = Ps\EntityProduct\DataProcessing\ProductProcessor
+				205 {
+				}
+			}
+		}
+	}
+
 	block {
 
 		// Inhalt (Plugin) in dem Hauptbereich anzeigen
