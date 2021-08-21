@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="product.variants">
-				<target>Ausführungen</target>
+				<target>Ausführungen:</target>
 			</trans-unit>
 			<trans-unit id="product.downloads" resname="product.downloads">
 				<target>Downloads</target>
