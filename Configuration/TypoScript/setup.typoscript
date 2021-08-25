@@ -86,14 +86,16 @@ tt_content.list.dataProcessing.200 {
 		importCss {
 			10 = /assets/css/modules/chart.css
 			11 = /assets/css/modules/hero.css
-			20 = /assets/css/modules/entity-product.css
+			100 = /assets/css/modules/entity-product.css
 		}
 
 		importJs {
 			10 = /assets/js/chartjs.js
-			20 = /assets/js/plugins/filter.js
-			30 = /assets/js/chart.js
-			40 = /assets/js/entity-product.js
+			11 = /assets/js/tiny-slider.js
+			20 = /assets/js/chart.js
+			21 = /assets/js/plugins/filter.js
+			22 = /assets/js/hero.js
+			100 = /assets/js/entity-product.js
 		}
 	}
 }
