@@ -375,6 +375,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['parent']['label'] = 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.parent';
 
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['image']['label'] = 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.image';
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['image']['config']['maxitems'] = 999;
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = [
 	'hero' => [
 		'title' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.image.crop.hero',
@@ -389,21 +391,9 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	'thumbnail' => [
 		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.thumbnail',
 		'allowedAspectRatios' => [
-			'NaN' => [
-				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
-				'value' => 0.0
-			],
 			'16_9' => [
 				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
 				'value' => 16 / 9
-			],
-			'4_3' => [
-				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
-				'value' => 4 / 3
-			],
-			'1_1' => [
-				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.1_1',
-				'value' => 1
 			],
 		],
 		'selectedRatio' => '16_9',

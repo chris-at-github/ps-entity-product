@@ -23,6 +23,12 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class Product extends Entity {
 
 	/**
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+	 */
+	protected $images = null;
+
+	/**
 	 * @var string
 	 */
 	protected $technicalData = '';
@@ -155,6 +161,7 @@ class Product extends Entity {
 	 */
 	protected function initializeObject() {
 		parent::initializeObject();
+		$this->images = $this->images ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->technicalDrawings = $this->technicalDrawings ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -163,6 +170,25 @@ class Product extends Entity {
 		$this->configuratorResultAttributes = $this->configuratorResultAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->groupedAttributes = $this->groupedAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->keyFacts = $this->keyFacts ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
+
+	/**
+	 * Returns the media
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
+	 */
+	public function getImages() {
+		return $this->images;
+	}
+
+	/**
+	 * Sets the media
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
+	 * @return void
+	 */
+	public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images) {
+		$this->images = $images;
 	}
 
 	/**

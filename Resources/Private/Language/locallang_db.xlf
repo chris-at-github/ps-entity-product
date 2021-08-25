@@ -33,6 +33,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.key_facts" resname="tx_entityproduct_domain_model_product.key_facts">
 				<source>Key Facts</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.image">
+				<source>Images</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.image.crop.hero" resname="tx_entityproduct_domain_model_product.image.crop.hero">
 				<source>Hero</source>
 			</trans-unit>

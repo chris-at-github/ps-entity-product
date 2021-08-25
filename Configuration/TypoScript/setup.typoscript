@@ -14,11 +14,12 @@ plugin.tx_entityproduct {
 
 		partialRootPaths {
 			10 = EXT:entity_product/Resources/Private/Partials/
-			20 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
-			21 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
-			30 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
-			40 = EXT:chart/Resources/Private/Partials/
-			50 = {$plugin.tx_entityproduct.view.partialRootPath}
+			20 = EXT:chart/Resources/Private/Partials/
+			21 = EXT:ce_hero/Resources/Private/Partials/
+			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
+			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
+			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
+			65 = {$plugin.tx_entityproduct.view.partialRootPath}
 		}
 	}
 
@@ -100,10 +101,14 @@ tt_content.list.dataProcessing.200 {
 	tt_content {
 		list {
 			dataProcessing {
-				205 = Ps\EntityProduct\DataProcessing\ProductProcessor
-				205 {
-				}
+				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
 			}
+		}
+	}
+
+	plugin.tx_entityproduct {
+		settings {
+			xo < plugin.tx_xo.settings
 		}
 	}
 

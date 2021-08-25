@@ -6,6 +6,9 @@ return [
 		'tableName' => 'tx_entity_domain_model_entity',
 		'recordType' => \Ps\EntityProduct\Domain\Model\Product::class,
 		'properties' => [
+			'images' => [
+				'fieldName' => 'image'
+			],
 			'chart' => [
 				'fieldName' => 'tx_chart_chart'
 			],
