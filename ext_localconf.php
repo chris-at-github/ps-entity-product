@@ -5,7 +5,7 @@ call_user_func(
 	function() {
 
 		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-			'EntityProduct',
+			'Ps.EntityProduct',
 			'Frontend',
 			[
 				\Ps\EntityProduct\Controller\ProductController::class => 'listing, show'
@@ -13,6 +13,18 @@ call_user_func(
 			// non-cacheable actions
 			[
 				\Ps\EntityProduct\Controller\ProductController::class => ''
+			]
+		);
+
+		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+			'Ps.EntityProduct',
+			'KeyFact',
+			[
+				\Ps\EntityProduct\Controller\KeyFactController::class => 'listing'
+			],
+			// non-cacheable actions
+			[
+				\Ps\EntityProduct\Controller\KeyFactController::class => ''
 			]
 		);
 

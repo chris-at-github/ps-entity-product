@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:section name="Main">
+		<f:if condition="{keyFacts}">
+			<ul class="product--key-facts">
+				<f:for each="{keyFacts}" as="keyFact">
+					<li>
+						<header>{keyFact.title}</header>
+						<f:format.html>{keyFact.description}</f:format.html>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</f:section>
+</html>

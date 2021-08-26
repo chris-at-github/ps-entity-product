@@ -15,7 +15,8 @@ mix.options({
 });
 
 mix.js('Resources/Public/Js/entity-product.js', 'assets/js/entity-product.js')
-mix.sass('Resources/Public/Sass/entity-product.scss', 'assets/css/modules/entity-product.css')
+mix.sass('Resources/Public/Sass/product-frontend.scss', 'assets/css/modules/product-frontend.css')
+	.sass('Resources/Public/Sass/product-keyfact.scss', 'assets/css/modules/product-keyfact.css')
 	.options({
 		postCss: [
 			require('postcss-cachebuster'),
@@ -27,6 +28,6 @@ mix.sass('Resources/Public/Sass/entity-product.scss', 'assets/css/modules/entity
 );
 
 if(mix.inProduction() === true) {
-	mix.minify(['../../../assets/css/modules/entity-product.css']);
+	mix.minify(['../../../assets/css/modules/product-frontend.css', '../../../assets/css/modules/product-keyfact.css']);
 	mix.minify(['../../../assets/js/entity-product.js']);
 }

@@ -25,7 +25,7 @@ plugin.tx_entityproduct {
 
 	persistence {
 		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
-		#recursive = 1
+		recursive = 1
 	}
 
 	features {
@@ -96,6 +96,12 @@ tt_content.list.dataProcessing.200 {
 			21 = /assets/js/plugins/filter.js
 			22 = /assets/js/hero.js
 			100 = /assets/js/entity-product.js
+		}
+	}
+
+	entityproduct_keyfact {
+		importCss {
+			10 = /assets/css/modules/product-keyfact.css
 		}
 	}
 }

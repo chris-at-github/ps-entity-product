@@ -16,6 +16,16 @@ mod {
 					list_type = entityproduct_frontend
 				}
 			}
+
+			entityproduct_keyfact {
+				iconIdentifier = entity_product-plugin-frontend
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.name
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.description
+				tt_content_defValues {
+					CType = list
+					list_type = entityproduct_keyfact
+				}
+			}
 		}
 		show = *
 	}

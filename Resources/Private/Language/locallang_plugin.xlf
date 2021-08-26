@@ -10,6 +10,13 @@
 				<source></source>
 			</trans-unit>
 
+			<trans-unit id="tx_entity_product_keyfact.name" resname="tx_entity_product_keyfact.name">
+				<source>Key Facts</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_product_keyfact.description" resname="tx_entity_product_keyfact.description">
+				<source></source>
+			</trans-unit>
+
 			<trans-unit id="flexform.sheet.main" resname="flexform.sheet.main">
 				<source>Data</source>
 			</trans-unit>
@@ -21,6 +28,9 @@
 			</trans-unit>
 			<trans-unit id="flexform.field.hideFilter" resname="flexform.field.hideFilter">
 				<source>Hide Filter</source>
+			</trans-unit>
+			<trans-unit id="flexform.field.keyFacts" resname="flexform.field.keyFacts">
+				<source>Key Facts</source>
 			</trans-unit>
 		</body>
 	</file>
