@@ -86,7 +86,8 @@ tt_content.list.dataProcessing.200 {
 		importCss {
 			10 = /assets/css/modules/chart.css
 			11 = /assets/css/modules/hero.css
-			100 = /assets/css/modules/entity-product.css
+			100 = /assets/css/modules/product-frontend.css
+			101 = /assets/css/modules/product-keyfact.css
 		}
 
 		importJs {

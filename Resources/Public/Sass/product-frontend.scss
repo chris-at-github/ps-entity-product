@@ -7,12 +7,12 @@
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Variablen
-$tx-entity-product--use-css: true !default;
-$tx-entity-product--layout-listing: true !default;
-$tx-entity-product--layout-show: true !default;
+$tx-product-frontend--use-css: true !default;
+$tx-product-frontend--layout-listing: true !default;
+$tx-product-frontend--layout-show: true !default;
 
-@if($tx-entity-product--use-css) {
-	@if($tx-entity-product--layout-listing) {
+@if($tx-product-frontend--use-css) {
+	@if($tx-product-frontend--layout-listing) {
 		.navigation.sibling-navigation {
 			& {
 				margin-top: $spacing-default;
@@ -44,12 +44,12 @@ $tx-entity-product--layout-show: true !default;
 		.product-item {
 			& {
 				border-radius: $border-radius-small;
-				background: $theme-color-primary;
+				background: $color-grey-light;
 			}
 
 			&:hover, .focusable &:focus {
 				cursor: pointer;
-				background: $theme-color-secondary;
+				background: $color-grey-lighten;
 			}
 
 			.product-item--title {
@@ -102,7 +102,7 @@ $tx-entity-product--layout-show: true !default;
 		}
 	}
 
-	@if($tx-entity-product--layout-show) {
+	@if($tx-product-frontend--layout-show) {
 		.product--section  {
 			& + .product--section {
 				margin: rem(80px 0 0 0);
@@ -130,38 +130,6 @@ $tx-entity-product--layout-show: true !default;
 
 				&:hover, .focusable &:focus {
 					@extend %tab--item-active;
-				}
-			}
-		}
-
-		.product--key-facts {
-			& {
-				@include make-row();
-				list-style: none;
-				padding: 0;
-			}
-
-			& > li {
-				margin-top: rem(10px);
-				@include make-col-ready()
-			}
-
-			header, p {
-				display: inline;
-			}
-
-			header {
-				margin: rem(0 4px 0 0);
-				font-weight: $font-weight-bold;
-			}
-
-			p {
-				& {
-					margin: 0;
-				}
-
-				& + p {
-					margin-top: rem(5px);
 				}
 			}
 		}
@@ -203,15 +171,7 @@ $tx-entity-product--layout-show: true !default;
 
 	// >= 576px
 	@include media-breakpoint-up(sm) {
-		@if($tx-entity-product--layout-show) {
-			.product--key-facts {
-				& > li {
-					@include make-col(6);
-				}
-			}
-		}
-
-		@if($tx-entity-product--layout-listing) {
+		@if($tx-product-frontend--layout-listing) {
 			.navigation.sibling-navigation {
 				ul {
 					display: flex;
@@ -232,7 +192,7 @@ $tx-entity-product--layout-show: true !default;
 
 	// >= 768px
 	@include media-breakpoint-up(md) {
-		@if($tx-entity-product--layout-show) {
+		@if($tx-product-frontend--layout-show) {
 			.product--header {
 				.ce-frame--inner {
 					padding-right: percentage(3 / 12);
@@ -240,7 +200,7 @@ $tx-entity-product--layout-show: true !default;
 			}
 		}
 
-		@if($tx-entity-product--layout-listing) {
+		@if($tx-product-frontend--layout-listing) {
 			.product-listing {
 				& {
 					flex-direction: row;
@@ -260,7 +220,7 @@ $tx-entity-product--layout-show: true !default;
 
 	// >= 992px
 	@include media-breakpoint-up(lg) {
-		@if($tx-entity-product--layout-show) {
+		@if($tx-product-frontend--layout-show) {
 			.product--header {
 				.ce-frame--inner {
 					display: flex;
@@ -278,15 +238,9 @@ $tx-entity-product--layout-show: true !default;
 					padding-left: 15px;
 				}
 			}
-
-			.product--key-facts {
-				& > li {
-					@include make-col(3);
-				}
-			}
 		}
 
-		@if($tx-entity-product--layout-listing) {
+		@if($tx-product-frontend--layout-listing) {
 			.product-listing {
 				.product-listing--filter {
 					min-width: 290px;
@@ -304,7 +258,7 @@ $tx-entity-product--layout-show: true !default;
 
 	// >= 1200px
 	@include media-breakpoint-up(xl) {
-		@if($tx-entity-product--layout-show) {
+		@if($tx-product-frontend--layout-show) {
 			.product--header {
 				.ce-header {
 					width: percentage(8 / 12);
@@ -336,4 +290,4 @@ $tx-entity-product--layout-show: true !default;
 
 // ---------------------------------------------------------------------------------------------------------------------
 // XNA Override
-@import '../../../../xna/Resources/Public/Sass/xna/modules/entity-product';
+@import '../../../../xna/Resources/Public/Sass/xna/modules/product-frontend';
