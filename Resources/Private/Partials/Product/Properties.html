@@ -19,6 +19,14 @@
 			</div>
 		</f:if>
 
+		<f:if condition="{product.keyFacts}">
+			<div class="ce-frame ce-frame--layout-0 ce-frame--class-2 ce-frame--outer ce-frame--space-before-opposite-medium ce-frame--space-after-large">
+				<div class="ce-frame--inner">
+					<f:render partial="KeyFact/Listing" section="Main" arguments="{keyFacts: product.keyFacts}" />
+				</div>
+			</div>
+		</f:if>
+
 		<p>
 			<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 				Button with data-bs-target
