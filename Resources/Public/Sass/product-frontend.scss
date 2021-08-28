@@ -138,16 +138,8 @@ $tx-product-frontend--layout-show: true !default;
 			}
 		}
 
-		.product--technial-data table {
-			max-width: 100%;
-			overflow: hidden;
-			overflow-x: auto;
-			font-size: rem(12px);
-		}
-
-		.product--image {
-			max-width: 100%;
-			height: auto;
+		.product--technical-data table {
+			font-size: rem(16px);
 		}
 
 		//.product--chart-container {
@@ -198,8 +190,19 @@ $tx-product-frontend--layout-show: true !default;
 
 				.accordion--container {
 					margin-bottom: rem(65px);
+				}
+			}
+
+			.product--long-description {
+				.accordion--container {
 					padding-right: percentage(2 / 12);
 				}
+			}
+
+			.product--technical-data table {
+				width: auto;
+				min-width: percentage(10 / 12);
+				font-size: rem(18px);
 			}
 		}
 
@@ -242,10 +245,14 @@ $tx-product-frontend--layout-show: true !default;
 				}
 			}
 
-			.product--accordion {
+			.product--long-description {
 				.accordion--container {
 					padding-right: percentage(3 / 12);
 				}
+			}
+
+			.product--technical-data table {
+				min-width: percentage(9 / 12);
 			}
 		}
 

@@ -32,12 +32,7 @@
 				<ul class="accordion product--accordion">
 					<f:if condition="{product.longDescription}">
 						<li class="product--long-description">
-							<header class="accordion--header" id="product--description-header">
-								<button data-bs-toggle="collapse" data-bs-target="#product--description-container" aria-expanded="false" aria-controls="product--description-container">
-									<f:translate key="product.longDescription" />
-									<xo:svg.inline source="assets/svg/chevron-down.svg" />
-								</button>
-							</header>
+							<f:render section="AccordionHeader" arguments="{identifier: 'description', title: '{f:translate(key: \'product.longDescription\')}'}" />
 							<div id="product--description-container" class="collapse" aria-labelledby="product--description-header">
 								<div class="accordion--container">
 									<f:format.html>{product.longDescription}</f:format.html>
@@ -47,14 +42,9 @@
 					</f:if>
 
 					<f:if condition="{product.technicalData}">
-						<li class="product--technial-data">
-							<header class="accordion--header" id="product--technial-data-header">
-								<button data-bs-toggle="collapse" data-bs-target="#product--technial-data-container" aria-expanded="false" aria-controls="product--technial-data-container">
-									<f:translate key="product.technicalData" />
-									<xo:svg.inline source="assets/svg/chevron-down.svg" />
-								</button>
-							</header>
-							<div id="product--technial-data-container" class="collapse" aria-labelledby="product--description-header">
+						<li class="product--technical-data">
+							<f:render section="AccordionHeader" arguments="{identifier: 'technical-data', title: '{f:translate(key: \'product.technicalData\')}'}" />
+							<div id="product--technical-data-container" class="collapse" aria-labelledby="product--description-header">
 								<div class="accordion--container">
 									<f:format.html>{product.technicalData}</f:format.html>
 								</div>
@@ -66,8 +56,6 @@
 		</div>
 
 		<f:comment>
-
-
 			<f:if condition="{variants}">
 				<section class="product--section">
 					<div class="product--variant-header">Ausführungen</div>
@@ -81,34 +69,6 @@
 							</li>
 						</f:for>
 					</ul>
-				</section>
-			</f:if>
-
-			<section class="product--section">
-				<f:if condition="{product.shortDescription}">
-					<div class="product--short-description"><f:format.html>{product.shortDescription}</f:format.html></div>
-				</f:if>
-
-				<f:if condition="{product.keyFacts}">
-					<ul class="product--key-facts">
-						<f:for each="{product.keyFacts}" as="keyFact">
-							<li>
-								<header>{keyFact.title}</header>
-								<f:format.html>{keyFact.description}</f:format.html>
-							</li>
-						</f:for>
-					</ul>
-				</f:if>
-
-				<f:if condition="{product.longDescription}">
-					<div class="product--long-description"><f:format.html>{product.longDescription}</f:format.html></div>
-				</f:if>
-			</section>
-
-			<f:if condition="{product.technicalData}">
-				<section class="product--section">
-					<h2><f:translate key="product.technicalData" /></h2>
-					<div class="product--technial-data"><f:format.html>{product.technicalData}</f:format.html></div>
 				</section>
 			</f:if>
 
@@ -234,5 +194,14 @@
 				</section>
 			</f:if>
 		</f:comment>
+	</f:section>
+
+	<f:section name="AccordionHeader">
+		<header class="accordion--header" id="product--{identifier}-header">
+			<button data-bs-toggle="collapse" data-bs-target="#product--{identifier}-container" aria-expanded="false" aria-controls="product--{identifier}-container">
+				{title}
+				<xo:svg.inline source="assets/svg/chevron-down.svg" />
+			</button>
+		</header>
 	</f:section>
 </html>
