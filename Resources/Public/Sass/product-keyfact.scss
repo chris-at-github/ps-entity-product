@@ -13,6 +13,7 @@ $tx-product-key-fact--use-css: true !default;
 	.product--key-facts {
 		& {
 			@include make-row();
+			margin-top: rem(-15px);
 			list-style: none;
 			padding: 0;
 		}
