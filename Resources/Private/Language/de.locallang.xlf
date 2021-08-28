@@ -21,6 +21,9 @@
 			<trans-unit id="product.media" resname="product.media">
 				<target>Media</target>
 			</trans-unit>
+			<trans-unit id="product.longDescription" resname="product.longDescription">
+				<target>Produktbeschreibung</target>
+			</trans-unit>
 			<trans-unit id="product.technicalData" resname="product.technicalData">
 				<target>Technische Daten</target>
 			</trans-unit>
