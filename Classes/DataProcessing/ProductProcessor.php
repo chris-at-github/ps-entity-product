@@ -34,6 +34,12 @@ class ProductProcessor extends \Ps\Xo\DataProcessing\ModuleProcessor implements 
 			if(count($product->getTechnicalDrawings()) !== 0) {
 				$this->addImportJsFiles(['/assets/js/libraries/tobii.js' => ['forceOnTop' => true]]);
 				$this->addImportCssFiles(['/assets/css/libraries/tobii.css']);
+
+				// Erst bei mehr als einer technischen Zeichnung werden Tabs benoetigt
+				if(count($product->getTechnicalDrawings()) >= 2) {
+					$this->addImportJsFiles(['/assets/js/components/tab.js']);
+					$this->addImportCssFiles(['/assets/css/components/tab.css']);
+				}
 			}
 		}
 
