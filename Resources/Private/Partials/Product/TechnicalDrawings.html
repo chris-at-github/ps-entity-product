@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="Main">
+
+	<f:if condition="{technicalDrawings -> f:count()} == 1">
+		<f:then>
+			<f:render section="Image" arguments="{technicalDrawing: technicalDrawings.0, settings: settings.pictureSettings}" />
+		</f:then>
+
+		<f:else if="{images -> f:count()} > 1">
+			<div class="slider">
+				<ul class="slider--container">
+					<f:for each="{images}" as="image" iteration="iterator">
+						<li class="slider--item" data-index="{iterator.index}">
+							<f:render partial="Hero/Item" section="Main" arguments="{media: image, settings: settings.xo.modules.ce_hero}" />
+						</li>
+					</f:for>
+				</ul>
+
+				<f:render partial="Components/Slider" section="Navigation" arguments="{elements: images}" />
+			</div>
+		</f:else>
+	</f:if>
+
+	<script>
+		xna.l10n.technicalData = {
+			prev: '<f:translate key="technicalData.lightbox.prev" />',
+			next: '<f:translate key="technicalData.lightbox.next" />',
+			close: '<f:translate key="technicalData.lightbox.close" />',
+		};
+	</script>
+</f:section>
+
+<f:section name="Image">
+	<a class="product--technical-drawing" href="{f:uri.image(src: technicalDrawing.uid, treatIdAsReference: 1, maxWidth: settings.fullsize.maxWidth, maxHeight: settings.fullsize.maxHeight, cropVariant: settings.fullsize.cropVariant)}" aria-label="{f:translate(key: 'LLL:EXT:xo/Resources/Private/Language/locallang_frontend.xlf:tx_xo.action.enlarge')}">
+		<f:render partial="Components/Media" section="Picture" arguments="{
+			file: technicalDrawing,
+			image: {
+				title: technicalDrawing.title
+				maxHeight: settings.thumbnail.maxHeight,
+				cropVariant: settings.thumbnail.cropVariant
+			},
+			sizes: settings.thumbnail.mediaQueries
+		}" />
+		<span class="product--technical-drawing-enlarge"><xo:svg.use name="enlarge" viewBox="0 0 13 13" /></span>
+	</a>
+</f:section>
+</html>

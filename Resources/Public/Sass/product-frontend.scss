@@ -142,9 +142,57 @@ $tx-product-frontend--layout-show: true !default;
 			font-size: rem(16px);
 		}
 
-		//.product--chart-container {
-		//	height: 400px;
-		//}
+		.product--technical-drawings {
+			img {
+				@extend %image-responsive;
+				width: auto;
+				max-height: 300px;
+			}
+
+			.product--technical-drawing {
+				& {
+					position: relative;
+					display: inline-block;
+					margin-top: rem(15px);
+				}
+
+				&:hover, .focusable &:focus {
+					background: none;
+				}
+
+				.no-touch & {
+					.product--technical-drawing-enlarge {
+						opacity: 0;
+						transition: opacity $transition-duration;
+					}
+
+					&:hover, &:focus {
+						.product--technical-drawing-enlarge {
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			.product--technical-drawing-enlarge {
+				@extend %button--rounded-icon;
+				position: absolute;
+				right: 0; bottom: 0;
+			}
+		}
+
+		.tobii.tobii--theme-technical-drawing {
+			.tobii__slide {
+				[data-type] {
+					padding: rem(10px);
+				}
+
+				figure > figcaption {
+					position: absolute;
+					padding: rem(30px 0 0 0);
+				}
+			}
+		}
 
 		.product--listing {
 			.card--container {
@@ -253,6 +301,12 @@ $tx-product-frontend--layout-show: true !default;
 
 			.product--technical-data table {
 				min-width: percentage(9 / 12);
+			}
+
+			.product--technical-drawings {
+				img {
+					max-height: 450px;
+				}
 			}
 		}
 

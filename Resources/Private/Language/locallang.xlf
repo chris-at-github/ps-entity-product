@@ -40,6 +40,16 @@
 			<trans-unit id="variant.cadFile" resname="variant.cadFile">
 				<source>CAD File</source>
 			</trans-unit>
+
+			<trans-unit id="technicalData.lightbox.prev">
+				<source>Previous technical drawing</source>
+			</trans-unit>
+			<trans-unit id="technicalData.lightbox.next">
+				<source>Next technical drawing</source>
+			</trans-unit>
+			<trans-unit id="technicalData.lightbox.close">
+				<source>Close technical drawing fullsize</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

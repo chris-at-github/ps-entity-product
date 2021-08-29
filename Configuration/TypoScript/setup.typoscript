@@ -43,31 +43,60 @@ plugin.tx_entityproduct {
 	}
 }
 
-plugin.tx_xo.settings.filter {
-	entityproduct {
-		namespace = tx_entityproduct_frontend
-		submitAll = 1
-		resetAll = 1
-#		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
-#		collapse = 1
-#		pageType = 1548191072
+plugin.tx_xo.settings {
+	filter {
+		entityproduct {
+			namespace = tx_entityproduct_frontend
+			submitAll = 1
+			resetAll = 1
+			#		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
+			#		collapse = 1
+			#		pageType = 1548191072
 
-		items {
-			categories {
-				renderType = treeRadio
-				autoSubmit = 1
-				resetable = 1
-				dataProvider {
-					Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
-						parent = 16
-						whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
-						removeSingleValues = 1
+			items {
+				categories {
+					renderType = treeRadio
+					autoSubmit = 1
+					resetable = 1
+					dataProvider {
+						Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
+							parent = 16
+							whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
+							removeSingleValues = 1
+						}
+					}
+				}
+			}
+		}
+	}
+
+	modules.entityproduct {
+		technicalDrawings.pictureSettings {
+			fullsize {
+				maxWidth = 1200
+				maxHeight = 1200
+				cropVariant = fullscreen
+			}
+			thumbnail {
+				maxHeight = 450
+				cropVariant = thumbnail
+				mediaQueries {
+					992 {
+						maxHeight = 450
+						cropVariant = thumbnail
+						mediaQuery = (min-width: 992px)
+					}
+					0 {
+						maxHeight = 300
+						cropVariant = thumbnail
+						mediaQuery = (min-width: 0px)
 					}
 				}
 			}
 		}
 	}
 }
+
 
 page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
 page.10.dataProcessing.32 {

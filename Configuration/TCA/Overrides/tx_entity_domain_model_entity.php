@@ -91,6 +91,34 @@ $tmpEntityProductColumns = [
 									--palette--;;filePalette'
 							],
 						],
+						'columns' => [
+							'crop' => [
+								'config' => [
+									'cropVariants' => [
+										'fullsize' => [
+											'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.fullsize',
+											'allowedAspectRatios' => [
+												'NaN' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+													'value' => 0.0
+												],
+											],
+											'selectedRatio' => 'NaN',
+										],
+										'thumbnail' => [
+											'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.thumbnail',
+											'allowedAspectRatios' => [
+												'NaN' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+													'value' => 0.0
+												],
+											],
+											'selectedRatio' => 'NaN',
+										],
+									]
+								]
+							]
+						]
 					],
 					'maxitems' => 99
 				],

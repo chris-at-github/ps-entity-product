@@ -2,6 +2,9 @@
 
 namespace Ps\EntityProduct\DataProcessing;
 
+use Ps\EntityProduct\Domain\Model\Product;
+use Ps\EntityProduct\Domain\Repository\ProductRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
@@ -19,6 +22,20 @@ class ProductProcessor extends \Ps\Xo\DataProcessing\ModuleProcessor implements 
 
 		// auf der Detailseite werden die Inhaltselemente nochmals selbst in Container-DIV Elemente eingeteilt
 		$processedData['data']['tx_xo_no_frame'] = 1;
+
+		// Produkt-Model laden
+		$request = GeneralUtility::_GET('tx_entityproduct_frontend');
+		if(empty($request) === false) {
+
+			/** @var Product $product */
+			$product = $this->objectManager->get(ProductRepository::class)->findByUid((int) $request['product']);
+
+			// Technische Zeichnungen vorhanden?
+			if(count($product->getTechnicalDrawings()) !== 0) {
+				$this->addImportJsFiles(['/assets/js/libraries/tobii.js' => ['forceOnTop' => true]]);
+				$this->addImportCssFiles(['/assets/css/libraries/tobii.css']);
+			}
+		}
 
 		return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);
 	}

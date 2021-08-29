@@ -44,9 +44,19 @@
 					<f:if condition="{product.technicalData}">
 						<li class="product--technical-data">
 							<f:render section="AccordionHeader" arguments="{identifier: 'technical-data', title: '{f:translate(key: \'product.technicalData\')}'}" />
-							<div id="product--technical-data-container" class="collapse" aria-labelledby="product--description-header">
+							<div id="product--technical-data-container" class="collapse" aria-labelledby="product--technical-data-header">
 								<div class="accordion--container">
 									<f:format.html>{product.technicalData}</f:format.html>
+								</div>
+							</div>
+						</li>
+					</f:if>
+					<f:if condition="{product.technicalDrawings}">
+						<li class="product--technical-drawings">
+							<f:render section="AccordionHeader" arguments="{identifier: 'technical-drawings', title: '{f:translate(key: \'product.technicalDrawings\')}'}" />
+							<div id="product--technical-drawings-container" class="collapse show" aria-labelledby="product--technical-drawings-header">
+								<div class="accordion--container">
+									<f:render partial="Product/TechnicalDrawings" section="Main" arguments="{technicalDrawings: product.technicalDrawings, settings: settings.xo.modules.entityproduct.technicalDrawings}" />
 								</div>
 							</div>
 						</li>
