@@ -115,7 +115,7 @@ tt_content.list.dataProcessing.200 {
 		importCss {
 			10 = /assets/css/components/collapse.css
 			11 = /assets/css/components/accordion.css
-			50 = /assets/css/modules/chart.css
+#			50 = /assets/css/modules/chart.css
 			51 = /assets/css/modules/hero.css
 			100 = /assets/css/modules/product-frontend.css
 			101 = /assets/css/modules/product-keyfact.css
@@ -124,9 +124,9 @@ tt_content.list.dataProcessing.200 {
 		importJs {
 			47 = /assets/js/components/collapse.js
 			48 = /assets/js/tiny-slider.js
-			50 = /assets/js/chartjs.js
-			50 = /assets/js/chart.js
-			51 = /assets/js/plugins/filter.js
+#			50 = /assets/js/chartjs.js
+#			50 = /assets/js/chart.js
+#			51 = /assets/js/plugins/filter.js
 			52 = /assets/js/hero.js
 			100 = /assets/js/entity-product.js
 		}

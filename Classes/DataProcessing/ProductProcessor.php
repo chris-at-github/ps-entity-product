@@ -41,6 +41,15 @@ class ProductProcessor extends \Ps\Xo\DataProcessing\ModuleProcessor implements 
 					$this->addImportCssFiles(['/assets/css/components/tab.css']);
 				}
 			}
+
+			// Chart vorhanden?
+			if($product->getChart() !== null) {
+				$this->addImportJsFiles([
+					'/assets/js/libraries/chart.js' => ['forceOnTop' => true],
+					'/assets/js/modules/chart.js'
+				]);
+				$this->addImportCssFiles(['/assets/css/modules/chart.css']);
+			}
 		}
 
 		return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);

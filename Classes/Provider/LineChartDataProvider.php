@@ -27,4 +27,22 @@ class LineChartDataProvider extends \ Ps14\Chart\Provider\LineChartDataProvider 
 	protected function getValues(array $data) {
 		return $data['values'];
 	}
+
+	/**
+	 * @param object $values
+	 * @param int $uid
+	 * @return array
+	 */
+	protected function getDatasetData(object $values, int $uid): array {
+		$data = [];
+
+		/** @var Value $value */
+		foreach($values as $value) {
+			if(isset($value->getPiFlexformData()[$uid]) === true) {
+				$data[] = round($value->getPiFlexformData()[$uid], 2);
+			}
+		}
+
+		return $data;
+	}
 }
