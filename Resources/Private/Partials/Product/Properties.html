@@ -64,13 +64,13 @@
 					<f:if condition="{chart}">
 						<li class="product--chart">
 							<f:render section="AccordionHeader" arguments="{identifier: 'chart', title: chart.object.alternativeTitle}" />
-							<div id="product--chart-container" class="collapse show" aria-labelledby="product--chart-header">
+							<div id="product--chart-container" class="collapse" aria-labelledby="product--chart-header">
 								<div class="accordion--container">
-									<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
 									<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
 								</div>
 							</div>
 						</li>
+						<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
 					</f:if>
 				</ul>
 			</div>
@@ -92,17 +92,6 @@
 					</ul>
 				</section>
 			</f:if>
-
-			<f:if condition="{chart}">
-				<section class="product--section">
-					<div class="product--chart-container">
-						<h2>{chart.object.alternativeTitle}</h2>
-						<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
-						<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
-					</div>
-				</section>
-			</f:if>
-
 			<f:if condition="{product.variants}">
 				<section class="product--section">
 					<h2><f:translate key="product.variants" /></h2>
@@ -151,18 +140,6 @@
 								</tr>
 							</f:for>
 						</table>
-					</div>
-				</section>
-			</f:if>
-
-			<f:if condition="{product.technicalDrawings}">
-				<section class="product--section">
-					<h2><f:translate key="product.technicalDrawings" /></h2>
-
-					<div class="ce-container">
-						<f:for each="{product.technicalDrawings}" as="technicalDrawing">
-							<f:image src="{technicalDrawing.uid}" treatIdAsReference="1" maxHeight="300" class="product--image" />
-						</f:for>
 					</div>
 				</section>
 			</f:if>
