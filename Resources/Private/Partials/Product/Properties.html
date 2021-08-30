@@ -61,6 +61,17 @@
 							</div>
 						</li>
 					</f:if>
+					<f:if condition="{chart}">
+						<li class="product--chart">
+							<f:render section="AccordionHeader" arguments="{identifier: 'chart', title: chart.object.alternativeTitle}" />
+							<div id="product--chart-container" class="collapse show" aria-labelledby="product--chart-header">
+								<div class="accordion--container">
+									<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+									<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
+								</div>
+							</div>
+						</li>
+					</f:if>
 				</ul>
 			</div>
 		</div>
