@@ -28,6 +28,10 @@
 				<target>Technische Daten</target>
 			</trans-unit>
 
+			<trans-unit id="download.dataSheet">
+				<target>Datenblatt</target>
+			</trans-unit>
+
 			<trans-unit id="variant.title" resname="variant.title">
 				<target>Title</target>
 			</trans-unit>

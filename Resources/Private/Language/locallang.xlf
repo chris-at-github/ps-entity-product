@@ -28,6 +28,10 @@
 				<source>Technical Data</source>
 			</trans-unit>
 
+			<trans-unit id="download.dataSheet">
+				<source>Datasheet</source>
+			</trans-unit>
+
 			<trans-unit id="variant.title" resname="variant.title">
 				<source>Title</source>
 			</trans-unit>

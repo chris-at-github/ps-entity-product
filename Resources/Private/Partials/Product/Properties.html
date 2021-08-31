@@ -67,10 +67,21 @@
 							<div id="product--chart-container" class="collapse" aria-labelledby="product--chart-header">
 								<div class="accordion--container">
 									<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
+									<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
 								</div>
 							</div>
 						</li>
-						<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+
+					</f:if>
+					<f:if condition="{product.files}">
+						<li class="product--downloads">
+							<f:render section="AccordionHeader" arguments="{identifier: 'downloads', title: '{f:translate(key: \'product.downloads\')}'}" />
+							<div id="product--downloads-container" class="collapse" aria-labelledby="product--downloads-header">
+								<div class="accordion--container">
+									<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
+								</div>
+							</div>
+						</li>
 					</f:if>
 				</ul>
 			</div>

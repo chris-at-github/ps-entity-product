@@ -16,9 +16,11 @@ plugin.tx_entityproduct {
 			10 = EXT:entity_product/Resources/Private/Partials/
 			20 = EXT:chart/Resources/Private/Partials/
 			21 = EXT:ce_hero/Resources/Private/Partials/
+			22 = EXT:ce_downloads/Resources/Private/Partials/
 			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
 			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
 			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
+			61 = EXT:xna/Resources/Private/Extensions/CeDownloads/Partials/
 			65 = {$plugin.tx_entityproduct.view.partialRootPath}
 		}
 	}
@@ -117,6 +119,7 @@ tt_content.list.dataProcessing.200 {
 			11 = /assets/css/components/accordion.css
 #			50 = /assets/css/modules/chart.css
 			51 = /assets/css/modules/hero.css
+			52 = /assets/css/modules/downloads.css
 			100 = /assets/css/modules/product-frontend.css
 			101 = /assets/css/modules/product-keyfact.css
 		}

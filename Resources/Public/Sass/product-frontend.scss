@@ -245,7 +245,7 @@ $tx-product-frontend--layout-show: true !default;
 				}
 			}
 
-			.product--long-description {
+			.product--long-description, .product--downloads {
 				.accordion--container {
 					padding-right: percentage(2 / 12);
 				}
@@ -297,7 +297,7 @@ $tx-product-frontend--layout-show: true !default;
 				}
 			}
 
-			.product--long-description {
+			.product--long-description, .product--downloads {
 				.accordion--container {
 					padding-right: percentage(3 / 12);
 				}

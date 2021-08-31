@@ -27,6 +27,7 @@ $EM_CONF[$_EXTKEY] = [
 			'flux' => '9.4.2-9.5.99',
 			'chart' => '1.0.0-1.10.99',
 			'ce_hero' => '1.0.2-1.10.99',
+			'ce_downloads' => '1.0.0-1.10.99',
 		],
 		'conflicts' => [],
 		'suggests' => [],
