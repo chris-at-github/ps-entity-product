@@ -103,6 +103,12 @@ $tx-product-frontend--layout-show: true !default;
 	}
 
 	@if($tx-product-frontend--layout-show) {
+		.product--header {
+			.ce-header {
+				margin-top: 0;
+			}
+		}
+
 		.product--variant-navigation {
 			& {
 				margin: rem(20px 0 0 0);
