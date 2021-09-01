@@ -20,7 +20,7 @@ class ProductProcessor extends \Ps\Xo\DataProcessing\ModuleProcessor implements 
 	 */
 	public function process(ContentObjectRenderer $contentObject, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
 
-		if($processedData['data'] !== 'entityproduct_frontend') {
+		if($processedData['data']['list_type'] !== 'entityproduct_frontend') {
 			return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);
 		}
 
