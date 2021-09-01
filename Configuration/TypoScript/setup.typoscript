@@ -160,10 +160,10 @@ tt_content.list.dataProcessing.200 {
 	block {
 
 		// Inhalt (Plugin) in dem Hauptbereich anzeigen
-		contentMain.select.where = colPos = 20
+		contentMain.select.where = colPos = 15
 
 		// Dummy-Wert fuer die nicht Anzeige
-		contentFooter.select.where = colPos = -100
+		contentProduct.select.where = colPos = -100
 	}
 
 	dataProcessing {
