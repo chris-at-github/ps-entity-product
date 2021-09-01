@@ -20,6 +20,10 @@ class ProductProcessor extends \Ps\Xo\DataProcessing\ModuleProcessor implements 
 	 */
 	public function process(ContentObjectRenderer $contentObject, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
 
+		if($processedData['data'] !== 'entityproduct_frontend') {
+			return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);
+		}
+
 		// auf der Detailseite werden die Inhaltselemente nochmals selbst in Container-DIV Elemente eingeteilt
 		$processedData['data']['tx_xo_no_frame'] = 1;
 
