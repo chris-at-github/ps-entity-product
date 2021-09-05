@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="Main">
+	<header class="ce-header ce-header--layout-2">
+		<f:render partial="Header/Header" arguments="{header: '{f:translate(key: \'product.related\')}', layout: 2}" />
+	</header>
+
+	<ul class="card--container">
+		<f:for each="{product.related}" as="related">
+			<li class="card" data-uri-target="{related.link}">
+				<f:render partial="Components/Card" section="Media" arguments="{media: related.masterImage, settings: settings.xo.modules.entityproduct.related.pictureSettings.thumbnail}" />
+				<f:render partial="Components/Card" section="Title" arguments="{title: related.title, link: related.link}" />
+			</li>
+		</f:for>
+	</ul>
+</f:section>
+</html>

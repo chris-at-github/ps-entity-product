@@ -27,7 +27,7 @@
 			</div>
 		</f:if>
 
-		<div class="ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
+		<div class="ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-auto">
 			<div class="ce-frame--inner">
 				<ul class="accordion product--accordion">
 					<f:if condition="{product.longDescription}">
@@ -86,6 +86,14 @@
 				</ul>
 			</div>
 		</div>
+
+		<f:if condition="{product.related}">
+			<div class="product--related ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Related" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
 
 		<f:comment>
 			<f:if condition="{variants}">

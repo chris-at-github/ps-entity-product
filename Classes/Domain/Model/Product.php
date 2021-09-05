@@ -173,6 +173,21 @@ class Product extends Entity {
 	}
 
 	/**
+	 * Returns the image
+	 *
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference|null
+	 */
+	public function getMasterImage() {
+		$image = null;
+
+		if($this->images->count() !== 0) {
+			$image = $this->images->current();
+		}
+
+		return $image;
+	}
+
+	/**
 	 * Returns the media
 	 *
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images

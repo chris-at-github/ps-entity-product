@@ -18,6 +18,7 @@ plugin.tx_entityproduct {
 			21 = EXT:ce_hero/Resources/Private/Partials/
 			22 = EXT:ce_downloads/Resources/Private/Partials/
 			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
+			51 = EXT:xna/Resources/Private/Partials/
 			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
 			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
 			61 = EXT:xna/Resources/Private/Extensions/CeDownloads/Partials/
@@ -90,6 +91,25 @@ plugin.tx_xo.settings {
 					}
 					0 {
 						maxHeight = 300
+						cropVariant = thumbnail
+						mediaQuery = (min-width: 0px)
+					}
+				}
+			}
+		}
+
+		related.pictureSettings {
+			thumbnail {
+				width = 530
+				cropVariant = thumbnail
+				mediaQueries {
+					576 {
+						width = 360
+						cropVariant = thumbnail
+						mediaQuery = (min-width: 576px)
+					}
+					0 {
+						width = 530
 						cropVariant = thumbnail
 						mediaQuery = (min-width: 0px)
 					}

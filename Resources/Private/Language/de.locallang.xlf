@@ -12,8 +12,8 @@
 			<trans-unit id="product.applications" resname="product.applications">
 				<target>Applications</target>
 			</trans-unit>
-			<trans-unit id="product.accessories" resname="product.related">
-				<target>Related</target>
+			<trans-unit id="product.related" resname="product.related">
+				<target>Passende Produkte / Zubehör</target>
 			</trans-unit>
 			<trans-unit id="product.technicalDrawings" resname="product.technicalDrawings">
 				<target>Technische Zeichnungen</target>
