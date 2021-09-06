@@ -10,7 +10,7 @@
 				<target>Downloads</target>
 			</trans-unit>
 			<trans-unit id="product.applications" resname="product.applications">
-				<target>Applications</target>
+				<target>Passende Branchenlösungen</target>
 			</trans-unit>
 			<trans-unit id="product.related" resname="product.related">
 				<target>Passende Produkte / Zubehör</target>

@@ -7,7 +7,7 @@
 	<ul class="card--container">
 		<f:for each="{product.related}" as="related">
 			<li class="card" data-uri-target="{related.link}">
-				<f:render partial="Components/Card" section="Media" arguments="{media: related.masterImage, settings: settings.xo.modules.entityproduct.related.pictureSettings.thumbnail}" />
+				<f:render partial="Components/Card" section="Media" arguments="{media: related.masterImage, settings: settings.xo.modules.entityproduct.card.pictureSettings.thumbnail}" />
 				<f:render partial="Components/Card" section="Title" arguments="{title: related.title, link: related.link}" />
 			</li>
 		</f:for>

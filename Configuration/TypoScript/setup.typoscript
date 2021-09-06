@@ -98,7 +98,7 @@ plugin.tx_xo.settings {
 			}
 		}
 
-		related.pictureSettings {
+		card.pictureSettings {
 			thumbnail {
 				width = 530
 				cropVariant = thumbnail
