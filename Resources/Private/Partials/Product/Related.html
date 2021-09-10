@@ -4,21 +4,35 @@
 		<f:render partial="Header/Header" arguments="{header: '{f:translate(key: \'product.related\')}', layout: 2}" />
 	</header>
 
+	<f:if condition="{product.related -> f:count()} > {settings.xo.modules.entityproduct.card.readmoreLimit}">
+		<f:then>
+			<f:render section="ReadmoreContainer" arguments="{_all}" />
+		</f:then>
+		<f:else>
+			<f:render section="CardContainer" arguments="{_all}" />
+		</f:else>
+	</f:if>
+</f:section>
+
+<f:section name="ReadmoreContainer">
 	<div class="readmore-container">
 		<div class="readmore-container--collapse">
-			<ul class="card--container readmore-container--body">
-				<f:for each="{product.related}" as="related">
-					<li class="card" data-uri-target="{related.link}">
-						<f:render partial="Components/Card" section="Media" arguments="{media: related.masterImage, settings: settings.xo.modules.entityproduct.card.pictureSettings.thumbnail}" />
-						<f:render partial="Components/Card" section="Title" arguments="{title: related.title, link: related.link}" />
-					</li>
-				</f:for>
-			</ul>
+			<f:render section="CardContainer" arguments="{product: product, settings: settings, additionalClass: 'readmore-container--body'}" />
 		</div>
 		<div class="readmore-container--toggle">
 			<button class="button"><xo:svg.use name="readmore" viewBox="0 0 24 15" />Mehr laden</button>
 		</div>
 	</div>
+</f:section>
 
+<f:section name="CardContainer">
+	<ul class="card--container {additionalClass}">
+		<f:for each="{product.related}" as="related">
+			<li class="card" data-uri-target="{related.link}">
+				<f:render partial="Components/Card" section="Media" arguments="{media: related.masterImage, settings: settings.xo.modules.entityproduct.card.pictureSettings.thumbnail}" />
+				<f:render partial="Components/Card" section="Title" arguments="{title: related.title, link: related.link}" />
+			</li>
+		</f:for>
+	</ul>
 </f:section>
 </html>

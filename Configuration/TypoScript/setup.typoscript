@@ -98,20 +98,23 @@ plugin.tx_xo.settings {
 			}
 		}
 
-		card.pictureSettings {
-			thumbnail {
-				width = 530
-				cropVariant = thumbnail
-				mediaQueries {
-					576 {
-						width = 360
-						cropVariant = thumbnail
-						mediaQuery = (min-width: 576px)
-					}
-					0 {
-						width = 530
-						cropVariant = thumbnail
-						mediaQuery = (min-width: 0px)
+		card {
+			readmoreLimit = 3
+			pictureSettings {
+				thumbnail {
+					width = 530
+					cropVariant = thumbnail
+					mediaQueries {
+						576 {
+							width = 360
+							cropVariant = thumbnail
+							mediaQuery = (min-width: 576px)
+						}
+						0 {
+							width = 530
+							cropVariant = thumbnail
+							mediaQuery = (min-width: 0px)
+						}
 					}
 				}
 			}
