@@ -44,7 +44,7 @@ class Product extends Entity {
 	/**
 	 * applications
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Page>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps14\Taste\Domain\Model\Page>
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $applications = null;
