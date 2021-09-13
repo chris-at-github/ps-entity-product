@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:section name="Main">
 	<header class="ce-header ce-header--layout-2">
 		<f:render partial="Header/Header" arguments="{header: '{f:translate(key: \'product.applications\')}', layout: 2}" />
@@ -30,6 +30,7 @@
 		<f:for each="{product.applications}" as="application">
 			<li class="card" data-uri-target="{f:uri.page(pageUid: application.uid)}">
 				<f:render partial="Components/Card" section="Media" arguments="{media: application.media, settings: settings.xo.modules.entityproduct.card.pictureSettings.thumbnail}" />
+				<f:render partial="Components/Card" section="Badges" arguments="{badges: application.badges}" />
 				<f:render partial="Components/Card" section="Title" arguments="{title: application.title, link: '{f:uri.page(pageUid: application.uid)}'}" />
 			</li>
 		</f:for>
