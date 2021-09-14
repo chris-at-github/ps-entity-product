@@ -33,6 +33,9 @@
 			<trans-unit id="product.systemInstallation" resname="product.systemInstallation">
 				<target>Anlagenaufbau</target>
 			</trans-unit>
+			<trans-unit id="product.technicalFeatures" resname="product.technicalFeatures">
+				<source>Technische Features</source>
+			</trans-unit>
 
 			<trans-unit id="download.dataSheet">
 				<target>Datenblatt</target>
