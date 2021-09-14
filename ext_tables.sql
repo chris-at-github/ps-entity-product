@@ -3,6 +3,7 @@ CREATE TABLE tx_entity_domain_model_entity (
 	technical_data text,
 	technical_drawings int(11) unsigned DEFAULT '0' NOT NULL,
 	applications int(11) unsigned DEFAULT '0' NOT NULL,
+	technology int(11) unsigned DEFAULT '0' NOT NULL,
 	show_configurator smallint(5) unsigned DEFAULT '1' NOT NULL,
 	attributes int(11) unsigned DEFAULT '0' NOT NULL,
 	variants int(11) unsigned DEFAULT '0' NOT NULL,
@@ -13,7 +14,10 @@ CREATE TABLE tx_entity_domain_model_entity (
 	key_facts int(11) unsigned DEFAULT '0' NOT NULL,
 	variant_title varchar(255) DEFAULT '' NOT NULL,
 	tx_chart_chart int(11) unsigned DEFAULT '0' NOT NULL,
-	tx_chart_values int(11) unsigned DEFAULT '0' NOT NULL
+	tx_chart_values int(11) unsigned DEFAULT '0' NOT NULL,
+	system_installation_media int(11) unsigned DEFAULT '0' NOT NULL,
+	technical_features int(11) unsigned DEFAULT '0' NOT NULL,
+	options text
 );
 
 CREATE TABLE tx_entityproduct_domain_model_attribute (

@@ -32,7 +32,11 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
-	'showitem' => 'show_configurator, --linebreak--, configurator_filter_attributes, --linebreak--, configurator_result_attributes'
+	'showitem' => 'show_configurator, --linebreak--, configurator_filter_attributes, --linebreak--, configurator_result_attributes,'
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['extended'] = [
+	'showitem' => 'system_installation_media, --linebreak--, technical_features, --linebreak--, options,'
 ];
 
 $GLOBALS['TCA']['tt_address']['palettes']['productHidden'] = [
@@ -137,6 +141,19 @@ $tmpEntityProductColumns = [
 			'MM' => 'tx_entityproduct_product_applications_mm',
 			'maxitems' => 999,
 			'size' => 4,
+		],
+	],
+	'technology' => [
+		'exclude' => true,
+		'l10n_mode' => 'exclude',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technology',
+		'config' => [
+			'type' => 'group',
+			'internal_type' => 'db',
+			'allowed' => 'pages',
+			'foreign_table' => 'pages',
+			'maxitems' => 1,
+			'size' => 1,
 		],
 	],
 	'attributes' => [
@@ -343,12 +360,110 @@ $tmpEntityProductColumns = [
 			'multiple' => 0,
 		],
 	],
+	'options' => [
+		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.options',
+		'config' => [
+			'type' => 'text',
+			'enableRichtext' => true,
+			'richtextConfiguration' => 'xoDefault',
+			'fieldControl' => [
+				'fullScreenRichtext' => [
+					'disabled' => false,
+				],
+			],
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim',
+		],
+	],
+	'system_installation_media' => [
+		'exclude' => true,
+		'l10n_mode' => 'exclude',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.system_installation_media',
+		'config' =>
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'system_installation_media',
+				[
+					'appearance' => [
+						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+						'collapseAll' => 1,
+					],
+					'foreign_match_fields' => [
+						'fieldname' => 'system_installation_media',
+						'tablenames' => 'tx_entity_domain_model_entity',
+						'table_local' => 'sys_file',
+					],
+					'overrideChildTca' => [
+						'types' => [
+							'0' => [
+								'showitem' => '
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;;filePalette'
+							],
+							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+								'showitem' => '
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;;filePalette'
+							],
+						],
+						'columns' => [
+							'crop' => [
+								'config' => [
+									'cropVariants' => [
+										'default' => [
+											'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
+											'allowedAspectRatios' => [
+												'NaN' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+													'value' => 0.0
+												],
+											],
+											'selectedRatio' => 'NaN',
+										],
+									]
+								]
+							]
+						]
+					],
+					'maxitems' => 99
+				],
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+			),
+	],
+	'technical_features' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_features',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'config' => [
+			'type' => 'inline',
+			'foreign_table' => 'tx_xo_domain_model_elements',
+			'foreign_field' => 'foreign_uid',
+			'foreign_sortby' => 'sorting',
+			'foreign_label' => 'title',
+			'foreign_match_fields' => [
+				'foreign_field' => 'technical_features',
+			],
+			'maxitems' => 999,
+			'appearance' => [
+				'collapseAll' => 1,
+				'expandSingle' => 1,
+				'showAllLocalizationLink' => 1,
+				'showSynchronizationLink' => 1,
+				'showPossibleLocalizationRecords' => 1,
+				'showRemovedLocalizationRecords' => 1,
+				'newRecordLinkAddTitle' => 1
+			],
+		]
+	],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_entity_domain_model_entity', $tmpEntityProductColumns);
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'description', '--linebreak--, technical_data', 'after:long_description');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'media', '--linebreak--, technical_drawings', 'after:media');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'relation', '--linebreak--, key_facts, --linebreak--, accessories, --linebreak--, applications', 'after:related');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'relation', '--linebreak--, key_facts, --linebreak--, accessories, --linebreak--, applications, --linebreak--, technology', 'after:related');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'category', '--linebreak--, categories', 'after:master_category');
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['showitem'] = '
@@ -360,6 +475,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	--palette--;;attributes,
 	--palette--;;media,
 	--palette--;;files,
+--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
+	--palette--;;extended,
 --div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.variants,
 	--palette--;;variants,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.relation,
