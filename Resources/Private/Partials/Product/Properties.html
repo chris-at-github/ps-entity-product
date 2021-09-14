@@ -1,6 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
-
 		<div class="product--header ce-header ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
 			<div class="ce-frame--inner">
 				<f:render partial="Product/Header" section="Main" arguments="{_all}" />
@@ -86,6 +85,14 @@
 				</ul>
 			</div>
 		</div>
+
+		<f:if condition="{product.technology}">
+			<div class="product--technology ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-large">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Technology" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
 
 		<f:if condition="{product.related}">
 			<div class="product--related ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-large">
