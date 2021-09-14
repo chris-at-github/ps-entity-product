@@ -119,6 +119,22 @@ plugin.tx_xo.settings {
 				}
 			}
 		}
+
+		systemInstallation {
+			pictureSettings {
+				small {
+					width = 560
+					cropVariant = default
+					mediaQueries {
+						0 {
+							width = 560
+							cropVariant = default
+							mediaQuery = (min-width: 0px)
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

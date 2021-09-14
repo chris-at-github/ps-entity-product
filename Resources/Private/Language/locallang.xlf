@@ -27,6 +27,12 @@
 			<trans-unit id="product.technicalData" resname="product.technicalData">
 				<source>Technical Data</source>
 			</trans-unit>
+			<trans-unit id="product.options" resname="product.options">
+				<source>Options</source>
+			</trans-unit>
+			<trans-unit id="product.systemInstallation" resname="product.systemInstallation">
+				<source>System Installation</source>
+			</trans-unit>
 
 			<trans-unit id="download.dataSheet">
 				<source>Datasheet</source>

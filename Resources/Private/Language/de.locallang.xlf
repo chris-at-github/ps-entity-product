@@ -27,6 +27,12 @@
 			<trans-unit id="product.technicalData" resname="product.technicalData">
 				<target>Technische Daten</target>
 			</trans-unit>
+			<trans-unit id="product.options" resname="product.options">
+				<target>Optionen</target>
+			</trans-unit>
+			<trans-unit id="product.systemInstallation" resname="product.systemInstallation">
+				<target>Anlagenaufbau</target>
+			</trans-unit>
 
 			<trans-unit id="download.dataSheet">
 				<target>Datenblatt</target>

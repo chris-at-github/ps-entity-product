@@ -1,0 +1,41 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="Main">
+
+	<div class="marker-image">
+		<f:if condition="{product.systemInstallationMedia}">
+			<div class="marker-image--media">
+				<f:render partial="Components/Media" section="Picture" arguments="{
+					file: product.systemInstallationMedia.originalResource,
+					image: {
+						maxWidth: settings.xo.modules.entityproduct.systemInstallation.pictureSettings.small.width,
+						cropVariant: settings.xo.modules.entityproduct.systemInstallation.pictureSettings.small.cropVariant
+					},
+					sizes: settings.xo.modules.entityproduct.systemInstallation.pictureSettings.small.mediaQueries
+				}" />
+			</div>
+		</f:if>
+
+		<f:if condition="{product.systemInstallationLegend}">
+			<ul class="marker-image--legend">
+				<f:for each="{product.systemInstallationLegend}" as="element" iteration="iterator">
+					<li class="marker-image--legend-item">
+						<span class="marker-image--legend-item-index">{iterator.cycle}</span>
+
+						<f:if condition="{element.title}">
+							<div class="marker-image--legend-item-title">
+								<f:render partial="Header/Header" arguments="{header: element.title, layout: 10}" />
+							</div>
+						</f:if>
+
+						<f:if condition="{element.description}">
+							<div class="marker-image--legend-item-description">
+								<f:format.html>{element.description}</f:format.html>
+							</div>
+						</f:if>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
+</f:section>
+</html>
