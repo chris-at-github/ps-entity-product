@@ -143,6 +143,33 @@ class Product extends Entity {
 	protected $chartValues = null;
 
 	/**
+	 * @var \Ps14\Taste\Domain\Model\Page
+	 */
+	protected $technology = null;
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $systemInstallationMedia = null;
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Element>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $systemInstallationLegend = null;
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Element>
+	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+	 */
+	protected $technicalFeatures = null;
+
+	/**
+	 * @var string
+	 */
+	protected $options = '';
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -170,6 +197,8 @@ class Product extends Entity {
 		$this->configuratorResultAttributes = $this->configuratorResultAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->groupedAttributes = $this->groupedAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->keyFacts = $this->keyFacts ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->systemInstallationLegend = $this->systemInstallationLegend ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->technicalFeatures = $this->technicalFeatures ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -430,6 +459,76 @@ class Product extends Entity {
 	 */
 	public function setChartValues(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues): void {
 		$this->chartValues = $chartValues;
+	}
+
+	/**
+	 * @return \Ps14\Taste\Domain\Model\Page
+	 */
+	public function getTechnology(): ?\Ps14\Taste\Domain\Model\Page {
+		return $this->technology;
+	}
+
+	/**
+	 * @param \Ps14\Taste\Domain\Model\Page $technology
+	 */
+	public function setTechnology(?\Ps14\Taste\Domain\Model\Page $technology): void {
+		$this->technology = $technology;
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	public function getSystemInstallationMedia(): ?\TYPO3\CMS\Extbase\Domain\Model\FileReference {
+		return $this->systemInstallationMedia;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $systemInstallationMedia
+	 */
+	public function setSystemInstallationMedia(?\TYPO3\CMS\Extbase\Domain\Model\FileReference $systemInstallationMedia): void {
+		$this->systemInstallationMedia = $systemInstallationMedia;
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getSystemInstallationLegend(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+		return $this->systemInstallationLegend;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $systemInstallationLegend
+	 */
+	public function setSystemInstallationLegend(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $systemInstallationLegend): void {
+		$this->systemInstallationLegend = $systemInstallationLegend;
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getTechnicalFeatures(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+		return $this->technicalFeatures;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $technicalFeatures
+	 */
+	public function setTechnicalFeatures(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $technicalFeatures): void {
+		$this->technicalFeatures = $technicalFeatures;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getOptions(): string {
+		return $this->options;
+	}
+
+	/**
+	 * @param string $options
+	 */
+	public function setOptions(string $options): void {
+		$this->options = $options;
 	}
 
 	/**
