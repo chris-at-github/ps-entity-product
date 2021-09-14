@@ -36,7 +36,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['extended'] = [
-	'showitem' => 'system_installation_media, --linebreak--, technical_features, --linebreak--, options,'
+	'showitem' => 'system_installation_media, --linebreak--, system_installation_legend, --linebreak--, technical_features, --linebreak--, options,'
 ];
 
 $GLOBALS['TCA']['tt_address']['palettes']['productHidden'] = [
@@ -433,6 +433,31 @@ $tmpEntityProductColumns = [
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
 	],
+	'system_installation_legend' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.system_installation_legend',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'config' => [
+			'type' => 'inline',
+			'foreign_table' => 'tx_xo_domain_model_elements',
+			'foreign_field' => 'foreign_uid',
+			'foreign_sortby' => 'sorting',
+			'foreign_label' => 'title',
+			'foreign_match_fields' => [
+				'foreign_field' => 'system_installation_legend',
+			],
+			'maxitems' => 999,
+			'appearance' => [
+				'collapseAll' => 1,
+				'expandSingle' => 1,
+				'showAllLocalizationLink' => 1,
+				'showSynchronizationLink' => 1,
+				'showPossibleLocalizationRecords' => 1,
+				'showRemovedLocalizationRecords' => 1,
+				'newRecordLinkAddTitle' => 1
+			],
+		]
+	],
 	'technical_features' => [
 		'exclude' => true,
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_features',
@@ -535,6 +560,63 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	],
 	'thumbnail' => [
 		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.thumbnail',
+		'allowedAspectRatios' => [
+			'16_9' => [
+				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+				'value' => 16 / 9
+			],
+		],
+		'selectedRatio' => '16_9',
+	],
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['system_installation_legend']['config']['overrideChildTca'] = [
+	'columns' => [
+		'record_type' => [
+			'config' => [
+				'items' => [
+					['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_xo_domain_model_elements.record_type.technical_features', 'system_installation_legend'],
+				],
+				'default' => 'system_installation_legend'
+			]
+		],
+	],
+	'types' => [
+		'system_installation_legend' => [
+			'showitem' => '
+				l10n_diffsource, record_type, --palette--;;header, description,
+				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
+				--palette--;;visibility,
+				--palette--;;access',
+		],
+	]
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['technical_features']['config']['overrideChildTca'] = [
+	'columns' => [
+		'record_type' => [
+			'config' => [
+				'items' => [
+					['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_xo_domain_model_elements.record_type.technical_features', 'technical_features'],
+				],
+				'default' => 'technical_features'
+			]
+		],
+	],
+	'types' => [
+		'technical_features' => [
+			'showitem' => '
+				l10n_diffsource, record_type, --palette--;;header, description, media,
+				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
+				--palette--;;visibility,
+				--palette--;;access',
+		],
+	]
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['technical_features']['config']['overrideChildTca']['columns']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']  = [
+	'default' => [
+		'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
 		'allowedAspectRatios' => [
 			'16_9' => [
 				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',

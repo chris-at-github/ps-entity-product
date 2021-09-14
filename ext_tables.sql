@@ -16,6 +16,7 @@ CREATE TABLE tx_entity_domain_model_entity (
 	tx_chart_chart int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_chart_values int(11) unsigned DEFAULT '0' NOT NULL,
 	system_installation_media int(11) unsigned DEFAULT '0' NOT NULL,
+	system_installation_legend int(11) unsigned DEFAULT '0' NOT NULL,
 	technical_features int(11) unsigned DEFAULT '0' NOT NULL,
 	options text
 );
