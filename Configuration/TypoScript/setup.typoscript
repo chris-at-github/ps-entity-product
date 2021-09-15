@@ -110,6 +110,7 @@ plugin.tx_xo.settings {
 							cropVariant = thumbnail
 							mediaQuery = (min-width: 576px)
 						}
+
 						0 {
 							width = 530
 							cropVariant = thumbnail
@@ -131,6 +132,44 @@ plugin.tx_xo.settings {
 							cropVariant = default
 							mediaQuery = (min-width: 0px)
 						}
+					}
+				}
+			}
+		}
+
+		technicalFeature {
+			pictureSettings {
+				width = 455
+				cropVariant = mobile
+				mediaQueries {
+					1200 {
+						width = 165
+						cropVariant = desktop
+						mediaQuery = (min-width: 1200px)
+					}
+
+					992 {
+						width = 360
+						cropVariant = mobile
+						mediaQuery = (min-width: 992px)
+					}
+
+					768 {
+						width = 455
+						cropVariant = mobile
+						mediaQuery = (min-width: 768px)
+					}
+
+					576 {
+						width = 355
+						cropVariant = mobile
+						mediaQuery = (min-width: 576px)
+					}
+
+					0 {
+						width = 545
+						cropVariant = mobile
+						mediaQuery = (min-width: 0px)
 					}
 				}
 			}
