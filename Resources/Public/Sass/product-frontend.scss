@@ -293,8 +293,34 @@ $tx-product-frontend--layout-show: true !default;
 			}
 
 			.product--technical-data table {
-				width: auto;
-				min-width: percentage(10 / 12);
+				& {
+					width: auto;
+					min-width: percentage(10 / 12);
+				}
+
+				&[data-columns-count='4'], &[data-columns-count='5'], &[data-columns-count='6'], &[data-columns-count='7'], &[data-columns-count='8'] {
+					width: 100%;
+				}
+			}
+
+			.product--technical-data-accessories table[data-columns-count='3'] {
+				& {
+					width: 100%;
+				}
+
+				tr {
+					th:nth-child(1), td:nth-child(1) {
+						width: 25%;
+					}
+
+					th:nth-child(2), td:nth-child(2) {
+						width: 55%;
+					}
+
+					th:nth-child(3), td:nth-child(3) {
+						width: 20%;
+					}
+				}
 			}
 		}
 

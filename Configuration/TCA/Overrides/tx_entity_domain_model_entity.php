@@ -48,7 +48,6 @@ $GLOBALS['TCA']['tt_address']['palettes']['productHidden'] = [
 $tmpEntityProductColumns = [
 	'technical_data' => [
 		'exclude' => true,
-		'displayCond' => 'FIELD:layout:!IN:accessories',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_data',
 		'config' => [
 			'type' => 'text',

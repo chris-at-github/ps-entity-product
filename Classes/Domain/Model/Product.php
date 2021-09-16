@@ -428,6 +428,22 @@ class Product extends Entity {
 	 * @return string
 	 */
 	public function getTechnicalData(): string {
+
+//		// alle Tabellen sammeln
+//		if(preg_match_all('/<(table.*?)>(.*?)<\/table>/', $this->technicalData, $tables) !== false) {
+//			for($i = 0; $i < count($tables[0]); $i++) {
+//
+//				// erste Zeile jeder Tabelle ausparsen
+//				if(preg_match('/<tr>(.*?)<\/tr>/', $tables[2][$i], $row) !== false) {
+//
+//					// Anzahl der Spalten identifizieren
+//					if(isset($row[0]) === true && preg_match_all('/.*?<\/(td|th)>.*?/', $row[0], $cols) !== false) {
+//						DebuggerUtility::var_dump($cols);
+//					}
+//				}
+//			}
+//		}
+
 		return $this->technicalData;
 	}
 
