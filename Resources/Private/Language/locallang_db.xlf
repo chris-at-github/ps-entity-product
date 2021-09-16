@@ -78,6 +78,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.technical_features">
 				<source>Technical Features</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.technology">
+				<source>Technology</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_attribute" resname="tx_entityproduct_domain_model_attribute">
 				<source>Attribute</source>
 			</trans-unit>
