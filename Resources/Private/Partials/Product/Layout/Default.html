@@ -32,8 +32,8 @@
 				<ul class="accordion product--accordion">
 					<f:if condition="{product.longDescription}">
 						<li class="product--long-description">
-							<f:render section="AccordionHeader" arguments="{identifier: 'description', title: '{f:translate(key: \'product.longDescription\')}'}" />
-							<div id="product--description-container" class="collapse" aria-labelledby="product--description-header">
+							<f:render section="AccordionHeader" arguments="{identifier: 'description', title: '{f:translate(key: \'product.longDescription\')}', expanded: 'true'}" />
+							<div id="product--description-container" class="collapse show" aria-labelledby="product--description-header">
 								<div class="accordion--container">
 									<f:format.html>{product.longDescription}</f:format.html>
 								</div>
@@ -78,7 +78,7 @@
 					<f:if condition="{product.systemInstallationMedia} || {product.systemInstallationLegend}">
 						<li class="product--system-installation">
 							<f:render section="AccordionHeader" arguments="{identifier: 'system-installation', title: '{f:translate(key: \'product.systemInstallation\')}'}" />
-							<div id="product--system-installation-container" class="collapse show" aria-labelledby="product--system-installation-header">
+							<div id="product--system-installation-container" class="collapse" aria-labelledby="product--system-installation-header">
 								<div class="accordion--container">
 									<f:render partial="Product/SystemInstallation" section="Main" arguments="{_all}" />
 								</div>
@@ -266,7 +266,7 @@
 
 	<f:section name="AccordionHeader">
 		<header class="accordion--header" id="product--{identifier}-header">
-			<button data-bs-toggle="collapse" data-bs-target="#product--{identifier}-container" aria-expanded="false" aria-controls="product--{identifier}-container">
+			<button data-bs-toggle="collapse" data-bs-target="#product--{identifier}-container" aria-expanded="{f:if(condition: '{expanded}', then: expanded, else: 'false')}" aria-controls="product--{identifier}-container">
 				{title}
 				<xo:svg.inline source="assets/svg/chevron-down.svg" />
 			</button>
