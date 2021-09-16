@@ -75,9 +75,9 @@
 					</f:if>
 
 					<f:if condition="{product.systemInstallationMedia} || {product.systemInstallationLegend}">
-						<li class="product--options">
+						<li class="product--system-installation">
 							<f:render section="AccordionHeader" arguments="{identifier: 'system-installation', title: '{f:translate(key: \'product.systemInstallation\')}'}" />
-							<div id="product--system-installation-container" class="collapse" aria-labelledby="product--system-installation-header">
+							<div id="product--system-installation-container" class="collapse show" aria-labelledby="product--system-installation-header">
 								<div class="accordion--container">
 									<f:render partial="Product/SystemInstallation" section="Main" arguments="{_all}" />
 								</div>

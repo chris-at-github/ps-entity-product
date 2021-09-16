@@ -413,15 +413,41 @@ $tmpEntityProductColumns = [
 							'crop' => [
 								'config' => [
 									'cropVariants' => [
-										'default' => [
-											'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.crop_variant.default',
+										'mobile' => [
+											'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.mobile',
 											'allowedAspectRatios' => [
+												'16_9' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+													'value' => 16 / 9
+												],
+												'4_3' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+													'value' => 4 / 3
+												],
 												'NaN' => [
 													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
 													'value' => 0.0
 												],
 											],
-											'selectedRatio' => 'NaN',
+											'selectedRatio' => '16_9',
+										],
+										'desktop' => [
+											'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.desktop',
+											'allowedAspectRatios' => [
+												'16_9' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+													'value' => 16 / 9
+												],
+												'4_3' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
+													'value' => 4 / 3
+												],
+												'NaN' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.free',
+													'value' => 0.0
+												],
+											],
+											'selectedRatio' => '4_3',
 										],
 									]
 								]

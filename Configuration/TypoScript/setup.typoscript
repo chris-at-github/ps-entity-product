@@ -123,13 +123,31 @@ plugin.tx_xo.settings {
 
 		systemInstallation {
 			pictureSettings {
-				small {
-					width = 560
+				aside {
+					width = 1000
 					cropVariant = default
 					mediaQueries {
+						992 {
+							width = 555
+							cropVariant = mobile
+							mediaQuery = (min-width: 992px)
+						}
+
+						768 {
+							width = 935
+							cropVariant = mobile
+							mediaQuery = (min-width: 768px)
+						}
+
+						576 {
+							width = 740
+							cropVariant = mobile
+							mediaQuery = (min-width: 576px)
+						}
+
 						0 {
-							width = 560
-							cropVariant = default
+							width = 545
+							cropVariant = mobile
 							mediaQuery = (min-width: 0px)
 						}
 					}
