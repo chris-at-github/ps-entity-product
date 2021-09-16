@@ -23,6 +23,11 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class Product extends Entity {
 
 	/**
+	 * @var string
+	 */
+	protected $layout = '';
+
+	/**
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
 	 */
@@ -529,6 +534,20 @@ class Product extends Entity {
 	 */
 	public function setOptions(string $options): void {
 		$this->options = $options;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getLayout(): string {
+		return $this->layout;
+	}
+
+	/**
+	 * @param string $layout
+	 */
+	public function setLayout(string $layout): void {
+		$this->layout = $layout;
 	}
 
 	/**

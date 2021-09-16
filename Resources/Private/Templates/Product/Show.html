@@ -3,6 +3,10 @@
 
 	<f:section name="Main">
 		<f:flashMessages/>
-		<f:render partial="Product/Properties" section="Main" arguments="{_all}"/>
+
+		<f:if condition="{product.layout} == 'accessories'">
+			<f:then><f:render partial="Product/Layout/Accessories" section="Main" arguments="{_all}"/></f:then>
+			<f:else><f:render partial="Product/Layout/Default" section="Main" arguments="{_all}"/></f:else>
+		</f:if>
 	</f:section>
 </html>

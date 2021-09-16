@@ -1,0 +1,79 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:section name="Main">
+
+		<div class="product--header ce-header ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
+			<div class="ce-frame--inner">
+				<f:render partial="Product/Header" section="Main" arguments="{_all}" />
+
+				<f:if condition="{variants}">
+					<f:render partial="Product/VariantNavigation" section="Main" arguments="{_all}" />
+				</f:if>
+			</div>
+		</div>
+
+		<f:if condition="{product.images}">
+			<div class="ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.images -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--layout-16-9 ce-frame--space-before-auto ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Images" section="Main" arguments="{images: product.images}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.longDescription}">
+			<div class="product--long-description ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:format.html>{product.longDescription}</f:format.html>
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.technicalData}">
+			<div class="product--technical-data ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:format.html>{product.technicalData}</f:format.html>
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.files}">
+			<div class="product--downloads ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.technology}">
+			<div class="product--technology ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Technology" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.related}">
+			<div class="product--related ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-large">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Related" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.applications}">
+			<div class="product--applications ce-frame ce-frame--layout-0 ce-frame--class-1 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Applications" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
+	</f:section>
+
+	<f:section name="AccordionHeader">
+		<header class="accordion--header" id="product--{identifier}-header">
+			<button data-bs-toggle="collapse" data-bs-target="#product--{identifier}-container" aria-expanded="false" aria-controls="product--{identifier}-container">
+				{title}
+				<xo:svg.inline source="assets/svg/chevron-down.svg" />
+			</button>
+		</header>
+	</f:section>
+</html>
