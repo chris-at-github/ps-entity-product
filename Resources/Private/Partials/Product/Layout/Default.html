@@ -34,7 +34,7 @@
 						<li class="product--long-description">
 							<f:render section="AccordionHeader" arguments="{identifier: 'description', title: '{f:translate(key: \'product.longDescription\')}', expanded: 'true'}" />
 							<div id="product--description-container" class="collapse show" aria-labelledby="product--description-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:format.html>{product.longDescription}</f:format.html>
 								</div>
 							</div>
@@ -45,7 +45,7 @@
 						<li class="product--technical-data">
 							<f:render section="AccordionHeader" arguments="{identifier: 'technical-data', title: '{f:translate(key: \'product.technicalData\')}'}" />
 							<div id="product--technical-data-container" class="collapse" aria-labelledby="product--technical-data-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:format.html>{product.technicalData}</f:format.html>
 								</div>
 							</div>
@@ -56,7 +56,7 @@
 						<li class="product--technical-drawings">
 							<f:render section="AccordionHeader" arguments="{identifier: 'technical-drawings', title: '{f:translate(key: \'product.technicalDrawings\')}'}" />
 							<div id="product--technical-drawings-container" class="collapse" aria-labelledby="product--technical-drawings-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:render partial="Product/TechnicalDrawings" section="Main" arguments="{technicalDrawings: product.technicalDrawings, settings: settings.xo.modules.entityproduct.technicalDrawings}" />
 								</div>
 							</div>
@@ -67,7 +67,7 @@
 						<li class="product--chart">
 							<f:render section="AccordionHeader" arguments="{identifier: 'chart', title: chart.object.alternativeTitle}" />
 							<div id="product--chart-container" class="collapse" aria-labelledby="product--chart-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
 									<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
 								</div>
@@ -79,7 +79,7 @@
 						<li class="product--system-installation">
 							<f:render section="AccordionHeader" arguments="{identifier: 'system-installation', title: '{f:translate(key: \'product.systemInstallation\')}'}" />
 							<div id="product--system-installation-container" class="collapse" aria-labelledby="product--system-installation-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:render partial="Product/SystemInstallation" section="Main" arguments="{_all}" />
 								</div>
 							</div>
@@ -90,7 +90,7 @@
 						<li class="product--technical-features">
 							<f:render section="AccordionHeader" arguments="{identifier: 'technical-features', title: '{f:translate(key: \'product.technicalFeatures\')}'}" />
 							<div id="product--technical-features-container" class="collapse" aria-labelledby="product--technical-features-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:render partial="Product/TechnicalFeatures" section="Main" arguments="{_all}" />
 								</div>
 							</div>
@@ -101,7 +101,7 @@
 						<li class="product--options">
 							<f:render section="AccordionHeader" arguments="{identifier: 'options', title: '{f:translate(key: \'product.options\')}'}" />
 							<div id="product--options-container" class="collapse" aria-labelledby="product--options-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:format.html>{product.options}</f:format.html>
 								</div>
 							</div>
@@ -112,7 +112,7 @@
 						<li class="product--downloads">
 							<f:render section="AccordionHeader" arguments="{identifier: 'downloads', title: '{f:translate(key: \'product.downloads\')}'}" />
 							<div id="product--downloads-container" class="collapse" aria-labelledby="product--downloads-header">
-								<div class="accordion--container">
+								<div class="accordion--container accordion--container-default">
 									<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
 								</div>
 							</div>
