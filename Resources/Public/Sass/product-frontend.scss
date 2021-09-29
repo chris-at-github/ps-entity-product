@@ -137,17 +137,6 @@ $tx-product-frontend--layout-show: true !default;
 					font-weight: $font-weight-normal;
 				}
 			}
-
-			.accordion--container {
-				margin-top: rem(30px);
-				margin-bottom: rem(45px);
-			}
-
-			& > li:last-child {
-				.accordion--container {
-					margin-bottom: 0;
-				}
-			}
 		}
 
 		.product--technical-drawings {
@@ -279,10 +268,6 @@ $tx-product-frontend--layout-show: true !default;
 			.product--accordion {
 				.accordion--header button {
 					font-size: rem(26px);
-				}
-
-				.accordion--container {
-					margin-bottom: rem(65px);
 				}
 			}
 
