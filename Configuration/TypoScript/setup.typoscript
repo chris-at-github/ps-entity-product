@@ -17,6 +17,7 @@ plugin.tx_entityproduct {
 			20 = EXT:chart/Resources/Private/Partials/
 			21 = EXT:ce_hero/Resources/Private/Partials/
 			22 = EXT:ce_downloads/Resources/Private/Partials/
+			23 = EXT:ce_marker/Resources/Private/Partials/
 			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
 			51 = EXT:xna/Resources/Private/Partials/
 			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
@@ -114,40 +115,6 @@ plugin.tx_xo.settings {
 						0 {
 							width = 530
 							cropVariant = thumbnail
-							mediaQuery = (min-width: 0px)
-						}
-					}
-				}
-			}
-		}
-
-		systemInstallation {
-			pictureSettings {
-				aside {
-					width = 1000
-					cropVariant = default
-					mediaQueries {
-						992 {
-							width = 555
-							cropVariant = mobile
-							mediaQuery = (min-width: 992px)
-						}
-
-						768 {
-							width = 935
-							cropVariant = mobile
-							mediaQuery = (min-width: 768px)
-						}
-
-						576 {
-							width = 740
-							cropVariant = mobile
-							mediaQuery = (min-width: 576px)
-						}
-
-						0 {
-							width = 545
-							cropVariant = mobile
 							mediaQuery = (min-width: 0px)
 						}
 					}

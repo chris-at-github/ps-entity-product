@@ -54,6 +54,11 @@ class ProductProcessor extends \Ps\Xo\DataProcessing\ModuleProcessor implements 
 				]);
 				$this->addImportCssFiles(['/assets/css/modules/chart.css']);
 			}
+
+			// Anlagenaufbau-Vorhanden
+			if($product->getSystemInstallationMedia() !== null || $product->getSystemInstallationLegend()->count() !== 0) {
+				$this->addImportCssFiles(['/assets/css/modules/marker.css']);
+			}
 		}
 
 		return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);
