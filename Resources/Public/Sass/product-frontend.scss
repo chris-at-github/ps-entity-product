@@ -348,12 +348,6 @@ $tx-product-frontend--layout-show: true !default;
 				}
 			}
 
-			.product--long-description, .product--downloads, .product--options {
-				.accordion--container {
-					padding-right: percentage(3 / 12);
-				}
-			}
-
 			.product--technical-data table {
 				min-width: percentage(9 / 12);
 			}
