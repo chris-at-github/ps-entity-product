@@ -64,6 +64,11 @@ class ProductRepository extends EntityRepository {
 			}
 		}
 
+		// Technologie
+		if(isset($options['technology']) === true) {
+			$matches['technology'] = $query->equals('technology', (int) $options['technology']);
+		}
+
 		return $matches;
 	}
 }

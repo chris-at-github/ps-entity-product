@@ -16,6 +16,12 @@ call_user_func(
 			'LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.name'
 		);
 
+		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+			'EntityProduct',
+			'Teaser',
+			'LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_teaser.name'
+		);
+
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_attribute');
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_variant');
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_entityproduct_domain_model_attributevalue');

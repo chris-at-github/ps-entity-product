@@ -17,6 +17,13 @@
 				<source></source>
 			</trans-unit>
 
+			<trans-unit id="tx_entity_product_teaser.name" resname="tx_entity_product_teaser.name">
+				<source>Product Teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_entity_product_teaser.description" resname="tx_entity_product_teaser.description">
+				<source></source>
+			</trans-unit>
+
 			<trans-unit id="flexform.sheet.main" resname="flexform.sheet.main">
 				<source>Data</source>
 			</trans-unit>
@@ -31,6 +38,18 @@
 			</trans-unit>
 			<trans-unit id="flexform.field.keyFacts" resname="flexform.field.keyFacts">
 				<source>Key Facts</source>
+			</trans-unit>
+			<trans-unit id="flexform.field.source" resname="flexform.field.source">
+				<source>Source</source>
+			</trans-unit>
+			<trans-unit id="flexform.field.categories" resname="flexform.field.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="flexform.field.products" resname="flexform.field.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="flexform.field.technology" resname="flexform.field.technology">
+				<source>Technology</source>
 			</trans-unit>
 		</body>
 	</file>

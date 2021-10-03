@@ -28,6 +28,18 @@ call_user_func(
 			]
 		);
 
+		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+			'Ps.EntityProduct',
+			'Teaser',
+			[
+				\Ps\EntityProduct\Controller\ProductController::class => 'teaser'
+			],
+			// non-cacheable actions
+			[
+				\Ps\EntityProduct\Controller\ProductController::class => ''
+			]
+		);
+
 		// PageTs
 		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
 			'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:entity_product/Configuration/TSConfig/Page.t3s">'

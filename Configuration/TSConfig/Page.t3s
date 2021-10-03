@@ -26,6 +26,16 @@ mod {
 					list_type = entityproduct_keyfact
 				}
 			}
+
+			entityproduct_teaser {
+				iconIdentifier = entity_product-plugin-frontend
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_teaser.name
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_teaser.description
+				tt_content_defValues {
+					CType = list
+					list_type = entityproduct_teaser
+				}
+			}
 		}
 		show = *
 	}

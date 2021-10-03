@@ -8,3 +8,6 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['entityproduc
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['entityproduct_keyfact'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('entityproduct_keyfact', 'FILE:EXT:entity_product/Configuration/FlexForms/Plugins/KeyFact.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['entityproduct_teaser'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('entityproduct_teaser', 'FILE:EXT:entity_product/Configuration/FlexForms/Plugins/Teaser.xml');

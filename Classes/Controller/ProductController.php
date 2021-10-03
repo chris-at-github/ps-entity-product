@@ -48,11 +48,15 @@ class ProductController extends EntityController {
 		$options = parent::getDemand($overwrite);
 
 		if(empty($this->settings['productRange']) === false) {
-			$options['masterCategory'] = (int)$this->settings['productRange'];
+			$options['masterCategory'] = (int) $this->settings['productRange'];
 		}
 
 		if(empty($overwrite['categories']) === false) {
 			$options['categories'] = $overwrite['categories'];
+		}
+
+		if(empty($overwrite['technology']) === false) {
+			$options['technology'] = (int) $overwrite['technology'];
 		}
 
 		// keine Varianten
@@ -98,6 +102,26 @@ class ProductController extends EntityController {
 			$this->view->assign('chart', $chartDataProvider->provide(['chart' => $product->getChart(), 'values' => $product->getChartValues()]));
 		}
 	}
+
+	/**
+	 * @return void
+	 */
+	public function teaserAction() {
+		if($this->settings['source'] === 'technology') {
+			unset($this->settings['categories']);
+			unset($this->settings['products']);
+			unset($this->settings['application']);
+		}
+
+		$settings['xo'] = $this->objectManager->get(\TYPO3\CMS\Extbase\Configuration\ConfigurationManager::class)->getConfiguration(
+			\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
+			'xo'
+		);
+
+		$this->view->assign('products', $this->productRepository->findAll($this->getDemand($this->settings)));
+		$this->view->assign('settings', $settings);
+	}
+
 
 	/**
 	 * @param \Ps\EntityProduct\Domain\Model\Product $product
