@@ -113,13 +113,13 @@ class ProductController extends EntityController {
 			unset($this->settings['application']);
 		}
 
-		$settings['xo'] = $this->objectManager->get(\TYPO3\CMS\Extbase\Configuration\ConfigurationManager::class)->getConfiguration(
+		$this->settings['xo'] = $this->objectManager->get(\TYPO3\CMS\Extbase\Configuration\ConfigurationManager::class)->getConfiguration(
 			\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
 			'xo'
 		);
 
 		$this->view->assign('products', $this->productRepository->findAll($this->getDemand($this->settings)));
-		$this->view->assign('settings', $settings);
+		$this->view->assign('settings', $this->settings);
 	}
 
 
