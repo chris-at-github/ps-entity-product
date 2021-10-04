@@ -51,8 +51,8 @@ class ProductController extends EntityController {
 			$options['masterCategory'] = (int) $this->settings['productRange'];
 		}
 
-		if(empty($overwrite['categories']) === false) {
-			$options['categories'] = $overwrite['categories'];
+		if(empty($overwrite['categories-tree']) === false) {
+			$options['categories-tree'] = $overwrite['categories-tree'];
 		}
 
 		if(empty($overwrite['technology']) === false) {
@@ -109,6 +109,11 @@ class ProductController extends EntityController {
 	public function teaserAction() {
 		if($this->settings['source'] === 'technology') {
 			unset($this->settings['categories']);
+			unset($this->settings['products']);
+			unset($this->settings['application']);
+
+		} elseif($this->settings['source'] === 'categories') {
+			unset($this->settings['technology']);
 			unset($this->settings['products']);
 			unset($this->settings['application']);
 		}

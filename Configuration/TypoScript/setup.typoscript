@@ -58,7 +58,7 @@ plugin.tx_xo.settings {
 			#		pageType = 1548191072
 
 			items {
-				categories {
+				categories-tree {
 					renderType = treeRadio
 					autoSubmit = 1
 					resetable = 1
