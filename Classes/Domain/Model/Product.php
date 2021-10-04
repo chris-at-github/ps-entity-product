@@ -49,7 +49,7 @@ class Product extends Entity {
 	/**
 	 * applications
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps14\Taste\Domain\Model\Page>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps14\Teaser\Domain\Model\Page>
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $applications = null;
@@ -148,7 +148,7 @@ class Product extends Entity {
 	protected $chartValues = null;
 
 	/**
-	 * @var \Ps14\Taste\Domain\Model\Page
+	 * @var \Ps14\Teaser\Domain\Model\Page
 	 */
 	protected $technology = null;
 
@@ -483,16 +483,16 @@ class Product extends Entity {
 	}
 
 	/**
-	 * @return \Ps14\Taste\Domain\Model\Page
+	 * @return \Ps14\Teaser\Domain\Model\Page
 	 */
-	public function getTechnology(): ?\Ps14\Taste\Domain\Model\Page {
+	public function getTechnology(): ?\Ps14\Teaser\Domain\Model\Page {
 		return $this->technology;
 	}
 
 	/**
-	 * @param \Ps14\Taste\Domain\Model\Page $technology
+	 * @param \Ps14\Teaser\Domain\Model\Page $technology
 	 */
-	public function setTechnology(?\Ps14\Taste\Domain\Model\Page $technology): void {
+	public function setTechnology(?\Ps14\Teaser\Domain\Model\Page $technology): void {
 		$this->technology = $technology;
 	}
 
