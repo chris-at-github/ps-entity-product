@@ -59,6 +59,10 @@ class ProductController extends EntityController {
 			$options['technology'] = (int) $overwrite['technology'];
 		}
 
+		if(empty($overwrite['application']) === false) {
+			$options['application'] = (int) $overwrite['application'];
+		}
+
 		// keine Varianten
 		// TODO: eventuell als Option im Flexform
 		$options['parent'] = 0;
@@ -116,6 +120,11 @@ class ProductController extends EntityController {
 			unset($this->settings['technology']);
 			unset($this->settings['products']);
 			unset($this->settings['application']);
+
+		} elseif($this->settings['source'] === 'application') {
+			unset($this->settings['technology']);
+			unset($this->settings['products']);
+			unset($this->settings['categories']);
 		}
 
 		$this->settings['xo'] = $this->objectManager->get(\TYPO3\CMS\Extbase\Configuration\ConfigurationManager::class)->getConfiguration(

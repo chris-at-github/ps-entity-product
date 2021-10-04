@@ -22,13 +22,19 @@
 										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.categories</numIndex>
 										<numIndex index="1">categories</numIndex>
 									</numIndex>
+									<!--
 									<numIndex index="2" type="array">
 										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.products</numIndex>
-										<numIndex index="1">products</numIndex>
+										<numIndex index="1">entities</numIndex>
 									</numIndex>
+									-->
 									<numIndex index="3" type="array">
 										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.technology</numIndex>
 										<numIndex index="1">technology</numIndex>
+									</numIndex>
+									<numIndex index="4" type="array">
+										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.application</numIndex>
+										<numIndex index="1">application</numIndex>
 									</numIndex>
 								</items>
 							</config>
@@ -67,6 +73,20 @@
 							</config>
 						</TCEforms>
 					</settings.technology>
+					<settings.application>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.application</label>
+							<displayCond>FIELD:main.settings.source:=:application</displayCond>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<minitems>0</minitems>
+								<maxitems>1</maxitems>
+							</config>
+						</TCEforms>
+					</settings.application>
 					<settings.readmoreEnabled>
 						<TCEforms>
 							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.readmoreEnabled</label>
