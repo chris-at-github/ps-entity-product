@@ -13,6 +13,7 @@
 					<settings.source>
 						<TCEforms>
 							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.source</label>
+							<onChange>reload</onChange>
 							<config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
@@ -36,6 +37,7 @@
 					<settings.categories>
 						<TCEforms>
 							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.categories</label>
+							<displayCond>FIELD:main.settings.source:=:categories</displayCond>
 							<config>
 								<type>select</type>
 								<foreign_table>sys_category</foreign_table>
@@ -54,6 +56,7 @@
 					<settings.technology>
 						<TCEforms>
 							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.technology</label>
+							<displayCond>FIELD:main.settings.source:=:technology</displayCond>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>

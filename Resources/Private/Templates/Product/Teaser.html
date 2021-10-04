@@ -4,8 +4,6 @@
 <f:section name="Main">
 	<f:if condition="{products}">
 
-		<f:debug>{settings}</f:debug>
-
 		<f:if condition="{products -> f:count()} > {settings.xo.modules.entityproduct.card.readmoreLimit} && {settings.readmoreEnabled} == 1">
 			<f:then>
 				<f:render partial="Listing/Listing" section="ReadmoreContainer" arguments="{_all}" />
