@@ -1,35 +1,7 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
-
-		<div class="row taste taste--layout-aside taste--layout-technology">
-			<div class="col-12 col-md-6">
-				<f:link.page class="taste--media" pageUid="{product.technology.uid}" tabindex="-1">
-					<f:if condition="{product.technology.media}">
-						<f:render partial="Components/Media" section="Picture" arguments="{
-							file: product.technology.media.originalResource,
-							image: {
-								maxWidth: settings.xo.modules.teaser.pictureSettings.aside.maxWidth,
-								cropVariant: settings.xo.modules.teaser.pictureSettings.aside.cropVariant
-							},
-							sizes: settings.xo.modules.teaser.pictureSettings.aside.mediaQueries
-						}" />
-					</f:if>
-				</f:link.page>
-			</div>
-
-			<div class="col-12 col-md-6">
-				<div class="taste--body">
-					<header class="taste--title ce-header ce-header--layout-2">
-						<h2><f:link.page pageUid="{product.technology.uid}">Die Technologie <strong>{product.technology.title}</strong></f:link.page></h2>
-					</header>
-
-					<f:if condition="{product.technology.abstractLong}">
-						<f:format.html>{product.technology.abstractLong}</f:format.html>
-					</f:if>
-
-					<f:link.page class="link--cta taste--readmore" pageUid="{product.technology.uid}" tabindex="-1">Zur Technologie</f:link.page>
-				</div>
-			</div>
+		<div class="row teaser teaser--layout-aside teaser--layout-technology">
+			<f:render partial="Teaser/Layout/Technology" section="Item" arguments="{page: product.technology, settings: settings}" />
 		</div>
 	</f:section>
 </html>
