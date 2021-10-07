@@ -4,7 +4,7 @@
 		<f:render partial="Header/Header" arguments="{header: '{f:translate(key: \'product.applications\')}', layout: 2}" />
 	</header>
 
-	<f:if condition="{product.applications -> f:count()} > {settings.xo.modules.teaser.card.readmoreLimit}">
+	<f:if condition="{product.applications -> f:count()} > {settings.xo.modules.teaser.readmoreLimit}">
 		<f:then>
 			<f:render partial="Teaser/Layout/Default" section="ReadmoreContainer" arguments="{pages: product.applications, settings: settings}" />
 		</f:then>
