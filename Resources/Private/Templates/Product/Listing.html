@@ -12,13 +12,7 @@
 		</f:if>
 
 		<div class="product-listing--body">
-			<ul class="product-listing--container">
-				<f:for each="{products}" as="product">
-					<li>
-						<f:render partial="Listing/Item" section="Main" arguments="{product: product, link: '{f:uri.action(action: \'show\', arguments: {product: product})}'}" />
-					</li>
-				</f:for>
-			</ul>
+			<f:render partial="Listing/Listing" section="CardContainer" arguments="{products: products}" />
 		</div>
 	</div>
 </f:section>

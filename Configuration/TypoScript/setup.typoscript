@@ -1,54 +1,3 @@
-plugin.tx_entityproduct {
-	view {
-		layoutRootPaths {
-			10 = EXT:entity_product/Resources/Private/Layouts/
-			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
-			30 = {$plugin.tx_entityproduct.view.layoutRootPath}
-		}
-
-		templateRootPaths {
-			10 = EXT:entity_product/Resources/Private/Templates/
-			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
-			30 = {$plugin.tx_entityproduct.view.templateRootPath}
-		}
-
-		partialRootPaths {
-			10 = EXT:entity_product/Resources/Private/Partials/
-			20 = EXT:chart/Resources/Private/Partials/
-			21 = EXT:ce_hero/Resources/Private/Partials/
-			22 = EXT:ce_downloads/Resources/Private/Partials/
-			23 = EXT:ce_marker/Resources/Private/Partials/
-			24 = EXT:teaser/Resources/Private/Partials/
-			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
-			51 = EXT:xna/Resources/Private/Partials/
-			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
-			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
-			61 = EXT:xna/Resources/Private/Extensions/CeDownloads/Partials/
-			62 = EXT:xna/Resources/Private/Extensions/Teaser/Partials/
-			65 = {$plugin.tx_entityproduct.view.partialRootPath}
-		}
-	}
-
-	persistence {
-		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
-		recursive = 1
-	}
-
-	features {
-		#skipDefaultArguments = 1
-
-		# if set to 1, the enable fields are ignored in BE context
-		ignoreAllEnableFieldsInBe = 0
-
-		# Should be on by default, but can be disabled if all action in the plugin are uncached
-		requireCHashArgumentForActionArguments = 1
-	}
-
-	mvc {
-		#callDefaultActionIfActionCantBeResolved = 1
-	}
-}
-
 plugin.tx_xo.settings {
 	filter {
 		entityproduct {
@@ -164,6 +113,60 @@ plugin.tx_xo.settings {
 	}
 }
 
+plugin.tx_entityproduct {
+	view {
+		layoutRootPaths {
+			10 = EXT:entity_product/Resources/Private/Layouts/
+			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
+			30 = {$plugin.tx_entityproduct.view.layoutRootPath}
+		}
+
+		templateRootPaths {
+			10 = EXT:entity_product/Resources/Private/Templates/
+			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
+			30 = {$plugin.tx_entityproduct.view.templateRootPath}
+		}
+
+		partialRootPaths {
+			10 = EXT:entity_product/Resources/Private/Partials/
+			20 = EXT:chart/Resources/Private/Partials/
+			21 = EXT:ce_hero/Resources/Private/Partials/
+			22 = EXT:ce_downloads/Resources/Private/Partials/
+			23 = EXT:ce_marker/Resources/Private/Partials/
+			24 = EXT:teaser/Resources/Private/Partials/
+			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
+			51 = EXT:xna/Resources/Private/Partials/
+			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
+			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
+			61 = EXT:xna/Resources/Private/Extensions/CeDownloads/Partials/
+			62 = EXT:xna/Resources/Private/Extensions/Teaser/Partials/
+			65 = {$plugin.tx_entityproduct.view.partialRootPath}
+		}
+	}
+
+	persistence {
+		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
+		recursive = 1
+	}
+
+	features {
+		#skipDefaultArguments = 1
+
+		# if set to 1, the enable fields are ignored in BE context
+		ignoreAllEnableFieldsInBe = 0
+
+		# Should be on by default, but can be disabled if all action in the plugin are uncached
+		requireCHashArgumentForActionArguments = 1
+	}
+
+	mvc {
+		#callDefaultActionIfActionCantBeResolved = 1
+	}
+
+	settings {
+		xo < plugin.tx_xo.settings
+	}
+}
 
 page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
 page.10.dataProcessing.32 {
@@ -213,12 +216,6 @@ tt_content.list.dataProcessing.200 {
 			dataProcessing {
 				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
 			}
-		}
-	}
-
-	plugin.tx_entityproduct {
-		settings {
-			xo < plugin.tx_xo.settings
 		}
 	}
 

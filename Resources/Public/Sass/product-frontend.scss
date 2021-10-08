@@ -31,12 +31,17 @@ $tx-product-frontend--layout-show: true !default;
 				height: 100%;
 				border-radius: $border-radius-small;
 				background: $theme-color-primary;
+				color: #fff;
 			}
 
 			li > a {
 				&:hover, .focusable &:focus {
 					cursor: pointer;
-					background: $theme-color-secondary;
+					background: $theme-color-primary-dark;
+				}
+
+				& > span {
+					background: none;
 				}
 			}
 		}
