@@ -198,7 +198,7 @@ tt_content.list.dataProcessing.200 {
 #			50 = /assets/js/chartjs.js
 #			50 = /assets/js/chart.js
 			51 = /assets/js/libraries/filter.js
-			52 = /assets/js/hero.js
+			52 = /assets/js/modules/hero.js
 			100 = /assets/js/entity-product.js
 		}
 	}
