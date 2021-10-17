@@ -5,11 +5,21 @@
 	<div class="product-listing">
 		<f:flashMessages/>
 
-		<f:if condition="{settings.hideFilter} != 1">
-			<div class="product-listing--filter">
-				<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
-			</div>
-		</f:if>
+		<div class="product-listing--off-canvas">
+			<f:if condition="{navigationSibling}">
+				<nav class="navigation sibling-navigation container-outer">
+					<div class="container-inner">
+						<f:render partial="Navigation/Listing" section="Main" arguments="{navigation: navigationSibling}" />
+					</div>
+				</nav>
+			</f:if>
+
+			<f:if condition="{settings.hideFilter} != 1">
+				<div class="product-listing--filter">
+					<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
+				</div>
+			</f:if>
+		</div>
 
 		<div class="product-listing--body">
 			<f:render partial="Listing/Listing" section="CardContainer" arguments="{products: products, additionalClass: 'product-listing--container'}" />
