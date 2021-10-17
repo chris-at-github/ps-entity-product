@@ -6,13 +6,9 @@
 		<f:flashMessages/>
 
 		<div class="product-listing--off-canvas">
-			<f:if condition="{navigationSibling}">
-				<nav class="navigation sibling-navigation container-outer">
-					<div class="container-inner">
-						<f:render partial="Navigation/Listing" section="Main" arguments="{navigation: navigationSibling}" />
-					</div>
-				</nav>
-			</f:if>
+			<f:format.raw>
+				<f:cObject typoscriptObjectPath="lib.productSiblingNavigation" />
+			</f:format.raw>
 
 			<f:if condition="{settings.hideFilter} != 1">
 				<div class="product-listing--filter">

@@ -168,6 +168,45 @@ plugin.tx_entityproduct {
 	}
 }
 
+lib.productSiblingNavigation = COA
+lib.productSiblingNavigation {
+	wrap = <div class="product-listing--sibling-navigation"> | </div>
+
+	10 = RECORDS
+	10 {
+		tables = pages
+		source.data = FIELD:pid
+
+		conf.pages = TEXT
+		conf.pages {
+			field = title
+			wrap = <div class="product-listing--sibling-navigation-header"> | </div>
+		}
+	}
+
+	20 = HMENU
+	20 {
+		special = directory
+		special.value.data = FIELD:pid
+
+		1 = TMENU
+		1 {
+			wrap = <nav class="navigation"><ul> | </ul></nav>
+
+			NO = 1
+			NO.wrapItemAndSub = <li> | </li>
+			NO.linkWrap = <span>|</span><svg class="svg-sprite svg-sprite--arrow-right" viewBox="0 0 14 11"><use xlink:href="#sprite-arrow-right"></use></svg>
+			NO.ATagBeforeWrap = 1
+
+			ACT < .NO
+			ACT.wrapItemAndSub = <li class="active"> | </li>
+
+			CUR < .ACT
+			CUR.wrapItemAndSub = <li class="active"> | </li>
+		}
+	}
+}
+
 page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
 page.10.dataProcessing.32 {
 	uidArgument = tx_entityproduct_frontend|product

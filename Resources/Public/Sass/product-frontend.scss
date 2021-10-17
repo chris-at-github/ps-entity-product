@@ -52,9 +52,49 @@ $tx-product-frontend--layout-show: true !default;
 				flex-direction: column;
 			}
 
-
 			.product-listing--body {
 				flex: 1 auto;
+				margin: rem(45px 0 0 0);
+			}
+		}
+
+		.product-listing--sibling-navigation {
+			.product-listing--sibling-navigation-header {
+				font-size: rem(22px);
+			}
+
+			.navigation {
+				ul {
+					display: flex;
+					flex-direction: column;
+				}
+
+				a {
+					& {
+						display: flex;
+						padding-left: 0;
+					}
+
+					svg {
+						width: 14px;
+						height: 11px;
+						margin: rem(9px 0 0 12px);
+						flex-shrink: 0;
+						fill: $theme-color-primary;
+						transition: transform 0.25s;
+					}
+				}
+
+				.active {
+					a {
+						color: $font-color-base;
+						font-weight: $font-weight-bold;
+					}
+
+					a svg {
+						fill: $font-color-base;
+					}
+				}
 			}
 		}
 
@@ -212,13 +252,15 @@ $tx-product-frontend--layout-show: true !default;
 	// >= 576px
 	@include media-breakpoint-up(sm) {
 		@if($tx-product-frontend--layout-listing) {
-			.navigation.sibling-navigation {
-				ul {
-					display: flex;
-				}
+			.product-listing--sibling-navigation {
+				.navigation {
+					ul {
+						flex-direction: row;
+					}
 
-				li {
-					margin-top: 0;
+					li {
+						margin-right: rem(35px);
+					}
 				}
 			}
 		}
@@ -357,6 +399,28 @@ $tx-product-frontend--layout-show: true !default;
 					padding: rem(0 30px 0 0);
 				}
 
+				.product-listing--sibling-navigation {
+					.navigation {
+						ul {
+							flex-direction: column;
+						}
+
+						a {
+							& {
+								padding-left: rem(10px);
+							}
+
+							svg {
+								display: none;
+							}
+						}
+					}
+				}
+
+				.product-listing--sibling-navigation + .product-listing--filter {
+					margin-top: rem(45px);
+				}
+
 				.product-listing--filter {
 					& {
 						display: block;
@@ -373,6 +437,7 @@ $tx-product-frontend--layout-show: true !default;
 
 				.product-listing--body {
 					width: percentage(2 / 3);
+					margin: 0;
 				}
 
 				.card--container {
