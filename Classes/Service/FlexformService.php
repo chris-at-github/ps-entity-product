@@ -16,7 +16,7 @@ class FlexformService {
 	public function getProductRangeValues(array &$configuration) {
 
 		$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity_product');
-		$configuration['items'] = $this->getCategoriesByParent($extensionConfiguration['parentMasterProductCategory']);
+		$configuration['items'] = $this->getCategoriesByParent((int) $extensionConfiguration['parentMasterProductCategory']);
 	}
 
 	/**
@@ -27,7 +27,7 @@ class FlexformService {
 	public function getFilterCategoryWhitelistValues(array &$configuration) {
 
 		$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity_product');
-		$configuration['items'] = $this->getCategoriesByParent($extensionConfiguration['parentFilterCategory']);
+		$configuration['items'] = $this->getCategoriesByParent((int) $extensionConfiguration['parentFilterCategory']);
 	}
 
 	/**

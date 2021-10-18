@@ -5,17 +5,21 @@
 	<div class="product-listing">
 		<f:flashMessages/>
 
-		<div class="product-listing--off-canvas">
-			<f:format.raw>
-				<f:cObject typoscriptObjectPath="lib.productSiblingNavigation" />
-			</f:format.raw>
+		<f:if condition="{settings.hideSiblingNavigation} != 1 || {settings.hideFilter} != 1">
+			<div class="product-listing--off-canvas">
+				<f:if condition="{settings.hideSiblingNavigation} != 1">
+					<f:format.raw>
+						<f:cObject typoscriptObjectPath="lib.productSiblingNavigation" />
+					</f:format.raw>
+				</f:if>
 
-			<f:if condition="{settings.hideFilter} != 1">
-				<div class="product-listing--filter">
-					<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
-				</div>
-			</f:if>
-		</div>
+				<f:if condition="{settings.hideFilter} != 1">
+					<div class="product-listing--filter">
+						<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
+					</div>
+				</f:if>
+			</div>
+		</f:if>
 
 		<div class="product-listing--body">
 			<f:render partial="Listing/Listing" section="CardContainer" arguments="{products: products, additionalClass: 'product-listing--container'}" />
