@@ -21,7 +21,13 @@
 <f:section name="Item">
 	<li class="card" data-uri-target="{product.link}">
 		<f:render partial="Components/Card" section="Media" arguments="{media: product.masterImage, settings: settings.xo.modules.entityproduct.card.pictureSettings.thumbnail}" />
-		<f:render partial="Components/Card" section="Title" arguments="{title: product.title, link: product.link}" />
+		<div class="card--body">
+			<f:render partial="Components/Card" section="Title" arguments="{title: product.title, link: product.link}" />
+
+			<f:if condition="{product.subtitle}">
+				<f:render partial="Components/Card" section="Description" arguments="{description: product.subtitle}" />
+			</f:if>
+		</div>
 	</li>
 </f:section>
 </html>
