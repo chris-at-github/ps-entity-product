@@ -3,6 +3,13 @@
 	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang" date="2020-11-27T00:00:02Z" product-name="entity_product">
 		<header/>
 		<body>
+			<trans-unit id="filter.actions.hide">
+				<source>Hide filter</source>
+			</trans-unit>
+			<trans-unit id="filter.actions.show">
+				<source>Show filter</source>
+			</trans-unit>
+
 			<trans-unit id="product.variants">
 				<source>Variants:</source>
 			</trans-unit>

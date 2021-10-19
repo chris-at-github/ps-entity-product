@@ -1,12 +1,21 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
 
 <f:section name="Main">
+	<f:if condition="{settings.hideSiblingNavigation} != 1 || {settings.hideFilter} != 1">
+		<div class="product-listing--actions">
+			<button class="product-listing--off-canvas--switch" aria-controls="product-listing--off-canvas-{record.uid}">
+				<span><f:translate key="LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide" /></span>
+				<xo:svg.inline source="assets/svg/filter.svg" />
+			</button>
+		</div>
+	</f:if>
+
 	<div class="product-listing">
 		<f:flashMessages/>
 
 		<f:if condition="{settings.hideSiblingNavigation} != 1 || {settings.hideFilter} != 1">
-			<div class="product-listing--off-canvas">
+			<div class="product-listing--off-canvas" id="product-listing--off-canvas-{record.uid}" aria-hidden="false">
 				<f:if condition="{settings.hideSiblingNavigation} != 1">
 					<f:format.raw>
 						<f:cObject typoscriptObjectPath="lib.productSiblingNavigation" />
@@ -25,5 +34,12 @@
 			<f:render partial="Listing/Listing" section="CardContainer" arguments="{products: products, additionalClass: 'product-listing--container'}" />
 		</div>
 	</div>
+
+	<script>
+		xna.l10n.entityProduct = {
+			hideFilter: '<f:translate key="LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide" />',
+			showFilter: '<f:translate key="LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.show" />',
+		};
+	</script>
 </f:section>
 </html>

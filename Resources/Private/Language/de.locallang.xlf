@@ -3,6 +3,13 @@
 	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:entity_product/Retargets/Private/Language/locallang" date="2020-11-27T00:00:02Z" product-name="entity_product">
 		<header/>
 		<body>
+			<trans-unit id="filter.actions.hide">
+				<target>Filter ausblenden</target>
+			</trans-unit>
+			<trans-unit id="filter.actions.show">
+				<target>Filter einblenden</target>
+			</trans-unit>
+
 			<trans-unit id="product.variants">
 				<target>Ausführungen:</target>
 			</trans-unit>

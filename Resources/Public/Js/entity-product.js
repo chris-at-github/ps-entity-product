@@ -4,6 +4,39 @@
 	xna.on('documentLoaded', function() {
 
 		// -----------------------------------------------------------------------------------------------------------------
+		// Filter Ein- und Ausblenden
+		if(document.querySelector('.product-listing--off-canvas--switch') !== null) {
+			let button = document.querySelector('.product-listing--off-canvas--switch');
+			let offCanvas = document.querySelector('.product-listing--off-canvas');
+			let listing = document.querySelector('.product-listing');
+
+			button.addEventListener('click', function(event) {
+				if(listing.classList.contains('off-canvas--hidden') === true) {
+					listing.classList.remove('off-canvas--hidden');
+
+					setTimeout(function() {
+						offCanvas.removeAttribute('style');
+						offCanvas.setAttribute('aria-hidden', 'false');
+
+						// Button Beschriftung aendern
+						button.querySelector('span').innerText = xna.l10n.entityProduct.hideFilter;
+					}, 0);
+
+				} else {
+					offCanvas.setAttribute('aria-hidden', 'true');
+					offCanvas.style.marginLeft = '-' + offCanvas.offsetWidth + 'px';
+
+					// Button Beschriftung aendern
+					button.querySelector('span').innerText = xna.l10n.entityProduct.showFilter;
+
+					setTimeout(function() {
+						listing.classList.add('off-canvas--hidden');
+					}, 350);
+				}
+			});
+		}
+
+		// -----------------------------------------------------------------------------------------------------------------
 		// Filter
 		if(document.querySelector('.product-listing') !== null) {
 			let productFilter = new filter(document.querySelector('.product-listing'), {
