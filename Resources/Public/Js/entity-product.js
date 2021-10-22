@@ -3,8 +3,71 @@
 
 	xna.on('documentLoaded', function() {
 
+
+
 		// -----------------------------------------------------------------------------------------------------------------
-		// Filter Ein- und Ausblenden
+		// Filter Ein- und Ausblenden Modal (Mobile)
+
+		// Filter im Modal anzeigen
+		document.addEventListener('filterModalOpen', function(event) {
+
+			// Scrollbars ausblenden
+			xna.fireEvent('scrolllock.toggle');
+
+			// Modal-Klasse auf dem Body
+			document.body.classList.add('is--modal-open');
+
+			// Modal oeffnen
+			MicroModal.show(event.detail.modalIdentifier, {
+				onShow: function(modal) {
+
+					// // bei langen Modals immer ganz nach oben scrollen
+					// modal.scrollTop = 0;
+				},
+				onClose: function() {
+					console.log(111);
+					xna.fireEvent('filterModalClosing');
+				}
+			});
+		});
+
+		// Modal fuer Filter ausblenden
+		document.addEventListener('filterModalClosing', function(event) {
+
+			// Dokumenten-Klasse
+			document.body.classList.add('is--modal-closing');
+			document.body.classList.remove('is--modal-open');
+
+			setTimeout(function() {
+				xna.fireEvent('filterModalClose');
+			}, 750);
+		});
+
+		// Modal fuer Filter geschlossen
+		document.addEventListener('filterModalClose', function(event) {
+
+			// Dokumenten-Klasse
+			document.body.classList.remove('is--modal-closing');
+
+			// Scrollbars einblenden
+			xna.fireEvent('scrolllock.toggle');
+		});
+
+		if(document.querySelector('.product-listing--filter-modal') !== null) {
+			MicroModal.init();
+
+			document.querySelector('.product-listing--filter-modal .modal--close').addEventListener('click', function(event) {
+				xna.fireEvent('filterModalClosing');
+				event.preventDefault();
+			});
+
+			document.querySelector('.product-listing--filter-modal--switch').addEventListener('click', function(event) {
+				xna.fireEvent('filterModalOpen', {modalIdentifier: this.getAttribute('aria-controls')});
+			});
+		}
+
+		// -----------------------------------------------------------------------------------------------------------------
+		// Filter Ein- und Ausblenden (Desktop)
 		if(document.querySelector('.product-listing--off-canvas--switch') !== null) {
 			let button = document.querySelector('.product-listing--off-canvas--switch');
 			let offCanvas = document.querySelector('.product-listing--off-canvas');
@@ -43,7 +106,21 @@
 				ajax: true,
 				pageType: 1548191072,
 				containerSelector: '.product-listing--container',
-				itemsSelector: '.product-listing--container > li'
+				itemsSelector: '.product-listing--container > li',
+				beforeSubmit: function() {
+					if(document.body.classList.contains('is--modal-open') === true) {
+						xna.fireEvent('filterModalClosing');
+					}
+
+					return true;
+				},
+				beforeAutoSubmit: function() {
+					if(document.body.classList.contains('is--modal-open') === true) {
+						return false;
+					}
+
+					return true;
+				}
 			});
 		}
 
@@ -75,4 +152,6 @@
 			});
 		}
 	});
+
+	xna.fireEvent('filterModalOpen', {modalIdentifier: 'product-listing--filter-modal-102'});
 })();
