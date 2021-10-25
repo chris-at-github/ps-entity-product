@@ -4,14 +4,9 @@
 <f:section name="Main">
 	<f:if condition="{settings.hideSiblingNavigation} != 1 || {settings.hideFilter} != 1">
 		<div class="product-listing--actions">
-			<button class="product-listing--off-canvas--switch" aria-controls="product-listing--off-canvas-{record.uid}">
+			<button class="product-listing--filter-switch product-listing--off-canvas--switch" aria-controls="product-listing--off-canvas-{record.uid}">
 				<span><f:translate key="LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide" /></span>
 				<xo:svg.inline source="assets/svg/filter.svg" />
-			</button>
-
-			<button class="product-listing--filter-modal--switch" aria-controls="product-listing--filter-modal-{record.uid}">
-				<span>Filtern</span>
-<!--				<xo:svg.inline source="assets/svg/filter.svg" />-->
 			</button>
 		</div>
 	</f:if>
@@ -30,7 +25,7 @@
 				<f:if condition="{settings.hideFilter} != 1">
 					<div id="product-listing--filter-modal-{record.uid}" class="modal--container product-listing--filter product-listing--filter-modal" aria-hidden="true">
 						<div tabindex="-1" data-micromodal-close class="modal--backdrop">
-							<button aria-label="{f:translate(key: 'actions.closeModal')}" data-micromodal-close class="modal--close"><xo:svg.inline source="assets/svg/close.svg" /></button>
+							<button aria-label="{f:translate(key: 'LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide')}" class="modal--close"><xo:svg.inline source="assets/svg/close.svg" /></button>
 							<div role="dialog" aria-modal="true" class="modal">
 								<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
 							</div>
@@ -41,6 +36,14 @@
 		</f:if>
 
 		<div class="product-listing--body">
+
+			<div class="product-listing--actions">
+				<button class="product-listing--filter-switch product-listing--filter-modal--switch" aria-controls="product-listing--filter-modal-{record.uid}">
+					<span><f:translate key="LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.show" /></span>
+					<xo:svg.inline source="assets/svg/filter.svg" />
+				</button>
+			</div>
+
 			<f:render partial="Listing/Listing" section="CardContainer" arguments="{products: products, additionalClass: 'product-listing--container'}" />
 		</div>
 	</div>

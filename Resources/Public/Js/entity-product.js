@@ -3,8 +3,6 @@
 
 	xna.on('documentLoaded', function() {
 
-
-
 		// -----------------------------------------------------------------------------------------------------------------
 		// Filter Ein- und Ausblenden Modal (Mobile)
 
@@ -25,7 +23,6 @@
 					// modal.scrollTop = 0;
 				},
 				onClose: function() {
-					console.log(111);
 					xna.fireEvent('filterModalClosing');
 				}
 			});
@@ -38,9 +35,16 @@
 			document.body.classList.add('is--modal-closing');
 			document.body.classList.remove('is--modal-open');
 
+			// Scrollbars einblenden
+			xna.fireEvent('scrolllock.toggle');
+
+			// zu den Produkten scrollen
+			let position = xna.getElementPosition(document.querySelector('.product-listing').closest('.ce-frame'));
+			xna.scrollTo(position.y, 50);
+
 			setTimeout(function() {
 				xna.fireEvent('filterModalClose');
-			}, 750);
+			}, 350);
 		});
 
 		// Modal fuer Filter geschlossen
@@ -48,9 +52,6 @@
 
 			// Dokumenten-Klasse
 			document.body.classList.remove('is--modal-closing');
-
-			// Scrollbars einblenden
-			xna.fireEvent('scrolllock.toggle');
 		});
 
 		if(document.querySelector('.product-listing--filter-modal') !== null) {
@@ -153,5 +154,5 @@
 		}
 	});
 
-	xna.fireEvent('filterModalOpen', {modalIdentifier: 'product-listing--filter-modal-102'});
+	//xna.fireEvent('filterModalOpen', {modalIdentifier: 'product-listing--filter-modal-102'});
 })();
