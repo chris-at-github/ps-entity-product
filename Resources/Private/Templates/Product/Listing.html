@@ -23,10 +23,10 @@
 				</f:if>
 
 				<f:if condition="{settings.hideFilter} != 1">
-					<div id="product-listing--filter-modal-{record.uid}" class="modal--container product-listing--filter product-listing--filter-modal" aria-hidden="true">
+					<div id="product-listing--filter-modal-{record.uid}" class="modal--container product-listing--filter product-listing--filter-modal">
 						<div tabindex="-1" data-micromodal-close class="modal--backdrop">
 							<button aria-label="{f:translate(key: 'LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide')}" class="modal--close"><xo:svg.inline source="assets/svg/close.svg" /></button>
-							<div role="dialog" aria-modal="true" class="modal">
+							<div class="modal">
 								<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
 							</div>
 						</div>

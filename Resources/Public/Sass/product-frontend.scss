@@ -142,13 +142,37 @@ $tx-product-frontend--layout-show: true !default;
 				@extend %filter;
 			}
 
+			.filter-item--option-group-title,
+			.filter-actions {
+				padding: rem(0 10px);
+			}
+
 			.filter-reset--all {
 				@extend %filter-actions--reset;
 			}
 
 			.filter-item--tree-radio {
-				@extend %filter--tree;
-				@extend %filter--tree-radio;
+				& {
+					@extend %filter--tree;
+					@extend %filter--tree-radio;
+				}
+
+				.filter-item--option {
+					& {
+						margin-top: rem(2px);
+						padding: rem(4px 10px 4px 33px);
+						border-radius: 3px;
+						transition: background $transition-duration;
+					}
+
+					span:before, span:after {
+						top: rem(7px); left: rem(11px);
+					}
+
+					&:hover, .focusable &:focus-within {
+						background: #ececec;
+					}
+				}
 			}
 		}
 
@@ -471,6 +495,7 @@ $tx-product-frontend--layout-show: true !default;
 
 						a {
 							& {
+								display: block;
 								padding-left: rem(10px);
 							}
 
@@ -488,7 +513,7 @@ $tx-product-frontend--layout-show: true !default;
 				.product-listing--filter {
 					& {
 						display: block;
-						padding: rem(25px 20px);
+						padding: rem(25px 10px);
 						background: $color-grey-lighter;
 						border-radius: 5px;
 					}
@@ -587,7 +612,7 @@ $tx-product-frontend--layout-show: true !default;
 
 			.modal {
 				@include modal;
-				padding: rem(25px 20px);
+				padding: rem(25px 10px);
 				background: $color-grey-lighter;
 				border-radius: 5px;
 			}
