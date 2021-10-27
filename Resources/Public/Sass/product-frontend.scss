@@ -60,6 +60,24 @@ $tx-product-frontend--layout-show: true !default;
 			.product-listing--container {
 				margin-top: rem(-30px);
 			}
+
+			.card {
+				opacity: 1;
+				transform: translate(0, 0);
+				transition-property: opacity, transform;
+				transition-duration: 0.4s;
+			}
+
+			.product-listing--item-out,
+			.product-listing--item-add {
+				opacity: 0;
+				transform: translate(0, 20px);
+			}
+
+			.product-listing--item-in {
+				opacity: 1;
+				transform: translate(0, 0);
+			}
 		}
 
 		//.product-listing--actions {

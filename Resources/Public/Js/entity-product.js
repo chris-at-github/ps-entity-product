@@ -108,10 +108,18 @@
 				pageType: 1548191072,
 				containerSelector: '.product-listing--container',
 				itemsSelector: '.product-listing--container > li',
-				beforeSubmit: function() {
+				beforeSubmit: function(filter) {
 					if(document.body.classList.contains('is--modal-open') === true) {
 						xna.fireEvent('filterModalClosing');
 					}
+
+					filter.element.querySelectorAll(filter.options.itemsSelector).forEach(function(item, index) {
+						let timeout = 50;
+
+						setTimeout(function() {
+							item.classList.add('product-listing--item-out');
+						}, (timeout * index));
+					});
 
 					return true;
 				},
@@ -121,6 +129,22 @@
 					}
 
 					return true;
+				},
+				afterSubmit: function(filter) {
+					filter.element.querySelectorAll(filter.options.itemsSelector).forEach(function(item, index) {
+						let timeout = 50;
+
+						item.classList.add('product-listing--item-add');
+
+						setTimeout(function() {
+							item.classList.add('product-listing--item-in');
+
+							setTimeout(function() {
+								item.classList.remove('product-listing--item-add');
+								item.classList.remove('product-listing--item-in');
+							}, 500);
+						}, (timeout * index));
+					});
 				}
 			});
 		}
