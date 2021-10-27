@@ -113,6 +113,10 @@
 						xna.fireEvent('filterModalClosing');
 					}
 
+					setTimeout(function() {
+						document.body.classList.add('is--filter-loading');
+					}, 350);
+
 					filter.element.querySelectorAll(filter.options.itemsSelector).forEach(function(item, index) {
 						let timeout = 50;
 
@@ -134,6 +138,7 @@
 					filter.element.querySelectorAll(filter.options.itemsSelector).forEach(function(item, index) {
 						let timeout = 50;
 
+						document.body.classList.remove('is--filter-loading');
 						item.classList.add('product-listing--item-add');
 
 						setTimeout(function() {
@@ -177,6 +182,4 @@
 			});
 		}
 	});
-
-	//xna.fireEvent('filterModalOpen', {modalIdentifier: 'product-listing--filter-modal-102'});
 })();
