@@ -39,6 +39,9 @@
 			<trans-unit id="flexform.field.hideSiblingNavigation" resname="flexform.field.hideSiblingNavigation">
 				<source>Hide Sub-Navigation</source>
 			</trans-unit>
+			<trans-unit id="flexform.field.hideIndividualProduct" resname="flexform.field.hideIndividualProduct">
+				<source>Hide Individual Product</source>
+			</trans-unit>
 			<trans-unit id="flexform.field.keyFacts" resname="flexform.field.keyFacts">
 				<source>Key Facts</source>
 			</trans-unit>
