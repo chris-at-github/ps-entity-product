@@ -16,8 +16,6 @@
 			<f:render section="Item" arguments="{product: product, settings: settings}" />
 		</f:for>
 
-		<f:debug>{settings}</f:debug>
-
 		<f:if condition="{settings.hideIndividualProduct} != 1">
 			<f:render section="Individual" arguments="{settings: settings}" />
 		</f:if>
