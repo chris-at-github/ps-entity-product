@@ -15,6 +15,8 @@
 		<f:for each="{products}" as="product">
 			<f:render section="Item" arguments="{product: product, settings: settings}" />
 		</f:for>
+
+		<f:render section="Individual" arguments="{settings: settings}" />
 	</ul>
 </f:section>
 
@@ -29,5 +31,23 @@
 			</f:if>
 		</div>
 	</li>
+</f:section>
+
+<f:section name="Individual">
+	<xo:page.model uid="{settings.xo.pages.individualProduct}" model="Ps14\Teaser\Domain\Model\Page">
+		<li class="card product-listing--item-individual" data-uri-target="{f:uri.page(pageUid: page.uid)}">
+			<div class="product-listing--item-individual-icon">
+				<xo:svg.inline source="assets/svg/plus.svg" />
+			</div>
+
+			<div class="card--body">
+				<f:render partial="Components/Card" section="Title" arguments="{title: page.teaserTitle, link: '{f:uri.page(pageUid: page.uid)}'}" />
+
+				<f:if condition="{page.abstract}">
+					<f:render partial="Components/Card" section="Description" arguments="{description: page.abstract}" />
+				</f:if>
+			</div>
+		</li>
+	</xo:page.model>
 </f:section>
 </html>
