@@ -281,4 +281,8 @@ tt_content.list.dataProcessing.200 {
 			10.value = page--layout-0
 		}
 	}
+
+	plugin.tx_entityproduct {
+		settings.hideIndividualProduct = 1
+	}
 [END]
