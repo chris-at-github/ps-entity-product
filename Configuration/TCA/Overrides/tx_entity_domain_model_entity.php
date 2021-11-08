@@ -480,7 +480,7 @@ $tmpEntityProductColumns = [
 				'showPossibleLocalizationRecords' => 1,
 				'showRemovedLocalizationRecords' => 1,
 				'newRecordLinkAddTitle' => 1
-			],
+			]
 		]
 	],
 	'technical_features' => [
