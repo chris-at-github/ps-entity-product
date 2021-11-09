@@ -299,6 +299,10 @@ $tx-product-frontend--layout-show: true !default;
 				margin-top: rem(5px);
 			}
 
+			ul li {
+				margin: 0;
+			}
+
 			a {
 				& {
 					@extend %tab--item;
