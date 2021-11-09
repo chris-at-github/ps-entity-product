@@ -306,6 +306,7 @@ $tmpEntityProductColumns = [
 	],
 	'tx_chart_chart' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'onChange' => 'reload',
 		'displayCond' => 'FIELD:layout:!IN:accessories',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_chart',
@@ -322,6 +323,7 @@ $tmpEntityProductColumns = [
 	],
 	'tx_chart_values' => [
 		'exclude' => true,
+		'l10n_mode' => 'exclude',
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_values',
 		'displayCond' => 'FIELD:tx_chart_chart:REQ:true',
 		'config' => [
@@ -339,6 +341,9 @@ $tmpEntityProductColumns = [
 				'showPossibleLocalizationRecords' => 1,
 				'showRemovedLocalizationRecords' => 1,
 				'newRecordLinkAddTitle' => 1
+			],
+			'behaviour' => [
+				'allowLanguageSynchronization' => true
 			],
 		]
 	],
