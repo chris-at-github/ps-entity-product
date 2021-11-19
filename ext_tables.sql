@@ -15,6 +15,8 @@ CREATE TABLE tx_entity_domain_model_entity (
 	variant_title varchar(255) DEFAULT '' NOT NULL,
 	tx_chart_chart int(11) unsigned DEFAULT '0' NOT NULL,
 	tx_chart_values int(11) unsigned DEFAULT '0' NOT NULL,
+	air_consumption_data text,
+	air_consumption_media int(11) unsigned DEFAULT '0' NOT NULL,
 	system_installation_media int(11) unsigned DEFAULT '0' NOT NULL,
 	system_installation_legend int(11) unsigned DEFAULT '0' NOT NULL,
 	technical_features int(11) unsigned DEFAULT '0' NOT NULL,

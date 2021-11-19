@@ -23,8 +23,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variant'] = [
 	'showitem' => 'variant_title, parent,'
 ];
 
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['chart'] = [
-	'showitem' => 'tx_chart_chart, --linebreak--, tx_chart_values,'
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['airConsumption'] = [
+	'showitem' => 'tx_chart_chart, --linebreak--, tx_chart_values, --linebreak--, air_consumption_data, --linebreak--, air_consumption_media,'
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
@@ -347,6 +347,77 @@ $tmpEntityProductColumns = [
 			],
 		]
 	],
+	'air_consumption_data' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.air_consumption_data',
+		'config' => [
+			'type' => 'text',
+			'enableRichtext' => true,
+			'richtextConfiguration' => 'xoDefault',
+			'fieldControl' => [
+				'fullScreenRichtext' => [
+					'disabled' => false,
+				],
+			],
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim',
+		],
+	],
+	'air_consumption_media' => [
+		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.air_consumption_media',
+		'config' =>
+			\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+				'air_consumption_media',
+				[
+					'appearance' => [
+						'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+						'collapseAll' => 1,
+					],
+					'foreign_match_fields' => [
+						'fieldname' => 'system_installation_media',
+						'tablenames' => 'tx_entity_domain_model_entity',
+						'table_local' => 'sys_file',
+					],
+					'overrideChildTca' => [
+						'types' => [
+							'0' => [
+								'showitem' => '
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;;filePalette'
+							],
+							\TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+								'showitem' => '
+									--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+									--palette--;;filePalette'
+							],
+						],
+						'columns' => [
+							'crop' => [
+								'config' => [
+									'cropVariants' => [
+										'default' => [
+											'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.default',
+											'allowedAspectRatios' => [
+												'16_9' => [
+													'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+													'value' => 16 / 9
+												],
+											],
+											'selectedRatio' => '16_9',
+										],
+									]
+								]
+							]
+						]
+					],
+					'maxitems' => 1
+				],
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+			),
+	],
 	'layout' => [
 		'exclude' => true,
 		'l10n_mode' => 'exclude',
@@ -536,8 +607,8 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 	--palette--;;variants,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.relation,
 	--palette--;;relation,
---div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.chart,
-	--palette--;;chart,
+--div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.airConsumption,
+	--palette--;;airConsumption,
 --div--;LLL:EXT:entity_product/Resources/Private/Language/locallang_tca.xlf:tx_entityproduct_domain_model_product.tab.configurator,
 	--palette--;;configurator,
 --div--;LLL:EXT:entity/Resources/Private/Language/locallang_tca.xlf:tx_entity_domain_model_entity.tab.seo,

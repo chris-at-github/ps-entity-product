@@ -57,6 +57,12 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.tx_chart_values" resname="tx_entityproduct_domain_model_product.tx_chart_values">
 				<source>Chart Values</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.air_consumption_data" resname="tx_entityproduct_domain_model_product.air_consumption_data">
+				<source>Air Consumption Data</source>
+			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.air_consumption_media" resname="tx_entityproduct_domain_model_product.air_consumption_media">
+				<source>Air Consumption Media</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.layout" resname="tx_entityproduct_domain_model_product.layout">
 				<source>Layout</source>
 			</trans-unit>
