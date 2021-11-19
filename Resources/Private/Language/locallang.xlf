@@ -43,6 +43,9 @@
 			<trans-unit id="product.technicalFeatures" resname="product.technicalFeatures">
 				<source>Technical Features</source>
 			</trans-unit>
+			<trans-unit id="product.airConsumption" resname="product.airConsumption">
+				<source>Air consumption</source>
+			</trans-unit>
 
 			<trans-unit id="download.dataSheet">
 				<source>Datasheet</source>

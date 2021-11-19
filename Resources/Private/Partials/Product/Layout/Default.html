@@ -63,13 +63,23 @@
 						</li>
 					</f:if>
 
-					<f:if condition="{chart}">
+					<f:if condition="{chart} || {product.airConsumptionData} || {product.airConsumptionMedia}">
 						<li class="product--chart">
-							<f:render section="AccordionHeader" arguments="{identifier: 'chart', title: chart.object.alternativeTitle}" />
+							<f:render section="AccordionHeader" arguments="{identifier: 'chart', title: '{f:translate(key: \'product.airConsumption\')}'}" />
 							<div id="product--chart-container" class="collapse" aria-labelledby="product--chart-header">
 								<div class="accordion--container accordion--container-default">
-									<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
-									<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+									<f:if condition="{chart}">
+										<f:render partial="Chart/LineChart" section="Main" arguments="{identifier: product.uid, chart: chart}" />
+										<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+									</f:if>
+
+									<f:if condition="{product.airConsumptionData}">
+										<f:debug>{product.airConsumptionData}</f:debug>
+									</f:if>
+
+									<f:if condition="{product.airConsumptionMedia}">
+										<f:debug>{product.airConsumptionMedia.originalResource.publicUrl}</f:debug>
+									</f:if>
 								</div>
 							</div>
 						</li>

@@ -148,6 +148,16 @@ class Product extends Entity {
 	protected $chartValues = null;
 
 	/**
+	 * @var string
+	 */
+	protected $airConsumptionData = '';
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $airConsumptionMedia = null;
+
+	/**
 	 * @var \Ps14\Teaser\Domain\Model\Page
 	 */
 	protected $technology = null;
@@ -564,6 +574,34 @@ class Product extends Entity {
 	 */
 	public function setLayout(string $layout): void {
 		$this->layout = $layout;
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	public function getAirConsumptionMedia(): ?\TYPO3\CMS\Extbase\Domain\Model\FileReference {
+		return $this->airConsumptionMedia;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $airConsumptionMedia
+	 */
+	public function setAirConsumptionMedia(?\TYPO3\CMS\Extbase\Domain\Model\FileReference $airConsumptionMedia): void {
+		$this->airConsumptionMedia = $airConsumptionMedia;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAirConsumptionData(): string {
+		return $this->airConsumptionData;
+	}
+
+	/**
+	 * @param string $airConsumptionData
+	 */
+	public function setAirConsumptionData(string $airConsumptionData): void {
+		$this->airConsumptionData = $airConsumptionData;
 	}
 
 	/**
