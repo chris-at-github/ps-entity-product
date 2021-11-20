@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="Data">
+
+</f:section>
+
+<f:section name="Media">
+	<f:comment>
+		<f:render partial="Components/Media" section="Picture" arguments="{
+				file: technicalDrawing,
+				image: {
+					maxHeight: settings.thumbnail.maxHeight,
+					cropVariant: settings.thumbnail.cropVariant
+				},
+				sizes: settings.thumbnail.mediaQueries
+			}" />
+
+	</f:comment>
+
+	<div class="product--air-consumption-media">
+		<f:image image="{media}" maxWidth="1140" cropVariant="default" />
+	</div>
+</f:section>
+</html>

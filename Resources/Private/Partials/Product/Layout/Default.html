@@ -64,7 +64,7 @@
 					</f:if>
 
 					<f:if condition="{chart} || {product.airConsumptionData} || {product.airConsumptionMedia}">
-						<li class="product--chart">
+						<li class="product--chart product--air-consumption">
 							<f:render section="AccordionHeader" arguments="{identifier: 'chart', title: '{f:translate(key: \'product.airConsumption\')}'}" />
 							<div id="product--chart-container" class="collapse" aria-labelledby="product--chart-header">
 								<div class="accordion--container accordion--container-default">
@@ -74,11 +74,11 @@
 									</f:if>
 
 									<f:if condition="{product.airConsumptionData}">
-										<f:debug>{product.airConsumptionData}</f:debug>
+										<f:format.html>{product.airConsumptionData}</f:format.html>
 									</f:if>
 
 									<f:if condition="{product.airConsumptionMedia}">
-										<f:debug>{product.airConsumptionMedia.originalResource.publicUrl}</f:debug>
+										<f:render partial="Product/AirConsumption" section="Media" arguments="{media: product.airConsumptionMedia.originalResource}" />
 									</f:if>
 								</div>
 							</div>

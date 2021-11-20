@@ -405,6 +405,12 @@ $tx-product-frontend--layout-show: true !default;
 			}
 		}
 
+		.product--air-consumption-media {
+			img {
+				@extend %image-responsive;
+			}
+		}
+
 		.tobii.tobii--theme-technical-drawing {
 			.tobii__slide {
 				[data-type] {
