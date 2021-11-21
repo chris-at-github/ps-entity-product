@@ -74,7 +74,7 @@
 									</f:if>
 
 									<f:if condition="{product.airConsumptionData}">
-										<f:format.html>{product.airConsumptionData}</f:format.html>
+										<f:render partial="Product/AirConsumption" section="Data" arguments="{product: product}" />
 									</f:if>
 
 									<f:if condition="{product.airConsumptionMedia}">
