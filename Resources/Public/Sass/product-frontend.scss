@@ -84,7 +84,7 @@ $tx-product-frontend--layout-show: true !default;
 				& {
 					background: $theme-color-primary;
 					color: #fff;
-					border-radius: 5px;
+					border-radius: $border-radius-default;
 				}
 
 				&:hover, .focusable &:focus-within {
@@ -145,7 +145,7 @@ $tx-product-frontend--layout-show: true !default;
 					width: rem(120px);
 					padding: rem(25px 0);
 					background: #fff;
-					border-radius: 5px;
+					border-radius: $border-radius-default;
 					opacity: 0;
 					transition: opacity $transition-duration;
 				}
@@ -260,7 +260,7 @@ $tx-product-frontend--layout-show: true !default;
 					& {
 						margin-top: rem(2px);
 						padding: rem(4px 10px 4px 33px);
-						border-radius: 3px;
+						border-radius: $border-radius-default;
 						transition: background $transition-duration;
 					}
 
@@ -614,7 +614,7 @@ $tx-product-frontend--layout-show: true !default;
 						display: block;
 						padding: rem(25px 10px);
 						background: $color-grey-lighter;
-						border-radius: 5px;
+						border-radius: $border-radius-default;
 					}
 
 					.modal--close, .filter--submit-all {
@@ -713,7 +713,7 @@ $tx-product-frontend--layout-show: true !default;
 				@include modal;
 				padding: rem(25px 10px);
 				background: $color-grey-lighter;
-				border-radius: 5px;
+				border-radius: $border-radius-default;
 			}
 
 			.is--modal-open & {
