@@ -12,7 +12,7 @@
 		</div>
 
 		<f:if condition="{product.images}">
-			<div class="ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.images -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--layout-16-9 ce-frame--space-before-auto ce-frame--space-after-auto">
+			<div class="ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.images -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--layout-16-9 ce-frame--space-before-auto ce-frame--space-after-small">
 				<div class="ce-frame--inner">
 					<f:render partial="Product/Images" section="Main" arguments="{images: product.images}" />
 				</div>
@@ -20,7 +20,7 @@
 		</f:if>
 
 		<f:if condition="{product.keyFacts}">
-			<div class="ce-frame ce-frame--layout-0 ce-frame--class-2 ce-frame--outer ce-frame--space-before-opposite-medium ce-frame--space-after-large">
+			<div class="ce-frame ce-frame--layout-0 ce-frame--class-2 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
 				<div class="ce-frame--inner">
 					<f:render partial="KeyFact/Listing" section="Main" arguments="{keyFacts: product.keyFacts}" />
 				</div>
