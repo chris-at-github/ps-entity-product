@@ -62,13 +62,17 @@ class KeyFactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 */
 	public function listingAction() {
 		$demand = $this->getDemand();
-		$keyFacts = \Ps\Xo\Utilities\GeneralUtility::sortIterableByField($this->keyFactRepository->findAll($demand), $demand['records'], function($value) {
-			if($value instanceof KeyFact) {
-				return $value->getUid();
-			}
+		$keyFacts = null;
 
-			return null;
-		});
+		if(empty($demand['records']) === false) {
+			$keyFacts = \Ps\Xo\Utilities\GeneralUtility::sortIterableByField($this->keyFactRepository->findAll($demand), $demand['records'], function($value) {
+				if($value instanceof KeyFact) {
+					return $value->getUid();
+				}
+
+				return null;
+			});
+		}
 
 		$this->view->assign('keyFacts', $keyFacts);
 	}
