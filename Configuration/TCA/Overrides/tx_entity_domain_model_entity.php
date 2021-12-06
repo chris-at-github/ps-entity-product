@@ -377,7 +377,7 @@ $tmpEntityProductColumns = [
 						'collapseAll' => 1,
 					],
 					'foreign_match_fields' => [
-						'fieldname' => 'system_installation_media',
+						'fieldname' => 'air_consumption_media',
 						'tablenames' => 'tx_entity_domain_model_entity',
 						'table_local' => 'sys_file',
 					],
