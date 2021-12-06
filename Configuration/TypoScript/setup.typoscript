@@ -233,7 +233,7 @@ tt_content.list.dataProcessing.200 {
 
 		importJs {
 			47 = /assets/js/components/collapse.js
-			48 = /assets/js/tiny-slider.js
+			48 = /assets/js/libraries/tiny-slider.js
 			49 = /assets/js/libraries/micromodal.js
 #			50 = /assets/js/chartjs.js
 #			50 = /assets/js/chart.js
