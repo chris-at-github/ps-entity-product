@@ -1,4 +1,11 @@
 // ---------------------------------------------------------------------------------------------------------------------
+// Pre-Define Variables
+$iconfont-create-font-face: false !default;
+$iconfont-create-icon-class: false !default;
+
+$stylesheet-context: 'screen' !default;
+
+// ---------------------------------------------------------------------------------------------------------------------
 // Bootstrap & XNA
 @import '../../../../xna/Resources/Public/Sass/functions';
 @import '../../../../xna/Resources/Public/Sass/variables';
@@ -405,10 +412,19 @@ $tx-product-frontend--layout-show: true !default;
 			}
 		}
 
-		.product--air-consumption-media {
-			img {
+		.product--air-consumption {
+			.product--air-consumption-media img {
 				@extend %image-responsive;
 			}
+
+			.product--air-consumption-fallback-media {
+				display: none;
+			}
+		}
+
+		.product--air-consumption-fallback {
+			height: 0;
+			overflow: hidden;
 		}
 
 		.tobii.tobii--theme-technical-drawing {
@@ -811,8 +827,130 @@ $tx-product-frontend--layout-show: true !default;
 // ---------------------------------------------------------------------------------------------------------------------
 // Print
 @include stylesheet-context($stylesheet-context-print) {
-	.ce-entityproduct-teaser {
+	.product--keyfacts {
+		padding-top: 20px !important;
+	}
+
+	.product--accordion {
+		& {
+			padding-top: 40px;
+		}
+
+		& > li {
+			margin-bottom: 60px;
+		}
+	}
+
+	.product--downloads, .product--related, .product--applications {
 		display: none;
+	}
+
+	.product--technical-data {
+		& {
+			page-break-inside: avoid;
+		}
+
+		table {
+			width: 100%;
+		}
+	}
+
+	.product--technical-data-accessories table {
+		width: 100%;
+	}
+
+	.product--technical-drawings {
+		.tab--container, .product--technical-drawing-enlarge {
+			display: none;
+		}
+
+		.tab--content {
+			@include clearfix();
+			margin-top: -45px;
+		}
+
+		.tab--pane {
+			float: left;
+			height: 345px;
+			max-width: 100%;
+			padding: 0 20px 0 0;
+		}
+
+		.product--technical-drawing {
+			& {
+				margin: 0;
+				padding: 45px 0 0 0;
+				display: block !important;
+				line-height: 300px;
+			}
+
+			img {
+				display: inline-block;
+				max-height: 300px !important;
+			}
+		}
+	}
+
+	.product--air-consumption {
+		& {
+			page-break-inside: avoid;
+		}
+
+		.chart {
+			display: block;
+		}
+
+		.chart--container {
+			padding-top: 20px;
+			flex: 0;
+			max-width: 100%;
+			height: 425px;
+		}
+
+		.chart--canvas {
+			display: none !important;
+		}
+
+		.product--air-consumption-fallback-media {
+			display: block;
+			width: 700px;
+			height: 425px;
+		}
+	}
+
+	.product--system-installation {
+		page-break-inside: avoid;
+	}
+
+	.product--technical-features {
+		.technical-features--listing {
+			display: block;
+			margin-top: -20px;
+		}
+
+		.technical-feature {
+			& {
+				flex: 0;
+				max-width: 100%;
+				page-break-inside: avoid;
+			}
+
+			.row {
+				display: -webkit-box;
+			}
+
+			.col-lg-4 {
+				max-width: 33.33%;
+			}
+
+			.col-lg-8 {
+				max-width: 66.66%;
+			}
+		}
+
+		.technical-feature--title {
+			margin-top: 0;
+		}
 	}
 }
 

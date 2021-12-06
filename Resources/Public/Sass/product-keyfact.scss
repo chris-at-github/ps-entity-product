@@ -1,4 +1,11 @@
 // ---------------------------------------------------------------------------------------------------------------------
+// Pre-Define Variables
+$iconfont-create-font-face: false !default;
+$iconfont-create-icon-class: false !default;
+
+$stylesheet-context: 'screen' !default;
+
+// ---------------------------------------------------------------------------------------------------------------------
 // Bootstrap & XNA
 @import '../../../../xna/Resources/Public/Sass/functions';
 @import '../../../../xna/Resources/Public/Sass/variables';
@@ -9,55 +16,75 @@
 // Variablen
 $tx-product-key-fact--use-css: true !default;
 
-@if($tx-product-key-fact--use-css) {
+// ---------------------------------------------------------------------------------------------------------------------
+// CSS
+@include stylesheet-context($stylesheet-context-screen) {
+	@if($tx-product-key-fact--use-css) {
+		.product--key-facts {
+			& {
+				@include make-row();
+				margin-top: rem(-15px);
+				list-style: none;
+				padding: 0;
+			}
+
+			& > li {
+				margin-top: rem(15px);
+				@include make-col-ready()
+			}
+
+			header, p {
+				display: inline;
+			}
+
+			header {
+				margin: rem(0 4px 0 0);
+				font-weight: $font-weight-bold;
+			}
+
+			p {
+				& {
+					margin: 0;
+				}
+
+				& + p {
+					margin-top: rem(5px);
+				}
+			}
+		}
+
+		// >= 576px
+		@include media-breakpoint-up(sm) {
+			.product--key-facts {
+				& > li {
+					@include make-col(6);
+				}
+			}
+		}
+
+		// >= 992px
+		@include media-breakpoint-up(lg) {
+			.product--key-facts {
+				& > li {
+					@include make-col(3);
+				}
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Print
+@include stylesheet-context($stylesheet-context-print) {
 	.product--key-facts {
 		& {
-			@include make-row();
-			margin-top: rem(-15px);
-			list-style: none;
-			padding: 0;
+			display: block;
+			list-style-type: none;
 		}
 
 		& > li {
-			margin-top: rem(15px);
-			@include make-col-ready()
-		}
-
-		header, p {
-			display: inline;
-		}
-
-		header {
-			margin: rem(0 4px 0 0);
-			font-weight: $font-weight-bold;
-		}
-
-		p {
-			& {
-				margin: 0;
-			}
-
-			& + p {
-				margin-top: rem(5px);
-			}
-		}
-	}
-
-	// >= 576px
-	@include media-breakpoint-up(sm) {
-		.product--key-facts {
-			& > li {
-				@include make-col(6);
-			}
-		}
-	}
-
-	// >= 992px
-	@include media-breakpoint-up(lg) {
-		.product--key-facts {
-			& > li {
-				@include make-col(3);
-			}
+			flex: 0;
+			max-width: 100%;
 		}
 	}
 }
