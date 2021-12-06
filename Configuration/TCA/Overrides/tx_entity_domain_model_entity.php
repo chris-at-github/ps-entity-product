@@ -24,7 +24,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variant'] = [
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['airConsumption'] = [
-	'showitem' => 'tx_chart_chart, --linebreak--, tx_chart_values, --linebreak--, air_consumption_data, --linebreak--, air_consumption_media,'
+	'showitem' => 'tx_chart_chart, --linebreak--, tx_chart_values, --linebreak--, air_consumption_data, --linebreak--, air_consumption_media, --linebreak--, air_consumption_fallback,'
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['variants'] = [
@@ -420,6 +420,17 @@ $tmpEntityProductColumns = [
 				],
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			),
+	],
+	'air_consumption_fallback' => [
+		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'BASE64',
+		'config' => [
+			'type' => 'text',
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim',
+		],
 	],
 	'layout' => [
 		'exclude' => true,

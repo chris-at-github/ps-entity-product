@@ -8,11 +8,13 @@ call_user_func(
 			'Ps.EntityProduct',
 			'Frontend',
 			[
-				\Ps\EntityProduct\Controller\ProductController::class => 'listing, show'
+				\Ps\EntityProduct\Controller\ProductController::class => 'listing, show',
+				\Ps\EntityProduct\Controller\AirConsumptionFallbackController::class => 'save'
 			],
 			// non-cacheable actions
 			[
-				\Ps\EntityProduct\Controller\ProductController::class => ''
+				\Ps\EntityProduct\Controller\ProductController::class => '',
+				\Ps\EntityProduct\Controller\AirConsumptionFallbackController::class => 'save'
 			]
 		);
 

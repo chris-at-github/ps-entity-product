@@ -158,6 +158,11 @@ class Product extends Entity {
 	protected $airConsumptionMedia = null;
 
 	/**
+	 * @var string
+	 */
+	protected $airConsumptionFallback = '';
+
+	/**
 	 * @var \Ps14\Teaser\Domain\Model\Page
 	 */
 	protected $technology = null;
@@ -602,6 +607,20 @@ class Product extends Entity {
 	 */
 	public function setAirConsumptionData(string $airConsumptionData): void {
 		$this->airConsumptionData = $airConsumptionData;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAirConsumptionFallback(): string {
+		return $this->airConsumptionFallback;
+	}
+
+	/**
+	 * @param string $airConsumptionFallback
+	 */
+	public function setAirConsumptionFallback(string $airConsumptionFallback): void {
+		$this->airConsumptionFallback = $airConsumptionFallback;
 	}
 
 	/**

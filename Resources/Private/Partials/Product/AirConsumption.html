@@ -1,4 +1,43 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="Chart">
+	<div class="chart chart--line-chart" data-identifier="{identifier}">
+		<div class="chart--legend">
+			<f:if condition="{chart.object.description}">
+				<div class="chart--description"><f:format.html>{chart.object.description}</f:format.html></div>
+			</f:if>
+
+			<f:render partial="Chart/Legend" section="Main" arguments="{chart: chart.object}" />
+		</div>
+
+		<div class="chart--container">
+			<f:if condition="{isScreenContext}">
+				<canvas class="chart--canvas"></canvas>
+			</f:if>
+
+			<f:if condition="{product.airConsumptionFallback}">
+				<img class="product--air-consumption-fallback-media" src="{product.airConsumptionFallback}" width="700" height="425">
+			</f:if>
+		</div>
+	</div>
+	<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+</f:section>
+
+<f:section name="Fallback">
+	<div class="product--air-consumption-fallback">
+		<div class="chart chart--line-chart" data-identifier="{identifier}">
+			<div class="chart--container">
+				<canvas class="chart--canvas"></canvas>
+			</div>
+		</div>
+
+		<f:form controller="AirConsumptionFallback" action="save" name="product" object="{product}" pageType="1548191072">
+			<input type="hidden" name="tx_xo[content]" value="{record.uid}" />
+			<f:form.textarea name="fallback" class="product--air-consumption-fallback-data" value="{product.airConsumptionFallback}" />
+			<f:form.submit value="ok" />
+		</f:form>
+	</div>
+</f:section>
+
 <f:section name="Data">
 	<f:format.html>{product.airConsumptionData}</f:format.html>
 </f:section>

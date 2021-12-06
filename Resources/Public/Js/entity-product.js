@@ -181,5 +181,39 @@
 				// }
 			});
 		}
+
+		// -----------------------------------------------------------------------------------------------------------------
+		// Air Consumption Fallback
+		if(document.querySelector('.product--air-consumption-fallback') !== null) {
+			setTimeout(function() {
+				const chartFallbackContainer = document.querySelector('.product--air-consumption-fallback');
+				const chartFallbackCanvas = chartFallbackContainer.querySelector('canvas');
+				const chartFallbackObject = Chart.getChart(chartFallbackCanvas);
+				const chartFallbackData = chartFallbackContainer.querySelector('.product--air-consumption-fallback-data');
+				const chartFallbackForm = chartFallbackContainer.querySelector('form');
+
+				// nur bei voller Groesse und geaenderten Daten aktualisieren
+				if(typeof(chartFallbackObject) !== 'undefined' && chartFallbackCanvas.offsetWidth >= 750 && chartFallbackCanvas.offsetHeight >= 425) {
+					chartFallbackObject.update('none'); // Chart mit Daten zeichnen (ohne Animation)
+
+					if(chartFallbackData.value !== chartFallbackCanvas.toDataURL()) {
+
+						// Daten neu setzen
+						setTimeout(function() {
+							chartFallbackData.value = chartFallbackCanvas.toDataURL();
+
+							// Daten versenden
+							let data = new FormData(chartFallbackForm);
+							let uri = chartFallbackForm.getAttribute('action');
+
+							fetch(uri, {
+								body: data,
+								method: 'post',
+							});
+						}, 1000);
+					}
+				}
+			}, 500);
+		}
 	});
 })();

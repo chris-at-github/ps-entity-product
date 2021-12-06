@@ -92,6 +92,13 @@ class ProductController extends EntityController {
 	 */
 	public function showAction($product) {
 
+		// Aufruf als PDF
+		$isScreenContext = true;
+		if(empty((int) GeneralUtility::_GET('type')) === false) {
+			$isScreenContext = false;
+		}
+		$this->view->assign('isScreenContext', $isScreenContext);
+
 		// Eltern Eigenschaften aufrufen z.B. Auswertung Meta-Tags, Title-Tag, ...
 		parent::showAction($product);
 
