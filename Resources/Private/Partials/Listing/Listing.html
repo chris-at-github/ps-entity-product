@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" xmlns:e="http://typo3.org/ns/Ps/Entity/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:section name="ReadmoreContainer">
 	<div class="readmore-container">
 		<div class="readmore-container--collapse">
@@ -13,7 +13,7 @@
 <f:section name="CardContainer">
 	<ul class="card--container {additionalClass}">
 		<f:for each="{products}" as="product">
-			<f:render section="Item" arguments="{product: product, settings: settings}" />
+			<f:render section="Item" arguments="{category: category, product: product, settings: settings}" />
 		</f:for>
 
 		<f:if condition="{settings.hideIndividualProduct} != 1">
@@ -23,10 +23,10 @@
 </f:section>
 
 <f:section name="Item">
-	<li class="card" data-uri-target="{product.link}">
+	<li class="card" data-uri-target="{e:uri.entity(entity: product, category: category)}">
 		<f:render partial="Components/Card" section="Media" arguments="{media: product.masterImage, settings: settings.xo.modules.entityproduct.card.pictureSettings.thumbnail}" />
 		<div class="card--body">
-			<f:render partial="Components/Card" section="Title" arguments="{title: product.title, link: product.link}" />
+			<f:render partial="Components/Card" section="Title" arguments="{title: product.title, link: '{e:uri.entity(entity: product, category: category)}'}" />
 
 			<f:if condition="{product.subtitle}">
 				<f:render partial="Components/Card" section="Description" arguments="{description: product.subtitle}" />

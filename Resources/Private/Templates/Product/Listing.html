@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" xmlns:e="http://typo3.org/ns/Ps/Entity/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
 
 <f:section name="Main">
@@ -44,7 +44,7 @@
 				</button>
 			</div>
 
-			<f:render partial="Listing/Listing" section="CardContainer" arguments="{products: products, additionalClass: 'product-listing--container'}" />
+			<f:render partial="Listing/Listing" section="CardContainer" arguments="{category: settings.productRange, products: products, additionalClass: 'product-listing--container'}" />
 			<div class="product-listing--loader"><div class="loader" data-loader="circle-side"></div></div>
 		</div>
 	</div>
