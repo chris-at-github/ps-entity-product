@@ -544,6 +544,10 @@ $tx-product-frontend--layout-show: true !default;
 					padding-right: 15px;
 				}
 
+				.ce-header--layout-1 {
+					margin-bottom: 0;
+				}
+
 				.product--variant-navigation {
 					width: percentage(3 / 12);
 					margin-top: rem(155px);
