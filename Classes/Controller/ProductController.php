@@ -142,6 +142,7 @@ class ProductController extends EntityController {
 		// keine Anzeige der Box individuelles Produkt
 		$this->settings['hideIndividualProduct'] = 1;
 
+		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
 		$this->view->assign('products', $this->productRepository->findAll($this->getDemand($this->settings)));
 		$this->view->assign('settings', $this->settings);
 	}
