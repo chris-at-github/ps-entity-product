@@ -20,8 +20,9 @@
 		</f:if>
 
 		<f:if condition="{product.keyFacts}">
-			<div class="product--keyfacts ce-frame ce-frame--layout-0 ce-frame--class-2 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
+			<div class="product--keyfacts ce-frame ce-frame--layout-0 ce-frame--class-2 ce-entityproduct-keyfact ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
 				<div class="ce-frame--inner">
+					<f:render partial="KeyFact/Header" section="Main" arguments="{title: '{f:translate(key: \'product.keyFacts\')}', titleType: 2}" />
 					<f:render partial="KeyFact/Listing" section="Main" arguments="{keyFacts: product.keyFacts}" />
 				</div>
 			</div>

@@ -74,6 +74,7 @@ class KeyFactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			});
 		}
 
+		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
 		$this->view->assign('keyFacts', $keyFacts);
 	}
 }

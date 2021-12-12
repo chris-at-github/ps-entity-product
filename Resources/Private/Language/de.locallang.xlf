@@ -10,6 +10,9 @@
 				<target>Filter einblenden</target>
 			</trans-unit>
 
+			<trans-unit id="product.keyFacts">
+				<target>Alles auf einen Blick</target>
+			</trans-unit>
 			<trans-unit id="product.variants">
 				<target>Ausführungen:</target>
 			</trans-unit>

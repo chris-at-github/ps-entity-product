@@ -10,6 +10,9 @@
 				<source>Show filter</source>
 			</trans-unit>
 
+			<trans-unit id="product.keyFacts">
+				<source>Key facts</source>
+			</trans-unit>
 			<trans-unit id="product.variants">
 				<source>Variants:</source>
 			</trans-unit>

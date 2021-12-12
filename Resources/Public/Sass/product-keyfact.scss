@@ -20,17 +20,44 @@ $tx-product-key-fact--use-css: true !default;
 // CSS
 @include stylesheet-context($stylesheet-context-screen) {
 	@if($tx-product-key-fact--use-css) {
+		.product--key-facts-header {
+			&, h1, h2, h3, h4 {
+				font-size: rem(21px);
+				font-weight: $font-weight-base;
+			}
+
+			h1, h2, h3, h4 {
+				margin: 0;
+			}
+
+			& + .product--key-facts {
+				margin-top: rem(20px);
+			}
+		}
+
 		.product--key-facts {
 			& {
-				@include make-row();
-				margin-top: rem(-15px);
 				list-style: none;
 				padding: 0;
 			}
 
 			& > li {
+				& {
+					position: relative;
+					padding: rem(0 0 0 30px);
+				}
+
+				svg {
+					position: absolute;
+					top: rem(8px); left: 0;
+					width: rem(18px);
+					height: rem(13px);
+					fill: #fff;
+				}
+			}
+
+			& > li + li {
 				margin-top: rem(15px);
-				@include make-col-ready()
 			}
 
 			header, p {
@@ -53,20 +80,44 @@ $tx-product-key-fact--use-css: true !default;
 			}
 		}
 
-		// >= 576px
-		@include media-breakpoint-up(sm) {
-			.product--key-facts {
-				& > li {
-					@include make-col(6);
+		// >= 768px
+		@include media-breakpoint-up(md) {
+			.ce-entityproduct-keyfact {
+				.ce-frame--inner {
+					@include make-row();
+				}
+
+				.product--key-facts-header {
+					@include make-col-ready();
+					@include make-col(4);
+				}
+
+				.product--key-facts {
+					@include make-col-ready();
+					@include make-col(8);
+				}
+			}
+
+			.product--key-facts-header {
+				&, h1, h2, h3, h4 {
+					font-size: rem(26px);
+				}
+
+				& + .product--key-facts {
+					margin-top: 0;
 				}
 			}
 		}
 
-		// >= 992px
-		@include media-breakpoint-up(lg) {
-			.product--key-facts {
-				& > li {
+		// >= 1200px
+		@include media-breakpoint-up(xl) {
+			.ce-entityproduct-keyfact {
+				.product--key-facts-header {
 					@include make-col(3);
+				}
+
+				.product--key-facts {
+					@include make-col(9);
 				}
 			}
 		}
