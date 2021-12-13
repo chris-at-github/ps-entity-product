@@ -283,10 +283,4 @@ tt_content.list.dataProcessing.200 {
 			10.value = page--layout-0
 		}
 	}
-
-	plugin.tx_entityproduct {
-
-		// keine "individuelles Produkt-Card" in Related Products anzeigen
-		settings.hideIndividualProduct = 1
-	}
 [END]

@@ -106,6 +106,10 @@ class ProductController extends EntityController {
 		$this->view->assign('product', $product);
 		$this->view->assign('variants', $this->getProductVariants($product));
 
+		// keine Anzeige der Box individuelles Produkt
+		$this->settings['hideIndividualProduct'] = 1;
+		$this->view->assign('settings', $this->settings);
+
 		if($product->getChart() !== null) {
 
 			/** @var LineChartDataProvider $chartDataProvider */
