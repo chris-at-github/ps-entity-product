@@ -55,17 +55,17 @@ plugin.tx_xo.settings {
 			pictureSettings {
 				thumbnail {
 					width = 530
-					cropVariant = thumbnail
+					cropVariant = default
 					mediaQueries {
 						576 {
 							width = 360
-							cropVariant = thumbnail
+							cropVariant = default
 							mediaQuery = (min-width: 576px)
 						}
 
 						0 {
 							width = 530
-							cropVariant = thumbnail
+							cropVariant = default
 							mediaQuery = (min-width: 0px)
 						}
 					}

@@ -664,7 +664,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['image']['config']['maxitems'] = 999;
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = [
 	'default' => [
-		'title' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.image.crop.hero',
+		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.default',
 		'allowedAspectRatios' => [
 			'16_9' => [
 				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
@@ -673,16 +673,16 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Doma
 		],
 		'selectedRatio' => '16_9',
 	],
-	'thumbnail' => [
-		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.thumbnail',
-		'allowedAspectRatios' => [
-			'16_9' => [
-				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
-				'value' => 16 / 9
-			],
-		],
-		'selectedRatio' => '16_9',
-	],
+//	'thumbnail' => [
+//		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.thumbnail',
+//		'allowedAspectRatios' => [
+//			'16_9' => [
+//				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
+//				'value' => 16 / 9
+//			],
+//		],
+//		'selectedRatio' => '16_9',
+//	],
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['system_installation_legend']['config']['overrideChildTca'] = [
