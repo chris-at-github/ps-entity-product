@@ -26,6 +26,14 @@ plugin.tx_xo.settings {
 	}
 
 	modules.entityproduct {
+		titleType {
+			0 = LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value
+			1 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.1
+			2 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.2
+			3 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.3
+			4 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.4
+		}
+
 		technicalDrawings.pictureSettings {
 			fullsize {
 				maxWidth = 1200
@@ -112,6 +120,8 @@ plugin.tx_xo.settings {
 		}
 	}
 }
+
+module.tx_xo.settings.modules.entityproduct < plugin.tx_xo.settings.modules.entityproduct
 
 plugin.tx_entityproduct {
 	view {

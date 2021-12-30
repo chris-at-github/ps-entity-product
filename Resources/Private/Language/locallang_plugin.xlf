@@ -63,6 +63,9 @@
 			<trans-unit id="flexform.field.readmoreEnabled" resname="flexform.field.readmoreEnabled">
 				<source>Use load more</source>
 			</trans-unit>
+			<trans-unit id="flexform.field.titleType" resname="flexform.field.titleType">
+				<source>Title type</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
