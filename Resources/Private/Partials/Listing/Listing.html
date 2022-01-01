@@ -39,14 +39,14 @@
 	<xo:page.model uid="{settings.xo.pages.individualProduct}" model="Ps14\Teaser\Domain\Model\Page">
 		<li class="card product-listing--item-individual" data-uri-target="{f:uri.page(pageUid: page.uid)}">
 			<div class="product-listing--item-individual-icon">
-				<xo:svg.inline source="assets/svg/plus.svg" />
+				<xo:svg.inline source="assets/svg/no-result.svg" />
 			</div>
 
 			<div class="card--body">
 				<f:render partial="Components/Card" section="Title" arguments="{title: page.teaserTitle, link: '{f:uri.page(pageUid: page.uid)}'}" />
 
-				<f:if condition="{page.abstract}">
-					<f:render partial="Components/Card" section="Description" arguments="{description: page.abstract}" />
+				<f:if condition="{page.abstractLong}">
+					<div class="card--description"><f:format.html>{page.abstractLong}</f:format.html></div>
 				</f:if>
 			</div>
 		</li>

@@ -89,21 +89,45 @@ $tx-product-frontend--layout-show: true !default;
 
 			.product-listing--item-individual {
 				& {
-					background: $theme-color-primary;
-					color: #fff;
+					background: $color-grey-light;
+					color: $color-grey-dark;
 					border-radius: $border-radius-default;
+					transition: all $transition-duration;
 				}
 
 				&:hover, .focusable &:focus-within {
-					background: $theme-color-primary-dark;
+					& {
+						background: $theme-color-error;
+						color: #fff;
+					}
+
+					.card--title {
+						color: #fff;
+					}
+
+					.product-listing--item-individual-icon svg {
+						fill: #fff;
+					}
+
+					.link--cta {
+						& {
+							outline: 2px solid #fff;
+							outline-offset: -2px;
+						}
+
+						&:before {
+							transform: translate(5px, 0);
+						}
+					}
 				}
 
 				.card--title {
 					& {
-						color: #fff;
+						color: $color-grey-dark;
+						transition: color $transition-duration;
 					}
 
-					svg {
+					span:after {
 						display: none;
 					}
 				}
@@ -120,26 +144,26 @@ $tx-product-frontend--layout-show: true !default;
 					}
 
 					svg {
+						fill: $theme-color-error;
 						position: absolute;
 						top: 50%; left: 50%;
 						transform: translate(-50%, -50%);
+						transition: fill $transition-duration;
 
-						width: 27px;
-						height: 27px;
+						width: 73px;
+						height: 73px;
+					}
+				}
+
+				.link--cta {
+					& {
+						display: block;
+						background: $theme-color-error;
+						font-size: rem(15px);
 					}
 
 					&:before {
-						content: '';
-
-						position: absolute;
-						top: 50%; left: 50%;
-						transform: translate(-50%, -50%);
-
-						width: 72px;
-						height: 72px;
-						border: 3px solid #fff;
-						border-radius: 50%;
-						display: block;
+						font-size: rem(10px);
 					}
 				}
 			}
