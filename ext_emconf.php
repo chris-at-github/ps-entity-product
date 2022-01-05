@@ -30,6 +30,7 @@ $EM_CONF[$_EXTKEY] = [
 			'ce_downloads' => '1.0.0-1.10.99',
 			'ce_marker' => '1.0.0-1.10.99',
 			'teaser' => '1.0.0-1.10.99',
+			'ke_search' => '4.2.0-4.2.99',
 		],
 		'conflicts' => [],
 		'suggests' => [],

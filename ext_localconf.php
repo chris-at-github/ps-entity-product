@@ -59,5 +59,9 @@ call_user_func(
 
 		// Automatisches Setzen des Status von Neu auf in Bearbeitung
 		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][\Ps\EntityProduct\Service\VariantFlexformProcessingService::class] = \Ps\EntityProduct\Service\VariantFlexformProcessingService::class;
+
+		// Register custom indexer.
+		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['registerIndexerConfiguration'][] =	\Ps\EntityProduct\Indexer\ProductIndexer::class;
+		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['customIndexer'][] = \Ps\EntityProduct\Indexer\ProductIndexer::class;
 	}
 );
