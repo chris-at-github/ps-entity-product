@@ -190,7 +190,8 @@ class ProductIndexer extends IndexerBase {
 		$content = '';
 
 		$this->indexingMode = self::INDEXING_MODE_INCREMENTAL;
-		$content = $this->customIndexer($indexerConfig, $indexerObject);
+
+		$content .= $this->customIndexer($indexerConfig, $indexerObject);
 		$content .= $this->removeDeleted($indexerConfig);
 
 		return $content;
