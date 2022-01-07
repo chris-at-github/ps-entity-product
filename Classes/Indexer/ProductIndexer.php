@@ -206,7 +206,6 @@ class ProductIndexer extends IndexerBase {
 				->from('tx_entity_domain_model_entity')
 				->where(
 					$queryBuilder->expr()->in( 'pid', $folders),
-					$queryBuilder->expr()->eq( 'uid', $queryBuilder->createNamedParameter(11)),
 					$queryBuilder->expr()->eq('tx_extbase_type', $queryBuilder->createNamedParameter(\Ps\EntityProduct\Domain\Model\Product::class, \PDO::PARAM_STR))
 				)
 				->execute();
