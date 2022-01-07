@@ -3,6 +3,8 @@
 // Adjust the extension name part of the namespace to your extension key.
 namespace Ps\EntityProduct\Indexer;
 
+use Tpwd\KeSearch\Domain\Repository\IndexRepository;
+use Tpwd\KeSearch\Domain\Repository\TtNewsRepository;
 use Tpwd\KeSearch\Indexer\IndexerBase;
 use Tpwd\KeSearch\Indexer\IndexerRunner;
 use Tpwd\KeSearch\Lib\SearchHelper;
@@ -131,7 +133,11 @@ class ProductIndexer extends IndexerBase {
 		return $keyFacts;
 	}
 
-
+	/**
+	 * @param array $record
+	 * @param string $foreignField
+	 * @return string
+	 */
 	protected function getElementRecords($record, $foreignField) {
 
 		$elements = '';
@@ -176,8 +182,21 @@ class ProductIndexer extends IndexerBase {
 	}
 
 	/**
-	 * Custom indexer for ke_search.
-	 *
+	 * @param array $indexerConfig Configuration from TYPO3 Backend.
+	 * @param IndexerRunner $indexerObject Reference to indexer class.
+	 * @return string Message containing indexed elements.
+	 */
+	public function startIncrementalIndexing(array &$indexerConfig, IndexerRunner &$indexerObject): string {
+		$content = '';
+
+		$this->indexingMode = self::INDEXING_MODE_INCREMENTAL;
+		$content = $this->customIndexer($indexerConfig, $indexerObject);
+		$content .= $this->removeDeleted($indexerConfig);
+
+		return $content;
+	}
+
+	/**
 	 * @param   array $indexerConfig Configuration from TYPO3 Backend.
 	 * @param   IndexerRunner $indexerObject Reference to indexer class.
 	 * @return  string Message containing indexed elements.
@@ -201,21 +220,25 @@ class ProductIndexer extends IndexerBase {
 				->add(GeneralUtility::makeInstance(HiddenRestriction::class));
 
 			$folders = GeneralUtility::intExplode(',', $indexerConfig['sysfolder']);
-			$statement = $queryBuilder
+			$queryBuilder
 				->select('*')
 				->from('tx_entity_domain_model_entity')
 				->where(
 					$queryBuilder->expr()->in( 'pid', $folders),
 					$queryBuilder->expr()->eq('tx_extbase_type', $queryBuilder->createNamedParameter(\Ps\EntityProduct\Domain\Model\Product::class, \PDO::PARAM_STR))
-				)
-				->execute();
+				);
+
+			// in incremental mode get only news which have been modified since last indexing time
+			if($this->indexingMode == self::INDEXING_MODE_INCREMENTAL) {
+				$queryBuilder->andWhere($queryBuilder->expr()->gte('tstamp', $this->lastRunStartTime));
+			}
+
+			$statement = $queryBuilder->execute();
 
 			// Loop through the records and write them to the index.
 			$counter = 0;
 
 			while ($record = $statement->fetch()) {
-
-				//DebuggerUtility::var_dump($record);
 
 				// -------------------------------------------------------------------------------------------------------------
 				// Title
@@ -303,5 +326,48 @@ class ProductIndexer extends IndexerBase {
 		}
 
 		return '';
+	}
+
+	/**
+	 * @param array $indexerConfig Configuration from TYPO3 Backend.
+	 * @return string
+	 */
+	public function removeDeleted($indexerConfig): string {
+
+		/** @var IndexRepository $indexRepository */
+		$indexRepository = GeneralUtility::makeInstance(IndexRepository::class);
+
+		// Doctrine DBAL using Connection Pool.
+		/** @var Connection $connection */
+		$connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_entity_domain_model_entity');
+		$queryBuilder = $connection->createQueryBuilder();
+
+		$queryBuilder
+			->getRestrictions()
+			->removeAll();
+
+		$folders = GeneralUtility::intExplode(',', $indexerConfig['sysfolder']);
+		$statement = $queryBuilder
+			->select('*')
+			->from('tx_entity_domain_model_entity')
+			->where(
+				$queryBuilder->expr()->in('pid', $folders),
+				$queryBuilder->expr()->eq('tx_extbase_type', $queryBuilder->createNamedParameter(\Ps\EntityProduct\Domain\Model\Product::class, \PDO::PARAM_STR)),
+				$queryBuilder->expr()->gte('tstamp', $this->lastRunStartTime),
+				 $queryBuilder->expr()->orX(
+					 $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)),
+					 $queryBuilder->expr()->eq('hidden', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT))
+				 )
+			)->execute();
+
+		// Loop through the records and write them to the index.
+		$counter = 0;
+
+		while($record = $statement->fetch()) {
+			$counter++;
+			$indexRepository->deleteByUniqueProperties($record['uid'], $indexerConfig['storagepid'], ProductIndexer::KEY, $record['sys_language_uid']);
+		}
+
+		return LF . 'Found ' . $counter . ' deleted and hidden record(s).';
 	}
 }
