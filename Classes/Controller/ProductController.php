@@ -4,6 +4,7 @@ namespace Ps\EntityProduct\Controller;
 
 
 use Ps\Entity\Controller\EntityController;
+use Ps\EntityProduct\Domain\Model\Product;
 use Ps\EntityProduct\Domain\Model\Product as Entity;
 use Ps\EntityProduct\Domain\Repository\ProductRepository;
 use Ps\EntityProduct\Provider\LineChartDataProvider;
@@ -61,6 +62,10 @@ class ProductController extends EntityController {
 
 		if(empty($overwrite['application']) === false) {
 			$options['application'] = (int) $overwrite['application'];
+		}
+
+		if(empty($overwrite['records']) === false) {
+			$options['records'] = GeneralUtility::intExplode(',', $overwrite['records']);
 		}
 
 		// keine Varianten
@@ -126,13 +131,22 @@ class ProductController extends EntityController {
 			unset($this->settings['categories']);
 			unset($this->settings['products']);
 			unset($this->settings['application']);
+			unset($this->settings['records']);
 
 		} elseif($this->settings['source'] === 'categories') {
 			unset($this->settings['technology']);
 			unset($this->settings['products']);
 			unset($this->settings['application']);
+			unset($this->settings['records']);
 
 		} elseif($this->settings['source'] === 'application') {
+			unset($this->settings['technology']);
+			unset($this->settings['products']);
+			unset($this->settings['categories']);
+			unset($this->settings['records']);
+
+		} elseif($this->settings['source'] === 'records') {
+			unset($this->settings['application']);
 			unset($this->settings['technology']);
 			unset($this->settings['products']);
 			unset($this->settings['categories']);
@@ -146,8 +160,21 @@ class ProductController extends EntityController {
 		// keine Anzeige der Box individuelles Produkt
 		$this->settings['hideIndividualProduct'] = 1;
 
+		$demand = $this->getDemand($this->settings);
+		$products = $this->productRepository->findAll($demand);
+
+		if(empty($demand['records']) === false) {
+			$products = \Ps\Xo\Utilities\GeneralUtility::sortIterableByField($products, $demand['records'], function($value) {
+				if($value instanceof Product) {
+					return $value->getUid();
+				}
+
+				return null;
+			});
+		}
+
 		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
-		$this->view->assign('products', $this->productRepository->findAll($this->getDemand($this->settings)));
+		$this->view->assign('products', $products);
 		$this->view->assign('settings', $this->settings);
 	}
 

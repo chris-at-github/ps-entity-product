@@ -51,7 +51,7 @@
 			<trans-unit id="flexform.field.categories" resname="flexform.field.categories">
 				<source>Categories</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.products" resname="flexform.field.products">
+			<trans-unit id="flexform.field.records" resname="flexform.field.records">
 				<source>Products</source>
 			</trans-unit>
 			<trans-unit id="flexform.field.technology" resname="flexform.field.technology">
