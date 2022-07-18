@@ -10,9 +10,31 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
+					<settings.source>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.keyfacts.source</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<default>records</default>
+								<items type="array">
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.keyfacts.source.records</numIndex>
+										<numIndex index="1">records</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.keyfacts.source.inline</numIndex>
+										<numIndex index="1">inline</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.source>
 					<settings.keyFacts>
 						<TCEforms>
 							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.keyFacts</label>
+							<displayCond>FIELD:main.settings.source:=:records</displayCond>
 							<config>
 								<type>select</type>
 								<renderType>selectMultipleSideBySide</renderType>
@@ -23,6 +45,20 @@
 							</config>
 						</TCEforms>
 					</settings.keyFacts>
+					<settings.inline>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.keyFacts</label>
+							<displayCond>FIELD:main.settings.source:=:inline</displayCond>
+							<config>
+								<type>inline</type>
+								<maxitems>1</maxitems>
+								<foreign_table>tx_entityproduct_domain_model_keyfact</foreign_table>
+								<foreign_field>content</foreign_field>
+								<foreign_sortby>sorting</foreign_sortby>
+								<maxitems>4</maxitems>
+							</config>
+						</TCEforms>
+					</settings.inline>
 				</el>
 			</ROOT>
 		</main>

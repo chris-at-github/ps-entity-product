@@ -53,6 +53,8 @@ class KeyFactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		if(empty($this->settings['keyFacts']) === false) {
 			$options['records'] = GeneralUtility::intExplode(',', $this->settings['keyFacts']);
 		}
+		
+		DebuggerUtility::var_dump($this->settings);
 
 		return $options;
 	}
