@@ -36,7 +36,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['configurator'] = [
 ];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['extended'] = [
-	'showitem' => 'system_installation_media, --linebreak--, system_installation_legend, --linebreak--, technical_features, --linebreak--, options,'
+	'showitem' => 'system_installation_media, --linebreak--, system_installation_legend, --linebreak--, technical_features, --linebreak--, options, --linebreak--, accesories_description,'
 ];
 
 $GLOBALS['TCA']['tt_address']['palettes']['productHidden'] = [
@@ -597,6 +597,24 @@ $tmpEntityProductColumns = [
 				'newRecordLinkAddTitle' => 1
 			],
 		]
+	],
+	'accesories_description' => [
+		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.accesories_description',
+		'config' => [
+			'type' => 'text',
+			'enableRichtext' => true,
+			'richtextConfiguration' => 'xoDefault',
+			'fieldControl' => [
+				'fullScreenRichtext' => [
+					'disabled' => false,
+				],
+			],
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim',
+		],
 	],
 ];
 
