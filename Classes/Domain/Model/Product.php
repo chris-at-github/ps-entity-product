@@ -190,6 +190,11 @@ class Product extends Entity {
 	protected $options = '';
 
 	/**
+	 * @var string
+	 */
+	protected $accesoriesDescription = '';
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -621,6 +626,20 @@ class Product extends Entity {
 	 */
 	public function setAirConsumptionFallback(string $airConsumptionFallback): void {
 		$this->airConsumptionFallback = $airConsumptionFallback;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAccesoriesDescription(): string {
+		return $this->accesoriesDescription;
+	}
+
+	/**
+	 * @param string $accesoriesDescription
+	 */
+	public function setAccesoriesDescription(string $accesoriesDescription): void {
+		$this->accesoriesDescription = $accesoriesDescription;
 	}
 
 	/**

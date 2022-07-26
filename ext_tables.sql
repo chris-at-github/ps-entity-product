@@ -21,7 +21,8 @@ CREATE TABLE tx_entity_domain_model_entity (
 	system_installation_media int(11) unsigned DEFAULT '0' NOT NULL,
 	system_installation_legend int(11) unsigned DEFAULT '0' NOT NULL,
 	technical_features int(11) unsigned DEFAULT '0' NOT NULL,
-	options text
+	options text,
+	accesories_description text
 );
 
 CREATE TABLE tx_entityproduct_domain_model_attribute (

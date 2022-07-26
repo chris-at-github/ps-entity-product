@@ -128,6 +128,17 @@
 							</div>
 						</li>
 					</f:if>
+
+					<f:if condition="{product.accesoriesDescription}">
+						<li class="product--accesories-description">
+							<f:render section="AccordionHeader" arguments="{identifier: 'accesories-description', title: '{f:translate(key: \'product.accesoriesDescription\')}'}" />
+							<div id="product--accesories-description-container" class="collapse" aria-labelledby="product--accesories-description-header">
+								<div class="accordion--container accordion--container-default">
+									<f:format.html>{product.accesoriesDescription}</f:format.html>
+								</div>
+							</div>
+						</li>
+					</f:if>
 				</ul>
 
 				<f:if condition="{chart} && {isScreenContext}">

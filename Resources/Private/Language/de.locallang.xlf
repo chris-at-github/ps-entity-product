@@ -49,6 +49,9 @@
 			<trans-unit id="product.airConsumption" resname="product.airConsumption">
 				<target>Druckluftverbrauch</target>
 			</trans-unit>
+			<trans-unit id="product.accesoriesDescription" resname="product.accesoriesDescription">
+				<target>Zubehör</target>
+			</trans-unit>
 
 			<trans-unit id="download.dataSheet">
 				<target>Datenblatt</target>
