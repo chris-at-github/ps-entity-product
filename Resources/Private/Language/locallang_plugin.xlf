@@ -66,15 +66,6 @@
 			<trans-unit id="flexform.field.titleType" resname="flexform.field.titleType">
 				<source>Title type</source>
 			</trans-unit>
-			<trans-unit id="flexform.keyfacts.source" resname="flexform.keyfacts.source">
-				<source>Source</source>
-			</trans-unit>
-			<trans-unit id="flexform.keyfacts.source.records" resname="flexform.keyfacts.source.records">
-				<source>Records</source>
-			</trans-unit>
-			<trans-unit id="flexform.keyfacts.source.inline" resname="flexform.keyfacts.source.inline">
-				<source>Inline</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>
