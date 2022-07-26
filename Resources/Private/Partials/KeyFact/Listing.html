@@ -3,13 +3,17 @@
 		<f:if condition="{keyFacts}">
 			<ul class="product--key-facts">
 				<f:for each="{keyFacts}" as="keyFact">
-					<li>
-						<xo:svg.use name="check" viewBox="0 0 18 13" />
-						<header>{keyFact.title}</header>
-						<f:format.html>{keyFact.description}</f:format.html>
-					</li>
+					<f:render section="Item" arguments="{title: keyFact.title, description: keyFact.description}" />
 				</f:for>
 			</ul>
 		</f:if>
+	</f:section>
+
+	<f:section name="Item">
+		<li>
+			<xo:svg.use name="check" viewBox="0 0 18 13" />
+			<header>{title}</header>
+			<f:format.html>{description}</f:format.html>
+		</li>
 	</f:section>
 </html>

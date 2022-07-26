@@ -146,3 +146,7 @@ CREATE TABLE tx_entityproduct_product_keyfact_mm (
 CREATE TABLE tx_chart_domain_model_value (
 	tx_entityproduct_product int(11) DEFAULT '0' NOT NULL
 );
+
+CREATE TABLE tt_content (
+	tx_entityproduct_keyfacts int(11) unsigned DEFAULT '0' NOT NULL
+);

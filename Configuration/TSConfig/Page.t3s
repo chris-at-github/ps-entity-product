@@ -39,6 +39,21 @@ mod {
 		}
 		show = *
 	}
+
+	wizards.newContentElement.wizardItems.common {
+		elements {
+			entity_product_content {
+				iconIdentifier = ps14-content-keyfacts
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.name
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.description
+				tt_content_defValues {
+					CType = entityproduct_keyfacts
+				}
+			}
+		}
+
+		show := addToList(entity_product_content)
+	}
 }
 
 // Varianten und Eigenschaften vorerst deaktiveren

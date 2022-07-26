@@ -54,6 +54,12 @@ call_user_func(
 			['source' => 'EXT:entity_product/Resources/Public/Icons/user_plugin_frontend.svg']
 		);
 
+		$iconRegistry->registerIcon(
+			'ps14-content-keyfacts',
+			\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+			['source' => 'EXT:entity_product/Resources/Public/Icons/content-keyfacts.svg']
+		);
+
 		\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\VariantAttributeProvider::class);
 		\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\ChartDataValueProvider::class);
 

@@ -19,6 +19,10 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.tab.airConsumption" resname="tx_entityproduct_domain_model_product.tab.airConsumption">
 				<source>Air Consumption</source>
 			</trans-unit>
+
+			<trans-unit id="tt_content.tx_entityproduct_keyfacts" resname="tt_content.tx_entityproduct_keyfacts">
+				<source>Key Facts</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default"/>
+
+	<f:section name="Header" />
+
+	<f:section name="Main">
+		<f:if condition="{data.header_layout} != 100">
+			<f:if condition="{data.header}">
+				<f:then><f:render partial="KeyFact/Header" section="Main" arguments="{title: data.header, titleType: data.header_layout}" /></f:then>
+			</f:if>
+		</f:if>
+
+		<f:if condition="{records}">
+			<ul class="product--key-facts">
+				<f:for each="{records}" as="keyFact">
+					<f:render partial="KeyFact/Listing" section="Item" arguments="{title: keyFact.data.title, description: keyFact.data.description}" />
+				</f:for>
+			</ul>
+		</f:if>
+	</f:section>
+</html>
