@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Ps\EntityProduct\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /***
@@ -20,4 +22,20 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  * The repository for KeyFacts
  */
 class KeyFactRepository extends \Ps\Xo\Domain\Repository\Repository {
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\QueryInterface $query
+	 * @param array $options
+	 * @return array
+	 */
+	protected function getMatches($query, $options) {
+		$matches = parent::getMatches($query, $options);
+
+		// Inhalt
+		if(isset($options['content']) === true) {
+			$matches['content'] = $query->equals('content', (int) $options['content']);
+		}
+
+		return $matches;
+	}
 }
