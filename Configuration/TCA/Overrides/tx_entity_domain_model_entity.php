@@ -295,7 +295,7 @@ $tmpEntityProductColumns = [
 			'type' => 'select',
 			'renderType' => 'selectMultipleSideBySide',
 			'foreign_table' => 'tx_entityproduct_domain_model_keyfact',
-			'foreign_table_where' => 'AND {#tx_entityproduct_domain_model_keyfact}.{#sys_language_uid} IN (0, -1) ORDER BY tx_entityproduct_domain_model_keyfact.sorting ASC',
+			'foreign_table_where' => 'AND {#tx_entityproduct_domain_model_keyfact}.{#sys_language_uid} IN (0, -1) AND content = 0 ORDER BY tx_entityproduct_domain_model_keyfact.sorting ASC',
 			'MM' => 'tx_entityproduct_product_keyfact_mm',
 			'default' => 0,
 			'size' => 10,
