@@ -12,8 +12,13 @@
 	<f:section name="Item">
 		<li>
 			<xo:svg.use name="check" viewBox="0 0 18 13" />
-			<header>{title}</header>
-			<f:format.html>{description}</f:format.html>
+			<f:if condition="{title}">
+				<header>{title}</header>
+			</f:if>
+
+			<f:if condition="{description}">
+				<f:format.html>{description}</f:format.html>
+			</f:if>
 		</li>
 	</f:section>
 </html>

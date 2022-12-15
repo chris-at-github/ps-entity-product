@@ -3,6 +3,12 @@ return [
 	'ctrl' => [
 		'title' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_keyfact',
 		'label' => 'title',
+		'label_alt' => 'description',
+		'formattedLabel_userFunc' => Ps\Xo\Service\TcaService::class . '->getInlineLabel',
+		'formattedLabel_userFunc_options' => [
+			'label' => 'title',
+			'label_alt' => 'description'
+		],
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -113,7 +119,7 @@ return [
 			'config' => [
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim,required'
+				'eval' => 'trim'
 			],
 		],
 		'description' => [
