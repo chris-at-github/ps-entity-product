@@ -40,6 +40,7 @@ plugin.tx_xo.settings {
 				maxHeight = 1200
 				cropVariant = fullscreen
 			}
+
 			thumbnail {
 				maxHeight = 450
 				cropVariant = thumbnail
@@ -50,7 +51,7 @@ plugin.tx_xo.settings {
 						mediaQuery = (min-width: 992px)
 					}
 					0 {
-						maxHeight = 300
+						maxHeight = 450
 						cropVariant = thumbnail
 						mediaQuery = (min-width: 0px)
 					}
