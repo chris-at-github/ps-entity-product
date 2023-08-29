@@ -338,3 +338,16 @@ tt_content {
 		}
 	}
 }
+
+config.recordLinks.entityProduct {
+	forceLink = 0
+
+	typolink {
+		parameter = 1
+		userFunc = Ps\EntityProduct\Service\ProductRecordLinkHandlerService->createProductLink
+		userFunc {
+			productUid = TEXT
+			productUid.data = field:uid
+		}
+	}
+}
