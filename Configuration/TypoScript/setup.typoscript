@@ -351,3 +351,19 @@ config.recordLinks.entityProduct {
 		}
 	}
 }
+
+plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct < plugin.tx_seo.config.xmlSitemap.sitemaps.entityFrontend
+plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct.config {
+	pid = {$plugin.tx_entityproduct.persistence.storagePid}
+	url {
+		fieldToParameterMap {
+			uid = tx_entityproduct_frontend[product]
+		}
+
+		additionalGetParameters >
+		additionalGetParameters {
+			tx_entityproduct_frontend.controller = Product
+			tx_entityproduct_frontend.action = show
+		}
+	}
+}
