@@ -1,9 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
 		<f:if condition="{product.technicalFeatures}">
-			<ul class="row technical-features--listing">
+			<ul class="technical-features--listing">
 				<f:for each="{product.technicalFeatures}" as="technicalFeature">
-					<li class="col-12 col-sm-6 col-lg-12 col-xl-6 technical-feature">
+					<li class="technical-feature">
 						<div class="row">
 							<div class="col-12 col-lg-4">
 								<f:render section="Media" arguments="{media: technicalFeature.media, settings: settings.xo.modules.entityproduct.technicalFeature}" />

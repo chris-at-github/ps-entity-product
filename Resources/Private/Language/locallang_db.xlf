@@ -72,6 +72,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.layout.accessories" resname="tx_entityproduct_domain_model_product.layout.accessories">
 				<source>Accessories</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.layout.cleaning-machines" resname="tx_entityproduct_domain_model_product.layout.cleaning-machines">
+				<source>Cleaning Machines</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.options">
 				<source>Options</source>
 			</trans-unit>

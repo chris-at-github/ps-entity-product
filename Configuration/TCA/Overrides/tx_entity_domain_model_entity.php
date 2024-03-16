@@ -443,6 +443,7 @@ $tmpEntityProductColumns = [
 			'items' => [
 				['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.layout.default', ''],
 				['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.layout.accessories', 'accessories'],
+				['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.layout.cleaning-machines', 'cleaning-machines'],
 			],
 			'size' => 1,
 			'maxitems' => 1,

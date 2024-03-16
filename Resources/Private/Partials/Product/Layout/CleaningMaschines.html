@@ -1,0 +1,191 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:section name="Main">
+
+		<div class="product--header ce-header ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
+			<div class="ce-frame--inner">
+				<f:render partial="Product/Header" section="Main" arguments="{_all}" />
+
+				<f:if condition="{variants}">
+					<f:render partial="Product/VariantNavigation" section="Main" arguments="{_all}" />
+				</f:if>
+			</div>
+		</div>
+
+		<f:if condition="{product.images}">
+			<div class="ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.images -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--layout-16-9 ce-frame--space-before-auto ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Images" section="Main" arguments="{images: product.images}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.keyFacts}">
+			<div class="product--keyfacts ce-frame ce-frame--layout-0 ce-frame--class-2 ce-entityproduct-keyfact ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
+				<div class="ce-frame--inner">
+					<f:render partial="KeyFact/Header" section="Main" arguments="{title: '{f:translate(key: \'product.keyFacts\')}', titleType: 2}" />
+					<f:render partial="KeyFact/Listing" section="Main" arguments="{keyFacts: product.keyFacts}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.longDescription}">
+			<div class="product--long-description ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<header class="ce-header ce-header--layout-2">
+						<h2>{f:translate(key: 'product.longDescription')}</h2>
+					</header>
+					<f:format.html>{product.longDescription}</f:format.html>
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.technicalFeatures}">
+			<div class="product--technical-features ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<header class="ce-header ce-header--layout-2">
+						<h2>{f:translate(key: 'product.technicalFeatures')}</h2>
+					</header>
+					<f:render partial="Product/TechnicalFeatures" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.technology}">
+			<div class="product--technology ce-frame ce-teaser-frontend ce-teaser-frontend--technology ce-frame--layout-0 ce-frame--variant-1 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Technology" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
+
+		<div class="ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-auto">
+			<div class="ce-frame--inner">
+				<ul class="accordion product--accordion">
+					<f:if condition="{product.technicalData}">
+						<li class="product--technical-data">
+							<f:render section="AccordionHeader" arguments="{identifier: 'technical-data', title: '{f:translate(key: \'product.technicalData\')}'}" />
+							<div id="product--technical-data-container" class="collapse" aria-labelledby="product--technical-data-header">
+								<div class="accordion--container accordion--container-default">
+									<f:format.html>{product.technicalData}</f:format.html>
+								</div>
+							</div>
+						</li>
+					</f:if>
+
+					<f:if condition="{product.technicalDrawings}">
+						<li class="product--technical-drawings">
+							<f:render section="AccordionHeader" arguments="{identifier: 'technical-drawings', title: '{f:translate(key: \'product.technicalDrawings\')}'}" />
+							<div id="product--technical-drawings-container" class="collapse" aria-labelledby="product--technical-drawings-header">
+								<div class="accordion--container accordion--container-default">
+									<f:render partial="Product/TechnicalDrawings" section="Main" arguments="{technicalDrawings: product.technicalDrawings, settings: settings.xo.modules.entityproduct.technicalDrawings}" />
+								</div>
+							</div>
+						</li>
+					</f:if>
+
+					<f:if condition="{product.systemInstallationMedia} || {product.systemInstallationLegend}">
+						<li class="product--system-installation">
+							<f:render section="AccordionHeader" arguments="{identifier: 'system-installation', title: '{f:translate(key: \'product.systemInstallation\')}'}" />
+							<div id="product--system-installation-container" class="collapse" aria-labelledby="product--system-installation-header">
+								<div class="accordion--container accordion--container-default">
+									<f:render partial="Product/SystemInstallation" section="Main" arguments="{_all}" />
+								</div>
+							</div>
+						</li>
+					</f:if>
+
+					<f:if condition="{product.options}">
+						<li class="product--options">
+							<f:render section="AccordionHeader" arguments="{identifier: 'options', title: '{f:translate(key: \'product.options\')}'}" />
+							<div id="product--options-container" class="collapse" aria-labelledby="product--options-header">
+								<div class="accordion--container accordion--container-default">
+									<f:format.html>{product.options}</f:format.html>
+								</div>
+							</div>
+						</li>
+					</f:if>
+
+					<f:if condition="{product.files}">
+						<li class="product--downloads">
+							<f:render section="AccordionHeader" arguments="{identifier: 'downloads', title: '{f:translate(key: \'product.downloads\')}'}" />
+							<div id="product--downloads-container" class="collapse" aria-labelledby="product--downloads-header">
+								<div class="accordion--container accordion--container-default">
+									<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
+								</div>
+							</div>
+						</li>
+					</f:if>
+				</ul>
+			</div>
+		</div>
+	</f:section>
+
+	<f:section name="AccordionHeader">
+		<header class="accordion--header" id="product--{identifier}-header">
+			<button data-bs-toggle="collapse" data-bs-target="#product--{identifier}-container" aria-expanded="{f:if(condition: '{expanded}', then: expanded, else: 'false')}" aria-controls="product--{identifier}-container">
+				{title}
+				<xo:svg.inline source="assets/svg/chevron-down.svg" />
+			</button>
+		</header>
+	</f:section>
+
+	<f:section name="Temp">
+		<div class="ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-auto">
+			<div class="ce-frame--inner">
+				<ul class="accordion product--accordion">
+					<f:if condition="{chart} || {product.airConsumptionData} || {product.airConsumptionMedia}">
+						<li class="product--chart product--air-consumption">
+							<f:render section="AccordionHeader" arguments="{identifier: 'chart', title: '{f:translate(key: \'product.airConsumption\')}'}" />
+							<div id="product--chart-container" class="collapse" aria-labelledby="product--chart-header">
+								<div class="accordion--container accordion--container-default">
+									<f:if condition="{chart}">
+										<f:render partial="Product/AirConsumption" section="Chart" arguments="{product: product, identifier: product.uid, chart: chart, isScreenContext: isScreenContext}" />
+									</f:if>
+
+									<f:if condition="{product.airConsumptionData}">
+										<f:render partial="Product/AirConsumption" section="Data" arguments="{product: product}" />
+									</f:if>
+
+									<f:if condition="{product.airConsumptionMedia}">
+										<f:render partial="Product/AirConsumption" section="Media" arguments="{media: product.airConsumptionMedia.originalResource}" />
+									</f:if>
+								</div>
+							</div>
+						</li>
+					</f:if>
+
+					<f:if condition="{product.accesoriesDescription}">
+						<li class="product--accesories-description">
+							<f:render section="AccordionHeader" arguments="{identifier: 'accesories-description', title: '{f:translate(key: \'product.accesoriesDescription\')}'}" />
+							<div id="product--accesories-description-container" class="collapse" aria-labelledby="product--accesories-description-header">
+								<div class="accordion--container accordion--container-default">
+									<f:format.html>{product.accesoriesDescription}</f:format.html>
+								</div>
+							</div>
+						</li>
+					</f:if>
+				</ul>
+
+				<f:if condition="{chart} && {isScreenContext}">
+					<f:render partial="Product/AirConsumption" section="Fallback" arguments="{record: record, product: product, identifier: product.uid, chart: chart}" />
+				</f:if>
+			</div>
+		</div>
+
+		<f:if condition="{product.related}">
+			<div class="product--related ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-large">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Related" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.applications}">
+			<div class="product--applications ce-frame ce-frame--layout-0 ce-frame--class-1 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Applications" section="Main" arguments="{_all}" />
+				</div>
+			</div>
+		</f:if>
+	</f:section>
+</html>

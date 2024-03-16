@@ -7,8 +7,15 @@
 		<f:flashMessages/>
 
 		<f:if condition="{product.layout} == 'accessories'">
-			<f:then><f:render partial="Product/Layout/Accessories" section="Main" arguments="{_all}"/></f:then>
-			<f:else><f:render partial="Product/Layout/Default" section="Main" arguments="{_all}"/></f:else>
+			<f:then>
+				<f:render partial="Product/Layout/Accessories" section="Main" arguments="{_all}"/>
+			</f:then>
+			<f:else if="{product.layout} == 'cleaning-machines'">
+				<f:render partial="Product/Layout/CleaningMaschines" section="Main" arguments="{_all}"/>
+			</f:else>
+			<f:else>
+				<f:render partial="Product/Layout/Default" section="Main" arguments="{_all}"/>
+			</f:else>
 		</f:if>
 	</f:section>
 </html>
