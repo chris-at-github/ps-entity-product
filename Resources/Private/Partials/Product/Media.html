@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="Main">
+	<f:if condition="{media -> f:count()} == 1">
+		<f:then>
+			<f:render partial="Hero/Item" section="Main" arguments="{media: media.0, settings: settings.xo.modules.ce_hero}" />
+		</f:then>
+
+		<f:else if="{media -> f:count()} > 1">
+			<div class="slider">
+				<ul class="slider--container">
+					<f:for each="{media}" as="media" iteration="iterator">
+						<li class="slider--item" data-index="{iterator.index}">
+							<f:render partial="Hero/Item" section="Main" arguments="{media: media, settings: settings.xo.modules.ce_hero}" />
+						</li>
+					</f:for>
+				</ul>
+
+				<f:render partial="Components/Slider" section="Navigation" arguments="{elements: media}" />
+			</div>
+		</f:else>
+	</f:if>
+</f:section>
+</html>
