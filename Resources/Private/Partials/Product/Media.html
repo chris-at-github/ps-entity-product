@@ -1,8 +1,8 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:section name="Main">
 	<f:if condition="{media -> f:count()} == 1">
 		<f:then>
-			<f:render partial="Hero/Item" section="Main" arguments="{media: media.0, settings: settings.xo.modules.ce_hero}" />
+			<f:render section="Item" arguments="{media: media.0, settings: settings.xo.modules.ce_hero}" />
 		</f:then>
 
 		<f:else if="{media -> f:count()} > 1">
@@ -10,7 +10,7 @@
 				<ul class="slider--container">
 					<f:for each="{media}" as="media" iteration="iterator">
 						<li class="slider--item" data-index="{iterator.index}">
-							<f:render partial="Hero/Item" section="Main" arguments="{media: media, settings: settings.xo.modules.ce_hero}" />
+							<f:render partial="Hero/Item" section="Main" arguments="{media: media, settings: settings.xo.modules.ce_hero, product: product}" />
 						</li>
 					</f:for>
 				</ul>
@@ -19,5 +19,31 @@
 			</div>
 		</f:else>
 	</f:if>
+</f:section>
+
+<f:section name="Item">
+	<f:spaceless>
+		<div class="hero {f:if(condition: '{xo:media.isImage(file: media)}', then: 'hero--image')}{f:if(condition: '{xo:media.isVideo(file: media)}', then: 'hero--video hero--video-played')}">
+			<f:render partial="Hero/Content" section="Main" arguments="{_all}" />
+
+			<f:if condition="{media} && {xo:media.isImage(file: media)}">
+				<f:render partial="Hero/Media" section="{settings.image.renderMode -> xo:format.ucFirst()}" arguments="{media: media, settings: settings.image}" />
+			</f:if>
+
+			<f:if condition="{media} && {xo:media.isVideo(file: media)}">
+				<f:render partial="Components/Media" section="Video" arguments="{
+					file: media,
+					additionalAttributes: {
+						id: 'hero-video--{product.uid}'
+					},
+					options: {
+						autoplay: 0,
+						controls: 1,
+						loop: 0
+					}
+				}" />
+			</f:if>
+		</div>
+	</f:spaceless>
 </f:section>
 </html>

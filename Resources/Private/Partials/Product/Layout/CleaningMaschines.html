@@ -39,6 +39,14 @@
 			</div>
 		</f:if>
 
+		<f:if condition="{product.media}">
+			<div class="product--media ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.media -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--layout-16-9 ce-frame--space-before-medium ce-frame--space-after-auto">
+				<div class="ce-frame--inner">
+					<f:render partial="Product/Media" section="Main" arguments="{media: product.media, product: product}" />
+				</div>
+			</div>
+		</f:if>
+
 		<f:if condition="{product.technicalFeatures}">
 			<div class="product--technical-features ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
 				<div class="ce-frame--inner">
@@ -118,14 +126,6 @@
 				</ul>
 			</div>
 		</div>
-
-		<f:if condition="{product.media}">
-			<div class="product--media ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.media -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--layout-16-9 ce-frame--space-before-medium ce-frame--space-after-auto">
-				<div class="ce-frame--inner">
-					<f:render partial="Product/Media" section="Main" arguments="{media: product.media}" />
-				</div>
-			</div>
-		</f:if>
 	</f:section>
 
 	<f:section name="AccordionHeader">
