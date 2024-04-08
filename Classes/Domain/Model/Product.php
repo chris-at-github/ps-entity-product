@@ -187,6 +187,11 @@ class Product extends Entity {
 	/**
 	 * @var string
 	 */
+	protected $technicalFeaturesDescription = '';
+
+	/**
+	 * @var string
+	 */
 	protected $options = '';
 
 	/**
@@ -640,6 +645,14 @@ class Product extends Entity {
 	 */
 	public function setAccesoriesDescription(string $accesoriesDescription): void {
 		$this->accesoriesDescription = $accesoriesDescription;
+	}
+
+	public function getTechnicalFeaturesDescription(): string {
+		return $this->technicalFeaturesDescription;
+	}
+
+	public function setTechnicalFeaturesDescription(string $technicalFeaturesDescription): void {
+		$this->technicalFeaturesDescription = $technicalFeaturesDescription;
 	}
 
 	/**

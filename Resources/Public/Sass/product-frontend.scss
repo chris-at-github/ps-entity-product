@@ -397,7 +397,7 @@ $tx-product-frontend--layout-show: true !default;
 			}
 		}
 
-		.ce-header--layout-2, .ce-header--layout-3 {
+		.ce-header--layout-2, .ce-header--layout-3, .technical-features--description {
 			& + .technical-features--listing {
 				margin-top: $spacing-medium;
 			}

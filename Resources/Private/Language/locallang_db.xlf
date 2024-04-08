@@ -87,6 +87,9 @@
 			<trans-unit id="tx_entityproduct_domain_model_product.technical_features">
 				<source>Technical Features</source>
 			</trans-unit>
+			<trans-unit id="tx_entityproduct_domain_model_product.technical_features_description">
+				<source>Technical Features Description</source>
+			</trans-unit>
 			<trans-unit id="tx_entityproduct_domain_model_product.technology">
 				<source>Technology</source>
 			</trans-unit>

@@ -1,5 +1,12 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
+
+		<f:if condition="{product.technicalFeaturesDescription}">
+			<div class="technical-features--description">
+				<f:format.html>{product.technicalFeaturesDescription}</f:format.html>
+			</div>
+		</f:if>
+
 		<f:if condition="{product.technicalFeatures}">
 			<ul class="technical-features--listing">
 				<f:for each="{product.technicalFeatures}" as="technicalFeature">
