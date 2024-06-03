@@ -1,28 +1,32 @@
 {
-    "name": "ps/entity-product",
-    "type": "typo3-cms-extension",
-    "description": "",
-    "authors": [
-        {
-            "name": "Christian Pschorr",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "typo3/cms-core": "^10.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ps\\EntityProduct\\": "Classes"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Ps\\EntityProduct\\Tests\\": "Tests"
-        }
-    },
-    "replace": {
-        "ps/entity-product": "self.version",
-        "typo3-ter/entity-product": "self.version"
-    }
+	"name": "ps/entity-product",
+	"type": "typo3-cms-extension",
+	"description": "Product database based on the entity extension",
+	"keywords": [
+		"TYPO3",
+		"extension"
+	],
+	"homepage": "http://ps14.de/",
+	"require": {
+		"typo3/cms-core": "^12.4"
+	},
+	"suggest": {
+	},
+	"autoload": {
+		"psr-4": {
+			"Ps\\EntityProduct\\": "Classes"
+		}
+	},
+	"license": "closed",
+	"authors": [
+		{
+			"name": "Christian Pschorr",
+			"email": "pschorr.christian@gmail.com"
+		}
+	],
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "entity_product"
+		}
+	}
 }

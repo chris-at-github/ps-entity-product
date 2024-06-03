@@ -173,13 +173,13 @@ class Product extends Entity {
 	protected $systemInstallationMedia = null;
 
 	/**
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Element>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps14\Foundation\Domain\Model\Element>
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $systemInstallationLegend = null;
 
 	/**
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\Xo\Domain\Model\Element>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps14\Foundation\Domain\Model\Element>
 	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
 	 */
 	protected $technicalFeatures = null;

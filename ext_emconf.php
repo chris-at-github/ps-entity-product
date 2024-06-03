@@ -11,26 +11,20 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = [
-	'title' => 'Product',
-	'description' => '',
+	'title' => 'Entity Product',
+	'description' => 'Product database based on the entity extension',
 	'category' => 'plugin',
 	'author' => 'Christian Pschorr',
 	'author_email' => 'pschorr.christian@gmail.com',
 	'state' => 'beta',
-	'createDirs' => '',
+	'uploadfolder' => 0,
 	'clearCacheOnLoad' => 0,
-	'version' => '1.0.1',
+	'version' => '2.0.0',
 	'constraints' => [
 		'depends' => [
-			'typo3' => '10.4.0-10.4.99',
-			'entity' => '0.1.0-1.10.99',
-			'flux' => '9.4.2-9.5.99',
-			'chart' => '1.0.0-1.10.99',
-			'ce_hero' => '1.0.2-1.10.99',
-			'ce_downloads' => '1.0.0-1.10.99',
-			'ce_marker' => '1.0.0-1.10.99',
-			'teaser' => '1.0.0-1.10.99',
-			'ke_search' => '4.2.0-4.2.99',
+			'typo3' => '12.0.0-12.4.99',
+			'entity' => '2.0.0-2.10.99',
+			'flux' => '10.0.10-10.9.99',
 		],
 		'conflicts' => [],
 		'suggests' => [],

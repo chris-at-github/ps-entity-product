@@ -21,7 +21,7 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 /**
  * The repository for KeyFacts
  */
-class KeyFactRepository extends \Ps\Xo\Domain\Repository\Repository {
+class KeyFactRepository extends \Ps14\Foundation\Domain\Repository\Repository {
 
 	/**
 	 * @param \TYPO3\CMS\Extbase\Persistence\QueryInterface $query

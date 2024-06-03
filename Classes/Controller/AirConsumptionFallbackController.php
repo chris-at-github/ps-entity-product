@@ -25,32 +25,32 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
  * ProductController
  */
 class AirConsumptionFallbackController extends EntityController {
-
-	/**
-	 * productRepository
-	 *
-	 * @var ProductRepository
-	 */
-	protected $productRepository = null;
-
-	/**
-	 * @param ProductRepository $productRepository
-	 */
-	public function injectProductRepository(ProductRepository $productRepository) {
-		$this->productRepository = $productRepository;
-	}
-
-	/**
-	 * @param \Ps\EntityProduct\Domain\Model\Product $product
-	 * @param string $fallback
-	 * @return boolean
-	 */
-	public function saveAction($product, string $fallback) {
-//		if(empty($fallback) === false && (int) preg_match('/^data:image\/png;base64,.+/', trim($fallback)) === 1) {
-			$product->setAirConsumptionFallback($fallback);
-			$this->productRepository->update($product);
-//		}
-
-		return true;
-	}
+//
+//	/**
+//	 * productRepository
+//	 *
+//	 * @var ProductRepository
+//	 */
+//	protected $productRepository = null;
+//
+//	/**
+//	 * @param ProductRepository $productRepository
+//	 */
+//	public function injectProductRepository(ProductRepository $productRepository) {
+//		$this->productRepository = $productRepository;
+//	}
+//
+//	/**
+//	 * @param \Ps\EntityProduct\Domain\Model\Product $product
+//	 * @param string $fallback
+//	 * @return boolean
+//	 */
+//	public function saveAction($product, string $fallback) {
+////		if(empty($fallback) === false && (int) preg_match('/^data:image\/png;base64,.+/', trim($fallback)) === 1) {
+//			$product->setAirConsumptionFallback($fallback);
+//			$this->productRepository->update($product);
+////		}
+//
+//		return true;
+//	}
 }

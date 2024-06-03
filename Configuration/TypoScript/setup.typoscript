@@ -1,369 +1,369 @@
-plugin.tx_xo.settings {
-	filter {
-		entityproduct {
-			namespace = tx_entityproduct_frontend
-			submitAll = 1
-			resetAll = 1
-			#		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
-			#		collapse = 1
-			#		pageType = 1548191072
-
-			items {
-				categories-tree {
-					renderType = treeRadio
-					autoSubmit = 1
-					resetable = 1
-					dataProvider {
-						Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
-							parent = 16
-							whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
-							removeSingleValues = 1
-						}
-					}
-				}
-			}
-		}
-	}
-
-	modules.entityproduct {
-		titleType {
-			0 = LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value
-			1 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.1
-			2 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.2
-			3 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.3
-			4 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.4
-		}
-
-		technicalDrawings.pictureSettings {
-			fullsize {
-				maxWidth = 1200
-				maxHeight = 1200
-				cropVariant = fullscreen
-			}
-
-			thumbnail {
-				maxHeight = 450
-				cropVariant = thumbnail
-				mediaQueries {
-					992 {
-						maxHeight = 450
-						cropVariant = thumbnail
-						mediaQuery = (min-width: 992px)
-					}
-					0 {
-						maxHeight = 450
-						cropVariant = thumbnail
-						mediaQuery = (min-width: 0px)
-					}
-				}
-			}
-		}
-
-		card {
-			readmoreLimit = 3
-			pictureSettings {
-				thumbnail {
-					width = 530
-					cropVariant = default
-					mediaQueries {
-						576 {
-							width = 360
-							cropVariant = default
-							mediaQuery = (min-width: 576px)
-						}
-
-						0 {
-							width = 530
-							cropVariant = default
-							mediaQuery = (min-width: 0px)
-						}
-					}
-				}
-			}
-		}
-
-		technicalFeature {
-			pictureSettings {
-				width = 455
-				cropVariant = mobile
-				mediaQueries {
-					1200 {
-						width = 165
-						cropVariant = desktop
-						mediaQuery = (min-width: 1200px)
-					}
-
-					992 {
-						width = 360
-						cropVariant = mobile
-						mediaQuery = (min-width: 992px)
-					}
-
-					768 {
-						width = 455
-						cropVariant = mobile
-						mediaQuery = (min-width: 768px)
-					}
-
-					576 {
-						width = 355
-						cropVariant = mobile
-						mediaQuery = (min-width: 576px)
-					}
-
-					0 {
-						width = 545
-						cropVariant = mobile
-						mediaQuery = (min-width: 0px)
-					}
-				}
-			}
-		}
-	}
-}
-
-module.tx_xo.settings.modules.entityproduct < plugin.tx_xo.settings.modules.entityproduct
-
-plugin.tx_entityproduct {
-	view {
-		layoutRootPaths {
-			10 = EXT:entity_product/Resources/Private/Layouts/
-			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
-			30 = {$plugin.tx_entityproduct.view.layoutRootPath}
-		}
-
-		templateRootPaths {
-			10 = EXT:entity_product/Resources/Private/Templates/
-			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
-			30 = {$plugin.tx_entityproduct.view.templateRootPath}
-		}
-
-		partialRootPaths {
-			10 = EXT:entity_product/Resources/Private/Partials/
-			20 = EXT:chart/Resources/Private/Partials/
-			21 = EXT:ce_hero/Resources/Private/Partials/
-			22 = EXT:ce_downloads/Resources/Private/Partials/
-			23 = EXT:ce_marker/Resources/Private/Partials/
-			24 = EXT:teaser/Resources/Private/Partials/
-			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
-			51 = EXT:xna/Resources/Private/Partials/
-			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
-			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
-			61 = EXT:xna/Resources/Private/Extensions/CeDownloads/Partials/
-			62 = EXT:xna/Resources/Private/Extensions/Teaser/Partials/
-			65 = {$plugin.tx_entityproduct.view.partialRootPath}
-		}
-	}
-
-	persistence {
-		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
-		recursive = 1
-	}
-
-	features {
-		#skipDefaultArguments = 1
-
-		# if set to 1, the enable fields are ignored in BE context
-		ignoreAllEnableFieldsInBe = 0
-
-		# Should be on by default, but can be disabled if all action in the plugin are uncached
-		requireCHashArgumentForActionArguments = 1
-	}
-
-	mvc {
-		#callDefaultActionIfActionCantBeResolved = 1
-	}
-
-	settings {
-		xo < plugin.tx_xo.settings
-	}
-}
-
-lib.productSiblingNavigation = COA
-lib.productSiblingNavigation {
-	wrap = <div class="product-listing--sibling-navigation"> | </div>
-
-	10 = RECORDS
-	10 {
-		tables = pages
-		source.data = FIELD:pid
-
-		conf.pages = TEXT
-		conf.pages {
-			field = title
-			wrap = <div class="product-listing--sibling-navigation-header"> | </div>
-		}
-	}
-
-	20 = HMENU
-	20 {
-		special = directory
-		special.value.data = FIELD:pid
-
-		1 = TMENU
-		1 {
-			wrap = <nav class="navigation"><ul> | </ul></nav>
-
-			NO = 1
-			NO.wrapItemAndSub = <li> | </li>
-			NO.linkWrap = <span>|</span><svg class="svg-sprite svg-sprite--arrow-right" viewBox="0 0 14 11"><use xlink:href="#sprite-arrow-right"></use></svg>
-			NO.ATagBeforeWrap = 1
-
-			ACT < .NO
-			ACT.wrapItemAndSub = <li class="active"> | </li>
-
-			CUR < .ACT
-			CUR.wrapItemAndSub = <li class="active"> | </li>
-		}
-	}
-}
-
-page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
-page.10.dataProcessing.32 {
-	uidArgument = tx_entityproduct_frontend|product
-	titleField = title
-}
-
-page.10.dataProcessing.42 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
-page.10.dataProcessing.42 {
-	argumentPrefix = tx_entityproduct_frontend
-	uidArgument = product
-}
-
-tt_content.list.dataProcessing.200 {
-	entityproduct_frontend {
-		importCss {
-			10 = /assets/css/components/collapse.css
-			11 = /assets/css/components/accordion.css
-			50 = /assets/css/modules/teaser.css
-			51 = /assets/css/modules/hero.css
-			52 = /assets/css/modules/downloads.css
-			100 = /assets/css/modules/product-frontend.css
-			101 = /assets/css/modules/product-keyfact.css
-		}
-
-		importJs {
-			47 = /assets/js/components/collapse.js
-			48 = /assets/js/libraries/tiny-slider.js
-			49 = /assets/js/libraries/micromodal.js
-#			50 = /assets/js/chartjs.js
-#			50 = /assets/js/chart.js
-			51 = /assets/js/libraries/filter.js
-			52 = /assets/js/modules/hero.js
-			100 = /assets/js/entity-product.js
-		}
-	}
-
-	entityproduct_keyfact {
-		importCss {
-			10 = /assets/css/modules/product-keyfact.css
-		}
-	}
-}
-
-[traverse(request.getQueryParams(), 'tx_entityproduct_frontend/product') != 0]
-	tt_content {
-		list {
-			dataProcessing {
-				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
-			}
-		}
-	}
-
-	block {
-
-		// Inhalt (Plugin) in dem Hauptbereich anzeigen
-		contentMain.select.where = colPos = 15
-
-		// Dummy-Wert fuer die nicht Anzeige
-		contentProduct.select.where = colPos = -100
-	}
-
-	dataProcessing {
-
-		// Seiten-Layout (Klasse) wieder auf den Standard setzen
-		pageLayout.mapping.4 = PageLayout-0
-	}
-
-	page {
-
-		// Seiten-Layout (Klasse) wieder auf den Standard setzen
-		bodyTagCObject {
-			10 >
-			10 = TEXT
-			10.value = page--layout-0
-		}
-	}
-[END]
-
-tt_content {
-	entityproduct_keyfacts =< lib.contentElement
-	entityproduct_keyfacts {
-		templateName = KeyFacts.html
-		layoutRootPaths {
-			10 = EXT:entity_product/Resources/Private/Layouts/
-			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
-		}
-
-		templateRootPaths {
-			10 = EXT:entity_product/Resources/Private/Templates/Content/
-			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
-		}
-
-		partialRootPaths {
-			10 = EXT:entity_product/Resources/Private/Partials/
-			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
-		}
-
-		dataProcessing {
-			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-			30 {
-				as = records
-				table = tx_entityproduct_domain_model_keyfact
-				pidInList.field = pid
-				where {
-					data = field:uid
-					intval = 1
-					wrap = content = |
-				}
-				orderBy = sorting
-			}
-
-			120 = Ps14\CeAccordion\DataProcessing\ModuleProcessor
-			120 {
-				importCss {
-					10 = /assets/css/modules/product-keyfact.css
-				}
-			}
-		}
-	}
-}
-
-config.recordLinks.entityProduct {
-	forceLink = 0
-
-	typolink {
-		parameter = 1
-		userFunc = Ps\EntityProduct\Service\ProductRecordLinkHandlerService->createProductLink
-		userFunc {
-			productUid = TEXT
-			productUid.data = field:uid
-		}
-	}
-}
-
-plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct < plugin.tx_seo.config.xmlSitemap.sitemaps.entityFrontend
-plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct.config {
-	pid = {$plugin.tx_entityproduct.persistence.storagePid}
-	url {
-		fieldToParameterMap {
-			uid = tx_entityproduct_frontend[product]
-		}
-
-		additionalGetParameters >
-		additionalGetParameters {
-			tx_entityproduct_frontend.controller = Product
-			tx_entityproduct_frontend.action = show
-		}
-	}
-}
+#plugin.tx_xo.settings {
+#	filter {
+#		entityproduct {
+#			namespace = tx_entityproduct_frontend
+#			submitAll = 1
+#			resetAll = 1
+#			#		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
+#			#		collapse = 1
+#			#		pageType = 1548191072
+#
+#			items {
+#				categories-tree {
+#					renderType = treeRadio
+#					autoSubmit = 1
+#					resetable = 1
+#					dataProvider {
+#						Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
+#							parent = 16
+#							whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
+#							removeSingleValues = 1
+#						}
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	modules.entityproduct {
+#		titleType {
+#			0 = LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value
+#			1 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.1
+#			2 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.2
+#			3 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.3
+#			4 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.4
+#		}
+#
+#		technicalDrawings.pictureSettings {
+#			fullsize {
+#				maxWidth = 1200
+#				maxHeight = 1200
+#				cropVariant = fullscreen
+#			}
+#
+#			thumbnail {
+#				maxHeight = 450
+#				cropVariant = thumbnail
+#				mediaQueries {
+#					992 {
+#						maxHeight = 450
+#						cropVariant = thumbnail
+#						mediaQuery = (min-width: 992px)
+#					}
+#					0 {
+#						maxHeight = 450
+#						cropVariant = thumbnail
+#						mediaQuery = (min-width: 0px)
+#					}
+#				}
+#			}
+#		}
+#
+#		card {
+#			readmoreLimit = 3
+#			pictureSettings {
+#				thumbnail {
+#					width = 530
+#					cropVariant = default
+#					mediaQueries {
+#						576 {
+#							width = 360
+#							cropVariant = default
+#							mediaQuery = (min-width: 576px)
+#						}
+#
+#						0 {
+#							width = 530
+#							cropVariant = default
+#							mediaQuery = (min-width: 0px)
+#						}
+#					}
+#				}
+#			}
+#		}
+#
+#		technicalFeature {
+#			pictureSettings {
+#				width = 455
+#				cropVariant = mobile
+#				mediaQueries {
+#					1200 {
+#						width = 165
+#						cropVariant = desktop
+#						mediaQuery = (min-width: 1200px)
+#					}
+#
+#					992 {
+#						width = 360
+#						cropVariant = mobile
+#						mediaQuery = (min-width: 992px)
+#					}
+#
+#					768 {
+#						width = 455
+#						cropVariant = mobile
+#						mediaQuery = (min-width: 768px)
+#					}
+#
+#					576 {
+#						width = 355
+#						cropVariant = mobile
+#						mediaQuery = (min-width: 576px)
+#					}
+#
+#					0 {
+#						width = 545
+#						cropVariant = mobile
+#						mediaQuery = (min-width: 0px)
+#					}
+#				}
+#			}
+#		}
+#	}
+#}
+#
+#module.tx_xo.settings.modules.entityproduct < plugin.tx_xo.settings.modules.entityproduct
+#
+#plugin.tx_entityproduct {
+#	view {
+#		layoutRootPaths {
+#			10 = EXT:entity_product/Resources/Private/Layouts/
+#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
+#			30 = {$plugin.tx_entityproduct.view.layoutRootPath}
+#		}
+#
+#		templateRootPaths {
+#			10 = EXT:entity_product/Resources/Private/Templates/
+#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
+#			30 = {$plugin.tx_entityproduct.view.templateRootPath}
+#		}
+#
+#		partialRootPaths {
+#			10 = EXT:entity_product/Resources/Private/Partials/
+#			20 = EXT:chart/Resources/Private/Partials/
+#			21 = EXT:ce_hero/Resources/Private/Partials/
+#			22 = EXT:ce_downloads/Resources/Private/Partials/
+#			23 = EXT:ce_marker/Resources/Private/Partials/
+#			24 = EXT:teaser/Resources/Private/Partials/
+#			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
+#			51 = EXT:xna/Resources/Private/Partials/
+#			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
+#			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
+#			61 = EXT:xna/Resources/Private/Extensions/CeDownloads/Partials/
+#			62 = EXT:xna/Resources/Private/Extensions/Teaser/Partials/
+#			65 = {$plugin.tx_entityproduct.view.partialRootPath}
+#		}
+#	}
+#
+#	persistence {
+#		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
+#		recursive = 1
+#	}
+#
+#	features {
+#		#skipDefaultArguments = 1
+#
+#		# if set to 1, the enable fields are ignored in BE context
+#		ignoreAllEnableFieldsInBe = 0
+#
+#		# Should be on by default, but can be disabled if all action in the plugin are uncached
+#		requireCHashArgumentForActionArguments = 1
+#	}
+#
+#	mvc {
+#		#callDefaultActionIfActionCantBeResolved = 1
+#	}
+#
+#	settings {
+#		xo < plugin.tx_xo.settings
+#	}
+#}
+#
+#lib.productSiblingNavigation = COA
+#lib.productSiblingNavigation {
+#	wrap = <div class="product-listing--sibling-navigation"> | </div>
+#
+#	10 = RECORDS
+#	10 {
+#		tables = pages
+#		source.data = FIELD:pid
+#
+#		conf.pages = TEXT
+#		conf.pages {
+#			field = title
+#			wrap = <div class="product-listing--sibling-navigation-header"> | </div>
+#		}
+#	}
+#
+#	20 = HMENU
+#	20 {
+#		special = directory
+#		special.value.data = FIELD:pid
+#
+#		1 = TMENU
+#		1 {
+#			wrap = <nav class="navigation"><ul> | </ul></nav>
+#
+#			NO = 1
+#			NO.wrapItemAndSub = <li> | </li>
+#			NO.linkWrap = <span>|</span><svg class="svg-sprite svg-sprite--arrow-right" viewBox="0 0 14 11"><use xlink:href="#sprite-arrow-right"></use></svg>
+#			NO.ATagBeforeWrap = 1
+#
+#			ACT < .NO
+#			ACT.wrapItemAndSub = <li class="active"> | </li>
+#
+#			CUR < .ACT
+#			CUR.wrapItemAndSub = <li class="active"> | </li>
+#		}
+#	}
+#}
+#
+#page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
+#page.10.dataProcessing.32 {
+#	uidArgument = tx_entityproduct_frontend|product
+#	titleField = title
+#}
+#
+#page.10.dataProcessing.42 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
+#page.10.dataProcessing.42 {
+#	argumentPrefix = tx_entityproduct_frontend
+#	uidArgument = product
+#}
+#
+#tt_content.list.dataProcessing.200 {
+#	entityproduct_frontend {
+#		importCss {
+#			10 = /assets/css/components/collapse.css
+#			11 = /assets/css/components/accordion.css
+#			50 = /assets/css/modules/teaser.css
+#			51 = /assets/css/modules/hero.css
+#			52 = /assets/css/modules/downloads.css
+#			100 = /assets/css/modules/product-frontend.css
+#			101 = /assets/css/modules/product-keyfact.css
+#		}
+#
+#		importJs {
+#			47 = /assets/js/components/collapse.js
+#			48 = /assets/js/libraries/tiny-slider.js
+#			49 = /assets/js/libraries/micromodal.js
+##			50 = /assets/js/chartjs.js
+##			50 = /assets/js/chart.js
+#			51 = /assets/js/libraries/filter.js
+#			52 = /assets/js/modules/hero.js
+#			100 = /assets/js/entity-product.js
+#		}
+#	}
+#
+#	entityproduct_keyfact {
+#		importCss {
+#			10 = /assets/css/modules/product-keyfact.css
+#		}
+#	}
+#}
+#
+#[traverse(request.getQueryParams(), 'tx_entityproduct_frontend/product') != 0]
+#	tt_content {
+#		list {
+#			dataProcessing {
+#				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
+#			}
+#		}
+#	}
+#
+#	block {
+#
+#		// Inhalt (Plugin) in dem Hauptbereich anzeigen
+#		contentMain.select.where = colPos = 15
+#
+#		// Dummy-Wert fuer die nicht Anzeige
+#		contentProduct.select.where = colPos = -100
+#	}
+#
+#	dataProcessing {
+#
+#		// Seiten-Layout (Klasse) wieder auf den Standard setzen
+#		pageLayout.mapping.4 = PageLayout-0
+#	}
+#
+#	page {
+#
+#		// Seiten-Layout (Klasse) wieder auf den Standard setzen
+#		bodyTagCObject {
+#			10 >
+#			10 = TEXT
+#			10.value = page--layout-0
+#		}
+#	}
+#[END]
+#
+#tt_content {
+#	entityproduct_keyfacts =< lib.contentElement
+#	entityproduct_keyfacts {
+#		templateName = KeyFacts.html
+#		layoutRootPaths {
+#			10 = EXT:entity_product/Resources/Private/Layouts/
+#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
+#		}
+#
+#		templateRootPaths {
+#			10 = EXT:entity_product/Resources/Private/Templates/Content/
+#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
+#		}
+#
+#		partialRootPaths {
+#			10 = EXT:entity_product/Resources/Private/Partials/
+#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
+#		}
+#
+#		dataProcessing {
+#			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+#			30 {
+#				as = records
+#				table = tx_entityproduct_domain_model_keyfact
+#				pidInList.field = pid
+#				where {
+#					data = field:uid
+#					intval = 1
+#					wrap = content = |
+#				}
+#				orderBy = sorting
+#			}
+#
+#			120 = Ps14\CeAccordion\DataProcessing\ModuleProcessor
+#			120 {
+#				importCss {
+#					10 = /assets/css/modules/product-keyfact.css
+#				}
+#			}
+#		}
+#	}
+#}
+#
+#config.recordLinks.entityProduct {
+#	forceLink = 0
+#
+#	typolink {
+#		parameter = 1
+#		userFunc = Ps\EntityProduct\Service\ProductRecordLinkHandlerService->createProductLink
+#		userFunc {
+#			productUid = TEXT
+#			productUid.data = field:uid
+#		}
+#	}
+#}
+#
+#plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct < plugin.tx_seo.config.xmlSitemap.sitemaps.entityFrontend
+#plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct.config {
+#	pid = {$plugin.tx_entityproduct.persistence.storagePid}
+#	url {
+#		fieldToParameterMap {
+#			uid = tx_entityproduct_frontend[product]
+#		}
+#
+#		additionalGetParameters >
+#		additionalGetParameters {
+#			tx_entityproduct_frontend.controller = Product
+#			tx_entityproduct_frontend.action = show
+#		}
+#	}
+#}

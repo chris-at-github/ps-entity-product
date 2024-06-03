@@ -1,73 +1,50 @@
 <?php
-defined('TYPO3_MODE') || die('Access denied.');
 
-call_user_func(
-	function() {
+if(defined('TYPO3') === false) {
+	die('Access denied.');
+}
 
-		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-			'Ps.EntityProduct',
-			'Frontend',
-			[
-				\Ps\EntityProduct\Controller\ProductController::class => 'listing, show',
-				\Ps\EntityProduct\Controller\AirConsumptionFallbackController::class => 'save'
-			],
-			// non-cacheable actions
-			[
-				\Ps\EntityProduct\Controller\ProductController::class => '',
-				\Ps\EntityProduct\Controller\AirConsumptionFallbackController::class => 'save'
-			]
-		);
+(function () {
 
-		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-			'Ps.EntityProduct',
-			'KeyFact',
-			[
-				\Ps\EntityProduct\Controller\KeyFactController::class => 'listing'
-			],
-			// non-cacheable actions
-			[
-				\Ps\EntityProduct\Controller\KeyFactController::class => ''
-			]
-		);
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+		'EntityProduct',
+		'Frontend',
+		[
+			\Ps\EntityProduct\Controller\ProductController::class => 'listing, show',
+//			\Ps\EntityProduct\Controller\AirConsumptionFallbackController::class => 'save'
+		],
+		[
+			\Ps\EntityProduct\Controller\ProductController::class => '',
+//			\Ps\EntityProduct\Controller\AirConsumptionFallbackController::class => 'save'
+		]
+	);
 
-		\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-			'Ps.EntityProduct',
-			'Teaser',
-			[
-				\Ps\EntityProduct\Controller\ProductController::class => 'teaser'
-			],
-			// non-cacheable actions
-			[
-				\Ps\EntityProduct\Controller\ProductController::class => ''
-			]
-		);
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+		'EntityProduct',
+		'KeyFact',
+		[
+			\Ps\EntityProduct\Controller\KeyFactController::class => 'listing'
+		],
+		[]
+	);
 
-		// PageTs
-		\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-			'<INCLUDE_TYPOSCRIPT: source="FILE:EXT:entity_product/Configuration/TSConfig/Page.t3s">'
-		);
+	\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+		'EntityProduct',
+		'Teaser',
+		[
+			\Ps\EntityProduct\Controller\ProductController::class => 'teaser'
+		],
+		[]
+	);
 
-		$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-		$iconRegistry->registerIcon(
-			'entity_product-plugin-frontend',
-			\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-			['source' => 'EXT:entity_product/Resources/Public/Icons/user_plugin_frontend.svg']
-		);
+//	\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\VariantAttributeProvider::class);
+//	\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\ChartDataValueProvider::class);
+//
+//	// Automatisches Setzen des Status von Neu auf in Bearbeitung
+//	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][\Ps\EntityProduct\Service\VariantFlexformProcessingService::class] = \Ps\EntityProduct\Service\VariantFlexformProcessingService::class;
+//
+//	// Register custom indexer.
+//	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['registerIndexerConfiguration'][] =	\Ps\EntityProduct\Indexer\ProductIndexer::class;
+//	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['customIndexer'][] = \Ps\EntityProduct\Indexer\ProductIndexer::class;
 
-		$iconRegistry->registerIcon(
-			'ps14-content-keyfacts',
-			\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-			['source' => 'EXT:entity_product/Resources/Public/Icons/content-keyfacts.svg']
-		);
-
-		\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\VariantAttributeProvider::class);
-		\FluidTYPO3\Flux\Core::registerConfigurationProvider(\Ps\EntityProduct\Provider\ChartDataValueProvider::class);
-
-		// Automatisches Setzen des Status von Neu auf in Bearbeitung
-		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][\Ps\EntityProduct\Service\VariantFlexformProcessingService::class] = \Ps\EntityProduct\Service\VariantFlexformProcessingService::class;
-
-		// Register custom indexer.
-		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['registerIndexerConfiguration'][] =	\Ps\EntityProduct\Indexer\ProductIndexer::class;
-		$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['ke_search']['customIndexer'][] = \Ps\EntityProduct\Indexer\ProductIndexer::class;
-	}
-);
+})();

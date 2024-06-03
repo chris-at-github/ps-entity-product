@@ -17,6 +17,9 @@ return [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
+		'security' => [
+			'ignorePageTypeRestriction' => true,
+		],
 		'searchFields' => 'model,title,article_number,type_code',
 		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_variant.gif'
 	],

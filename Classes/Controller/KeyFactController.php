@@ -61,20 +61,20 @@ class KeyFactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function listingAction() {
-		$demand = $this->getDemand();
-		$keyFacts = null;
-
-		if(empty($demand['records']) === false) {
-			$keyFacts = \Ps\Xo\Utilities\GeneralUtility::sortIterableByField($this->keyFactRepository->findAll($demand), $demand['records'], function($value) {
-				if($value instanceof KeyFact) {
-					return $value->getUid();
-				}
-
-				return null;
-			});
-		}
-
-		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
-		$this->view->assign('keyFacts', $keyFacts);
+//		$demand = $this->getDemand();
+//		$keyFacts = null;
+//
+//		if(empty($demand['records']) === false) {
+//			$keyFacts = \Ps\Xo\Utilities\GeneralUtility::sortIterableByField($this->keyFactRepository->findAll($demand), $demand['records'], function($value) {
+//				if($value instanceof KeyFact) {
+//					return $value->getUid();
+//				}
+//
+//				return null;
+//			});
+//		}
+//
+//		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
+//		$this->view->assign('keyFacts', $keyFacts);
 	}
 }

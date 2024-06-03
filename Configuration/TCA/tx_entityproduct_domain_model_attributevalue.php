@@ -17,6 +17,9 @@ return [
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		],
+		'security' => [
+			'ignorePageTypeRestriction' => true,
+		],
 		'searchFields' => 'value',
 		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_attributevalue.gif',
 		'hideTable' => true

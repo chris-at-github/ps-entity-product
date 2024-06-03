@@ -1,7 +1,6 @@
 <?php
-defined('TYPO3_MODE') || die();
 
-$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity_product');
+//$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('entity_product');
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Neuer Extbase-Typ
@@ -691,9 +690,9 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['parent']['displayCo
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Konfigurationsanpassungen von bestehenden Spalten
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['master_category']['config'] = [
-	'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['parentMasterProductCategory'] . ' ORDER BY sys_category.sorting ASC',
-];
+//$GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['master_category']['config'] = [
+//	'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['parentMasterProductCategory'] . ' ORDER BY sys_category.sorting ASC',
+//];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types']['Ps\EntityProduct\Domain\Model\Product']['columnsOverrides']['parent']['label'] = 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.parent';
 

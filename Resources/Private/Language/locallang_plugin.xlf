@@ -1,69 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:entity_product/Resources/Private/Language/locallang_plugin" date="2020-11-22T22:22:51Z" product-name="entity_product">
+	<file source-language="en" datatype="plaintext" original="messages" date="2024-06-03T21:00:00Z" product-name="entity_product">
 		<header/>
 		<body>
-			<trans-unit id="tx_entity_product_frontend.name" resname="tx_entity_product_frontend.name">
+			<trans-unit id="frontend.title">
 				<source>Product Frontend</source>
 			</trans-unit>
-			<trans-unit id="tx_entity_product_frontend.description" resname="tx_entity_product_frontend.description">
-				<source></source>
+			<trans-unit id="frontend.description">
+				<source>Displays a filtered list and detail pages of products in various layouts.</source>
 			</trans-unit>
-
-			<trans-unit id="tx_entity_product_keyfact.name" resname="tx_entity_product_keyfact.name">
-				<source>Key Facts</source>
+			<trans-unit id="keyfact.title">
+				<source>Key facts</source>
 			</trans-unit>
-			<trans-unit id="tx_entity_product_keyfact.description" resname="tx_entity_product_keyfact.description">
-				<source></source>
+			<trans-unit id="keyfact.description">
+				<source>Displays selected key facts</source>
 			</trans-unit>
-
-			<trans-unit id="tx_entity_product_teaser.name" resname="tx_entity_product_teaser.name">
+			<trans-unit id="teaser.title">
 				<source>Product Teaser</source>
 			</trans-unit>
-			<trans-unit id="tx_entity_product_teaser.description" resname="tx_entity_product_teaser.description">
-				<source></source>
+			<trans-unit id="teaser.description">
+				<source>Displays teasers for selected products</source>
 			</trans-unit>
-
-			<trans-unit id="flexform.sheet.main" resname="flexform.sheet.main">
+			<trans-unit id="flexform.sheet.main">
 				<source>Data</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.productRange" resname="flexform.field.productRange">
+			<trans-unit id="flexform.field.product-range">
 				<source>Product Range</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.filterCategoryWhitelist" resname="flexform.field.filterCategoryWhitelist">
+			<trans-unit id="flexform.field.filter-category-whitelist">
 				<source>Filter Category Whitelist</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.hideFilter" resname="flexform.field.hideFilter">
+			<trans-unit id="flexform.field.hide-filter">
 				<source>Hide Filter</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.hideSiblingNavigation" resname="flexform.field.hideSiblingNavigation">
+			<trans-unit id="flexform.field.hide-sibling-navigation">
 				<source>Hide Sub-Navigation</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.hideIndividualProduct" resname="flexform.field.hideIndividualProduct">
+			<trans-unit id="flexform.field.hide-individual-product">
 				<source>Hide Individual Product</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.keyFacts" resname="flexform.field.keyFacts">
+			<trans-unit id="flexform.field.key-facts">
 				<source>Key Facts</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.source" resname="flexform.field.source">
+			<trans-unit id="flexform.field.source">
 				<source>Source</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.categories" resname="flexform.field.categories">
+			<trans-unit id="flexform.field.categories">
 				<source>Categories</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.records" resname="flexform.field.records">
+			<trans-unit id="flexform.field.records">
 				<source>Products</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.technology" resname="flexform.field.technology">
+			<trans-unit id="flexform.field.technology">
 				<source>Technology</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.application" resname="flexform.field.application">
+			<trans-unit id="flexform.field.application">
 				<source>Application</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.readmoreEnabled" resname="flexform.field.readmoreEnabled">
+			<trans-unit id="flexform.field.readmore-enabled">
 				<source>Use load more</source>
 			</trans-unit>
-			<trans-unit id="flexform.field.titleType" resname="flexform.field.titleType">
+			<trans-unit id="flexform.field.title-type">
 				<source>Title type</source>
 			</trans-unit>
 		</body>
