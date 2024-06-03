@@ -4,7 +4,7 @@ return [
 		'title' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_keyfact',
 		'label' => 'title',
 		'label_alt' => 'description',
-		'formattedLabel_userFunc' => Ps\Xo\Service\TcaService::class . '->getInlineLabel',
+		'formattedLabel_userFunc' => Ps14\Foundation\Service\TcaService::class . '->getInlineLabel',
 		'formattedLabel_userFunc_options' => [
 			'label' => 'title',
 			'label_alt' => 'description'
@@ -27,13 +27,12 @@ return [
 			'ignorePageTypeRestriction' => true,
 		],
 		'searchFields' => 'title,description',
-		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/tx_entityproduct_domain_model_keyfact.gif'
-	],
-	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description',
+		'iconfile' => 'EXT:entity_product/Resources/Public/Icons/entity-product-records.svg'
 	],
 	'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => [
+			'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'
+		],
 	],
 	'columns' => [
 		'sys_language_uid' => [
@@ -131,7 +130,7 @@ return [
 			'config' => [
 				'type' => 'text',
 				'enableRichtext' => true,
-				'richtextConfiguration' => 'xoMinimal',
+				'richtextConfiguration' => 'ps14Minimal',
 				'fieldControl' => [
 					'fullScreenRichtext' => [
 						'disabled' => false,
