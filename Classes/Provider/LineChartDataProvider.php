@@ -1,6 +1,6 @@
 <?php
-//
-//namespace Ps\EntityProduct\Provider;
+
+namespace Ps\EntityProduct\Provider;
 //
 //use Ps14\Chart\Domain\Model\Chart;
 //use Ps14\Chart\Domain\Model\Dataset;
@@ -11,6 +11,7 @@
 //use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 //
 //class LineChartDataProvider extends \ Ps14\Chart\Provider\LineChartDataProvider {
+class LineChartDataProvider {
 //
 //	/**
 //	 * @param array $data
@@ -45,4 +46,4 @@
 //
 //		return $data;
 //	}
-//}
+}

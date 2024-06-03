@@ -1,10 +1,11 @@
 <?php
-//
-//namespace Ps\EntityProduct\Provider;
+
+namespace Ps\EntityProduct\Provider;
 //
 //use FluidTYPO3\Flux\Provider\ProviderInterface;
 //use TYPO3\CMS\Core\Utility\GeneralUtility;
 //
+class ChartDataValueProvider {
 //class ChartDataValueProvider extends \Ps14\Chart\Provider\DataValueProvider implements ProviderInterface {
 //
 //	/**
@@ -50,4 +51,4 @@
 //
 //		return $uid;
 //	}
-//}
+}

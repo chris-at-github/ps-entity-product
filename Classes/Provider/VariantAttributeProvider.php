@@ -1,6 +1,6 @@
 <?php
-//
-//namespace Ps\EntityProduct\Provider;
+
+namespace Ps\EntityProduct\Provider;
 //
 //use FluidTYPO3\Flux\Provider\AbstractProvider;
 //use FluidTYPO3\Flux\Provider\ProviderInterface;
@@ -16,6 +16,7 @@
 //use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 //
 //class VariantAttributeProvider extends AbstractProvider implements ProviderInterface {
+class VariantAttributeProvider {
 //
 //	/**
 //	 * @var string
@@ -216,4 +217,4 @@
 //
 //		return $options;
 //	}
-//}
+}
