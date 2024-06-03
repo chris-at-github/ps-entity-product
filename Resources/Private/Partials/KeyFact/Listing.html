@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
 		<f:if condition="{keyFacts}">
 			<ul class="product--key-facts">
@@ -11,7 +11,7 @@
 
 	<f:section name="Item">
 		<li>
-			<xo:svg.use name="check" viewBox="0 0 18 13" />
+			<fo:svg.inline source="/assets/svg/check.svg" />
 			<f:if condition="{title}">
 				<header>{title}</header>
 			</f:if>

@@ -295,50 +295,52 @@
 #		}
 #	}
 #[END]
-#
-#tt_content {
-#	entityproduct_keyfacts =< lib.contentElement
-#	entityproduct_keyfacts {
-#		templateName = KeyFacts.html
-#		layoutRootPaths {
-#			10 = EXT:entity_product/Resources/Private/Layouts/
-#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
-#		}
-#
-#		templateRootPaths {
-#			10 = EXT:entity_product/Resources/Private/Templates/Content/
-#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
-#		}
-#
-#		partialRootPaths {
-#			10 = EXT:entity_product/Resources/Private/Partials/
-#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
-#		}
-#
-#		dataProcessing {
-#			30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-#			30 {
-#				as = records
-#				table = tx_entityproduct_domain_model_keyfact
-#				pidInList.field = pid
-#				where {
-#					data = field:uid
-#					intval = 1
-#					wrap = content = |
-#				}
-#				orderBy = sorting
-#			}
-#
-#			120 = Ps14\CeAccordion\DataProcessing\ModuleProcessor
-#			120 {
-#				importCss {
-#					10 = /assets/css/modules/product-keyfact.css
-#				}
-#			}
-#		}
-#	}
-#}
-#
+
+tt_content {
+	entityproduct_keyfacts =< lib.contentElement
+	entityproduct_keyfacts {
+		templateName = KeyFacts.html
+		layoutRootPaths {
+			10 = EXT:entity_product/Resources/Private/Layouts/
+			20 = EXT:ps14_site/Resources/Private/Extensions/EntityProduct/Layouts/
+		}
+
+		templateRootPaths {
+			10 = EXT:entity_product/Resources/Private/Templates/Content/
+			20 = EXT:ps14_site/Resources/Private/Extensions/EntityProduct/Templates/
+		}
+
+		partialRootPaths {
+			10 = EXT:entity_product/Resources/Private/Partials/
+			20 = EXT:ps14_site/Resources/Private/Extensions/EntityProduct/Partials/
+			30 = EXT:ps14_foundation/Resources/Private/Partials/
+			40 = EXT:ps14_site/Resources/Private/Partials/
+		}
+
+		dataProcessing {
+			135 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+			135 {
+				as = records
+				table = tx_entityproduct_domain_model_keyfact
+				pidInList.field = pid
+				where {
+					data = field:uid
+					intval = 1
+					wrap = content = |
+				}
+				orderBy = sorting
+			}
+
+			120 = Ps14\Foundation\DataProcessing\ModuleProcessor
+			120 {
+				importCss {
+					10 = /assets/css/modules/product-keyfact.css
+				}
+			}
+		}
+	}
+}
+
 #config.recordLinks.entityProduct {
 #	forceLink = 0
 #

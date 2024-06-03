@@ -4,8 +4,10 @@
 	}
 [END]
 
+
+mod {
+
 // @todo v12
-#mod {
 #	wizards.newContentElement.wizardItems.plugins {
 #		elements {
 #			entityproduct_frontend {
@@ -41,21 +43,21 @@
 #		show = *
 #	}
 #
-#	wizards.newContentElement.wizardItems.common {
-#		elements {
-#			entity_product_content {
-#				iconIdentifier = ps14-content-keyfacts
-#				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.name
-#				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.description
-#				tt_content_defValues {
-#					CType = entityproduct_keyfacts
-#				}
-#			}
-#		}
-#
-#		show := addToList(entity_product_content)
-#	}
-#}
+	wizards.newContentElement.wizardItems.common {
+		elements {
+			entityproduct_keyfacts {
+				iconIdentifier = entity-product-plugin
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:keyfact.title
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:keyfact.description
+				tt_content_defValues {
+					CType = entityproduct_keyfacts
+				}
+			}
+		}
+
+		show := addToList(entityproduct_keyfacts)
+	}
+}
 
 // Varianten und Eigenschaften vorerst deaktiveren
 mod.web_list.table {
