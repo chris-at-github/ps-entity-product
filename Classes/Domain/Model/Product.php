@@ -54,13 +54,13 @@ class Product extends Entity {
 	 */
 	protected $applications = null;
 
-	/**
-	 * attributes
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-	 */
-	protected $attributes = null;
+//	/**
+//	 * attributes
+//	 *
+//	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
+//	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+//	 */
+//	protected $attributes = null;
 
 	/**
 	 * variants
@@ -76,13 +76,13 @@ class Product extends Entity {
 	 */
 	protected $variantTitle = '';
 
-	/**
-	 * accessories
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product>
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-	 */
-	protected $accessories = null;
+//	/**
+//	 * accessories
+//	 *
+//	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product>
+//	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+//	 */
+//	protected $accessories = null;
 
 	/**
 	 * accessories
@@ -92,36 +92,36 @@ class Product extends Entity {
 	 */
 	protected $related = null;
 
-	/**
-	 * showConfigurator
-	 *
-	 * @var bool
-	 */
-	protected $showConfigurator = false;
-
-	/**
-	 * configuratorFilterAttributes
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-	 */
-	protected $configuratorFilterAttributes = null;
-
-	/**
-	 * configuratorResultAttributes
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-	 */
-	protected $configuratorResultAttributes = null;
-
-	/**
-	 * groupedAttributes
-	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
-	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-	 */
-	protected $groupedAttributes = null;
+//	/**
+//	 * showConfigurator
+//	 *
+//	 * @var bool
+//	 */
+//	protected $showConfigurator = false;
+//
+//	/**
+//	 * configuratorFilterAttributes
+//	 *
+//	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
+//	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+//	 */
+//	protected $configuratorFilterAttributes = null;
+//
+//	/**
+//	 * configuratorResultAttributes
+//	 *
+//	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
+//	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+//	 */
+//	protected $configuratorResultAttributes = null;
+//
+//	/**
+//	 * groupedAttributes
+//	 *
+//	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute>
+//	 * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+//	 */
+//	protected $groupedAttributes = null;
 
 	/**
 	 * keyFacts
@@ -157,10 +157,10 @@ class Product extends Entity {
 	 */
 	protected $airConsumptionMedia = null;
 
-	/**
-	 * @var string
-	 */
-	protected $airConsumptionFallback = '';
+//	/**
+//	 * @var string
+//	 */
+//	protected $airConsumptionFallback = '';
 
 	/**
 	 * @var \Ps14\Teaser\Domain\Model\Page
@@ -220,12 +220,12 @@ class Product extends Entity {
 		parent::initializeObject();
 		$this->images = $this->images ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->technicalDrawings = $this->technicalDrawings ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+//		$this->attributes = $this->attributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->variants = $this->variants ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->configuratorFilterAttributes = $this->configuratorFilterAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->configuratorResultAttributes = $this->configuratorResultAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-		$this->groupedAttributes = $this->groupedAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+//		$this->accessories = $this->accessories ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+//		$this->configuratorFilterAttributes = $this->configuratorFilterAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+//		$this->configuratorResultAttributes = $this->configuratorResultAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+//		$this->groupedAttributes = $this->groupedAttributes ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->keyFacts = $this->keyFacts ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->systemInstallationLegend = $this->systemInstallationLegend ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->technicalFeatures = $this->technicalFeatures ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
@@ -265,44 +265,44 @@ class Product extends Entity {
 		$this->images = $images;
 	}
 
-	/**
-	 * Adds a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $attribute
-	 * @return void
-	 */
-	public function addAttribute(\Ps\EntityProduct\Domain\Model\Attribute $attribute) {
-		$this->attributes->attach($attribute);
-	}
-
-	/**
-	 * Removes a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $attributeToRemove The Attribute to be removed
-	 * @return void
-	 */
-	public function removeAttribute(\Ps\EntityProduct\Domain\Model\Attribute $attributeToRemove) {
-		$this->attributes->detach($attributeToRemove);
-	}
-
-	/**
-	 * Returns the attributes
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $attributes
-	 */
-	public function getAttributes() {
-		return $this->attributes;
-	}
-
-	/**
-	 * Sets the attributes
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $attributes
-	 * @return void
-	 */
-	public function setAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $attributes) {
-		$this->attributes = $attributes;
-	}
+//	/**
+//	 * Adds a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $attribute
+//	 * @return void
+//	 */
+//	public function addAttribute(\Ps\EntityProduct\Domain\Model\Attribute $attribute) {
+//		$this->attributes->attach($attribute);
+//	}
+//
+//	/**
+//	 * Removes a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $attributeToRemove The Attribute to be removed
+//	 * @return void
+//	 */
+//	public function removeAttribute(\Ps\EntityProduct\Domain\Model\Attribute $attributeToRemove) {
+//		$this->attributes->detach($attributeToRemove);
+//	}
+//
+//	/**
+//	 * Returns the attributes
+//	 *
+//	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $attributes
+//	 */
+//	public function getAttributes() {
+//		return $this->attributes;
+//	}
+//
+//	/**
+//	 * Sets the attributes
+//	 *
+//	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $attributes
+//	 * @return void
+//	 */
+//	public function setAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $attributes) {
+//		$this->attributes = $attributes;
+//	}
 
 	/**
 	 * Adds a Variant
@@ -396,44 +396,44 @@ class Product extends Entity {
 		$this->technicalDrawings = $technicalDrawings;
 	}
 
-	/**
-	 * Adds a Product
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Product $accessory
-	 * @return void
-	 */
-	public function addAccessory(\Ps\EntityProduct\Domain\Model\Product $accessory) {
-		$this->accessories->attach($accessory);
-	}
-
-	/**
-	 * Removes a Product
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Product $accessoryToRemove The Product to be removed
-	 * @return void
-	 */
-	public function removeAccessory(\Ps\EntityProduct\Domain\Model\Product $accessoryToRemove) {
-		$this->accessories->detach($accessoryToRemove);
-	}
-
-	/**
-	 * Returns the accessories
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product> $accessories
-	 */
-	public function getAccessories() {
-		return $this->accessories;
-	}
-
-	/**
-	 * Sets the accessories
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product> $accessories
-	 * @return void
-	 */
-	public function setAccessories(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $accessories) {
-		$this->accessories = $accessories;
-	}
+////	/**
+////	 * Adds a Product
+////	 *
+////	 * @param \Ps\EntityProduct\Domain\Model\Product $accessory
+////	 * @return void
+////	 */
+////	public function addAccessory(\Ps\EntityProduct\Domain\Model\Product $accessory) {
+////		$this->accessories->attach($accessory);
+////	}
+////
+////	/**
+////	 * Removes a Product
+////	 *
+////	 * @param \Ps\EntityProduct\Domain\Model\Product $accessoryToRemove The Product to be removed
+////	 * @return void
+////	 */
+////	public function removeAccessory(\Ps\EntityProduct\Domain\Model\Product $accessoryToRemove) {
+////		$this->accessories->detach($accessoryToRemove);
+////	}
+////
+////	/**
+////	 * Returns the accessories
+////	 *
+////	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product> $accessories
+////	 */
+////	public function getAccessories() {
+////		return $this->accessories;
+////	}
+////
+////	/**
+////	 * Sets the accessories
+////	 *
+////	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Product> $accessories
+////	 * @return void
+////	 */
+////	public function setAccessories(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $accessories) {
+////		$this->accessories = $accessories;
+////	}
 
 	/**
 	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
@@ -479,33 +479,33 @@ class Product extends Entity {
 		$this->technicalData = $technicalData;
 	}
 
-	/**
-	 * @return \Ps14\Chart\Domain\Model\Chart
-	 */
-	public function getChart(): ?\Ps14\Chart\Domain\Model\Chart {
-		return $this->chart;
-	}
-
-	/**
-	 * @param \Ps14\Chart\Domain\Model\Chart $chart
-	 */
-	public function setChart(?\Ps14\Chart\Domain\Model\Chart $chart): void {
-		$this->chart = $chart;
-	}
-
-	/**
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-	 */
-	public function getChartValues(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
-		return $this->chartValues;
-	}
-
-	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues
-	 */
-	public function setChartValues(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues): void {
-		$this->chartValues = $chartValues;
-	}
+//	/**
+//	 * @return \Ps14\Chart\Domain\Model\Chart
+//	 */
+//	public function getChart(): ?\Ps14\Chart\Domain\Model\Chart {
+//		return $this->chart;
+//	}
+//
+//	/**
+//	 * @param \Ps14\Chart\Domain\Model\Chart $chart
+//	 */
+//	public function setChart(?\Ps14\Chart\Domain\Model\Chart $chart): void {
+//		$this->chart = $chart;
+//	}
+//
+//	/**
+//	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+//	 */
+//	public function getChartValues(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+//		return $this->chartValues;
+//	}
+//
+//	/**
+//	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues
+//	 */
+//	public function setChartValues(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues): void {
+//		$this->chartValues = $chartValues;
+//	}
 
 	/**
 	 * @return \Ps14\Teaser\Domain\Model\Page
@@ -619,19 +619,19 @@ class Product extends Entity {
 		$this->airConsumptionData = $airConsumptionData;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getAirConsumptionFallback(): string {
-		return $this->airConsumptionFallback;
-	}
-
-	/**
-	 * @param string $airConsumptionFallback
-	 */
-	public function setAirConsumptionFallback(string $airConsumptionFallback): void {
-		$this->airConsumptionFallback = $airConsumptionFallback;
-	}
+//	/**
+//	 * @return string
+//	 */
+//	public function getAirConsumptionFallback(): string {
+//		return $this->airConsumptionFallback;
+//	}
+//
+//	/**
+//	 * @param string $airConsumptionFallback
+//	 */
+//	public function setAirConsumptionFallback(string $airConsumptionFallback): void {
+//		$this->airConsumptionFallback = $airConsumptionFallback;
+//	}
 
 	/**
 	 * @return string
@@ -670,150 +670,150 @@ class Product extends Entity {
 		];
 	}
 
-	/**
-	 * Returns the showConfigurator
-	 *
-	 * @return bool $showConfigurator
-	 */
-	public function getShowConfigurator() {
-		return $this->showConfigurator;
-	}
-
-	/**
-	 * Sets the showConfigurator
-	 *
-	 * @param bool $showConfigurator
-	 * @return void
-	 */
-	public function setShowConfigurator($showConfigurator) {
-		$this->showConfigurator = $showConfigurator;
-	}
-
-	/**
-	 * Returns the boolean state of showConfigurator
-	 *
-	 * @return bool
-	 */
-	public function isShowConfigurator() {
-		return $this->showConfigurator;
-	}
-
-	/**
-	 * Adds a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttribute
-	 * @return void
-	 */
-	public function addConfiguratorFilterAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttribute) {
-		$this->configuratorFilterAttributes->attach($configuratorFilterAttribute);
-	}
-
-	/**
-	 * Removes a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttributeToRemove The Attribute to be removed
-	 * @return void
-	 */
-	public function removeConfiguratorFilterAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttributeToRemove) {
-		$this->configuratorFilterAttributes->detach($configuratorFilterAttributeToRemove);
-	}
-
-	/**
-	 * Returns the configuratorFilterAttributes
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorFilterAttributes
-	 */
-	public function getConfiguratorFilterAttributes() {
-		return $this->configuratorFilterAttributes;
-	}
-
-	/**
-	 * Sets the configuratorFilterAttributes
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorFilterAttributes
-	 * @return void
-	 */
-	public function setConfiguratorFilterAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $configuratorFilterAttributes) {
-		$this->configuratorFilterAttributes = $configuratorFilterAttributes;
-	}
-
-	/**
-	 * Adds a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttribute
-	 * @return void
-	 */
-	public function addConfiguratorResultAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttribute) {
-		$this->configuratorResultAttributes->attach($configuratorResultAttribute);
-	}
-
-	/**
-	 * Removes a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttributeToRemove The Attribute to be removed
-	 * @return void
-	 */
-	public function removeConfiguratorResultAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttributeToRemove) {
-		$this->configuratorResultAttributes->detach($configuratorResultAttributeToRemove);
-	}
-
-	/**
-	 * Returns the configuratorResultAttributes
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorResultAttributes
-	 */
-	public function getConfiguratorResultAttributes() {
-		return $this->configuratorResultAttributes;
-	}
-
-	/**
-	 * Sets the configuratorResultAttributes
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorResultAttributes
-	 * @return void
-	 */
-	public function setConfiguratorResultAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $configuratorResultAttributes) {
-		$this->configuratorResultAttributes = $configuratorResultAttributes;
-	}
-
-	/**
-	 * Adds a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $groupedAttribute
-	 * @return void
-	 */
-	public function addGroupedAttribute(\Ps\EntityProduct\Domain\Model\Attribute $groupedAttribute) {
-		$this->groupedAttributes->attach($groupedAttribute);
-	}
-
-	/**
-	 * Removes a Attribute
-	 *
-	 * @param \Ps\EntityProduct\Domain\Model\Attribute $groupedAttributeToRemove The Attribute to be removed
-	 * @return void
-	 */
-	public function removeGroupedAttribute(\Ps\EntityProduct\Domain\Model\Attribute $groupedAttributeToRemove) {
-		$this->groupedAttributes->detach($groupedAttributeToRemove);
-	}
-
-	/**
-	 * Returns the groupedAttributes
-	 *
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $groupedAttributes
-	 */
-	public function getGroupedAttributes() {
-		return $this->groupedAttributes;
-	}
-
-	/**
-	 * Sets the groupedAttributes
-	 *
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $groupedAttributes
-	 * @return void
-	 */
-	public function setGroupedAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $groupedAttributes) {
-		$this->groupedAttributes = $groupedAttributes;
-	}
+//	/**
+//	 * Returns the showConfigurator
+//	 *
+//	 * @return bool $showConfigurator
+//	 */
+//	public function getShowConfigurator() {
+//		return $this->showConfigurator;
+//	}
+//
+//	/**
+//	 * Sets the showConfigurator
+//	 *
+//	 * @param bool $showConfigurator
+//	 * @return void
+//	 */
+//	public function setShowConfigurator($showConfigurator) {
+//		$this->showConfigurator = $showConfigurator;
+//	}
+//
+//	/**
+//	 * Returns the boolean state of showConfigurator
+//	 *
+//	 * @return bool
+//	 */
+//	public function isShowConfigurator() {
+//		return $this->showConfigurator;
+//	}
+//
+//	/**
+//	 * Adds a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttribute
+//	 * @return void
+//	 */
+//	public function addConfiguratorFilterAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttribute) {
+//		$this->configuratorFilterAttributes->attach($configuratorFilterAttribute);
+//	}
+//
+//	/**
+//	 * Removes a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttributeToRemove The Attribute to be removed
+//	 * @return void
+//	 */
+//	public function removeConfiguratorFilterAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorFilterAttributeToRemove) {
+//		$this->configuratorFilterAttributes->detach($configuratorFilterAttributeToRemove);
+//	}
+//
+//	/**
+//	 * Returns the configuratorFilterAttributes
+//	 *
+//	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorFilterAttributes
+//	 */
+//	public function getConfiguratorFilterAttributes() {
+//		return $this->configuratorFilterAttributes;
+//	}
+//
+//	/**
+//	 * Sets the configuratorFilterAttributes
+//	 *
+//	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorFilterAttributes
+//	 * @return void
+//	 */
+//	public function setConfiguratorFilterAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $configuratorFilterAttributes) {
+//		$this->configuratorFilterAttributes = $configuratorFilterAttributes;
+//	}
+//
+//	/**
+//	 * Adds a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttribute
+//	 * @return void
+//	 */
+//	public function addConfiguratorResultAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttribute) {
+//		$this->configuratorResultAttributes->attach($configuratorResultAttribute);
+//	}
+//
+//	/**
+//	 * Removes a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttributeToRemove The Attribute to be removed
+//	 * @return void
+//	 */
+//	public function removeConfiguratorResultAttribute(\Ps\EntityProduct\Domain\Model\Attribute $configuratorResultAttributeToRemove) {
+//		$this->configuratorResultAttributes->detach($configuratorResultAttributeToRemove);
+//	}
+//
+//	/**
+//	 * Returns the configuratorResultAttributes
+//	 *
+//	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorResultAttributes
+//	 */
+//	public function getConfiguratorResultAttributes() {
+//		return $this->configuratorResultAttributes;
+//	}
+//
+//	/**
+//	 * Sets the configuratorResultAttributes
+//	 *
+//	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $configuratorResultAttributes
+//	 * @return void
+//	 */
+//	public function setConfiguratorResultAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $configuratorResultAttributes) {
+//		$this->configuratorResultAttributes = $configuratorResultAttributes;
+//	}
+//
+//	/**
+//	 * Adds a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $groupedAttribute
+//	 * @return void
+//	 */
+//	public function addGroupedAttribute(\Ps\EntityProduct\Domain\Model\Attribute $groupedAttribute) {
+//		$this->groupedAttributes->attach($groupedAttribute);
+//	}
+//
+//	/**
+//	 * Removes a Attribute
+//	 *
+//	 * @param \Ps\EntityProduct\Domain\Model\Attribute $groupedAttributeToRemove The Attribute to be removed
+//	 * @return void
+//	 */
+//	public function removeGroupedAttribute(\Ps\EntityProduct\Domain\Model\Attribute $groupedAttributeToRemove) {
+//		$this->groupedAttributes->detach($groupedAttributeToRemove);
+//	}
+//
+//	/**
+//	 * Returns the groupedAttributes
+//	 *
+//	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $groupedAttributes
+//	 */
+//	public function getGroupedAttributes() {
+//		return $this->groupedAttributes;
+//	}
+//
+//	/**
+//	 * Sets the groupedAttributes
+//	 *
+//	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Ps\EntityProduct\Domain\Model\Attribute> $groupedAttributes
+//	 * @return void
+//	 */
+//	public function setGroupedAttributes(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $groupedAttributes) {
+//		$this->groupedAttributes = $groupedAttributes;
+//	}
 
 	/**
 	 * @param \Ps\EntityProduct\Domain\Model\KeyFact $keyFact

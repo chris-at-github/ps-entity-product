@@ -8,6 +8,7 @@ use Ps\EntityProduct\Domain\Model\Product;
 use Ps\EntityProduct\Domain\Model\Product as Entity;
 use Ps\EntityProduct\Domain\Repository\ProductRepository;
 use Ps\EntityProduct\Provider\LineChartDataProvider;
+use Ps14\Site\Service\FilterService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -76,19 +77,19 @@ class ProductController extends EntityController {
 	}
 
 	/**
-	 * action list
-	 *
-	 * @return void
+	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function listingAction() {
-//
-//		/** @var \Ps\Xo\Service\FilterService  $filter */
-//		$filter = $this->objectManager->get(\Ps\Xo\Service\FilterService::class, 'entityproduct', $this->request, $this->configurationManager->getContentObject(), $this->settings);
-//		$products = $this->productRepository->findAll($this->getDemand($filter->getArguments(true)));
-//
-//		$this->view->assign('products', $products);
-//		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
-//		$this->view->assign('filter', $filter->get());
+
+		/** @var FilterService $filter */
+		$filter = GeneralUtility::makeInstance(\Ps14\Site\Service\FilterService::class, 'entityproduct', $this->request, $this->request->getAttribute('currentContentObject'), $this->settings['filter']);
+		$products = $this->productRepository->findAllByOption($this->getDemand($filter->getArguments(true)));
+
+		$this->view->assign('products', $products);
+		$this->view->assign('record', $this->request->getAttribute('currentContentObject')->data);
+		$this->view->assign('filter', $filter->get());
+
+		return $this->htmlResponse();
 	}
 
 	/**

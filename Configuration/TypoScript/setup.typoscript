@@ -24,7 +24,7 @@
 #			}
 #		}
 #	}
-#
+
 #	modules.entityproduct {
 #		titleType {
 #			0 = LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value
@@ -124,100 +124,121 @@
 #
 #module.tx_xo.settings.modules.entityproduct < plugin.tx_xo.settings.modules.entityproduct
 #
-#plugin.tx_entityproduct {
-#	view {
-#		layoutRootPaths {
-#			10 = EXT:entity_product/Resources/Private/Layouts/
-#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Layouts/
-#			30 = {$plugin.tx_entityproduct.view.layoutRootPath}
-#		}
-#
-#		templateRootPaths {
-#			10 = EXT:entity_product/Resources/Private/Templates/
-#			20 = EXT:xna/Resources/Private/Extensions/EntityProduct/Templates/
-#			30 = {$plugin.tx_entityproduct.view.templateRootPath}
-#		}
-#
-#		partialRootPaths {
-#			10 = EXT:entity_product/Resources/Private/Partials/
-#			20 = EXT:chart/Resources/Private/Partials/
-#			21 = EXT:ce_hero/Resources/Private/Partials/
-#			22 = EXT:ce_downloads/Resources/Private/Partials/
-#			23 = EXT:ce_marker/Resources/Private/Partials/
-#			24 = EXT:teaser/Resources/Private/Partials/
-#			50 = EXT:xo/Resources/Private/Extensions/Xo/Partials/
-#			51 = EXT:xna/Resources/Private/Partials/
-#			55 = EXT:xo/Resources/Private/Extensions/FluidStyledContent/Partials/
-#			60 = EXT:xna/Resources/Private/Extensions/EntityProduct/Partials/
-#			61 = EXT:xna/Resources/Private/Extensions/CeDownloads/Partials/
-#			62 = EXT:xna/Resources/Private/Extensions/Teaser/Partials/
-#			65 = {$plugin.tx_entityproduct.view.partialRootPath}
-#		}
-#	}
-#
-#	persistence {
-#		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
-#		recursive = 1
-#	}
-#
-#	features {
-#		#skipDefaultArguments = 1
-#
-#		# if set to 1, the enable fields are ignored in BE context
-#		ignoreAllEnableFieldsInBe = 0
-#
-#		# Should be on by default, but can be disabled if all action in the plugin are uncached
-#		requireCHashArgumentForActionArguments = 1
-#	}
-#
-#	mvc {
-#		#callDefaultActionIfActionCantBeResolved = 1
-#	}
-#
-#	settings {
-#		xo < plugin.tx_xo.settings
-#	}
-#}
-#
-#lib.productSiblingNavigation = COA
-#lib.productSiblingNavigation {
-#	wrap = <div class="product-listing--sibling-navigation"> | </div>
-#
-#	10 = RECORDS
-#	10 {
-#		tables = pages
-#		source.data = FIELD:pid
-#
-#		conf.pages = TEXT
-#		conf.pages {
-#			field = title
-#			wrap = <div class="product-listing--sibling-navigation-header"> | </div>
-#		}
-#	}
-#
-#	20 = HMENU
-#	20 {
-#		special = directory
-#		special.value.data = FIELD:pid
-#
-#		1 = TMENU
-#		1 {
-#			wrap = <nav class="navigation"><ul> | </ul></nav>
-#
-#			NO = 1
-#			NO.wrapItemAndSub = <li> | </li>
-#			NO.linkWrap = <span>|</span><svg class="svg-sprite svg-sprite--arrow-right" viewBox="0 0 14 11"><use xlink:href="#sprite-arrow-right"></use></svg>
-#			NO.ATagBeforeWrap = 1
-#
-#			ACT < .NO
-#			ACT.wrapItemAndSub = <li class="active"> | </li>
-#
-#			CUR < .ACT
-#			CUR.wrapItemAndSub = <li class="active"> | </li>
-#		}
-#	}
-#}
-#
+plugin.tx_entityproduct {
+	view {
+		layoutRootPaths {
+			10 = EXT:entity_product/Resources/Private/Layouts/
+			20 = EXT:ps14_site/Resources/Private/Extensions/EntityProduct/Layouts/
+			30 = {$plugin.tx_entityproduct.view.layoutRootPath}
+		}
+
+		templateRootPaths {
+			10 = EXT:entity_product/Resources/Private/Templates/
+			20 = EXT:ps14_site/Resources/Private/Extensions/EntityProduct/Templates/
+			30 = {$plugin.tx_entityproduct.view.templateRootPath}
+		}
+
+		partialRootPaths {
+			10 = EXT:entity_product/Resources/Private/Partials/
+			20 = EXT:chart/Resources/Private/Partials/
+			21 = EXT:ps14_hero/Resources/Private/Partials/
+			22 = EXT:ps14_downloads/Resources/Private/Partials/
+			23 = EXT:ps14_marker/Resources/Private/Partials/
+			24 = EXT:ps14_teaser/Resources/Private/Partials/
+			55 = EXT:ps14_site/Resources/Private/Extensions/EntityProduct/Partials/
+			55 = EXT:ps14_foundation/Resources/Private/Partials/
+			56 = EXT:ps14_site/Resources/Private/Partials/
+			65 = {$plugin.tx_entityproduct.view.partialRootPath}
+		}
+	}
+
+	persistence {
+		storagePid = {$plugin.tx_entityproduct.persistence.storagePid}
+		recursive = 1
+	}
+
+	features {
+		#skipDefaultArguments = 1
+
+		# if set to 1, the enable fields are ignored in BE context
+		ignoreAllEnableFieldsInBe = 0
+
+		# Should be on by default, but can be disabled if all action in the plugin are uncached
+		requireCHashArgumentForActionArguments = 1
+	}
+
+	mvc {
+		#callDefaultActionIfActionCantBeResolved = 1
+	}
+
+	settings {
+		filter {
+			entityproduct {
+				namespace = tx_entityproduct_frontend
+				submitAll = 1
+				resetAll = 1
+				#		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
+				#		collapse = 1
+				#		pageType = 1548191072
+
+				items {
+					categories-tree {
+						renderType = treeRadio
+						autoSubmit = 1
+						resetable = 1
+						dataProvider {
+							Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
+								parent = 16
+								whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
+								removeSingleValues = 1
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+lib.productSiblingNavigation = COA
+lib.productSiblingNavigation {
+	wrap = <div class="product-listing--sibling-navigation"> | </div>
+
+	10 = RECORDS
+	10 {
+		tables = pages
+		source.data = FIELD:pid
+
+		conf.pages = TEXT
+		conf.pages {
+			field = title
+			wrap = <div class="product-listing--sibling-navigation-header"> | </div>
+		}
+	}
+
+	20 = HMENU
+	20 {
+		special = directory
+		special.value.data = FIELD:pid
+
+		1 = TMENU
+		1 {
+			wrap = <nav class="navigation"><ul> | </ul></nav>
+
+			NO = 1
+			NO.wrapItemAndSub = <li> | </li>
+			NO.linkWrap = <span>|</span><svg class="svg-sprite svg-sprite--arrow-right" viewBox="0 0 14 11"><use xlink:href="#sprite-arrow-right"></use></svg>
+			NO.ATagBeforeWrap = 1
+
+			ACT < .NO
+			ACT.wrapItemAndSub = <li class="active"> | </li>
+
+			CUR < .ACT
+			CUR.wrapItemAndSub = <li class="active"> | </li>
+		}
+	}
+}
+
 #page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
 #page.10.dataProcessing.32 {
 #	uidArgument = tx_entityproduct_frontend|product
@@ -261,40 +282,40 @@
 #	}
 #}
 #
-#[traverse(request.getQueryParams(), 'tx_entityproduct_frontend/product') != 0]
-#	tt_content {
-#		list {
-#			dataProcessing {
-#				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
-#			}
-#		}
-#	}
-#
-#	block {
-#
-#		// Inhalt (Plugin) in dem Hauptbereich anzeigen
-#		contentMain.select.where = colPos = 15
-#
-#		// Dummy-Wert fuer die nicht Anzeige
-#		contentProduct.select.where = colPos = -100
-#	}
-#
-#	dataProcessing {
-#
-#		// Seiten-Layout (Klasse) wieder auf den Standard setzen
-#		pageLayout.mapping.4 = PageLayout-0
-#	}
-#
-#	page {
-#
-#		// Seiten-Layout (Klasse) wieder auf den Standard setzen
-#		bodyTagCObject {
-#			10 >
-#			10 = TEXT
-#			10.value = page--layout-0
-#		}
-#	}
-#[END]
+[request && traverse(request.getQueryParams(), 'tx_entityproduct_frontend/product') != 0]
+	tt_content {
+		list {
+			dataProcessing {
+				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
+			}
+		}
+	}
+
+	block {
+
+		// Inhalt (Plugin) in dem Hauptbereich anzeigen
+		contentMain.select.where = colPos = 15
+
+		// Dummy-Wert fuer die nicht Anzeige
+		contentProduct.select.where = colPos = -100
+	}
+
+	dataProcessing {
+
+		// Seiten-Layout (Klasse) wieder auf den Standard setzen
+		pageLayout.mapping.4 = PageLayout-0
+	}
+
+	page {
+
+		// Seiten-Layout (Klasse) wieder auf den Standard setzen
+		bodyTagCObject {
+			10 >
+			10 = TEXT
+			10.value = page--layout-0
+		}
+	}
+[END]
 
 tt_content {
 	entityproduct_keyfacts =< lib.contentElement

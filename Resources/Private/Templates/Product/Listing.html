@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" xmlns:e="http://typo3.org/ns/Ps/Entity/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" xmlns:e="http://typo3.org/ns/Ps/Entity/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default"/>
 
 <f:section name="Header" />
@@ -8,7 +8,7 @@
 		<div class="product-listing--actions">
 			<button class="product-listing--filter-switch product-listing--off-canvas--switch" aria-controls="product-listing--off-canvas-{record.uid}">
 				<span><f:translate key="LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide" /></span>
-				<xo:svg.inline source="assets/svg/filter.svg" />
+				<fo:svg.inline source="assets/svg/filter.svg" />
 			</button>
 		</div>
 	</f:if>
@@ -16,6 +16,7 @@
 	<div class="product-listing">
 		<f:flashMessages/>
 
+		<f:comment>
 		<f:if condition="{settings.hideSiblingNavigation} != 1 || {settings.hideFilter} != 1">
 			<div class="product-listing--off-canvas" id="product-listing--off-canvas-{record.uid}" aria-hidden="false">
 				<f:if condition="{settings.hideSiblingNavigation} != 1">
@@ -27,7 +28,7 @@
 				<f:if condition="{settings.hideFilter} != 1">
 					<div id="product-listing--filter-modal-{record.uid}" class="modal--container product-listing--filter product-listing--filter-modal">
 						<div tabindex="-1" data-micromodal-close class="modal--backdrop">
-							<button aria-label="{f:translate(key: 'LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide')}" class="modal--close"><xo:svg.inline source="assets/svg/close.svg" /></button>
+							<button aria-label="{f:translate(key: 'LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.hide')}" class="modal--close"><fo:svg.inline source="assets/svg/close.svg" /></button>
 							<div class="modal">
 								<f:render partial="Filter/Listing" arguments="{_all}" section="Main" />
 							</div>
@@ -36,13 +37,13 @@
 				</f:if>
 			</div>
 		</f:if>
+		</f:comment>
 
 		<div class="product-listing--body">
-
 			<div class="product-listing--actions">
 				<button class="product-listing--filter-switch product-listing--filter-modal--switch" aria-controls="product-listing--filter-modal-{record.uid}">
 					<span><f:translate key="LLL:EXT:entity_product/Resources/Private/Language/locallang.xlf:filter.actions.show" /></span>
-					<xo:svg.inline source="assets/svg/filter.svg" />
+					<fo:svg.inline source="assets/svg/filter.svg" />
 				</button>
 			</div>
 
@@ -50,6 +51,7 @@
 			<div class="product-listing--loader"><div class="loader" data-loader="circle-side"></div></div>
 		</div>
 	</div>
+
 
 	<script>
 		xna.l10n.entityProduct = {

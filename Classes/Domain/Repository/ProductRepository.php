@@ -44,7 +44,7 @@ class ProductRepository extends EntityRepository {
 			// 2. Oder unter Kategorien als Sekundaer-Kategorie
 			$or[] = $query->contains('categories', $options['masterCategory']);
 
-			$matches['masterCategory'] = $query->logicalOr($or);
+			$matches['masterCategory'] = $query->logicalOr(...array_values($or));
 		}
 
 		// Filter-Kategorien ist ein verschachteltes Array categories[group][<int>]
@@ -60,7 +60,7 @@ class ProductRepository extends EntityRepository {
 			}
 
 			if(empty($and) === false) {
-				$matches['categories'] = $query->logicalAnd($and);
+				$matches['categories'] = $query->logicalAnd(...array_values($and));
 			}
 		}
 
