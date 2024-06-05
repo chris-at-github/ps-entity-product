@@ -6,43 +6,41 @@
 
 
 mod {
+	wizards.newContentElement.wizardItems.plugins {
+		elements {
+			entityproduct_frontend {
+				iconIdentifier = entity-product-plugin
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:frontend.title
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:frontend.description
+				tt_content_defValues {
+					CType = list
+					list_type = entityproduct_frontend
+				}
+			}
 
-// @todo v12
-#	wizards.newContentElement.wizardItems.plugins {
-#		elements {
-#			entityproduct_frontend {
-#				iconIdentifier = entity_product-plugin-frontend
-#				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_frontend.name
-#				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_frontend.description
-#				tt_content_defValues {
-#					CType = list
-#					list_type = entityproduct_frontend
-#				}
-#			}
-#
-#			entityproduct_keyfact {
-#				iconIdentifier = entity_product-plugin-frontend
-#				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.name
-#				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_keyfact.description
-#				tt_content_defValues {
-#					CType = list
-#					list_type = entityproduct_keyfact
-#				}
-#			}
-#
-#			entityproduct_teaser {
-#				iconIdentifier = entity_product-plugin-frontend
-#				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_teaser.name
-#				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:tx_entity_product_teaser.description
-#				tt_content_defValues {
-#					CType = list
-#					list_type = entityproduct_teaser
-#				}
-#			}
-#		}
-#		show = *
-#	}
-#
+			entityproduct_keyfact {
+				iconIdentifier = entity-product-plugin
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:keyfact.title
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:keyfact.description
+				tt_content_defValues {
+					CType = list
+					list_type = entityproduct_keyfact
+				}
+			}
+
+			entityproduct_teaser {
+				iconIdentifier = entity-product-plugin
+				title = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:teaser.title
+				description = LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:teaser.description
+				tt_content_defValues {
+					CType = list
+					list_type = entityproduct_teaser
+				}
+			}
+		}
+		show = *
+	}
+
 	wizards.newContentElement.wizardItems.common {
 		elements {
 			entityproduct_keyfacts {
