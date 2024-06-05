@@ -94,22 +94,22 @@ class ProductController extends EntityController {
 
 	/**
 	 * @param \Ps\EntityProduct\Domain\Model\Product $product
-	 * @return void
+	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function showAction($product) {
-//
-//		// Aufruf als PDF
-//		$isScreenContext = true;
-//		if(empty((int) GeneralUtility::_GET('type')) === false) {
-//			$isScreenContext = false;
-//		}
-//		$this->view->assign('isScreenContext', $isScreenContext);
+
+		// Aufruf als PDF
+		$isScreenContext = true;
+		if(empty((int) GeneralUtility::_GET('type')) === false) {
+			$isScreenContext = false;
+		}
+		$this->view->assign('isScreenContext', $isScreenContext);
 //
 //		// Eltern Eigenschaften aufrufen z.B. Auswertung Meta-Tags, Title-Tag, ...
 //		parent::showAction($product);
 //
-//		// Uebergabe an Template
-//		$this->view->assign('product', $product);
+		// Uebergabe an Template
+		$this->view->assign('product', $product);
 //		$this->view->assign('variants', $this->getProductVariants($product));
 //
 //		// keine Anzeige der Box individuelles Produkt
@@ -122,6 +122,8 @@ class ProductController extends EntityController {
 //			$chartDataProvider = GeneralUtility::makeInstance(LineChartDataProvider::class);
 //			$this->view->assign('chart', $chartDataProvider->provide(['chart' => $product->getChart(), 'values' => $product->getChartValues()]));
 //		}
+
+		return $this->htmlResponse();
 	}
 
 	/**

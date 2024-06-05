@@ -479,6 +479,14 @@ class Product extends Entity {
 		$this->technicalData = $technicalData;
 	}
 
+	public function getChartValues(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+		return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
+
+	public function getChart(): ?\Ps14\Chart\Domain\Model\Chart {
+		return null;
+	}
+
 //	/**
 //	 * @return \Ps14\Chart\Domain\Model\Chart
 //	 */

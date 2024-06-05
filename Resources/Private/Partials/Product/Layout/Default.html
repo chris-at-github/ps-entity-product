@@ -1,5 +1,6 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
+
 
 		<div class="product--header ce-header ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-auto ce-frame--space-after-auto">
 			<div class="ce-frame--inner">
@@ -11,6 +12,7 @@
 			</div>
 		</div>
 
+		<f:comment>
 		<f:if condition="{product.images}">
 			<div class="ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.images -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--layout-16-9 ce-frame--space-before-auto ce-frame--space-after-auto">
 				<div class="ce-frame--inner">
@@ -170,6 +172,7 @@
 				</div>
 			</div>
 		</f:if>
+		</f:comment>
 
 		<f:comment>
 			<f:if condition="{variants}">
@@ -293,7 +296,7 @@
 		<header class="accordion--header" id="product--{identifier}-header">
 			<button data-bs-toggle="collapse" data-bs-target="#product--{identifier}-container" aria-expanded="{f:if(condition: '{expanded}', then: expanded, else: 'false')}" aria-controls="product--{identifier}-container">
 				{title}
-				<xo:svg.inline source="assets/svg/chevron-down.svg" />
+				<fo:svg.inline source="assets/svg/chevron-down.svg" />
 			</button>
 		</header>
 	</f:section>
