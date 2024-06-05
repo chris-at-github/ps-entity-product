@@ -40,7 +40,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['palettes']['extended'] = [
 
 $GLOBALS['TCA']['tt_address']['palettes']['product_hidden'] = [
 	'showitem' => 'tx_extbase_type',
-//	'isHiddenPalette' => 0
+	'isHiddenPalette' => 0
 ];
 // ---------------------------------------------------------------------------------------------------------------------
 // Neue Felder
@@ -480,67 +480,67 @@ $GLOBALS['TCA']['tt_address']['palettes']['product_hidden'] = [
 			]
 		]
 	],
-//	'technical_features' => [
-//		'exclude' => true,
-//		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_features',
-//		'displayCond' => 'FIELD:layout:!IN:accessories',
-//		'config' => [
-//			'type' => 'inline',
-//			'foreign_table' => 'tx_foundation_domain_model_elements',
-//			'foreign_field' => 'foreign_uid',
-//			'foreign_sortby' => 'sorting',
-//			'foreign_label' => 'title',
-//			'foreign_match_fields' => [
-//				'foreign_field' => 'technical_features',
-//			],
-//			'maxitems' => 999,
-//			'appearance' => [
-//				'collapseAll' => 1,
-//				'expandSingle' => 1,
-//				'showAllLocalizationLink' => 1,
-//				'showSynchronizationLink' => 1,
-//				'showPossibleLocalizationRecords' => 1,
-//				'showRemovedLocalizationRecords' => 1,
-//				'newRecordLinkAddTitle' => 1
-//			],
-//		]
-//	],
-//	'technical_features_description' => [
-//		'exclude' => true,
-//		'displayCond' => 'FIELD:layout:!IN:accessories',
-//		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_features_description',
-//		'config' => [
-//			'type' => 'text',
-//			'enableRichtext' => true,
-//			'richtextConfiguration' => 'ps14Default',
-//			'fieldControl' => [
-//				'fullScreenRichtext' => [
-//					'disabled' => false,
-//				],
-//			],
-//			'cols' => 40,
-//			'rows' => 15,
-//			'eval' => 'trim',
-//		],
-//	],
-//	'accesories_description' => [
-//		'exclude' => true,
-//		'displayCond' => 'FIELD:layout:!IN:accessories',
-//		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.accesories_description',
-//		'config' => [
-//			'type' => 'text',
-//			'enableRichtext' => true,
-//			'richtextConfiguration' => 'ps14Default',
-//			'fieldControl' => [
-//				'fullScreenRichtext' => [
-//					'disabled' => false,
-//				],
-//			],
-//			'cols' => 40,
-//			'rows' => 15,
-//			'eval' => 'trim',
-//		],
-//	],
+	'technical_features' => [
+		'exclude' => true,
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_features',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'config' => [
+			'type' => 'inline',
+			'foreign_table' => 'tx_foundation_domain_model_elements',
+			'foreign_field' => 'foreign_uid',
+			'foreign_sortby' => 'sorting',
+			'foreign_label' => 'title',
+			'foreign_match_fields' => [
+				'foreign_field' => 'technical_features',
+			],
+			'maxitems' => 999,
+			'appearance' => [
+				'collapseAll' => 1,
+				'expandSingle' => 1,
+				'showAllLocalizationLink' => 1,
+				'showSynchronizationLink' => 1,
+				'showPossibleLocalizationRecords' => 1,
+				'showRemovedLocalizationRecords' => 1,
+				'newRecordLinkAddTitle' => 1
+			],
+		]
+	],
+	'technical_features_description' => [
+		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.technical_features_description',
+		'config' => [
+			'type' => 'text',
+			'enableRichtext' => true,
+			'richtextConfiguration' => 'ps14Default',
+			'fieldControl' => [
+				'fullScreenRichtext' => [
+					'disabled' => false,
+				],
+			],
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim',
+		],
+	],
+	'accesories_description' => [
+		'exclude' => true,
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.accesories_description',
+		'config' => [
+			'type' => 'text',
+			'enableRichtext' => true,
+			'richtextConfiguration' => 'ps14Default',
+			'fieldControl' => [
+				'fullScreenRichtext' => [
+					'disabled' => false,
+				],
+			],
+			'cols' => 40,
+			'rows' => 15,
+			'eval' => 'trim',
+		],
+	],
 ]);
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'description', '--linebreak--, technical_data', 'after:long_description');
@@ -587,60 +587,44 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Doma
 // ---------------------------------------------------------------------------------------------------------------------
 // Konfigurationsanpassungen Global fuer dieses Projekt
 // Uebersetzungs-Mode ueber columnsOverride ist nicht moeglich: https://docs.typo3.org/m/typo3/reference-tca/master/en-us/Types/Properties/ColumnsOverrides.html
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['image']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['media']['l10n_mode'] = 'exclude';
+//$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['image']['l10n_mode'] = 'exclude';
+//$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['media']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['related']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['twitter_image']['l10n_mode'] = 'exclude';
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['og_image']['l10n_mode'] = 'exclude';
+//$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['twitter_image']['l10n_mode'] = 'exclude';
+//$GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['og_image']['l10n_mode'] = 'exclude';
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['columns']['parent']['displayCond'] = 'FIELD:layout:!IN:accessories';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // Konfigurationsanpassungen von bestehenden Spalten
-//$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['master_category']['config'] = [
-//	'foreign_table_where' => ' AND sys_category.sys_language_uid IN (-1, 0) and sys_category.parent = ' . (int) $extensionConfiguration['parentMasterProductCategory'] . ' ORDER BY sys_category.sorting ASC',
-//];
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['master_category']['config'] = [
+	'itemsProcConfig' => [
+		'identifier' => 'entity-product-main',
+		'filter' => true,
+	],
+];
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['parent']['label'] = 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.parent';
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['image']['label'] = 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.image';
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['image']['config']['maxitems'] = 999;
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = [
-	'default' => [
-		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.default',
-		'allowedAspectRatios' => [
-			'16_9' => [
-				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
-				'value' => 16 / 9
-			],
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = \Ps14\Site\Service\TcaService::getCropVariants(
+	[
+		'default' => [
+			'allowedAspectRatios' => ['16_9'],
+			'selectedRatio' => '16_9'
 		],
-		'selectedRatio' => '16_9',
-	],
-//	'thumbnail' => [
-//		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.thumbnail',
-//		'allowedAspectRatios' => [
-//			'16_9' => [
-//				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
-//				'value' => 16 / 9
-//			],
-//		],
-//		'selectedRatio' => '16_9',
-//	],
-];
+	]
+);
 
-//$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['media']['config']['overrideChildTca']['columns']['uid_local']['config']['appearance']['elementBrowserAllowed'] = $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'] . ',mp4';
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['media']['config']['maxitems'] = 1;
-$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = [
-	'default' => [
-		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.default',
-		'allowedAspectRatios' => [
-			'16_9' => [
-				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
-				'value' => 16 / 9
-			],
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = \Ps14\Site\Service\TcaService::getCropVariants(
+	[
+		'default' => [
+			'allowedAspectRatios' => ['16_9'],
+			'selectedRatio' => '16_9'
 		],
-		'selectedRatio' => '16_9',
-	],
-];
+	]
+);
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['system_installation_legend']['config']['overrideChildTca'] = [
 	'columns' => [
@@ -648,7 +632,7 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Doma
 			'config' => [
 				'items' => [
 					[
-						'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_foundation_domain_model_elements.record_type.technical_features',
+						'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_foundation_domain_model_elements.record_type.system_installation_legend',
 						'value' => 'system_installation_legend'
 					],
 				],
@@ -666,48 +650,41 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Doma
 		],
 	]
 ];
-//
-//$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['technical_features']['config']['overrideChildTca'] = [
-//	'columns' => [
-//		'record_type' => [
-//			'config' => [
-//				'items' => [
-//					['LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_foundation_domain_model_elements.record_type.technical_features', 'technical_features'],
-//				],
-//				'default' => 'technical_features'
-//			]
-//		],
-//	],
-//	'types' => [
-//		'technical_features' => [
-//			'showitem' => '
-//				l10n_diffsource, record_type, --palette--;;header, description, media,
-//				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
-//				--palette--;;visibility,
-//				--palette--;;access',
-//		],
-//	]
-//];
 
-//$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['technical_features']['config']['overrideChildTca']['columns']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants']  = [
-//	'mobile' => [
-//		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.mobile',
-//		'allowedAspectRatios' => [
-//			'16_9' => [
-//				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.16_9',
-//				'value' => 16 / 9
-//			],
-//		],
-//		'selectedRatio' => '16_9',
-//	],
-//	'desktop' => [
-//		'title' => 'LLL:EXT:xo/Resources/Private/Language/locallang_tca.xlf:tx_xo_crop_variant.desktop',
-//		'allowedAspectRatios' => [
-//			'4_3' => [
-//				'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_wizards.xlf:imwizard.ratio.4_3',
-//				'value' => 4 / 3
-//			],
-//		],
-//		'selectedRatio' => '4_3',
-//	],
-//];
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['technical_features']['config']['overrideChildTca'] = [
+	'columns' => [
+		'record_type' => [
+			'config' => [
+				'items' => [
+					[
+						'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_foundation_domain_model_elements.record_type.technical_features',
+						'value' => 'technical_features'
+					],
+				],
+				'default' => 'technical_features'
+			]
+		],
+	],
+	'types' => [
+		'technical_features' => [
+			'showitem' => '
+				l10n_diffsource, record_type, --palette--;;header, description, media,
+				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
+				--palette--;;visibility,
+				--palette--;;access',
+		],
+	]
+];
+
+$GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['technical_features']['config']['overrideChildTca']['columns']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = \Ps14\Site\Service\TcaService::getCropVariants(
+	[
+		'mobile' => [
+			'allowedAspectRatios' => ['16_9'],
+			'selectedRatio' => '16_9'
+		],
+		'desktop' => [
+			'allowedAspectRatios' => ['4_3'],
+			'selectedRatio' => '4_3'
+		],
+	]
+);
