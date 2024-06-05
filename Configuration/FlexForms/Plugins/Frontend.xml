@@ -12,15 +12,19 @@
 				<el>
 					<settings.productRange>
 						<TCEforms>
-							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.productRange</label>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.product-range</label>
 							<config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
-								<itemsProcFunc>Ps\EntityProduct\Service\FlexformService->getProductRangeValues</itemsProcFunc>
+								<itemsProcFunc>Ps14\Foundation\Service\TcaService->getCategoriesByIdentifier</itemsProcFunc>
+								<itemsProcConfig>
+									<icon>mimetypes-x-sys_category</icon>
+									<identifier>entity-product-main</identifier>
+								</itemsProcConfig>
 								<items type="array">
 									<numIndex index="1" type="array">
-										<numIndex index="0" />
-										<numIndex index="1">default</numIndex>
+										<numIndex index="0"></numIndex>
+										<numIndex index="1"></numIndex>
 									</numIndex>
 								</items>
 							</config>
@@ -28,12 +32,15 @@
 					</settings.productRange>
 					<settings.filterCategoryWhitelist>
 						<TCEforms>
-							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.filterCategoryWhitelist</label>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.filter-category-whitelist</label>
 							<config>
 								<type>select</type>
-								<foreign_table>sys_category</foreign_table>
 								<renderType>selectCheckBox</renderType>
-								<itemsProcFunc>Ps\EntityProduct\Service\FlexformService->getFilterCategoryWhitelistValues</itemsProcFunc>
+								<itemsProcFunc>Ps14\Foundation\Service\TcaService->getCategoriesByIdentifier</itemsProcFunc>
+								<itemsProcConfig>
+									<icon>mimetypes-x-sys_category</icon>
+									<identifier>entity-product-filter</identifier>
+								</itemsProcConfig>
 								<size>5</size>
 								<minitems>0</minitems>
 								<maxitems>999</maxitems>
@@ -42,7 +49,7 @@
 					</settings.filterCategoryWhitelist>
 					<settings.hideFilter>
 						<TCEforms>
-							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.hideFilter</label>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.hide-filter</label>
 							<config>
 								<type>check</type>
 								<default>0</default>
@@ -56,7 +63,7 @@
 					</settings.hideFilter>
 					<settings.hideSiblingNavigation>
 						<TCEforms>
-							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.hideSiblingNavigation</label>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.hide-sibling-navigation</label>
 							<config>
 								<type>check</type>
 								<default>0</default>
@@ -70,7 +77,7 @@
 					</settings.hideSiblingNavigation>
 					<settings.hideIndividualProduct>
 						<TCEforms>
-							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.hideIndividualProduct</label>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.hide-individual-product</label>
 							<config>
 								<type>check</type>
 								<default>0</default>
