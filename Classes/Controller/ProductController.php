@@ -104,18 +104,19 @@ class ProductController extends EntityController {
 			$isScreenContext = false;
 		}
 		$this->view->assign('isScreenContext', $isScreenContext);
-//
-//		// Eltern Eigenschaften aufrufen z.B. Auswertung Meta-Tags, Title-Tag, ...
-//		parent::showAction($product);
-//
+
+		// Eltern Eigenschaften aufrufen z.B. Auswertung Meta-Tags, Title-Tag, ...
+		parent::showAction($product);
+
 		// Uebergabe an Template
 		$this->view->assign('product', $product);
 		$this->view->assign('variants', $this->getProductVariants($product));
-//
-//		// keine Anzeige der Box individuelles Produkt
-//		$this->settings['hideIndividualProduct'] = 1;
-//		$this->view->assign('settings', $this->settings);
-//
+
+		// keine Anzeige der Box individuelles Produkt
+		$this->settings['hideIndividualProduct'] = 1;
+		$this->view->assign('settings', $this->settings);
+
+// @todo: v12
 //		if($product->getChart() !== null) {
 //
 //			/** @var LineChartDataProvider $chartDataProvider */
