@@ -36,20 +36,19 @@ class ProductProcessor extends \Ps14\Foundation\DataProcessing\ModuleProcessor i
 
 			// Technische Zeichnungen vorhanden?
 			if(count($product->getTechnicalDrawings()) !== 0) {
-				$this->addImportJsFiles(['/assets/js/libraries/tobii.js' => ['forceOnTop' => true]]);
-				$this->addImportCssFiles(['/assets/css/libraries/tobii.css']);
+				$this->addImportJsFiles(['/assets/js/vendors/tobii.js' => ['forceOnTop' => true]]);
+				$this->addImportCssFiles(['/assets/css/vendors/tobii.css']);
 
 				// Erst bei mehr als einer technischen Zeichnung werden Tabs benoetigt
 				if(count($product->getTechnicalDrawings()) >= 2) {
 					$this->addImportJsFiles(['/assets/js/components/tab.js']);
-					$this->addImportCssFiles(['/assets/css/components/tab.css']);
 				}
 			}
 
 			// Chart vorhanden?
 			if($product->getChart() !== null) {
 				$this->addImportJsFiles([
-					'/assets/js/libraries/chart.js' => ['forceOnTop' => true],
+					'/assets/js/vendors/chart.js' => ['forceOnTop' => true],
 					'/assets/js/modules/chart.js'
 				]);
 				$this->addImportCssFiles(['/assets/css/modules/chart.css']);

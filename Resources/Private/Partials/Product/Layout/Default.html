@@ -100,7 +100,7 @@
 					<f:if condition="{product.technicalFeatures}">
 						<li class="product--technical-features">
 							<f:render section="AccordionHeader" arguments="{identifier: 'technical-features', title: '{f:translate(key: \'product.technicalFeatures\')}'}" />
-							<div id="product--technical-features-container" class="collapse-x" aria-labelledby="product--technical-features-header">
+							<div id="product--technical-features-container" class="collapse" aria-labelledby="product--technical-features-header">
 								<div class="accordion--container accordion--container-default">
 									<f:render partial="Product/TechnicalFeatures" section="Main" arguments="{_all}" />
 								</div>
@@ -112,7 +112,7 @@
 					<f:if condition="{product.options}">
 						<li class="product--options">
 							<f:render section="AccordionHeader" arguments="{identifier: 'options', title: '{f:translate(key: \'product.options\')}'}" />
-							<div id="product--options-container" class="collapsex" aria-labelledby="product--options-header">
+							<div id="product--options-container" class="collapse" aria-labelledby="product--options-header">
 								<div class="accordion--container accordion--container-default">
 									<f:format.html>{product.options}</f:format.html>
 								</div>
@@ -123,7 +123,7 @@
 					<f:if condition="{product.files}">
 						<li class="product--downloads">
 							<f:render section="AccordionHeader" arguments="{identifier: 'downloads', title: '{f:translate(key: \'product.downloads\')}'}" />
-							<div id="product--downloads-container" class="collapsex" aria-labelledby="product--downloads-header">
+							<div id="product--downloads-container" class="collapse" aria-labelledby="product--downloads-header">
 								<div class="accordion--container accordion--container-default">
 									<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
 								</div>
