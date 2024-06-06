@@ -1,12 +1,4 @@
 plugin.tx_entityproduct.settings {
-#		titleType {
-#			0 = LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value
-#			1 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.1
-#			2 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.2
-#			3 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.3
-#			4 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.4
-#		}
-
 	technicalDrawings.pictureSettings {
 		fullsize {
 			maxWidth = 1200
@@ -93,8 +85,6 @@ plugin.tx_entityproduct.settings {
 		}
 	}
 }
-
-#module.tx_xo.settings.modules.entityproduct < plugin.tx_xo.settings.modules.entityproduct
 
 plugin.tx_entityproduct {
 	view {
@@ -210,12 +200,6 @@ lib.productSiblingNavigation {
 		}
 	}
 }
-
-#page.10.dataProcessing.32 = Ps\Entity\DataProcessing\BreadcrumbProcessor
-#page.10.dataProcessing.32 {
-#	uidArgument = tx_entityproduct_frontend|product
-#	titleField = title
-#}
 #
 #page.10.dataProcessing.42 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
 #page.10.dataProcessing.42 {
@@ -261,6 +245,13 @@ lib.productSiblingNavigation {
 				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
 			}
 		}
+	}
+
+	// Einbindung Breadcrumb -> angepasste Version in Sub-Extension einbinden (falls noetig)
+	navigation.breadcrumb.dataProcessing.20 = Ps\Entity\DataProcessing\BreadcrumbProcessor
+	navigation.breadcrumb.dataProcessing.20 {
+		uidArgument = tx_entityproduct_frontend|product
+		titleField = title
 	}
 
 	block {
