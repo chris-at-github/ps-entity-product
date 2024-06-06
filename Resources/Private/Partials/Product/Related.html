@@ -4,7 +4,7 @@
 		<f:render partial="Header/Header" arguments="{header: '{f:translate(key: \'product.related\')}', layout: 2}" />
 	</header>
 
-	<f:if condition="{product.related -> f:count()} > {settings.xo.modules.entityproduct.card.readmoreLimit}">
+	<f:if condition="{product.related -> f:count()} > {settings.card.readmoreLimit}">
 		<f:then>
 			<f:render partial="Listing/Listing" section="ReadmoreContainer" arguments="{products: product.related, settings: settings}" />
 		</f:then>

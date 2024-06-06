@@ -28,8 +28,6 @@
 			</div>
 		</f:if>
 
-
-
 		<div class="ce-frame ce-frame--layout-0 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-auto">
 			<div class="ce-frame--inner">
 				<ul class="accordion product--accordion">
@@ -110,11 +108,11 @@
 						</li>
 					</f:if>
 
-					<f:comment>
+
 					<f:if condition="{product.options}">
 						<li class="product--options">
 							<f:render section="AccordionHeader" arguments="{identifier: 'options', title: '{f:translate(key: \'product.options\')}'}" />
-							<div id="product--options-container" class="collapse" aria-labelledby="product--options-header">
+							<div id="product--options-container" class="collapsex" aria-labelledby="product--options-header">
 								<div class="accordion--container accordion--container-default">
 									<f:format.html>{product.options}</f:format.html>
 								</div>
@@ -125,7 +123,7 @@
 					<f:if condition="{product.files}">
 						<li class="product--downloads">
 							<f:render section="AccordionHeader" arguments="{identifier: 'downloads', title: '{f:translate(key: \'product.downloads\')}'}" />
-							<div id="product--downloads-container" class="collapse" aria-labelledby="product--downloads-header">
+							<div id="product--downloads-container" class="collapsex" aria-labelledby="product--downloads-header">
 								<div class="accordion--container accordion--container-default">
 									<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
 								</div>
@@ -143,16 +141,18 @@
 							</div>
 						</li>
 					</f:if>
-					</f:comment>
 				</ul>
 
-				<f:if condition="{chart} && {isScreenContext}">
-					<f:render partial="Product/AirConsumption" section="Fallback" arguments="{record: record, product: product, identifier: product.uid, chart: chart}" />
-				</f:if>
+				<f:comment>
+					<!--
+					<f:if condition="{chart} && {isScreenContext}">
+						<f:render partial="Product/AirConsumption" section="Fallback" arguments="{record: record, product: product, identifier: product.uid, chart: chart}" />
+					</f:if>
+					-->
+				</f:comment>
+
 			</div>
 		</div>
-
-		<f:comment>
 
 		<f:if condition="{product.technology}">
 			<div class="product--technology ce-frame ce-teaser-frontend ce-teaser-frontend--technology ce-frame--layout-0 ce-frame--variant-1 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
@@ -177,7 +177,6 @@
 				</div>
 			</div>
 		</f:if>
-		</f:comment>
 
 		<f:comment>
 			<f:if condition="{variants}">
