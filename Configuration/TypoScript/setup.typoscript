@@ -1,31 +1,4 @@
-#plugin.tx_xo.settings {
-#	filter {
-#		entityproduct {
-#			namespace = tx_entityproduct_frontend
-#			submitAll = 1
-#			resetAll = 1
-#			#		title = LLL:EXT:datamints_filter/Resources/Private/Language/locallang.xlf:title.default
-#			#		collapse = 1
-#			#		pageType = 1548191072
-#
-#			items {
-#				categories-tree {
-#					renderType = treeRadio
-#					autoSubmit = 1
-#					resetable = 1
-#					dataProvider {
-#						Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
-#							parent = 16
-#							whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
-#							removeSingleValues = 1
-#						}
-#					}
-#				}
-#			}
-#		}
-#	}
-
-#	modules.entityproduct {
+plugin.tx_entityproduct.settings {
 #		titleType {
 #			0 = LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value
 #			1 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.1
@@ -33,97 +6,96 @@
 #			3 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.3
 #			4 = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.4
 #		}
-#
-#		technicalDrawings.pictureSettings {
-#			fullsize {
-#				maxWidth = 1200
-#				maxHeight = 1200
-#				cropVariant = fullscreen
-#			}
-#
-#			thumbnail {
-#				maxHeight = 450
-#				cropVariant = thumbnail
-#				mediaQueries {
-#					992 {
-#						maxHeight = 450
-#						cropVariant = thumbnail
-#						mediaQuery = (min-width: 992px)
-#					}
-#					0 {
-#						maxHeight = 450
-#						cropVariant = thumbnail
-#						mediaQuery = (min-width: 0px)
-#					}
-#				}
-#			}
-#		}
-#
-#		card {
-#			readmoreLimit = 3
-#			pictureSettings {
-#				thumbnail {
-#					width = 530
-#					cropVariant = default
-#					mediaQueries {
-#						576 {
-#							width = 360
-#							cropVariant = default
-#							mediaQuery = (min-width: 576px)
-#						}
-#
-#						0 {
-#							width = 530
-#							cropVariant = default
-#							mediaQuery = (min-width: 0px)
-#						}
-#					}
-#				}
-#			}
-#		}
-#
-#		technicalFeature {
-#			pictureSettings {
-#				width = 455
-#				cropVariant = mobile
-#				mediaQueries {
-#					1200 {
-#						width = 165
-#						cropVariant = desktop
-#						mediaQuery = (min-width: 1200px)
-#					}
-#
-#					992 {
-#						width = 360
-#						cropVariant = mobile
-#						mediaQuery = (min-width: 992px)
-#					}
-#
-#					768 {
-#						width = 455
-#						cropVariant = mobile
-#						mediaQuery = (min-width: 768px)
-#					}
-#
-#					576 {
-#						width = 355
-#						cropVariant = mobile
-#						mediaQuery = (min-width: 576px)
-#					}
-#
-#					0 {
-#						width = 545
-#						cropVariant = mobile
-#						mediaQuery = (min-width: 0px)
-#					}
-#				}
-#			}
-#		}
-#	}
-#}
-#
+
+	technicalDrawings.pictureSettings {
+		fullsize {
+			maxWidth = 1200
+			maxHeight = 1200
+			cropVariant = fullscreen
+		}
+
+		thumbnail {
+			maxHeight = 450
+			cropVariant = thumbnail
+			mediaQueries {
+				992 {
+					maxHeight = 450
+					cropVariant = thumbnail
+					mediaQuery = (min-width: 992px)
+				}
+				0 {
+					maxHeight = 450
+					cropVariant = thumbnail
+					mediaQuery = (min-width: 0px)
+				}
+			}
+		}
+	}
+
+	card {
+		readmoreLimit = 3
+		pictureSettings {
+			thumbnail {
+				width = 530
+				cropVariant = default
+				mediaQueries {
+					576 {
+						width = 360
+						cropVariant = default
+						mediaQuery = (min-width: 576px)
+					}
+
+					0 {
+						width = 530
+						cropVariant = default
+						mediaQuery = (min-width: 0px)
+					}
+				}
+			}
+		}
+	}
+
+	technicalFeature {
+		pictureSettings {
+			width = 455
+			cropVariant = mobile
+			mediaQueries {
+				1200 {
+					width = 165
+					cropVariant = desktop
+					mediaQuery = (min-width: 1200px)
+				}
+
+				992 {
+					width = 360
+					cropVariant = mobile
+					mediaQuery = (min-width: 992px)
+				}
+
+				768 {
+					width = 455
+					cropVariant = mobile
+					mediaQuery = (min-width: 768px)
+				}
+
+				576 {
+					width = 355
+					cropVariant = mobile
+					mediaQuery = (min-width: 576px)
+				}
+
+				0 {
+					width = 545
+					cropVariant = mobile
+					mediaQuery = (min-width: 0px)
+				}
+			}
+		}
+	}
+}
+
 #module.tx_xo.settings.modules.entityproduct < plugin.tx_xo.settings.modules.entityproduct
-#
+
 plugin.tx_entityproduct {
 	view {
 		layoutRootPaths {

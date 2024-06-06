@@ -13,10 +13,10 @@
 					<li class="technical-feature">
 						<div class="row">
 							<div class="col-12 col-lg-4">
-								<f:render section="Media" arguments="{media: technicalFeature.media, settings: settings.xo.modules.entityproduct.technicalFeature}" />
+								<f:render section="Media" arguments="{media: technicalFeature.media, settings: settings.technicalFeature}" />
 							</div>
 							<div class="col-12 col-lg-8">
-								<f:render section="Title" arguments="{title: technicalFeature.title, layout: technicalFeature.titleType}" />
+								<f:render section="Title" arguments="{title: technicalFeature.title, layout: 3}" />
 								<f:render section="Description" arguments="{description: technicalFeature.description}" />
 							</div>
 						</div>
@@ -43,14 +43,10 @@
 	<f:section name="Media">
 		<f:if condition="{media}">
 			<div class="technical-feature--media">
-				<f:render partial="Components/Media" section="Picture" arguments="{
-					file: media.originalResource,
-					image: {
-						maxWidth: settings.pictureSettings.maxWidth,
-						cropVariant: settings.pictureSettings.cropVariant
-					},
-					sizes: settings.pictureSettings.mediaQueries
-				}" />
+				<f:render partial="Media/Main" section="Main" arguments="{
+						file: media.originalResource,
+						settings: settings.pictureSettings
+					}" />
 			</div>
 		</f:if>
 	</f:section>

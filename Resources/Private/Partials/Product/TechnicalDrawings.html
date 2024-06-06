@@ -1,9 +1,8 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:section name="Main">
-
 	<f:if condition="{technicalDrawings -> f:count()} == 1">
 		<f:then>
-			<f:render section="Image" arguments="{technicalDrawing: technicalDrawings.0, settings: settings.pictureSettings}" />
+			<f:render section="Image" arguments="{technicalDrawing: technicalDrawings.0, settings: settings}" />
 		</f:then>
 
 		<f:else if="{technicalDrawings -> f:count()} > 1">
@@ -19,7 +18,7 @@
 				<div class="tab--content">
 					<f:for each="{technicalDrawings}" as="technicalDrawing" iteration="iterator">
 						<div class="tab--pane fade {f:if(condition: iterator.isFirst, then: 'show active')}" id="tab-content-technical-drawing-{technicalDrawing.uid}" role="tabpanel" aria-labelledby="tab-technical-drawing-{technicalDrawing.uid}">
-							<f:render section="Image" arguments="{technicalDrawing: technicalDrawing, settings: settings.pictureSettings}" />
+							<f:render section="Image" arguments="{technicalDrawing: technicalDrawing, settings: settings}" />
 						</div>
 					</f:for>
 				</div>
@@ -38,16 +37,11 @@
 
 <f:section name="Image">
 	<a class="product--technical-drawing" href="{f:uri.image(src: technicalDrawing.uid, treatIdAsReference: 1, maxWidth: settings.fullsize.maxWidth, maxHeight: settings.fullsize.maxHeight, cropVariant: settings.fullsize.cropVariant)}" aria-label="{f:translate(key: 'LLL:EXT:xo/Resources/Private/Language/locallang_frontend.xlf:tx_xo.action.enlarge')}">
-		<f:render partial="Components/Media" section="Picture" arguments="{
+		<f:render partial="Media/Main" section="Main" arguments="{
 			file: technicalDrawing,
-			image: {
-				title: technicalDrawing.title
-				maxHeight: settings.thumbnail.maxHeight,
-				cropVariant: settings.thumbnail.cropVariant
-			},
-			sizes: settings.thumbnail.mediaQueries
+			settings: settings.thumbnail
 		}" />
-		<span class="product--technical-drawing-enlarge"><xo:svg.use name="enlarge" viewBox="0 0 13 13" /></span>
+		<span class="product--technical-drawing-enlarge"><fo:svg.inline source="/assets/svg/enlarge" /></span>
 	</a>
 </f:section>
 </html>

@@ -1,4 +1,4 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:section name="Main">
 	<f:if condition="{images -> f:count()} == 1">
 		<f:then>
@@ -10,7 +10,10 @@
 				<ul class="slider--container">
 					<f:for each="{images}" as="image" iteration="iterator">
 						<li class="slider--item" data-index="{iterator.index}">
-							<f:render partial="Hero/Item" section="Main" arguments="{media: image, settings: settings.xo.modules.ce_hero}" />
+							<f:render partial="Hero/Item/Main" section="Main" arguments="{
+								media: image,
+								settings: '{fo:settings.get(extension: \'Ps14Hero\', path: \'images\')}'
+							}" />
 						</li>
 					</f:for>
 				</ul>

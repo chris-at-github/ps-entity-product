@@ -110,7 +110,7 @@ class ProductController extends EntityController {
 //
 		// Uebergabe an Template
 		$this->view->assign('product', $product);
-//		$this->view->assign('variants', $this->getProductVariants($product));
+		$this->view->assign('variants', $this->getProductVariants($product));
 //
 //		// keine Anzeige der Box individuelles Produkt
 //		$this->settings['hideIndividualProduct'] = 1;
@@ -187,36 +187,36 @@ class ProductController extends EntityController {
 	 * @return array
 	 */
 	protected function getProductVariants(Entity $product) {
-//		$variants = [];
-//
-//		// moeglicherweise selbst das Elternelement
-//		if($product->getParent() === null) {
-//			$products = $this->productRepository->findAll(['parent' => $product->getUid()]);
-//
-//			// gibt es Varianten zu diesem Product?
-//			if($products->count() !== 0) {
-//
-//				// Eltern-Produkt ebenfalls hinzufuegen
-//				$variants[] = $product;
-//
-//				// weitere Unter-Produkte hinzufuegen
-//				foreach($products as $value) {
-//					$variants[] = $value;
-//				}
-//			}
-//
-//		// Produkt ist selbst eine Variante
-//		} else {
-//
-//			// Eltern-Produkt ebenfalls hinzufuegen
-//			$variants[] = $product->getParent();
-//
-//			// alle Unter-Produkte identifizieren und hinzufuegen
-//			foreach($this->productRepository->findAll(['parent' => $product->getParent()->getUid()]) as $value) {
-//				$variants[] = $value;
-//			}
-//		}
-//
-//		return $variants;
+		$variants = [];
+
+		// moeglicherweise selbst das Elternelement
+		if($product->getParent() === null) {
+			$products = $this->productRepository->findAllByOption(['parent' => $product->getUid()]);
+
+			// gibt es Varianten zu diesem Product?
+			if($products->count() !== 0) {
+
+				// Eltern-Produkt ebenfalls hinzufuegen
+				$variants[] = $product;
+
+				// weitere Unter-Produkte hinzufuegen
+				foreach($products as $value) {
+					$variants[] = $value;
+				}
+			}
+
+		// Produkt ist selbst eine Variante
+		} else {
+
+			// Eltern-Produkt ebenfalls hinzufuegen
+			$variants[] = $product->getParent();
+
+			// alle Unter-Produkte identifizieren und hinzufuegen
+			foreach($this->productRepository->findAllByOption(['parent' => $product->getParent()->getUid()]) as $value) {
+				$variants[] = $value;
+			}
+		}
+
+		return $variants;
 	}
 }

@@ -1,12 +1,14 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:section name="Main">
 	<div class="row marker marker--layout-0">
 		<f:if condition="{product.systemInstallationMedia}">
 			<div class="col-lg-6">
-				<f:render partial="Marker/Media" section="Main" arguments="{
-					media: product.systemInstallationMedia.originalResource,
-					settings: settings.xo.modules.marker.media.aside
-				}" />
+				<div class="marker--media">
+					<f:render partial="Media/Main" section="Main" arguments="{
+							file: product.systemInstallationMedia.originalResource,
+							settings: '{fo:settings.get(extension: \'Ps14Marker\', path: \'images.aside\')}'
+						}" />
+				</div>
 			</div>
 		</f:if>
 
@@ -14,7 +16,7 @@
 			<div class="col-lg-6">
 				<ol class="marker--legend">
 					<f:for each="{product.systemInstallationLegend}" as="element" iteration="iterator">
-						<f:render partial="Marker/Records" section="Item" arguments="{data: element, iterator: iterator}" />
+						<f:render partial="Marker/Listing/Listing" section="Item" arguments="{element: element, iterator: iterator, headerLayout: 3}" />
 					</f:for>
 				</ol>
 			</div>
