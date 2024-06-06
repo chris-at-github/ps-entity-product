@@ -20,46 +20,46 @@ class ProductProcessor extends \Ps14\Foundation\DataProcessing\ModuleProcessor i
 	 */
 	public function process(ContentObjectRenderer $contentObject, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
 
-//		if($processedData['data']['list_type'] !== 'entityproduct_frontend') {
-//			return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);
-//		}
-//
-//		// auf der Detailseite werden die Inhaltselemente nochmals selbst in Container-DIV Elemente eingeteilt
-//		$processedData['data']['tx_xo_no_frame'] = 1;
-//
-//		// Produkt-Model laden
-//		$request = GeneralUtility::_GET('tx_entityproduct_frontend');
-//		if(empty($request) === false) {
-//
-//			/** @var Product $product */
-//			$product = $this->objectManager->get(ProductRepository::class)->findByUid((int) $request['product']);
-//
-//			// Technische Zeichnungen vorhanden?
-//			if(count($product->getTechnicalDrawings()) !== 0) {
-//				$this->addImportJsFiles(['/assets/js/libraries/tobii.js' => ['forceOnTop' => true]]);
-//				$this->addImportCssFiles(['/assets/css/libraries/tobii.css']);
-//
-//				// Erst bei mehr als einer technischen Zeichnung werden Tabs benoetigt
-//				if(count($product->getTechnicalDrawings()) >= 2) {
-//					$this->addImportJsFiles(['/assets/js/components/tab.js']);
-//					$this->addImportCssFiles(['/assets/css/components/tab.css']);
-//				}
-//			}
-//
-//			// Chart vorhanden?
-//			if($product->getChart() !== null) {
-//				$this->addImportJsFiles([
-//					'/assets/js/libraries/chart.js' => ['forceOnTop' => true],
-//					'/assets/js/modules/chart.js'
-//				]);
-//				$this->addImportCssFiles(['/assets/css/modules/chart.css']);
-//			}
-//
-//			// Anlagenaufbau-Vorhanden
-//			if($product->getSystemInstallationMedia() !== null || $product->getSystemInstallationLegend()->count() !== 0) {
-//				$this->addImportCssFiles(['/assets/css/modules/marker.css']);
-//			}
-//		}
+		if($processedData['data']['list_type'] !== 'entityproduct_frontend') {
+			return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);
+		}
+
+		// auf der Detailseite werden die Inhaltselemente nochmals selbst in Container-DIV Elemente eingeteilt
+		$processedData['data']['tx_foundation_no_frame'] = 1;
+
+		// Produkt-Model laden
+		$request = GeneralUtility::_GET('tx_entityproduct_frontend');
+		if(empty($request) === false) {
+
+			/** @var Product $product */
+			$product = GeneralUtility::makeInstance(ProductRepository::class)->findByUid((int) $request['product']);
+
+			// Technische Zeichnungen vorhanden?
+			if(count($product->getTechnicalDrawings()) !== 0) {
+				$this->addImportJsFiles(['/assets/js/libraries/tobii.js' => ['forceOnTop' => true]]);
+				$this->addImportCssFiles(['/assets/css/libraries/tobii.css']);
+
+				// Erst bei mehr als einer technischen Zeichnung werden Tabs benoetigt
+				if(count($product->getTechnicalDrawings()) >= 2) {
+					$this->addImportJsFiles(['/assets/js/components/tab.js']);
+					$this->addImportCssFiles(['/assets/css/components/tab.css']);
+				}
+			}
+
+			// Chart vorhanden?
+			if($product->getChart() !== null) {
+				$this->addImportJsFiles([
+					'/assets/js/libraries/chart.js' => ['forceOnTop' => true],
+					'/assets/js/modules/chart.js'
+				]);
+				$this->addImportCssFiles(['/assets/css/modules/chart.css']);
+			}
+
+			// Anlagenaufbau-Vorhanden
+			if($product->getSystemInstallationMedia() !== null || $product->getSystemInstallationLegend()->count() !== 0) {
+				$this->addImportCssFiles(['/assets/css/modules/marker.css']);
+			}
+		}
 
 		return parent::process($contentObject, $contentObjectConfiguration, $processorConfiguration, $processedData);
 	}

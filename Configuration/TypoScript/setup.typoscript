@@ -236,7 +236,7 @@ lib.productSiblingNavigation {
 	tt_content {
 		list {
 			dataProcessing {
-				210 = Ps\EntityProduct\DataProcessing\ProductProcessor
+				220 = Ps\EntityProduct\DataProcessing\ProductProcessor
 			}
 		}
 	}
@@ -257,12 +257,6 @@ lib.productSiblingNavigation {
 		contentProduct.select.where = colPos = -100
 	}
 
-	dataProcessing {
-
-		// Seiten-Layout (Klasse) wieder auf den Standard setzen
-		pageLayout.mapping.4 = PageLayout-0
-	}
-
 	page {
 
 		// Seiten-Layout (Klasse) wieder auf den Standard setzen
@@ -271,6 +265,11 @@ lib.productSiblingNavigation {
 			10 = TEXT
 			10.value = page--layout-0
 		}
+
+		// Seiten-Layout (Klasse) wieder auf den Standard setzen
+		10.variables.pageLayout >
+		10.variables.pageLayout = TEXT
+		10.variables.pageLayout.value = Default
 	}
 [END]
 
