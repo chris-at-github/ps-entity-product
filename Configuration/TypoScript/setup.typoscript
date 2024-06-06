@@ -200,13 +200,7 @@ lib.productSiblingNavigation {
 		}
 	}
 }
-#
-#page.10.dataProcessing.42 = Ps\Entity\DataProcessing\LanguageNavigationProcessor
-#page.10.dataProcessing.42 {
-#	argumentPrefix = tx_entityproduct_frontend
-#	uidArgument = product
-#}
-#
+
 #tt_content.list.dataProcessing.200 {
 #	entityproduct_frontend {
 #		importCss {
