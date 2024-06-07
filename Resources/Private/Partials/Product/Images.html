@@ -2,7 +2,7 @@
 <f:section name="Main">
 	<f:if condition="{images -> f:count()} == 1">
 		<f:then>
-			<f:render partial="Hero/Item" section="Main" arguments="{media: images.0, settings: settings.xo.modules.ce_hero}" />
+			<f:render partial="Hero/Item/Main" section="Main" arguments="{media: images.0, settings: '{fo:settings.get(extension: \'Ps14Hero\', path: \'images\')}'}" />
 		</f:then>
 
 		<f:else if="{images -> f:count()} > 1">

@@ -29,6 +29,7 @@ class ProductProcessor extends \Ps14\Foundation\DataProcessing\ModuleProcessor i
 
 		// Produkt-Model laden
 		$request = GeneralUtility::_GET('tx_entityproduct_frontend');
+
 		if(empty($request) === false) {
 
 			/** @var Product $product */
