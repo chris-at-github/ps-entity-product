@@ -39,8 +39,7 @@
 </f:section>
 
 <f:section name="Individual">
-	<f:comment>
-	<fo:page.entity uid="{settings.xo.pages.individualProduct}">
+	<fo:page.entity identifier="individual-product" repository="Ps14\Teaser\Domain\Repository\PageRepository">
 		<li class="card product-listing--item-individual" data-uri-target="{f:uri.page(pageUid: page.uid)}">
 			<div class="product-listing--item-individual-icon">
 				<fo:svg.inline source="assets/svg/no-result.svg" />
@@ -55,6 +54,5 @@
 			</div>
 		</li>
 	</fo:page.entity>
-	</f:comment>
 </f:section>
 </html>
