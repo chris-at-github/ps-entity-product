@@ -82,7 +82,13 @@ class ProductController extends EntityController {
 	public function listingAction() {
 
 		/** @var FilterService $filter */
-		$filter = GeneralUtility::makeInstance(\Ps14\Site\Service\FilterService::class, 'entityproduct', $this->request, $this->request->getAttribute('currentContentObject'), $this->settings['filter']);
+		$filter = GeneralUtility::makeInstance(
+			\Ps14\Site\Service\FilterService::class,
+			'entityproduct',
+			$this->request,
+			$this->request->getAttribute('currentContentObject'),
+			$this->settings
+		);
 		$products = $this->productRepository->findAllByOption($this->getDemand($filter->getArguments(true)));
 
 		$this->view->assign('products', $products);

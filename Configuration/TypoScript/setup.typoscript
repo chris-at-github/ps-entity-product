@@ -149,7 +149,7 @@ plugin.tx_entityproduct {
 						autoSubmit = 1
 						resetable = 1
 						dataProvider {
-							Ps\Xo\Filter\DataProvider\CategoryTreeDataProvider {
+							Ps14\Site\Filter\DataProvider\CategoryTreeDataProvider {
 								parent = 16
 								whitelistProvider = Ps\EntityProduct\Provider\CategoryWhitelistDataProvider
 								removeSingleValues = 1
@@ -218,7 +218,7 @@ tt_content.list.dataProcessing.200 {
 			49 = /assets/js/vendors/micromodal.js
 			51 = /assets/js/components/filter.js
 			52 = /assets/js/modules/hero.js
-			100 = /assets/js/entity-product.js
+			100 = /assets/js/modules/entity-product.js
 		}
 	}
 
