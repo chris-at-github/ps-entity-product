@@ -315,19 +315,21 @@ tt_content {
 	}
 }
 
-#config.recordLinks.entityProduct {
-#	forceLink = 0
-#
-#	typolink {
-#		parameter = 1
-#		userFunc = Ps\EntityProduct\Service\ProductRecordLinkHandlerService->createProductLink
-#		userFunc {
-#			productUid = TEXT
-#			productUid.data = field:uid
-#		}
-#	}
-#}
-#
+config.recordLinks.entityProduct {
+	forceLink = 1
+
+	typolink {
+		parameter = 1
+		additionalParams.data = field:uid
+		additionalParams.wrap = &tx_example_pi1[item]=|
+		userFunc = Ps\EntityProduct\Service\ProductRecordLinkHandlerService->createProductLink
+		userFunc {
+			productUid = TEXT
+			productUid.data = field:uid
+		}
+	}
+}
+
 #plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct < plugin.tx_seo.config.xmlSitemap.sitemaps.entityFrontend
 #plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct.config {
 #	pid = {$plugin.tx_entityproduct.persistence.storagePid}
