@@ -320,8 +320,6 @@ config.recordLinks.entityProduct {
 
 	typolink {
 		parameter = 1
-		additionalParams.data = field:uid
-		additionalParams.wrap = &tx_example_pi1[item]=|
 		userFunc = Ps\EntityProduct\Service\ProductRecordLinkHandlerService->createProductLink
 		userFunc {
 			productUid = TEXT
@@ -330,18 +328,18 @@ config.recordLinks.entityProduct {
 	}
 }
 
-#plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct < plugin.tx_seo.config.xmlSitemap.sitemaps.entityFrontend
-#plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct.config {
-#	pid = {$plugin.tx_entityproduct.persistence.storagePid}
-#	url {
-#		fieldToParameterMap {
-#			uid = tx_entityproduct_frontend[product]
-#		}
-#
-#		additionalGetParameters >
-#		additionalGetParameters {
-#			tx_entityproduct_frontend.controller = Product
-#			tx_entityproduct_frontend.action = show
-#		}
-#	}
-#}
+plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct < plugin.tx_seo.config.xmlSitemap.sitemaps.entityFrontend
+plugin.tx_seo.config.xmlSitemap.sitemaps.entityProduct.config {
+	pid = {$plugin.tx_entityproduct.persistence.storagePid}
+	url {
+		fieldToParameterMap {
+			uid = tx_entityproduct_frontend[product]
+		}
+
+		additionalGetParameters >
+		additionalGetParameters {
+			tx_entityproduct_frontend.controller = Product
+			tx_entityproduct_frontend.action = show
+		}
+	}
+}
