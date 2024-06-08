@@ -221,12 +221,6 @@ tt_content.list.dataProcessing.200 {
 			100 = /assets/js/modules/entity-product.js
 		}
 	}
-
-#	entityproduct_keyfact {
-#		importCss {
-#			10 = /assets/css/modules/product-keyfact.css
-#		}
-#	}
 }
 
 [request && traverse(request.getQueryParams(), 'tx_entityproduct_frontend/product') > 0]

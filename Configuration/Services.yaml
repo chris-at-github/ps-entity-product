@@ -13,6 +13,7 @@ services:
         identifier: 'entityproduct.canonical'
         event: TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent
         after: 'beforeGeneratingCanonical'
+
   Ps\EntityProduct\EventListener\HrefLangTagEventListener:
     tags:
       - name: event.listener
