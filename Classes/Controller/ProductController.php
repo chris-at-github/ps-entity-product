@@ -134,58 +134,55 @@ class ProductController extends EntityController {
 	}
 
 	/**
-	 * @return void
+	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function teaserAction() {
-//		if($this->settings['source'] === 'technology') {
-//			unset($this->settings['categories']);
-//			unset($this->settings['products']);
-//			unset($this->settings['application']);
-//			unset($this->settings['records']);
-//
-//		} elseif($this->settings['source'] === 'categories') {
-//			unset($this->settings['technology']);
-//			unset($this->settings['products']);
-//			unset($this->settings['application']);
-//			unset($this->settings['records']);
-//
-//		} elseif($this->settings['source'] === 'application') {
-//			unset($this->settings['technology']);
-//			unset($this->settings['products']);
-//			unset($this->settings['categories']);
-//			unset($this->settings['records']);
-//
-//		} elseif($this->settings['source'] === 'records') {
-//			unset($this->settings['application']);
-//			unset($this->settings['technology']);
-//			unset($this->settings['products']);
-//			unset($this->settings['categories']);
-//		}
-//
-//		$this->settings['xo'] = $this->objectManager->get(\TYPO3\CMS\Extbase\Configuration\ConfigurationManager::class)->getConfiguration(
-//			\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
-//			'xo'
-//		);
-//
-//		// keine Anzeige der Box individuelles Produkt
-//		$this->settings['hideIndividualProduct'] = 1;
-//
-//		$demand = $this->getDemand($this->settings);
-//		$products = $this->productRepository->findAll($demand);
-//
-//		if(empty($demand['records']) === false) {
-//			$products = \Ps\Xo\Utilities\GeneralUtility::sortIterableByField($products, $demand['records'], function($value) {
-//				if($value instanceof Product) {
-//					return $value->getUid();
-//				}
-//
-//				return null;
-//			});
-//		}
-//
-//		$this->view->assign('record', $this->configurationManager->getContentObject()->data);
-//		$this->view->assign('products', $products);
-//		$this->view->assign('settings', $this->settings);
+		if($this->settings['source'] === 'technology') {
+			unset($this->settings['categories']);
+			unset($this->settings['products']);
+			unset($this->settings['application']);
+			unset($this->settings['records']);
+
+		} elseif($this->settings['source'] === 'categories') {
+			unset($this->settings['technology']);
+			unset($this->settings['products']);
+			unset($this->settings['application']);
+			unset($this->settings['records']);
+
+		} elseif($this->settings['source'] === 'application') {
+			unset($this->settings['technology']);
+			unset($this->settings['products']);
+			unset($this->settings['categories']);
+			unset($this->settings['records']);
+
+		} elseif($this->settings['source'] === 'records') {
+			unset($this->settings['application']);
+			unset($this->settings['technology']);
+			unset($this->settings['products']);
+			unset($this->settings['categories']);
+		}
+
+		// keine Anzeige der Box individuelles Produkt
+		$this->settings['hideIndividualProduct'] = 1;
+
+		$demand = $this->getDemand($this->settings);
+		$products = $this->productRepository->findAllByOption($demand);
+
+		if(empty($demand['records']) === false) {
+			$products = \Ps14\Foundation\Utilities\ArrayUtility::sortByField($products, $demand['records'], function($value) {
+				if($value instanceof Product) {
+					return $value->getUid();
+				}
+
+				return null;
+			});
+		}
+
+		$this->view->assign('record', $this->request->getAttribute('currentContentObject')->data);
+		$this->view->assign('products', $products);
+		$this->view->assign('settings', $this->settings);
+
+		return $this->htmlResponse();
 	}
 
 

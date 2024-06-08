@@ -99,23 +99,9 @@
 							</config>
 						</TCEforms>
 					</settings.application>
-					<settings.titleType>
-						<TCEforms>
-							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.titleType</label>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<itemsProcFunc>Ps\Xo\Service\TcaService->getItemsBySettingsIdentifier</itemsProcFunc>
-								<itemsProcConfig>
-									<identifier>modules.entityproduct.titleType</identifier>
-									<extension>xo</extension>
-								</itemsProcConfig>
-							</config>
-						</TCEforms>
-					</settings.titleType>
 					<settings.readmoreEnabled>
 						<TCEforms>
-							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.readmoreEnabled</label>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.readmore-enabled</label>
 							<config>
 								<type>check</type>
 								<default>1</default>
