@@ -293,49 +293,49 @@ $GLOBALS['TCA']['tt_address']['palettes']['product_hidden'] = [
 			'multiple' => 0,
 		],
 	],
-//	'tx_chart_chart' => [
-//		'exclude' => true,
-//		'l10n_mode' => 'exclude',
-//		'onChange' => 'reload',
-//		'displayCond' => 'FIELD:layout:!IN:accessories',
-//		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_chart',
-//		'config' => [
-//			'type' => 'group',
-//			'internal_type' => 'db',
-//			'allowed' => 'tx_chart_domain_model_chart',
-//			'foreign_table' => 'tx_chart_domain_model_chart',
-//			'maxitems' => 1,
-//			'minitems' => 0,
-//			'size' => 1,
-//			'default' => 0,
-//		]
-//	],
-//	'tx_chart_values' => [
-//		'exclude' => true,
-//		'l10n_mode' => 'exclude',
-//		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_values',
-//		'displayCond' => 'FIELD:tx_chart_chart:REQ:true',
-//		'config' => [
-//			'type' => 'inline',
-//			'foreign_table' => 'tx_chart_domain_model_value',
-//			'foreign_field' => 'tx_entityproduct_product',
-//			'foreign_sortby' => 'sorting',
-//			'foreign_label' => 'title',
-//			'maxitems' => 999,
-//			'appearance' => [
-//				'collapseAll' => 1,
-//				'expandSingle' => 1,
-//				'showAllLocalizationLink' => 1,
-//				'showSynchronizationLink' => 1,
-//				'showPossibleLocalizationRecords' => 1,
-//				'showRemovedLocalizationRecords' => 1,
-//				'newRecordLinkAddTitle' => 1
-//			],
-//			'behaviour' => [
-//				'allowLanguageSynchronization' => true
-//			],
-//		]
-//	],
+	'tx_chart_chart' => [
+		'exclude' => true,
+		'l10n_mode' => 'exclude',
+		'onChange' => 'reload',
+		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_chart',
+		'config' => [
+			'type' => 'group',
+			'internal_type' => 'db',
+			'allowed' => 'tx_chart_domain_model_chart',
+			'foreign_table' => 'tx_chart_domain_model_chart',
+			'maxitems' => 1,
+			'minitems' => 0,
+			'size' => 1,
+			'default' => 0,
+		]
+	],
+	'tx_chart_values' => [
+		'exclude' => true,
+		'l10n_mode' => 'exclude',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.tx_chart_values',
+		'displayCond' => 'FIELD:tx_chart_chart:REQ:true',
+		'config' => [
+			'type' => 'inline',
+			'foreign_table' => 'tx_chart_domain_model_value',
+			'foreign_field' => 'tx_entityproduct_product',
+			'foreign_sortby' => 'sorting',
+			'foreign_label' => 'title',
+			'maxitems' => 999,
+			'appearance' => [
+				'collapseAll' => 1,
+				'expandSingle' => 1,
+				'showAllLocalizationLink' => 1,
+				'showSynchronizationLink' => 1,
+				'showPossibleLocalizationRecords' => 1,
+				'showRemovedLocalizationRecords' => 1,
+				'newRecordLinkAddTitle' => 1
+			],
+			'behaviour' => [
+				'allowLanguageSynchronization' => true
+			],
+		]
+	],
 	'air_consumption_data' => [
 		'exclude' => true,
 		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.air_consumption_data',

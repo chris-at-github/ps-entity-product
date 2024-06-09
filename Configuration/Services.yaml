@@ -7,6 +7,15 @@ services:
   Ps\EntityProduct\:
     resource: '../Classes/*'
 
+  Ps\EntityProduct\Provider\ChartDataValueProvider:
+    class: Ps\EntityProduct\Provider\ChartDataValueProvider
+    public: true
+    tags:
+      - name: flux.provider
+        extensionName: 'EntityProduct'
+        tableName: 'tx_chart_domain_model_value'
+        fieldName: 'pi_flexform'
+
   Ps\EntityProduct\EventListener\CanonicalTagEventListener:
     tags:
       - name: event.listener
