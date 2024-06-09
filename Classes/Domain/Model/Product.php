@@ -479,41 +479,33 @@ class Product extends Entity {
 		$this->technicalData = $technicalData;
 	}
 
-	public function getChartValues(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
-		return new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-	}
-
+	/**
+	 * @return \Ps14\Chart\Domain\Model\Chart
+	 */
 	public function getChart(): ?\Ps14\Chart\Domain\Model\Chart {
-		return null;
+		return $this->chart;
 	}
 
-//	/**
-//	 * @return \Ps14\Chart\Domain\Model\Chart
-//	 */
-//	public function getChart(): ?\Ps14\Chart\Domain\Model\Chart {
-//		return $this->chart;
-//	}
-//
-//	/**
-//	 * @param \Ps14\Chart\Domain\Model\Chart $chart
-//	 */
-//	public function setChart(?\Ps14\Chart\Domain\Model\Chart $chart): void {
-//		$this->chart = $chart;
-//	}
-//
-//	/**
-//	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
-//	 */
-//	public function getChartValues(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
-//		return $this->chartValues;
-//	}
-//
-//	/**
-//	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues
-//	 */
-//	public function setChartValues(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues): void {
-//		$this->chartValues = $chartValues;
-//	}
+	/**
+	 * @param \Ps14\Chart\Domain\Model\Chart $chart
+	 */
+	public function setChart(?\Ps14\Chart\Domain\Model\Chart $chart): void {
+		$this->chart = $chart;
+	}
+
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getChartValues(): ?\TYPO3\CMS\Extbase\Persistence\ObjectStorage {
+		return $this->chartValues;
+	}
+
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues
+	 */
+	public function setChartValues(?\TYPO3\CMS\Extbase\Persistence\ObjectStorage $chartValues): void {
+		$this->chartValues = $chartValues;
+	}
 
 	/**
 	 * @return \Ps14\Teaser\Domain\Model\Page

@@ -122,13 +122,12 @@ class ProductController extends EntityController {
 		$this->settings['hideIndividualProduct'] = 1;
 		$this->view->assign('settings', $this->settings);
 
-// @todo: v12
-//		if($product->getChart() !== null) {
-//
-//			/** @var LineChartDataProvider $chartDataProvider */
-//			$chartDataProvider = GeneralUtility::makeInstance(LineChartDataProvider::class);
-//			$this->view->assign('chart', $chartDataProvider->provide(['chart' => $product->getChart(), 'values' => $product->getChartValues()]));
-//		}
+		if($product->getChart() !== null) {
+
+			/** @var LineChartDataProvider $chartDataProvider */
+			$chartDataProvider = GeneralUtility::makeInstance(LineChartDataProvider::class);
+			$this->view->assign('chart', $chartDataProvider->provide(['chart' => $product->getChart(), 'values' => $product->getChartValues()]));
+		}
 
 		return $this->htmlResponse();
 	}
