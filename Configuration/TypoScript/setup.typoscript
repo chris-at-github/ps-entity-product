@@ -286,6 +286,13 @@ tt_content {
 		}
 
 		dataProcessing {
+			100 {
+				frameTypeClass.replacement.10 {
+					search = ce-entityproduct-keyfacts
+					replace = ce-entityproduct-keyfact
+				}
+			}
+
 			135 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
 			135 {
 				as = records
