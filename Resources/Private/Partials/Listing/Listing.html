@@ -27,7 +27,7 @@
 
 <f:section name="Item">
 	<li class="card" data-uri-target="{e:uri.entity(entity: product, category: category)}">
-		<f:render partial="Components/Card" section="Media" arguments="{media: product.masterImage, settings: settings.xo.modules.entityproduct.card.pictureSettings.thumbnail}" />
+		<f:render partial="Components/Card" section="Media" arguments="{media: product.masterImage, settings: settings.card.pictureSettings.thumbnail}" />
 		<div class="card--body">
 			<f:render partial="Components/Card" section="Title" arguments="{title: product.title, titleType: settings.titleType, link: '{e:uri.entity(entity: product, category: category)}'}" />
 
