@@ -1,8 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:section name="Main">
-	<div class="row marker marker--layout-0">
+	<div class="row marker marker--layout-default">
 		<f:if condition="{product.systemInstallationMedia}">
-			<div class="col-lg-6">
+			<div class="col-lg-8">
 				<div class="marker--media">
 					<f:render partial="Media/Main" section="Main" arguments="{
 							file: product.systemInstallationMedia.originalResource,
@@ -13,7 +13,7 @@
 		</f:if>
 
 		<f:if condition="{product.systemInstallationLegend}">
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 				<ol class="marker--legend">
 					<f:for each="{product.systemInstallationLegend}" as="element" iteration="iterator">
 						<f:render partial="Marker/Listing/Listing" section="Item" arguments="{element: element, iterator: iterator, headerLayout: 3}" />
