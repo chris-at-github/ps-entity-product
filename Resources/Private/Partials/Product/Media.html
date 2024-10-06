@@ -24,22 +24,17 @@
 <f:section name="Item">
 	<f:spaceless>
 		<div class="hero {f:if(condition: '{fo:media.isImage(file: media)}', then: 'hero--image')}{f:if(condition: '{fo:media.isVideo(file: media)}', then: 'hero--video hero--video-played')}">
-			<f:render partial="Hero/Item/Content" section="Main" arguments="{_all}" />
-
 			<f:if condition="{media} && {fo:media.isImage(file: media)}">
 				<f:render partial="Hero/Item/Media" section="{settings.image.renderMode -> fo:format.ucFirst()}" arguments="{media: media, settings: settings.image}" />
 			</f:if>
 
-			<f:if condition="{media} && {fo:media.isVideo(file: media)}">
-				<f:render partial="Media/Rendering/Video" arguments="{
-					file: media,
-					additionalAttributes: {
-						id: 'hero-video--{product.uid}'
-					},
+			<f:if condition="{media} && {media.originalResource} && {fo:media.isVideo(file: media)}">
+				<f:render partial="Media/Rendering/Video" section="Main" arguments="{
+					media: media,
 					options: {
-						autoplay: 0,
-						controls: 1,
-						loop: 0
+						autoplay: media.originalResource.properties.autoplay,
+						controls: media.originalResource.properties.tx_textmedia_controls,
+						loop: media.originalResource.properties.tx_textmedia_loop
 					}
 				}" />
 			</f:if>
