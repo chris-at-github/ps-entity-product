@@ -541,10 +541,44 @@ $GLOBALS['TCA']['tt_address']['palettes']['product_hidden'] = [
 			'eval' => 'trim',
 		],
 	],
+	'media_preview' => [
+		'exclude' => true,
+//		'displayCond' => 'FIELD:layout:!IN:accessories',
+		'label' => 'LLL:EXT:entity_product/Resources/Private/Language/locallang_db.xlf:tx_entityproduct_domain_model_product.media_preview',
+		'config' => [
+			'type' => 'file',
+			'maxitems' => 1,
+			'appearance' => [
+				'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+				'collapseAll' => true,
+				'fileUploadAllowed' => false,
+			],
+			'overrideChildTca' => [
+				'columns' => [
+					'crop' => [
+						'config' => [
+							'cropVariants' => \Ps14\Site\Service\TcaService::getCropVariants(
+								[
+									'default' => [
+										'allowedAspectRatios' => ['16_9','4_3'],
+										'selectedRatio' => '16_9'
+									],
+								]
+							)
+						],
+					]
+				]
+			],
+			'behaviour' => [
+				'allowLanguageSynchronization' => true
+			],
+			'allowed' => 'common-image-types',
+		],
+	],
 ]);
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'description', '--linebreak--, technical_data', 'after:long_description');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'media', '--linebreak--, technical_drawings', 'after:media');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'media', '--linebreak--, media_preview, --linebreak--, technical_drawings', 'after:media');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'relation', '--linebreak--, key_facts, --linebreak--, accessories, --linebreak--, applications, --linebreak--, technology', 'after:related');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tx_entity_domain_model_entity', 'category', '--linebreak--, categories', 'after:master_category');
 

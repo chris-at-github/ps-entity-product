@@ -23,7 +23,8 @@ CREATE TABLE tx_entity_domain_model_entity (
 	technical_features int(11) unsigned DEFAULT '0' NOT NULL,
 	technical_features_description text,
 	options text,
-	accesories_description text
+	accesories_description text,
+  media_preview int(11) unsigned DEFAULT '0' NOT NULL
 );
 
 CREATE TABLE tx_entityproduct_domain_model_attribute (

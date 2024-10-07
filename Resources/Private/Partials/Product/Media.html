@@ -2,7 +2,7 @@
 <f:section name="Main">
 	<f:if condition="{media -> f:count()} == 1">
 		<f:then>
-			<f:render section="Item" arguments="{product: product, media: media.0, settings: '{fo:settings.get(extension: \'Ps14Hero\', path: \'images\')}'}" />
+			<f:render section="Item" arguments="{product: product, media: media.0, mediaPreview: mediaPreview, settings: '{fo:settings.get(extension: \'Ps14Hero\', path: \'images\')}'}" />
 		</f:then>
 
 		<f:else if="{media -> f:count()} > 1">
@@ -35,6 +35,10 @@
 						autoplay: media.originalResource.properties.autoplay,
 						controls: media.originalResource.properties.tx_textmedia_controls,
 						loop: media.originalResource.properties.tx_textmedia_loop
+					},
+					preview: {
+						image: mediaPreview,
+						settings: '{fo:settings.get(extension: \'Ps14Textmedia\', path: \'images.preview\')}'
 					}
 				}" />
 			</f:if>

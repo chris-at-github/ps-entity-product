@@ -42,7 +42,7 @@
 		<f:if condition="{product.media}">
 			<div class="product--media ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.media -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--16-9 ce-frame--space-before-medium ce-frame--space-after-auto">
 				<div class="ce-frame--inner">
-					<f:render partial="Product/Media" section="Main" arguments="{media: product.media, product: product}" />
+					<f:render partial="Product/Media" section="Main" arguments="{media: product.media, mediaPreview: product.mediaPreview, product: product}" />
 				</div>
 			</div>
 		</f:if>

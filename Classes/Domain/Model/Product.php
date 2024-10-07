@@ -200,6 +200,11 @@ class Product extends Entity {
 	protected $accesoriesDescription = '';
 
 	/**
+	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+	 */
+	protected $mediaPreview = null;
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -229,6 +234,7 @@ class Product extends Entity {
 		$this->keyFacts = $this->keyFacts ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->systemInstallationLegend = $this->systemInstallationLegend ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->technicalFeatures = $this->technicalFeatures ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->mediaPreview = $this->mediaPreview ?: new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -653,6 +659,14 @@ class Product extends Entity {
 
 	public function setTechnicalFeaturesDescription(string $technicalFeaturesDescription): void {
 		$this->technicalFeaturesDescription = $technicalFeaturesDescription;
+	}
+
+	public function getMediaPreview(): ?\TYPO3\CMS\Extbase\Domain\Model\FileReference {
+		return $this->mediaPreview;
+	}
+
+	public function setMediaPreview(?\TYPO3\CMS\Extbase\Domain\Model\FileReference $mediaPreview): void {
+		$this->mediaPreview = $mediaPreview;
 	}
 
 	/**
