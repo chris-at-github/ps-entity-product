@@ -104,30 +104,31 @@ class ProductController extends EntityController {
 	 */
 	public function showAction($product) {
 
-		// Aufruf als PDF
-		$isScreenContext = true;
-		if(empty((int) GeneralUtility::_GET('type')) === false) {
-			$isScreenContext = false;
-		}
-		$this->view->assign('isScreenContext', $isScreenContext);
-
 		// Eltern Eigenschaften aufrufen z.B. Auswertung Meta-Tags, Title-Tag, ...
 		parent::showAction($product);
 
-		// Uebergabe an Template
-		$this->view->assign('product', $product);
-		$this->view->assign('variants', $this->getProductVariants($product));
-
 		// keine Anzeige der Box individuelles Produkt
 		$this->settings['hideIndividualProduct'] = 1;
-		$this->view->assign('settings', $this->settings);
 
 		if($product->getChart() !== null) {
+			$this->settings['chart']['autoUpdate'] = false;
+			$this->settings['chart']['animationDelay'] = 45;
+
+			// Aufruf als PDF
+			if((int) $this->request->getQueryParams()['pdf'] === 1) {
+				$this->settings['chart']['autoUpdate'] = true;
+				$this->settings['chart']['animationDelay'] = 0;
+			}
 
 			/** @var LineChartDataProvider $chartDataProvider */
 			$chartDataProvider = GeneralUtility::makeInstance(LineChartDataProvider::class);
 			$this->view->assign('chart', $chartDataProvider->provide(['chart' => $product->getChart(), 'values' => $product->getChartValues()]));
 		}
+
+		// Uebergabe an Template
+		$this->view->assign('product', $product);
+		$this->view->assign('variants', $this->getProductVariants($product));
+		$this->view->assign('settings', $this->settings);
 
 		return $this->htmlResponse();
 	}

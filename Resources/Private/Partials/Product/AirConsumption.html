@@ -10,18 +10,10 @@
 		</div>
 
 		<div class="chart--container">
-			<f:if condition="{isScreenContext}">
-				<canvas class="chart--canvas"></canvas>
-			</f:if>
-
-			<f:comment>
-				<f:if condition="{product.airConsumptionFallback}">
-					<img class="product--air-consumption-fallback-media" src="{product.airConsumptionFallback}" width="700" height="425">
-				</f:if>
-			</f:comment>
+			<canvas class="chart--canvas"></canvas>
 		</div>
 	</div>
-	<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration}" />
+	<f:render partial="Chart/Configuration" section="Main" arguments="{identifier: product.uid, configuration: chart.configuration, settings: settings}" />
 </f:section>
 
 <f:section name="Fallback">
@@ -31,14 +23,6 @@
 				<canvas class="chart--canvas"></canvas>
 			</div>
 		</div>
-
-		<f:comment>
-		<f:form controller="AirConsumptionFallback" action="save" name="product" object="{product}" pageType="1548191072">
-			<input type="hidden" name="tx_xo[content]" value="{record.uid}" />
-			<f:form.textarea name="fallback" class="product--air-consumption-fallback-data" value="{product.airConsumptionFallback}" />
-			<f:form.submit value="ok" />
-		</f:form>
-		</f:comment>
 	</div>
 </f:section>
 
