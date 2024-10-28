@@ -712,13 +712,9 @@ $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Doma
 
 $GLOBALS['TCA']['tx_entity_domain_model_entity']['types'][\Ps\EntityProduct\Domain\Model\Product::class]['columnsOverrides']['technical_features']['config']['overrideChildTca']['columns']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = \Ps14\Site\Service\TcaService::getCropVariants(
 	[
-		'mobile' => [
-			'allowedAspectRatios' => ['16_9'],
-			'selectedRatio' => '16_9'
-		],
-		'desktop' => [
-			'allowedAspectRatios' => ['4_3'],
-			'selectedRatio' => '4_3'
+		'default' => [
+			'allowedAspectRatios' => ['1_1'],
+			'selectedRatio' => '1_1'
 		],
 	]
 );

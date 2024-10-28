@@ -49,36 +49,12 @@ plugin.tx_entityproduct.settings {
 
 	technicalFeature {
 		pictureSettings {
-			width = 455
-			cropVariant = mobile
+			width = 96
+			cropVariant = default
 			mediaQueries {
-				1200 {
-					width = 165
-					cropVariant = desktop
-					mediaQuery = (min-width: 1200px)
-				}
-
-				992 {
-					width = 360
-					cropVariant = mobile
-					mediaQuery = (min-width: 992px)
-				}
-
-				768 {
-					width = 455
-					cropVariant = mobile
-					mediaQuery = (min-width: 768px)
-				}
-
-				576 {
-					width = 355
-					cropVariant = mobile
-					mediaQuery = (min-width: 576px)
-				}
-
 				0 {
-					width = 545
-					cropVariant = mobile
+					width = 96
+					cropVariant = default
 					mediaQuery = (min-width: 0px)
 				}
 			}

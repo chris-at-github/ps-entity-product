@@ -8,17 +8,15 @@
 		</f:if>
 
 		<f:if condition="{product.technicalFeatures}">
-			<ul class="technical-features--listing">
+			<ul class="technical-features-group">
 				<f:for each="{product.technicalFeatures}" as="technicalFeature">
-					<li class="technical-feature">
-						<div class="row">
-							<div class="col-12 col-lg-4">
-								<f:render section="Media" arguments="{media: technicalFeature.media, settings: settings.technicalFeature}" />
-							</div>
-							<div class="col-12 col-lg-8">
-								<f:render section="Title" arguments="{title: technicalFeature.title, layout: 3}" />
-								<f:render section="Description" arguments="{description: technicalFeature.description}" />
-							</div>
+					<li class="technical-features-group__item technical-feature">
+						<div class="technical-feature__media">
+							<f:render section="Media" arguments="{media: technicalFeature.media, settings: settings.technicalFeature}" />
+						</div>
+						<div class="technical-feature__body">
+							<f:render section="Title" arguments="{title: technicalFeature.title, layout: 3}" />
+							<f:render section="Description" arguments="{description: technicalFeature.description}" />
 						</div>
 					</li>
 				</f:for>
@@ -28,7 +26,7 @@
 
 	<f:section name="Title">
 		<f:if condition="{title}">
-			<div class="technical-feature--title">
+			<div class="technical-feature__title">
 				<f:render partial="Header/Header" arguments="{header: title, layout: layout}" />
 			</div>
 		</f:if>
@@ -36,18 +34,18 @@
 
 	<f:section name="Description">
 		<f:if condition="{description}">
-			<f:format.html>{description}</f:format.html>
+			<div class="technical-feature__description">
+				<f:format.html>{description}</f:format.html>
+			</div>
 		</f:if>
 	</f:section>
 
 	<f:section name="Media">
 		<f:if condition="{media}">
-			<div class="technical-feature--media">
-				<f:render partial="Media/Main" section="Main" arguments="{
-						file: media.originalResource,
-						settings: settings.pictureSettings
-					}" />
-			</div>
+			<f:render partial="Media/Main" section="Main" arguments="{
+					file: media.originalResource,
+					settings: settings.pictureSettings
+				}" />
 		</f:if>
 	</f:section>
 </html>
