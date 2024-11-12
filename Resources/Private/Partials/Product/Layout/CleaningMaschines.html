@@ -113,16 +113,14 @@
 						</li>
 					</f:if>
 
-					<f:if condition="{product.files}">
-						<li class="product--downloads">
-							<f:render section="AccordionHeader" arguments="{identifier: 'downloads', title: '{f:translate(key: \'product.downloads\')}'}" />
-							<div id="product--downloads-container" class="collapse" aria-labelledby="product--downloads-header">
-								<div class="accordion--container accordion--container-default">
-									<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
-								</div>
+					<li class="product--downloads">
+						<f:render section="AccordionHeader" arguments="{identifier: 'downloads', title: '{f:translate(key: \'product.downloads\')}'}" />
+						<div id="product--downloads-container" class="collapse" aria-labelledby="product--downloads-header">
+							<div class="accordion--container accordion--container-default">
+								<f:render partial="Product/Downloads" section="Main" arguments="{files: product.files}" />
 							</div>
-						</li>
-					</f:if>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
