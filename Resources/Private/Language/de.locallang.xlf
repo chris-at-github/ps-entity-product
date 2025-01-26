@@ -44,7 +44,7 @@
 				<target>Anlagenaufbau</target>
 			</trans-unit>
 			<trans-unit id="product.technicalFeatures" resname="product.technicalFeatures">
-				<source>Technische Features</source>
+				<target>Technische Eigenschaften</target>
 			</trans-unit>
 			<trans-unit id="product.airConsumption" resname="product.airConsumption">
 				<target>Druckluftverbrauch</target>

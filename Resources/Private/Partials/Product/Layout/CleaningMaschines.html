@@ -40,9 +40,20 @@
 		</f:if>
 
 		<f:if condition="{product.media}">
-			<div class="product--media ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.media -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--16-9 ce-frame--space-before-medium ce-frame--space-after-large">
+			<div class="product--media ce-frame ce-frame--layout-4 ce-frame--outer {f:if(condition: '{product.media -> f:count()} == 1', then: 'ce-hero', else: 'ce-hero-slider')} ce-hero--16-9 ce-frame--space-before-medium ce-frame--space-after-auto">
 				<div class="ce-frame--inner">
 					<f:render partial="Product/Media" section="Main" arguments="{media: product.media, mediaPreview: product.mediaPreview, product: product}" />
+				</div>
+			</div>
+		</f:if>
+
+		<f:if condition="{product.technicalFeaturesDescription}">
+			<div class="product--technical-features-description ce-frame ce-frame--layout-0 ce-frame--class-0 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-medium">
+				<div class="ce-frame--inner">
+					<header class="ce-header ce-header--layout-2">
+						<h2>{f:translate(key: 'product.technicalFeatures')}</h2>
+					</header>
+					<f:render partial="Product/TechnicalFeatures" section="Description" arguments="{_all}" />
 				</div>
 			</div>
 		</f:if>
@@ -50,16 +61,13 @@
 		<f:if condition="{product.technicalFeatures}">
 			<div class="product--technical-features ce-frame ce-frame--layout-0 ce-frame--class-4 ce-frame--outer ce-frame--space-before-medium ce-frame--space-after-large">
 				<div class="ce-frame--inner">
-					<header class="ce-header ce-header--layout-2">
-						<h2>{f:translate(key: 'product.technicalFeatures')}</h2>
-					</header>
-					<f:render partial="Product/TechnicalFeatures" section="Main" arguments="{_all}" />
+					<f:render partial="Product/TechnicalFeatures" section="Listing" arguments="{_all}" />
 				</div>
 			</div>
 		</f:if>
 
 		<f:if condition="{product.technology}">
-			<div class="product--technology ce-frame ce-teaser-frontend ce-teaser-frontend--technology ce-frame--layout-0 ce-frame--variant-1 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
+			<div class="product--technology ce-frame ce-teaser-frontend ce-teaser-frontend--technology ce-frame--layout-4 ce-frame--variant-1 ce-frame--outer ce-frame--space-before-large ce-frame--space-after-auto">
 				<div class="ce-frame--inner">
 					<f:render partial="Product/Technology" section="Main" arguments="{_all}" />
 				</div>

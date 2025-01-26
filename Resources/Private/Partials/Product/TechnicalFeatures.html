@@ -1,22 +1,28 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:xo="http://typo3.org/ns/Ps/Xo/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:section name="Main">
+		<f:render section="Description" arguments="{_all}" />
+		<f:render section="Listing" arguments="{_all}" />
+	</f:section>
 
+	<f:section name="Description">
 		<f:if condition="{product.technicalFeaturesDescription}">
 			<div class="technical-features--description">
 				<f:format.html>{product.technicalFeaturesDescription}</f:format.html>
 			</div>
 		</f:if>
+	</f:section>
 
+	<f:section name="Listing">
 		<f:if condition="{product.technicalFeatures}">
 			<ul class="technical-features-group">
 				<f:for each="{product.technicalFeatures}" as="technicalFeature">
 					<li class="technical-features-group__item technical-feature">
 						<div class="technical-feature__media">
-							<f:render section="Media" arguments="{media: technicalFeature.media, settings: settings.technicalFeature}" />
+							<f:render section="FeatureMedia" arguments="{media: technicalFeature.media, settings: settings.technicalFeature}" />
 						</div>
 						<div class="technical-feature__body">
-							<f:render section="Title" arguments="{title: technicalFeature.title, layout: 3}" />
-							<f:render section="Description" arguments="{description: technicalFeature.description}" />
+							<f:render section="FeatureTitle" arguments="{title: technicalFeature.title, layout: 3}" />
+							<f:render section="FeatureDescription" arguments="{description: technicalFeature.description}" />
 						</div>
 					</li>
 				</f:for>
@@ -24,7 +30,7 @@
 		</f:if>
 	</f:section>
 
-	<f:section name="Title">
+	<f:section name="FeatureTitle">
 		<f:if condition="{title}">
 			<div class="technical-feature__title">
 				<f:render partial="Header/Header" arguments="{header: title, layout: layout}" />
@@ -32,7 +38,7 @@
 		</f:if>
 	</f:section>
 
-	<f:section name="Description">
+	<f:section name="FeatureDescription">
 		<f:if condition="{description}">
 			<div class="technical-feature__description">
 				<f:format.html>{description}</f:format.html>
@@ -40,7 +46,7 @@
 		</f:if>
 	</f:section>
 
-	<f:section name="Media">
+	<f:section name="FeatureMedia">
 		<f:if condition="{media}">
 			<f:render partial="Media/Main" section="Main" arguments="{
 					file: media.originalResource,
