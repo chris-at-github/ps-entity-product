@@ -65,8 +65,8 @@ class ProductController extends EntityController {
 			$options['application'] = (int) $overwrite['application'];
 		}
 
-		if(empty($overwrite['records']) === false) {
-			$options['records'] = GeneralUtility::intExplode(',', $overwrite['records']);
+		if(empty($this->settings['records']) === false) {
+			$options['records'] = GeneralUtility::intExplode(',', $this->settings['records']);
 		}
 
 		// keine Varianten
@@ -81,6 +81,14 @@ class ProductController extends EntityController {
 	 */
 	public function listingAction() {
 
+		// Zuruecksetzen -> falls in Flexform bereits gespeichert
+		if($this->settings['source'] === 'categories') {
+//			unset($this->settings['records']);
+
+		} elseif($this->settings['source'] === 'records') {
+			unset($this->settings['productRange']);
+		}
+
 		/** @var FilterService $filter */
 		$filter = GeneralUtility::makeInstance(
 			\Ps14\Site\Service\FilterService::class,
@@ -89,7 +97,19 @@ class ProductController extends EntityController {
 			$this->request->getAttribute('currentContentObject'),
 			$this->settings
 		);
-		$products = $this->productRepository->findAllByOption($this->getDemand($filter->getArguments(true)));
+
+		$demand = $this->getDemand($filter->getArguments(true));
+		$products = $this->productRepository->findAllByOption($demand);
+
+		if(empty($demand['records']) === false) {
+			$products = \Ps14\Foundation\Utilities\ArrayUtility::sortByField($products, $demand['records'], function($value) {
+				if($value instanceof Product) {
+					return $value->getUid();
+				}
+
+				return null;
+			});
+		}
 
 		$this->view->assign('products', $products);
 		$this->view->assign('record', $this->request->getAttribute('currentContentObject')->data);

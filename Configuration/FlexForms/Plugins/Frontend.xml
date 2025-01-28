@@ -10,9 +10,30 @@
 				</TCEforms>
 				<type>array</type>
 				<el>
+					<settings.source>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.source</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items type="array">
+									<numIndex index="1" type="array">
+										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.categories</numIndex>
+										<numIndex index="1">categories</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.records</numIndex>
+										<numIndex index="1">records</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.source>
 					<settings.productRange>
 						<TCEforms>
 							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.product-range</label>
+							<displayCond>FIELD:main.settings.source:=:categories</displayCond>
 							<config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
@@ -30,6 +51,22 @@
 							</config>
 						</TCEforms>
 					</settings.productRange>
+					<settings.records>
+						<TCEforms>
+							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.records</label>
+							<displayCond>FIELD:main.settings.source:=:records</displayCond>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_entity_domain_model_entity</allowed>
+								<foreign_table>tx_entity_domain_model_entity</foreign_table>
+								<foreign_table_where>AND {#tx_entity_domain_model_entity}.{#sys_language_uid} IN (-1, 0)</foreign_table_where>
+								<size>4</size>
+								<minitems>0</minitems>
+								<maxitems>99</maxitems>
+							</config>
+						</TCEforms>
+					</settings.records>
 					<settings.filterCategoryWhitelist>
 						<TCEforms>
 							<label>LLL:EXT:entity_product/Resources/Private/Language/locallang_plugin.xlf:flexform.field.filter-category-whitelist</label>
