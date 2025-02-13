@@ -19,7 +19,7 @@ class CategoryWhitelistDataProvider extends \Ps14\Site\Filter\DataProvider\Abstr
 		$whitelist = [];
 		$entities = [];
 
-		if(isset($settings['productRange']) === true) {
+		if(isset($settings['productRange']) === true || isset($settings['records']) === true) {
 
 			// Erstmal alle Produkte identifizieren, die mit dieser Produktgruppe verknuepft sind
 			/** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder  $queryBuilder */
@@ -34,12 +34,23 @@ class CategoryWhitelistDataProvider extends \Ps14\Site\Filter\DataProvider\Abstr
 				)
 				->where(
 					$queryBuilder->expr()->in('tx_entity_domain_model_entity.sys_language_uid', [0, -1]),
+				)
+				->groupBy('tx_entity_domain_model_entity.uid');
+
+			if(isset($settings['records']) === true) {
+				$queryBuilder->andWhere(
+					$queryBuilder->expr()->in('tx_entity_domain_model_entity.uid', $settings['records'])
+				);
+			}
+
+			if(isset($settings['productRange']) === true) {
+				$queryBuilder->andWhere(
 					$queryBuilder->expr()->orX(
 						$queryBuilder->expr()->eq('tx_entity_domain_model_entity.master_category', $queryBuilder->createNamedParameter($settings['productRange'], \PDO::PARAM_INT)),
 						$queryBuilder->expr()->eq('sys_category_record_mm.uid_local', $queryBuilder->createNamedParameter($settings['productRange'], \PDO::PARAM_INT))
 					)
-				)
-				->groupBy('tx_entity_domain_model_entity.uid');
+				);
+			}
 
 			$statement = $query->execute();
 
