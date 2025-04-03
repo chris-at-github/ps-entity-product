@@ -36,7 +36,7 @@
 </f:section>
 
 <f:section name="Image">
-	<a class="product--technical-drawing" href="{f:uri.image(src: technicalDrawing.uid, treatIdAsReference: 1, maxWidth: settings.fullsize.maxWidth, maxHeight: settings.fullsize.maxHeight, cropVariant: settings.fullsize.cropVariant)}" aria-label="{f:translate(key: 'LLL:EXT:xo/Resources/Private/Language/locallang_frontend.xlf:tx_xo.action.enlarge')}">
+	<a class="product--technical-drawing" data-title="{technicalDrawing.originalResource.title}" href="{f:uri.image(src: technicalDrawing.uid, treatIdAsReference: 1, maxWidth: settings.fullsize.maxWidth, maxHeight: settings.fullsize.maxHeight, cropVariant: settings.fullsize.cropVariant)}" aria-label="{f:translate(key: 'LLL:EXT:xo/Resources/Private/Language/locallang_frontend.xlf:tx_xo.action.enlarge')}">
 		<f:render partial="Media/Main" section="Main" arguments="{
 			file: technicalDrawing,
 			settings: settings.thumbnail
