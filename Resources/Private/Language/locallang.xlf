@@ -11,7 +11,7 @@
 			</trans-unit>
 
 			<trans-unit id="product.keyFacts">
-				<source>Key facts</source>
+				<source>Key Facts</source>
 			</trans-unit>
 			<trans-unit id="product.variants">
 				<source>Variants:</source>
@@ -47,7 +47,7 @@
 				<source>Technical Features</source>
 			</trans-unit>
 			<trans-unit id="product.airConsumption" resname="product.airConsumption">
-				<source>Air consumption</source>
+				<source>Air Consumption</source>
 			</trans-unit>
 			<trans-unit id="product.accesoriesDescription" resname="product.accesoriesDescription">
 				<source>Accesories</source>
