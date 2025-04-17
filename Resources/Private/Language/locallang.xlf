@@ -23,7 +23,7 @@
 				<source>Applications</source>
 			</trans-unit>
 			<trans-unit id="product.related" resname="product.related">
-				<source>Related</source>
+				<source>Related Products</source>
 			</trans-unit>
 			<trans-unit id="product.technicalDrawings" resname="product.technicalDrawings">
 				<source>Technical Drawings</source>
