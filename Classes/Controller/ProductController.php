@@ -82,10 +82,7 @@ class ProductController extends EntityController {
 	public function listingAction() {
 
 		// Zuruecksetzen -> falls in Flexform bereits gespeichert
-		if($this->settings['source'] === 'categories') {
-//			unset($this->settings['records']);
-
-		} elseif($this->settings['source'] === 'records') {
+		if(isset($this->settings['source']) === true && $this->settings['source'] === 'records') {
 			unset($this->settings['productRange']);
 		}
 
@@ -135,7 +132,7 @@ class ProductController extends EntityController {
 			$this->settings['chart']['animationDelay'] = 45;
 
 			// Aufruf als PDF
-			if((int) $this->request->getQueryParams()['pdf'] === 1) {
+			if(isset($this->request->getQueryParams()['pdf']) === true && (int) $this->request->getQueryParams()['pdf'] === 1) {
 				$this->settings['chart']['autoUpdate'] = true;
 				$this->settings['chart']['animationDelay'] = 0;
 			}
