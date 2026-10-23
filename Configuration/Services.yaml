@@ -7,14 +7,16 @@ services:
   Ps\EntityProduct\:
     resource: '../Classes/*'
 
-  Ps\EntityProduct\Provider\ChartDataValueProvider:
-    class: Ps\EntityProduct\Provider\ChartDataValueProvider
-    public: true
+  Ps\EntityProduct\EventListener\ChartValueFlexFormEventListener:
     tags:
-      - name: flux.provider
-        extensionName: 'EntityProduct'
-        tableName: 'tx_chart_domain_model_value'
-        fieldName: 'pi_flexform'
+      - name: event.listener
+        identifier: 'entityproduct.chart-value-flexform-identifier'
+        method: 'setIdentifier'
+        event: TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureIdentifierInitializedEvent
+      - name: event.listener
+        identifier: 'entityproduct.chart-value-flexform-datastructure'
+        method: 'setDataStructure'
+        event: TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent
 
   Ps\EntityProduct\EventListener\CanonicalTagEventListener:
     tags:
